@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-11T09:01:21.938789+00:00",
+  "generated_at": "2026-06-11T09:07:38.591911+00:00",
   "generated_date": "2026-06-11",
-  "generated_time": "14:31:21 SL",
+  "generated_time": "14:37:38 SL",
   "stories": [
     {
       "client": "pcc",
@@ -285,13 +285,13 @@
     },
     {
       "client": "hnb",
-      "headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNWWRSNFBFT3RwLXpxQjVmbFZyOFdnSURjYTcybDBxU2M3Yld6b3lHeUNURWE1N0pKUHFpSEM3N1AwSml6dTZ1Y3dVVGlUMXpwTTB3TU1zTks0dkxGT3p5S3loaVl1YUYxMlRjc19RRXJrTzltSXhuYnBaTnFCZjU2dmdON3l3Zkc1X05ERDVVTUdnYmRKS01INlB3R3hKbVhYUE4wcHVMdWNYdEdVUUdQZ1VST1VZeDJaNTVwOWRxbmlGd0xSdU5EdGxob252dklPNmlENng1NXI5NkE?oc=5",
-      "source": "Adaderana Biz English",
+      "headline": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQY2FFQ01HWTJ1VmF6akExZmN0QlFDcUx0NVBMS3N6QThFRVRrVWE3R1pyR1RkSVpkT2sxOXJwMTk1c1lXU1dHNWx1a2RRSDdIaTZ2YjJhRTZmOUU4QlRVcGZuQzR6RUxndDRydGxndTdHc3djYWswYmdyWS1KRUJTQWJLYWxHWGIyRmZPQQ?oc=5",
+      "source": "The island.lk",
       "domain": "news.google.com",
-      "date": "03 Jun 2026 · 11:49 SL",
-      "ts": 1780467573000,
-      "snippet": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year Adaderana Biz English",
+      "date": "27 May 2026 · 12:30 SL",
+      "ts": 1779865200000,
+      "snippet": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled The island.lk",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -300,27 +300,7 @@
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "c4cccb14002e",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "HNB partners United Tractor & Equipment to expand solar energy for customers",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQT1h4MjljaVNrOVZpMFFmcDEzejFQZjVoel83b3JZTHRXMlIwdFlzY1o2YmpOdTJMb3JvV041ZXlaSkd5UGJka19DdDktMGtEU3Z3T2RkdnZpZlI5aVgyUmJHTjFiY3VWUDRPRHR5TElFM0N6NUtwYUVvOTAxU0cyMEhFaWpUXzRzZy1XVndWYzBOakwyREt5MEpMblFxbEp6TVhiVll6b01RY2w1TTI3bXVDRV8wMlhybEFjLXBKd29PUQ?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "29 May 2026 · 12:30 SL",
-      "ts": 1780038000000,
-      "snippet": "HNB partners United Tractor & Equipment to expand solar energy for customers dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "3c24e2780529",
+      "cluster_id": "9bcaa7e3b6bd",
       "is_primary_in_cluster": true
     },
     {
@@ -345,13 +325,13 @@
     },
     {
       "client": "hnb",
-      "headline": "HNB and Singer collaborate with leasing solutions for John Deere tractors",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS2lRTUtEMWRXYzJaM2tjMGsxWlY2MlVZZ3Q5a0V6cE1PeWVBTmJyN2xZajk5bVAtUC0tMWJsZGJGZURnT0Z2X1JNcXNZeE95all2NGNyNzd5RldrV1JuS0hYRVNBSHJJRXNTTnFOV1FBLVBnOGktbktENEVKZWtZUDI4OGpPaVVvM1Ixa2NRS2Z2eWFzN0lkQm9Zc29jUjV4Vzh3dnB1N3lxLWdGMHJSUlBlNXNfT21ZcDkyWTNCSQ?oc=5",
+      "headline": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSUNkMzFneEdqVWplUnhsOGQwSE1JalBzSUVzcVlUU3o5bzROUHNMV0oycEVsZVV2S0pnWnBQc1kxV2JlUFQzZUo4VVlzeHA3SDBJbVVnU202RVROdGprZnlQdWFaNmdRYTBjeHdzRmMzbm9yYnhIWHp2Ynh0S2M4dHhBZktYT05UdnM0LXk5Mnp4YWVVN3h4SHNzUVk5NkZiOEFITXhjcVU4cWVTNHhaZHQ3alRWd2c?oc=5",
       "source": "dailynews.lk",
       "domain": "news.google.com",
-      "date": "22 May 2026 · 12:30 SL",
-      "ts": 1779433200000,
-      "snippet": "HNB and Singer collaborate with leasing solutions for John Deere tractors dailynews.lk",
+      "date": "26 May 2026 · 01:18 SL",
+      "ts": 1779738480000,
+      "snippet": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled dailynews.lk",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -360,7 +340,7 @@
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "9cbf63d86446",
+      "cluster_id": "9bcaa7e3b6bd",
       "is_primary_in_cluster": true
     },
     {
@@ -404,6 +384,46 @@
       "is_primary_in_cluster": true
     },
     {
+      "client": "hnb",
+      "headline": "HNB Life secures ‘Best Life Bancassurance Provider – Sri Lanka’ award",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOeUNNSzRDQ21pVFRtVXdNWC02dVJaMFZIa2ZQWWI3Z2RoUks4WFJycmJNcWpPUHhHSXlqdXVFMHhCODR5Rkh6SEpPZDV6Ny1xanA4X3VsMk9faGg1SXUxQTlZSnJUS18zay00S0FZWkhvckw5V0xoZDVxZktXaFR1NzU4dlB2ZUJCc1hMN2JsYXVpVjltNllONmRIcXRxWVB4aFM4ZGZpaElxTmFxdWJUbnNSR2M?oc=5",
+      "source": "dailynews.lk",
+      "domain": "news.google.com",
+      "date": "20 May 2026 · 12:30 SL",
+      "ts": 1779260400000,
+      "snippet": "HNB Life secures ‘Best Life Bancassurance Provider – Sri Lanka’ award dailynews.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "90eda4e135bf",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition HNB Life marks 6th consecutive bancassurance triumph",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYUFxMjNCQ3Z4UzhjbXZuOHc3RnljdzJURnJvM1B2UzcwOTB6WWxzQlh0UEhPTThGcVIxMGhXVHM2TE9GVjBWek5Ed0UzTUZvX1RjTmw1bVZhREtKamZiUVItRlNMS28yc3pHVmR3TmpoanJja0ZKdmVQVjJEZ05UWWRWSnJtWENwLVpjY1hidTRFVW1TbXF4bzdTTVRJZUFaZlFaM2kxU29WdGRtSXFz?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 May 2026 · 12:30 SL",
+      "ts": 1779260400000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition HNB Life marks 6th consecutive bancassurance triumph Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "8ee7b9a38f81",
+      "is_primary_in_cluster": true
+    },
+    {
       "client": "mas",
       "headline": "Hellmann and MAS Holdings to develop fashion logistics hub in Sri Lanka",
       "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNQVhBa3BBa1R5QWhJVHFzYlhzQW5kaUlGWjdsdWt3NmlycDhubnM1cTVLVWo5b05RSHVCTDVQSDlVU3BJMHRYamZaU2s4dDBfT1hvX0ZGblhoTS1jdER3OWQySEpMbW85UUswUGhYUEM3U0FRSnRsVmptMjZZcHFlUFBvdkU4ZV9OSWlkV3otc3Y4ZzNTcTJrMFh0UThSamRXVXk3cjFEV29IRkJpSTEwVXh1bEVKbHh0TW53Y3JGZDVWODllTVVFMjRhX3NHXzlROUlsVnVhSUlTQVd2OWxn?oc=5",
@@ -421,46 +441,6 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "eeed404e65c1",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "HNB Life Records Staggering 54% GWP Growth in Q1 2026",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBkblQxVE1USU9sZFNudVNwWjkweFFXNnB3SFE0WmpGRm9mdmE4WW40ZmJ0S0c0YkVyWURxZ3hOVjk5QlUyalFRNnpuQlJVOXpTS3dQaDFJc0tKQW1HRkpWNkRGMlpwaFFmZEJ5NFZON0lxamdnSk5lS0NB?oc=5",
-      "source": "The island.lk",
-      "domain": "news.google.com",
-      "date": "17 May 2026 · 12:30 SL",
-      "ts": 1779001200000,
-      "snippet": "HNB Life Records Staggering 54% GWP Growth in Q1 2026 The island.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "195942b9a60b",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOTmtmV09sMUJOQzFTT3Rsc0phMkJPOFltNUlPTEFvZm1jNm5nZTZJRkVlUWZmcHlPSXh0aFlNSjNJZ2h5cUJyX2JMRXdOOHdvOWM1cC1Wb3BRM3hMV2ZOY1pmMkQzZGtUa3BwN3FwbmhuSGZDSVdvZ0xJZW1ndERKU1BQUURFdkV1Zmk4YTNGd1UxYXptbzVnbnhTLXJQTXZzUmZFTTkwMkU0ZlE2bUpoSHJlYWJlOGdB?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "15 May 2026 · 12:30 SL",
-      "ts": 1778828400000,
-      "snippet": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026 dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "1e705d111e07",
       "is_primary_in_cluster": true
     },
     {
@@ -485,6 +465,26 @@
     },
     {
       "client": "hnb",
+      "headline": "HNB General Insurance primed for strategic growth in FY2026",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTmxtSC0tS0F6U0pRSnJFWGh6NXdMOGdrYmxKZy04Qjhkamc3MGFfcEtPYms4ZTJHOHBpMnljd3EyRzdDZGZpYXFpWVI2TW9YbFdMUDJzaWoxQXZxTTlUVmJLRG04SThScTY3dXZhOWxQNmRfZmRzM3R5RjMwY1N3dUhiWDItM3MtYmJmTmxMdU5MLVpEVldrVFphRDR5cnRuZVlRVTB0OGpzY1lydW5Qdw?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "14 May 2026 · 12:30 SL",
+      "ts": 1778742000000,
+      "snippet": "HNB General Insurance primed for strategic growth in FY2026 Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "b2b9cb3beed7",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
       "headline": "CBSL Rates : USD selling rate increases to Rs. 337",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ2MtLUxlTlJxdFptX0llR0NnNEtOWnhlUUVwaEhLSG9DNGtONjBvaFVfb29tTnlXU1RQWXg1WVZ1WEdZVUpLWV9uQVZqdmk1a0FGQWZVQ0FGdnpYb01TemtuZmliZ29qQ1pseGxwWkpTbjlBams4bmRoYS1HYzVGZmZqOFRJb3AyNEdZ?oc=5",
       "source": "Newswire",
@@ -501,26 +501,6 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "0afcbefda8b3",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOU0ZNaHFGWlR4aGRqUWpHa1J6X1VGc2VyR0tiNmppTUVfbXNBdlE3NXJlZHpuUGdrenA2OVhOSTFEWG9QN21oSFpBTjZtaWU1N1Q1U1o4WUNTUmdoTFh3UVJZZC1paUtYMW9RX2pMVEJRaGJSS1Z4NFRrQ3l0bk13YS05MTd5TlFWRWhNTUpmdHZYdjBtUlRIQW43M2Fybm9Mc093SzlrVXNOeFNyOXg1ZVhMTFYwVFRDUEE?oc=5",
-      "source": "Magzter",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 12:18 SL",
-      "ts": 1781160522000,
-      "snippet": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper Magzter",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "591dff6b5981",
       "is_primary_in_cluster": true
     },
     {
@@ -565,22 +545,42 @@
     },
     {
       "client": "hnb",
-      "headline": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaTg3MDZ1NVd4allyLUt2QmJDTU43Rk83SGJZV3ZnMlVxUWpUcmNaYV9oeHd1bmR2M2Q4QnY1b0xmbjNRSmtLdzE3ZjRWWWZxdTJDZFc4QXFncldTS2xPVHc4bWlHQ2FTT1ZvSnpaS1d2bW1tM0ptLWMtTG5IeVgxNElQcU9Nc1Zra3ZmWjJGbGU?oc=5",
-      "source": "EconomyNext",
+      "headline": "The EPF under CBSL custody: Fixing the principal-agent problem",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRkFVRU90bDZaVUJGVXJjdmc4Vy1PaFotV0tiSHpreGFieWRZSlpxMm1VRS1POEkzWHA4VllkWGE3aTMzcnlydi14Ti1vLVNmZDVLaG52RlBSMGNoUHFkREFXc1g0RFEwSXdNNUxzR204MUhkLUJXOE51SzF5MmIyS1FpdzA3NE43N3duMkNWSFFVSjZCS1FVdnhjNzE?oc=5",
+      "source": "Daily FT",
       "domain": "news.google.com",
-      "date": "09 Jun 2026 · 15:42 SL",
-      "ts": 1780999971000,
-      "snippet": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank EconomyNext",
-      "fetch_type": "market_watch",
+      "date": "11 Jun 2026 · 06:12 SL",
+      "ts": 1781138538000,
+      "snippet": "The EPF under CBSL custody: Fixing the principal-agent problem Daily FT",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
-        "Sampath Bank"
+        "CBSL"
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "008aa375b9ef",
+      "cluster_id": "71038a417e81",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL warns against foreign currency transactions between residents in Sri Lanka",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5UcmdwdG5MckFyWFU1OXRVSUhYMHZyNXhaWVZHU0x3QkdMcUlaY0Fsall0b0JuU0Y2eFRNaVdYem5GSkV5Umg0?oc=5",
+      "source": "Ada Derana",
+      "domain": "news.google.com",
+      "date": "10 Jun 2026 · 06:42 SL",
+      "ts": 1781053961000,
+      "snippet": "CBSL warns against foreign currency transactions between residents in Sri Lanka Ada Derana",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "bfb8dea9fdf7",
       "is_primary_in_cluster": true
     },
     {
@@ -604,66 +604,6 @@
       "is_primary_in_cluster": true
     },
     {
-      "client": "hnb",
-      "headline": "Indices close in red",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUmNDX25tX18wVGpoXzdzemFpYVFjVkhTaThnQWFEeWRycmNmSzNfMThqZlJHdThZSmd6Z2xOV0pOcldsOGVtaHdZcnZhMHpuVGZMdHNpVDhHWEE3VlJwd0duRGJSalhDYUZKRWpLdmQxNnBMX0MtenppN1MtRE5HenV3RWE?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 09:49 SL",
-      "ts": 1781151567000,
-      "snippet": "Indices close in red Daily Mirror - Sri Lanka",
-      "fetch_type": "market_watch",
-      "category": "market_watch",
-      "relevance_score": 0.5,
-      "matched_terms": [
-        "indices close"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "83d5619d5e07",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "CSE rebounds as lower oil prices and strong crossings lift sentiment",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaWdPa2dXUEhrOVVXVjhFZ28wdF9NTFhuLUxsQUR1NUtvTnNlT2hoZUtFX2NyaGdTUXFGZno1bW9NUzZVLWRTOW15dEM3UHhDNUN1TXFsNEJucGFfX3JLMUxSa2xlSjdVT1JyMUtObXNTV0JURkFTUjNVUTktNU9nVVh3VGJxVXdkVzhGSTBXbFIxOEY0U0JTOVA3aEFlSUdhQWZEbUpvNERCa18xaTcwQW9MR0c1dm1PWkh1Zg?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "09 Jun 2026 · 20:13 SL",
-      "ts": 1781016180000,
-      "snippet": "CSE rebounds as lower oil prices and strong crossings lift sentiment Daily Mirror - Sri Lanka",
-      "fetch_type": "market_watch",
-      "category": "market_watch",
-      "relevance_score": 0.5,
-      "matched_terms": [
-        "CSE"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "4e869ec1e536",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "CSE slides sharply as Middle East tensions trigger broad-based selling",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOMF9SVS1hVVE1NUd3ckFxVElxZkdRcV9QcWNnVU5xVUpiLXF2d0dEeXVia2JtSGtsSWN2Z2lRdUFBaWJfaVFNWnQ4ay13ZTJKNWtqcFhDMkU3cXVubmRWYk5xc0VtdGczcE5WazRWOVdIczBHQnU0d0J4WlBMZTFZa1pPV05vMWJ4Y3FZRHI2VU45QnY5eHQ0Y0UzMzB0VVd5M3lLQkMyMHBiQU94ZHhpM2JGY3ctUWl1bnVJel9jQQ?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "08 Jun 2026 · 18:24 SL",
-      "ts": 1780923240000,
-      "snippet": "CSE slides sharply as Middle East tensions trigger broad-based selling Daily Mirror - Sri Lanka",
-      "fetch_type": "market_watch",
-      "category": "market_watch",
-      "relevance_score": 0.5,
-      "matched_terms": [
-        "CSE"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "4f69e415fea4",
-      "is_primary_in_cluster": true
-    },
-    {
       "client": "pcc",
       "headline": "Sri Lankan conglomerates leading the charge in Port City’s economic surge",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSDQwT3g4MVM4V1FQY0pBUlJRRnF1czA5N0ZKQzduams2Xzc5TjVPOVN3eVQ1a09vNnVRamlxSnFPaFRmWVlWTnFKX0tuXzRjTnF2a0IzUjkwYnVkSk5qSnVmT1VJbklaVzZ6dzdsaGIzUVBacVRCRlBTRzFnenVXY1NJcFVWSmpBbzJvZG96cjBnbWtf?oc=5",
@@ -679,6 +619,24 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "a6f7284a0be3",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lankan shares slide on broad-based sectoral losses",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUHNsZTEzcjBzWXJYOS1fcWpFRUcxWUFyMTMwZ2hoNksxSDJIRHRfSHdPOEtKa1BfZTdjMlBGV3R5Z1JSM3BXMFRLRmR1ZWtranVET1VfX0l2cDV5d21ydzVFNXNsRkwtdnY2RHF2SUNqRDBxVFJHaG5QczNsVDlHY1dZQ0lTU2Znbm5xblA2bmNDQ3BkRmM2YkJ0NV9SNGQw?oc=5",
+      "source": "Reuters",
+      "domain": "news.google.com",
+      "date": "01 Jun 2026 · 12:30 SL",
+      "ts": 1780297200000,
+      "snippet": "Sri Lankan shares slide on broad-based sectoral losses Reuters",
+      "fetch_type": "market_watch",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": true,
+      "cluster_id": "8910801c2bf5",
       "is_primary_in_cluster": true
     },
     {
@@ -719,31 +677,13 @@
     },
     {
       "client": "hnb",
-      "headline": "Sri Lanka lifts rates 100 bps as oil shock hits economy",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQRlA3WFpoSTZkTC1wV3VHZU9XNVZIQkUxT1Y0X2l0UkJaZEVMZmQtTFdIcy14RmtORHZ4RlNWRjNlUTZhU2xJQXFqSzVCMHd6MXVOYTFWYmIyOVVhUHNwcjdKRnhpQW1TeS0tNnZMeXhxY1huUl9rV0N3eWtHM05FUFBDWlItTmFLdDVmX1VCQjBIMEY0eWFfN1pFN215Z1Zfb1ZtaFlONTN4WHlxU00zSFBma0djOXA4aWNHeXJpaFFMM0FUd1M4VHQzWmt6TXpPUVdiNXhGZWhpaDVPVFE?oc=5",
-      "source": "MSN",
-      "domain": "news.google.com",
-      "date": "26 May 2026 · 12:30 SL",
-      "ts": 1779778800000,
-      "snippet": "Sri Lanka lifts rates 100 bps as oil shock hits economy MSN",
-      "fetch_type": "industry_watch",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "56c795349a3a",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
       "headline": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOYTZFWEJXMm8wdm8zYTNCSzc0WkRlcFRYRUxwWnFKZXhsYjlFQm5NcjJlSktCODhGbVVpVEVxS1p1STRNdXR2cHV1ZmduUHBJN0dHemhUelV5SG9UTkJzei1IdnBWeFNtMXBRajhVYkkybnlCdTNCbDRwWDhIaGwzTEdkUUJRY244X3RkVDRGVnpsQUxqNVl5WUhLNlQ4aHZ0TjFlaUxPTW9SN3dYRlFMOQ?oc=5",
-      "source": "WTAQ",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTFFMdlBXWlluVzlIZHV6V0YteTBIaGx5bktVOFFtSGM3YWlISjJlRHpnYUFlbVFYSmhQVDV4U3NjNGxTb2hEQlhpX0xsU25ES0Q4OUtmQUxsWmlfMkRIVWJCYkhNS0JGeWY4SDVwQ2l6dmxfWDQwOExlY2h4bmo1dlo1dHZBS3RRdW13R2QyNl9BTXQ3SU00eXZneDRWdzZlSlV6Tmt0ZzN1aEh4Tm5RMUFYdU1kWlV2UU96Y2pTWQ?oc=5",
+      "source": "Reuters",
       "domain": "news.google.com",
       "date": "26 May 2026 · 12:30 SL",
       "ts": 1779778800000,
-      "snippet": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation WTAQ",
+      "snippet": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation Reuters",
       "fetch_type": "industry_watch",
       "category": "low_relevance",
       "relevance_score": 0.0,
@@ -762,18 +702,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "591dff6b5981",
-      "primary_headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
-      "primary_source": "Magzter",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "83d5619d5e07",
-      "primary_headline": "Indices close in red",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "ee13fca0a988",
       "primary_headline": "CBSL briefs MPs on monetary policy and economic developments",
       "primary_source": "Newswire",
@@ -782,6 +710,12 @@
     {
       "cluster_id": "6617b9127003",
       "primary_headline": "CBSL Governor briefs MPs on monetary policy, exchange rate developments",
+      "primary_source": "Daily FT",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "71038a417e81",
+      "primary_headline": "The EPF under CBSL custody: Fixing the principal-agent problem",
       "primary_source": "Daily FT",
       "also_covered_count": 0
     },
@@ -810,6 +744,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "bfb8dea9fdf7",
+      "primary_headline": "CBSL warns against foreign currency transactions between residents in Sri Lanka",
+      "primary_source": "Ada Derana",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "83be30275deb",
       "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -818,18 +758,6 @@
     {
       "cluster_id": "1b204b842196",
       "primary_headline": "Sri Lanka stocks pick up, interest in Dialog, Hayleys",
-      "primary_source": "EconomyNext",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "4e869ec1e536",
-      "primary_headline": "CSE rebounds as lower oil prices and strong crossings lift sentiment",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "008aa375b9ef",
-      "primary_headline": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank",
       "primary_source": "EconomyNext",
       "also_covered_count": 0
     },
@@ -855,12 +783,6 @@
       "cluster_id": "4567feb0fea3",
       "primary_headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka's premium Hybrid SUV segment",
       "primary_source": "Magzter",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "4f69e415fea4",
-      "primary_headline": "CSE slides sharply as Middle East tensions trigger broad-based selling",
-      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -894,9 +816,9 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "c4cccb14002e",
-      "primary_headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
-      "primary_source": "Adaderana Biz English",
+      "cluster_id": "8910801c2bf5",
+      "primary_headline": "Sri Lankan shares slide on broad-based sectoral losses",
+      "primary_source": "Reuters",
       "also_covered_count": 0
     },
     {
@@ -906,15 +828,15 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "3c24e2780529",
-      "primary_headline": "HNB partners United Tractor & Equipment to expand solar energy for customers",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "b837d649d566",
       "primary_headline": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery",
       "primary_source": "Reuters",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "9bcaa7e3b6bd",
+      "primary_headline": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled",
+      "primary_source": "The island.lk",
       "also_covered_count": 0
     },
     {
@@ -924,15 +846,9 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "56c795349a3a",
-      "primary_headline": "Sri Lanka lifts rates 100 bps as oil shock hits economy",
-      "primary_source": "MSN",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "4f8b37a9c0c5",
       "primary_headline": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation",
-      "primary_source": "WTAQ",
+      "primary_source": "Reuters",
       "also_covered_count": 0
     },
     {
@@ -942,8 +858,8 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "9cbf63d86446",
-      "primary_headline": "HNB and Singer collaborate with leasing solutions for John Deere tractors",
+      "cluster_id": "9bcaa7e3b6bd",
+      "primary_headline": "HNB Finance records exceptional FY 2025/26 growth, with PAT doubled",
       "primary_source": "dailynews.lk",
       "also_covered_count": 0
     },
@@ -960,30 +876,36 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "90eda4e135bf",
+      "primary_headline": "HNB Life secures ‘Best Life Bancassurance Provider – Sri Lanka’ award",
+      "primary_source": "dailynews.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "8ee7b9a38f81",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition HNB Life marks 6th consecutive bancassurance triumph",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "eeed404e65c1",
       "primary_headline": "Hellmann and MAS Holdings to develop fashion logistics hub in Sri Lanka",
       "primary_source": "Parcel and Postal Technology International",
       "also_covered_count": 1
     },
     {
-      "cluster_id": "195942b9a60b",
-      "primary_headline": "HNB Life Records Staggering 54% GWP Growth in Q1 2026",
-      "primary_source": "The island.lk",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "1e705d111e07",
-      "primary_headline": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "4f38dec5e714",
       "primary_headline": "HNB General Insurance secures Best General Bancassurance Provider title for fourth consecutive year",
       "primary_source": "The island.lk",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "b2b9cb3beed7",
+      "primary_headline": "HNB General Insurance primed for strategic growth in FY2026",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
     }
   ],
-  "total_stories": 38,
-  "total_clusters": 38
+  "total_stories": 35,
+  "total_clusters": 35
 }
