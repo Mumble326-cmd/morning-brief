@@ -4,7 +4,9 @@
     "mentions": [
       "HNB PLC",
       "HNB Sri Lanka",
-      "Hatton National Bank"
+      "Hatton National Bank",
+      "HNB Assurance",
+      "HNB Finance"
     ],
     "industry": [
       "CBSL",
@@ -14,6 +16,8 @@
       "NDB Bank",
       "Seylan Bank",
       "Bank of Ceylon",
+      "DFCC Bank",
+      "People's Bank Sri Lanka",
       "banking sector Sri Lanka",
       "bank interest rates Sri Lanka",
       "monetary policy Sri Lanka"
@@ -22,31 +26,44 @@
   "hayleys": {
     "label": "Hayleys",
     "mentions": [
+      "Hayleys PLC",
       "Hayleys Sri Lanka",
-      "Hayleys PLC"
+      "Hayleys Mobility",
+      "Hayleys Fentons",
+      "Hayleys Agriculture",
+      "Hayleys Plantations",
+      "Hayleys Leisure",
+      "Hayleys Advantis",
+      "Haycarb Sri Lanka",
+      "Dipped Products Sri Lanka"
     ],
     "industry": [
-      "Hayleys Fabric",
-      "Hayleys Advantis",
-      "Dipped Products",
-      "Haycarb",
-      "Hayleys Agriculture",
-      "Singer Sri Lanka",
-      "Hayleys Leisure",
-      "Hayleys Fentons"
+      "John Keells Holdings",
+      "Aitken Spence",
+      "Hemas Holdings",
+      "Softlogic Holdings",
+      "Melstacorp",
+      "Richard Pieris Sri Lanka",
+      "Expolanka Sri Lanka"
     ]
   },
   "mas": {
     "label": "MAS",
     "mentions": [
       "MAS Holdings",
-      "MAS Holdings Sri Lanka"
+      "MAS Holdings Sri Lanka",
+      "MAS Active",
+      "MAS Intimates",
+      "Twinery Sri Lanka",
+      "Hellmann MAS"
     ],
     "industry": [
       "Brandix",
       "Hirdaramani",
+      "Jay Jay Mills",
       "apparel exports Sri Lanka",
       "garment sector Sri Lanka",
+      "apparel industry Sri Lanka",
       "GSP+ Sri Lanka",
       "JAAF Sri Lanka"
     ]
@@ -54,12 +71,18 @@
   "byd": {
     "label": "BYD",
     "mentions": [
-      "BYD Sri Lanka"
+      "BYD Sri Lanka",
+      "JKCG Auto",
+      "John Keells CG Auto"
     ],
     "industry": [
       "electric vehicle Sri Lanka",
       "EV policy Sri Lanka",
-      "Denza Sri Lanka",
+      "NEV Sri Lanka",
+      "Sri Lanka vehicle import ban",
+      "David Pieris Automobiles",
+      "BAIC Sri Lanka",
+      "GWM Sri Lanka",
       "MG Sri Lanka",
       "EV charging Sri Lanka",
       "hybrid vehicle Sri Lanka"
@@ -69,28 +92,38 @@
     "label": "MIFL",
     "mentions": [
       "Mahindra Ideal Finance",
-      "MIFL Sri Lanka"
+      "MIFL Sri Lanka",
+      "Ideal Finance Sri Lanka"
     ],
     "industry": [
-      "licensed finance company Sri Lanka",
-      "leasing company Sri Lanka",
       "People's Leasing Sri Lanka",
-      "Central Finance Sri Lanka",
       "LB Finance Sri Lanka",
-      "Senkadagala Finance"
+      "Vallibel Finance",
+      "Siyapatha Finance",
+      "Central Finance Sri Lanka",
+      "Senkadagala Finance",
+      "vehicle leasing Sri Lanka",
+      "NBFI Sri Lanka",
+      "licensed finance company Sri Lanka"
     ]
   },
   "pcc": {
     "label": "Port City Colombo",
     "mentions": [
       "Port City Colombo",
-      "Colombo Port City"
+      "Colombo Port City",
+      "CHEC Port City Colombo",
+      "Central Park Boulevard",
+      "Marina Living Port City"
     ],
     "industry": [
       "CHEC Port City",
       "CHEC Sri Lanka",
       "special economic zone Sri Lanka",
       "Colombo real estate",
+      "Colombo luxury apartments",
+      "Cinnamon Life Colombo",
+      "One Galle Face",
       "foreign investment Colombo"
     ]
   }
