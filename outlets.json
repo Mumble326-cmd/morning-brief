@@ -1,0 +1,62 @@
+{
+  "priority_outlets": [
+    "Daily FT",
+    "Daily Mirror",
+    "The Island",
+    "Daily News",
+    "Sunday Times",
+    "Sunday Observer",
+    "The Morning",
+    "Ceylon Today",
+    "EconomyNext",
+    "Newswire",
+    "LBO",
+    "Colombo Gazette",
+    "Ada Derana",
+    "Lanka Business News",
+    "Business Cafe",
+    "Ceylon Business Reporter"
+  ],
+  "allowed_domains": [
+    "ft.lk",
+    "dailymirror.lk",
+    "island.lk",
+    "dailynews.lk",
+    "sundaytimes.lk",
+    "themorning.lk",
+    "ceylontoday.lk",
+    "economynext.com",
+    "newswire.lk",
+    "lankabusinessonline.com",
+    "colombogazette.com",
+    "adaderana.lk",
+    "lankabusinessnews.com",
+    "businesscafe.lk"
+  ],
+  "outlet_categories": {
+    "daily_newspapers": [
+      "Daily FT",
+      "Daily Mirror",
+      "The Island",
+      "Daily News"
+    ],
+    "sunday_newspapers": [
+      "Sunday Times",
+      "Sunday Observer"
+    ],
+    "business_news": [
+      "EconomyNext",
+      "Newswire",
+      "LBO",
+      "Lanka Business News",
+      "Business Cafe",
+      "Ceylon Business Reporter"
+    ],
+    "news_portals": [
+      "Colombo Gazette",
+      "Ada Derana",
+      "The Morning",
+      "Ceylon Today"
+    ]
+  }
+}

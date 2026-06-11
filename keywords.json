@@ -1,34 +1,89 @@
 {
   "hnb": {
     "label": "HNB",
-    "mentions": [
+    "sector": "Banking",
+    "must_include": [
+      "Sri Lanka",
+      "HNB",
+      "HNB PLC",
+      "Hatton National Bank",
+      "HNB Finance",
+      "HNB Life",
+      "HNB General Insurance",
+      "HNB Investment Bank"
+    ],
+    "direct_mentions": [
       "HNB",
       "HNB Life",
       "HNB Finance",
       "HNB General Insurance",
       "HNB Investment Bank",
-      "HNB Securities",
-      "HNB Stockbrokers",
       "HNB Assurance",
+      "HNB Stockbrokers",
+      "HNB Securities",
       "HNB PLC",
-      "Hatton National Bank"
+      "Hatton National Bank",
+      "HNB SOLO",
+      "HNB MOMO",
+      "HNB leasing",
+      "HNB pawning",
+      "HNB SME",
+      "HNB digital banking",
+      "Acuity Partners"
     ],
-    "industry": [
+    "industry_watch": [
       "CBSL",
       "Central Bank of Sri Lanka",
+      "banking sector Sri Lanka",
+      "licensed commercial banks Sri Lanka",
+      "private sector credit",
+      "AWPLR",
+      "SLFR",
+      "SDFR",
+      "CBSL policy rates",
+      "bank lending rates",
+      "monetary policy Sri Lanka",
+      "bank interest rates Sri Lanka",
+      "CRIB Sri Lanka",
+      "financial sector stability",
+      "IMF Sri Lanka banking",
       "Sampath Bank",
       "Commercial Bank of Ceylon",
       "NDB Bank",
       "Seylan Bank",
       "Bank of Ceylon",
-      "banking sector Sri Lanka",
-      "bank interest rates Sri Lanka",
-      "monetary policy Sri Lanka"
+      "People's Bank",
+      "DFCC Bank",
+      "credit growth Sri Lanka",
+      "NPL Sri Lanka"
+    ],
+    "exclude": [
+      "horse racing",
+      "foreign HNB",
+      "sports",
+      "cricket"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "Daily Mirror",
+      "The Island",
+      "Daily News",
+      "Sunday Times",
+      "EconomyNext",
+      "Newswire",
+      "LBO"
     ]
   },
   "hayleys": {
     "label": "Hayleys",
-    "mentions": [
+    "sector": "Diversified Conglomerate",
+    "must_include": [
+      "Sri Lanka",
+      "Hayleys",
+      "Haycarb",
+      "Talawakelle"
+    ],
+    "direct_mentions": [
       "Hayleys",
       "Hayleys PLC",
       "Hayleys Fabric",
@@ -38,96 +93,256 @@
       "Hayleys Solar",
       "Hayleys Eco Solutions",
       "Hayleys Lifesciences",
+      "Hayleys Fentons",
+      "Hayleys Aventura",
+      "Hayleys Consumer",
+      "Hayleys Free Zone",
+      "Hayleys Lifecode",
+      "Hayleys Agriculture",
+      "Hayleys Electronics",
       "Haycarb",
-      "Talawakelle Tea Estates"
+      "Talawakelle Tea Estates",
+      "Kelani Valley Plantations",
+      "Dipped Products",
+      "Logiwiz",
+      "Unisyst",
+      "Advantis"
     ],
-    "industry": [
+    "industry_watch": [
+      "plantation sector Sri Lanka",
+      "tea estates Sri Lanka",
+      "rubber exports Sri Lanka",
+      "activated carbon Sri Lanka",
+      "logistics Sri Lanka",
+      "renewable energy Sri Lanka",
+      "construction sector Sri Lanka",
+      "diversified conglomerate Sri Lanka",
       "Aitken Spence",
       "John Keells Holdings",
-      "diversified conglomerate Sri Lanka",
+      "Expolanka",
       "Singer Sri Lanka",
-      "sustainability award Sri Lanka",
-      "plantation sector Sri Lanka"
+      "sustainability award Sri Lanka"
+    ],
+    "exclude": [
+      "sports",
+      "cricket",
+      "unrelated Hayley"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "Daily Mirror",
+      "The Island",
+      "Sunday Times",
+      "EconomyNext",
+      "Lanka Business News"
     ]
   },
   "mas": {
     "label": "MAS",
-    "mentions": [
+    "sector": "Apparel Manufacturing & Export",
+    "must_include": [
+      "Sri Lanka",
+      "MAS",
+      "apparel",
+      "garment"
+    ],
+    "direct_mentions": [
       "MAS Holdings",
-      "MAS Holdings Sri Lanka",
-      "MAS Active",
       "MAS Intimates",
-      "Twinery Sri Lanka",
+      "MAS Active",
+      "MAS Kreeda",
+      "MAS Bodyline",
+      "Bodyline Sri Lanka",
+      "MAS Silueta",
+      "MAS KREEDA",
+      "MAS Fabric Park",
+      "MAS Twinery",
+      "Twinery",
+      "Linea Aqua",
+      "Noyon Lanka",
+      "Stretchline",
+      "Unichela",
       "Hellmann MAS"
     ],
-    "industry": [
+    "industry_watch": [
+      "apparel exports Sri Lanka",
+      "garment exports Sri Lanka",
+      "textile manufacturing Sri Lanka",
+      "JAAF",
+      "Joint Apparel Association Forum",
       "Brandix",
       "Hirdaramani",
-      "Jay Jay Mills",
-      "apparel exports Sri Lanka",
-      "garment sector Sri Lanka",
-      "apparel industry Sri Lanka",
-      "GSP+ Sri Lanka",
-      "JAAF Sri Lanka"
+      "Star Garments",
+      "Board of Investment apparel",
+      "GSP+ apparel Sri Lanka",
+      "US tariff apparel Sri Lanka"
+    ],
+    "exclude": [
+      "sports",
+      "cricket",
+      "school",
+      "tournament",
+      "Brandix cricket",
+      "MCA",
+      "school apparel"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "EconomyNext",
+      "Newswire",
+      "Lanka Business News",
+      "Daily Mirror"
     ]
   },
   "byd": {
     "label": "BYD",
-    "mentions": [
-      "BYD Sri Lanka",
-      "JKCG Auto",
-      "John Keells CG Auto"
+    "sector": "Electric Vehicles",
+    "must_include": [
+      "Sri Lanka",
+      "BYD",
+      "vehicle",
+      "electric"
     ],
-    "industry": [
+    "direct_mentions": [
+      "BYD Sri Lanka",
+      "John Keells CG Auto",
+      "JKCG Auto",
+      "JKCG",
+      "BYD Atto 3 Sri Lanka",
+      "BYD Dolphin Sri Lanka",
+      "BYD Seal Sri Lanka",
+      "BYD aftersales Sri Lanka",
+      "BYD service centre Sri Lanka",
+      "BYD showroom Sri Lanka",
+      "BYD charging Sri Lanka",
+      "Denza Sri Lanka"
+    ],
+    "industry_watch": [
       "electric vehicle Sri Lanka",
-      "EV policy Sri Lanka",
+      "EV imports Sri Lanka",
+      "vehicle import tax Sri Lanka",
+      "motor vehicle imports Sri Lanka",
       "NEV Sri Lanka",
-      "Sri Lanka vehicle import ban",
+      "charging stations Sri Lanka",
+      "hybrid vehicles Sri Lanka",
+      "EV policy Sri Lanka",
+      "Department of Motor Traffic electric vehicles",
       "David Pieris Automobiles",
       "BAIC Sri Lanka",
       "GWM Sri Lanka",
       "MG Sri Lanka",
-      "EV charging Sri Lanka",
-      "hybrid vehicle Sri Lanka"
+      "EV charging Sri Lanka"
+    ],
+    "exclude": [
+      "China factory",
+      "Brazil",
+      "Europe",
+      "Thailand factory",
+      "global sales",
+      "Tesla global",
+      "BYD shares China"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "Daily Mirror",
+      "The Island",
+      "Colombo Gazette",
+      "EconomyNext"
     ]
   },
   "mifl": {
     "label": "MIFL",
-    "mentions": [
-      "Mahindra Ideal Finance",
-      "MIFL Sri Lanka",
-      "Ideal Finance Sri Lanka"
+    "sector": "Finance",
+    "must_include": [
+      "Sri Lanka",
+      "Mahindra",
+      "Ideal Finance"
     ],
-    "industry": [
-      "People's Leasing Sri Lanka",
-      "LB Finance Sri Lanka",
-      "Vallibel Finance",
-      "Siyapatha Finance",
-      "Central Finance Sri Lanka",
-      "Senkadagala Finance",
-      "vehicle leasing Sri Lanka",
+    "direct_mentions": [
+      "Mahindra Ideal Finance",
+      "Mahindra Ideal Finance Ltd",
+      "Mahindra Ideal Finance Limited",
+      "MIFL Sri Lanka",
+      "Ideal Finance",
+      "Mahindra Finance Sri Lanka"
+    ],
+    "industry_watch": [
+      "licensed finance companies Sri Lanka",
+      "finance companies Sri Lanka",
+      "non bank financial institutions Sri Lanka",
       "NBFI Sri Lanka",
-      "licensed finance company Sri Lanka"
+      "leasing Sri Lanka",
+      "vehicle finance Sri Lanka",
+      "Central Bank finance companies",
+      "LOLC Finance",
+      "People's Leasing",
+      "LB Finance",
+      "Commercial Leasing",
+      "Vallibel Finance",
+      "Assetline Finance"
+    ],
+    "exclude": [
+      "MIFL football",
+      "MIFL league",
+      "MIFL sports",
+      "Michigan",
+      "India league",
+      "sports league"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "EconomyNext",
+      "Newswire",
+      "Lanka Business News",
+      "Daily Mirror"
     ]
   },
   "pcc": {
     "label": "Port City Colombo",
-    "mentions": [
+    "sector": "Real Estate & Development",
+    "must_include": [
+      "Sri Lanka",
+      "Colombo",
+      "Port City"
+    ],
+    "direct_mentions": [
       "Port City Colombo",
       "Colombo Port City",
       "CHEC Port City Colombo",
-      "Central Park Boulevard",
-      "Marina Living Port City"
+      "Port City Economic Commission",
+      "Colombo Port City Economic Commission",
+      "Port City SEZ",
+      "Port City Special Economic Zone",
+      "Port City Marina",
+      "Central Park Boulevard Port City"
     ],
-    "industry": [
-      "CHEC Port City",
-      "CHEC Sri Lanka",
+    "industry_watch": [
       "special economic zone Sri Lanka",
-      "Colombo real estate",
-      "Colombo luxury apartments",
+      "SEZ Sri Lanka",
+      "foreign investment Sri Lanka",
+      "real estate Sri Lanka",
+      "luxury property Sri Lanka",
+      "commercial bank Port City",
+      "Sampath Bank Port City",
+      "Commercial Bank Port City",
+      "financial centre Sri Lanka",
+      "marina development Sri Lanka",
+      "CHEC Sri Lanka",
       "Cinnamon Life Colombo",
-      "One Galle Face",
-      "foreign investment Colombo"
+      "One Galle Face"
+    ],
+    "exclude": [
+      "sports",
+      "cricket",
+      "port operations"
+    ],
+    "priority_sources": [
+      "Daily FT",
+      "Daily Mirror",
+      "The Island",
+      "Colombo Gazette",
+      "Sunday Times",
+      "EconomyNext"
     ]
   }
 }
