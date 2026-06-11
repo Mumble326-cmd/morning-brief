@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-11T08:52:35.374694+00:00",
+  "generated_at": "2026-06-11T09:01:21.938789+00:00",
   "generated_date": "2026-06-11",
-  "generated_time": "14:22:35 SL",
+  "generated_time": "14:31:21 SL",
   "stories": [
     {
       "client": "pcc",
@@ -12,6 +12,7 @@
       "date": "11 Jun 2026 · 04:18 SL",
       "ts": 1781131708000,
       "snippet": "New investments reinforce Colombo Port City’s role as growth catalyst Daily FT",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -31,6 +32,7 @@
       "date": "11 Jun 2026 · 01:04 SL",
       "ts": 1781120040000,
       "snippet": "Assetline Finance and Hayleys Mobility sign MoU to expand access in financing solutions dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -50,6 +52,7 @@
       "date": "10 Jun 2026 · 16:30 SL",
       "ts": 1781089257000,
       "snippet": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka, supporting energy transition Adaderana Biz English",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -69,6 +72,7 @@
       "date": "10 Jun 2026 · 12:00 SL",
       "ts": 1781073048000,
       "snippet": "No Statements on Hayleys : Court Order Against Wimal Weerawansa Lanka Sara",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -88,6 +92,7 @@
       "date": "10 Jun 2026 · 01:07 SL",
       "ts": 1781033820000,
       "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -107,6 +112,7 @@
       "date": "09 Jun 2026 · 21:44 SL",
       "ts": 1781021685000,
       "snippet": "Sri Lanka stocks pick up, interest in Dialog, Hayleys EconomyNext",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -126,6 +132,7 @@
       "date": "09 Jun 2026 · 12:24 SL",
       "ts": 1780988098000,
       "snippet": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -145,6 +152,7 @@
       "date": "08 Jun 2026 · 19:38 SL",
       "ts": 1780927712000,
       "snippet": "Sri Lanka’s Sampath Bank opens first branch in Colombo Port City EconomyNext",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -164,6 +172,7 @@
       "date": "08 Jun 2026 · 18:44 SL",
       "ts": 1780924440000,
       "snippet": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka's premium Hybrid SUV segment Magzter",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -183,6 +192,7 @@
       "date": "08 Jun 2026 · 12:29 SL",
       "ts": 1780901950000,
       "snippet": "HNB Life introduces future-ready protection solution for the new generation The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -202,6 +212,7 @@
       "date": "08 Jun 2026 · 09:34 SL",
       "ts": 1780891479000,
       "snippet": "Sampath Bank opens branch at Port City Colombo Newswire",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -221,6 +232,7 @@
       "date": "08 Jun 2026 · 01:19 SL",
       "ts": 1780861740000,
       "snippet": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -240,6 +252,7 @@
       "date": "07 Jun 2026 · 10:14 SL",
       "ts": 1780807495000,
       "snippet": "Commercial Bank extends its operations to Port City Colombo The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -259,6 +272,7 @@
       "date": "04 Jun 2026 · 01:04 SL",
       "ts": 1780515240000,
       "snippet": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -278,6 +292,7 @@
       "date": "03 Jun 2026 · 11:49 SL",
       "ts": 1780467573000,
       "snippet": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year Adaderana Biz English",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -297,6 +312,7 @@
       "date": "29 May 2026 · 12:30 SL",
       "ts": 1780038000000,
       "snippet": "HNB partners United Tractor & Equipment to expand solar energy for customers dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -316,6 +332,7 @@
       "date": "26 May 2026 · 12:30 SL",
       "ts": 1779778800000,
       "snippet": "China Duty Free Group hails Port City Colombo shopping regulation changes Moodie Davitt Report",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -335,6 +352,7 @@
       "date": "22 May 2026 · 12:30 SL",
       "ts": 1779433200000,
       "snippet": "HNB and Singer collaborate with leasing solutions for John Deere tractors dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -354,6 +372,7 @@
       "date": "22 May 2026 · 12:30 SL",
       "ts": 1779433200000,
       "snippet": "MAS Holdings Deepens Sri Lanka Supply Chain Bet With New Fashion Hub WWD",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -373,6 +392,7 @@
       "date": "21 May 2026 · 12:30 SL",
       "ts": 1779346800000,
       "snippet": "Hellmann and MAS Holdings launch new fashion logistics hub in Sri Lanka Daily FT",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -392,6 +412,7 @@
       "date": "20 May 2026 · 12:30 SL",
       "ts": 1779260400000,
       "snippet": "Hellmann and MAS Holdings to develop fashion logistics hub in Sri Lanka Parcel and Postal Technology International",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -411,6 +432,7 @@
       "date": "17 May 2026 · 12:30 SL",
       "ts": 1779001200000,
       "snippet": "HNB Life Records Staggering 54% GWP Growth in Q1 2026 The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -430,6 +452,7 @@
       "date": "15 May 2026 · 12:30 SL",
       "ts": 1778828400000,
       "snippet": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026 dailynews.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -449,6 +472,7 @@
       "date": "14 May 2026 · 12:30 SL",
       "ts": 1778742000000,
       "snippet": "HNB General Insurance secures Best General Bancassurance Provider title for fourth consecutive year The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
@@ -468,6 +492,7 @@
       "date": "11 Jun 2026 · 13:07 SL",
       "ts": 1781163442000,
       "snippet": "CBSL Rates : USD selling rate increases to Rs. 337 Newswire",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
@@ -487,6 +512,7 @@
       "date": "11 Jun 2026 · 12:18 SL",
       "ts": 1781160522000,
       "snippet": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper Magzter",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
@@ -506,6 +532,7 @@
       "date": "11 Jun 2026 · 09:47 SL",
       "ts": 1781151440000,
       "snippet": "CBSL briefs MPs on monetary policy and economic developments Newswire",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
@@ -525,6 +552,7 @@
       "date": "11 Jun 2026 · 06:59 SL",
       "ts": 1781141357000,
       "snippet": "CBSL Governor briefs MPs on monetary policy, exchange rate developments Daily FT",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
@@ -537,6 +565,26 @@
     },
     {
       "client": "hnb",
+      "headline": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaTg3MDZ1NVd4allyLUt2QmJDTU43Rk83SGJZV3ZnMlVxUWpUcmNaYV9oeHd1bmR2M2Q4QnY1b0xmbjNRSmtLdzE3ZjRWWWZxdTJDZFc4QXFncldTS2xPVHc4bWlHQ2FTT1ZvSnpaS1d2bW1tM0ptLWMtTG5IeVgxNElQcU9Nc1Zra3ZmWjJGbGU?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "09 Jun 2026 · 15:42 SL",
+      "ts": 1780999971000,
+      "snippet": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank EconomyNext",
+      "fetch_type": "market_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "Sampath Bank"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "008aa375b9ef",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
       "headline": "Licensable picture: Governor of the Central Bank of Sri Lanka speaks during a press conference in Colombo",
       "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQSTFqakVsSFhxVXoxekNONWV5M3YtQ0xKLWlFcElFRFVaekFTSzYyZnVyMnMzUngxVC02bVpuTk9BN002emIzdGxGWVJkMVFPS250Y2ZPYUVmN1lROFlyVnM4MGJDTC02U0lnVzRPOFBfb3o5Z0dwWWZaQzI4Y2xiVXNxUUdNQWFiLXJ4ckdnVXdHV3RqSU1MWUtnaDBjYlg4WVVCYUpScXk1NnRmT2k5bGJCbUlLQndJWVI3NUdycUszblJTQm1sWlFGWm03cEVLVmh0VDc4T0RlVlNOOWhIbXBMcjBVbEdnWHNHamk0eDBnbWtIR2t0eTkwMHZ4d2hfYThqaVFpcw?oc=5",
       "source": "reutersconnect.com",
@@ -544,6 +592,7 @@
       "date": "26 May 2026 · 12:42 SL",
       "ts": 1779779520000,
       "snippet": "Licensable picture: Governor of the Central Bank of Sri Lanka speaks during a press conference in Colombo reutersconnect.com",
+      "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
@@ -555,6 +604,66 @@
       "is_primary_in_cluster": true
     },
     {
+      "client": "hnb",
+      "headline": "Indices close in red",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUmNDX25tX18wVGpoXzdzemFpYVFjVkhTaThnQWFEeWRycmNmSzNfMThqZlJHdThZSmd6Z2xOV0pOcldsOGVtaHdZcnZhMHpuVGZMdHNpVDhHWEE3VlJwd0duRGJSalhDYUZKRWpLdmQxNnBMX0MtenppN1MtRE5HenV3RWE?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "11 Jun 2026 · 09:49 SL",
+      "ts": 1781151567000,
+      "snippet": "Indices close in red Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "indices close"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "83d5619d5e07",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CSE rebounds as lower oil prices and strong crossings lift sentiment",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaWdPa2dXUEhrOVVXVjhFZ28wdF9NTFhuLUxsQUR1NUtvTnNlT2hoZUtFX2NyaGdTUXFGZno1bW9NUzZVLWRTOW15dEM3UHhDNUN1TXFsNEJucGFfX3JLMUxSa2xlSjdVT1JyMUtObXNTV0JURkFTUjNVUTktNU9nVVh3VGJxVXdkVzhGSTBXbFIxOEY0U0JTOVA3aEFlSUdhQWZEbUpvNERCa18xaTcwQW9MR0c1dm1PWkh1Zg?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "09 Jun 2026 · 20:13 SL",
+      "ts": 1781016180000,
+      "snippet": "CSE rebounds as lower oil prices and strong crossings lift sentiment Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "CSE"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "4e869ec1e536",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CSE slides sharply as Middle East tensions trigger broad-based selling",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOMF9SVS1hVVE1NUd3ckFxVElxZkdRcV9QcWNnVU5xVUpiLXF2d0dEeXVia2JtSGtsSWN2Z2lRdUFBaWJfaVFNWnQ4ay13ZTJKNWtqcFhDMkU3cXVubmRWYk5xc0VtdGczcE5WazRWOVdIczBHQnU0d0J4WlBMZTFZa1pPV05vMWJ4Y3FZRHI2VU45QnY5eHQ0Y0UzMzB0VVd5M3lLQkMyMHBiQU94ZHhpM2JGY3ctUWl1bnVJel9jQQ?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "08 Jun 2026 · 18:24 SL",
+      "ts": 1780923240000,
+      "snippet": "CSE slides sharply as Middle East tensions trigger broad-based selling Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "CSE"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "4f69e415fea4",
+      "is_primary_in_cluster": true
+    },
+    {
       "client": "pcc",
       "headline": "Sri Lankan conglomerates leading the charge in Port City’s economic surge",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSDQwT3g4MVM4V1FQY0pBUlJRRnF1czA5N0ZKQzduams2Xzc5TjVPOVN3eVQ1a09vNnVRamlxSnFPaFRmWVlWTnFKX0tuXzRjTnF2a0IzUjkwYnVkSk5qSnVmT1VJbklaVzZ6dzdsaGIzUVBacVRCRlBTRzFnenVXY1NJcFVWSmpBbzJvZG96cjBnbWtf?oc=5",
@@ -563,29 +672,13 @@
       "date": "09 Jun 2026 · 04:42 SL",
       "ts": 1780960360000,
       "snippet": "Sri Lankan conglomerates leading the charge in Port City’s economic surge The island.lk",
+      "fetch_type": "direct_mentions",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "a6f7284a0be3",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "Sri Lankan shares slide on broad-based sectoral losses",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUHNsZTEzcjBzWXJYOS1fcWpFRUcxWUFyMTMwZ2hoNksxSDJIRHRfSHdPOEtKa1BfZTdjMlBGV3R5Z1JSM3BXMFRLRmR1ZWtranVET1VfX0l2cDV5d21ydzVFNXNsRkwtdnY2RHF2SUNqRDBxVFJHaG5QczNsVDlHY1dZQ0lTU2Znbm5xblA2bmNDQ3BkRmM2YkJ0NV9SNGQw?oc=5",
-      "source": "Reuters",
-      "domain": "news.google.com",
-      "date": "01 Jun 2026 · 12:30 SL",
-      "ts": 1780297200000,
-      "snippet": "Sri Lankan shares slide on broad-based sectoral losses Reuters",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "8910801c2bf5",
       "is_primary_in_cluster": true
     },
     {
@@ -597,6 +690,7 @@
       "date": "31 May 2026 · 03:41 SL",
       "ts": 1780179076000,
       "snippet": "Renewable energy: Sri Lanka’s battery storage push The Morning",
+      "fetch_type": "industry_watch",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
@@ -614,6 +708,7 @@
       "date": "28 May 2026 · 12:30 SL",
       "ts": 1779951600000,
       "snippet": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery Reuters",
+      "fetch_type": "industry_watch",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
@@ -631,6 +726,7 @@
       "date": "26 May 2026 · 12:30 SL",
       "ts": 1779778800000,
       "snippet": "Sri Lanka lifts rates 100 bps as oil shock hits economy MSN",
+      "fetch_type": "industry_watch",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
@@ -648,6 +744,7 @@
       "date": "26 May 2026 · 12:30 SL",
       "ts": 1779778800000,
       "snippet": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation WTAQ",
+      "fetch_type": "industry_watch",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
@@ -668,6 +765,12 @@
       "cluster_id": "591dff6b5981",
       "primary_headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
       "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "83d5619d5e07",
+      "primary_headline": "Indices close in red",
+      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -719,6 +822,18 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "4e869ec1e536",
+      "primary_headline": "CSE rebounds as lower oil prices and strong crossings lift sentiment",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "008aa375b9ef",
+      "primary_headline": "Sri Lanka stocks close up, pushed by Dialog, Sampath Bank",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "11bebd76b9a9",
       "primary_headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment",
       "primary_source": "The island.lk",
@@ -740,6 +855,12 @@
       "cluster_id": "4567feb0fea3",
       "primary_headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka's premium Hybrid SUV segment",
       "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "4f69e415fea4",
+      "primary_headline": "CSE slides sharply as Middle East tensions trigger broad-based selling",
+      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -776,12 +897,6 @@
       "cluster_id": "c4cccb14002e",
       "primary_headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
       "primary_source": "Adaderana Biz English",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "8910801c2bf5",
-      "primary_headline": "Sri Lankan shares slide on broad-based sectoral losses",
-      "primary_source": "Reuters",
       "also_covered_count": 0
     },
     {
@@ -869,6 +984,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 35,
-  "total_clusters": 35
+  "total_stories": 38,
+  "total_clusters": 38
 }
