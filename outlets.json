@@ -17,7 +17,7 @@
     "Business Cafe",
     "Ceylon Business Reporter"
   ],
-  "allowed_domains": [
+  "priority_domains": [
     "ft.lk",
     "dailymirror.lk",
     "island.lk",
@@ -33,6 +33,28 @@
     "lankabusinessnews.com",
     "businesscafe.lk"
   ],
+  "accepted_domains": [
+    "sunday-observer.lk",
+    "sundayobserver.lk",
+    "lakehouse.lk",
+    "ceylonbusiness.lk"
+  ],
+  "international_domains": [
+    "reuters.com",
+    "bbc.com",
+    "aljazeera.com"
+  ],
+  "aggregator_domains": [
+    "magzter.com",
+    "msn.com",
+    "reutersconnect.com",
+    "marketscreener.com",
+    "hdfcskytech.com",
+    "scanx.trade",
+    "news.google.com",
+    "feeds.bloomberg.com"
+  ],
+  "blocked_domains": [],
   "outlet_categories": {
     "daily_newspapers": [
       "Daily FT",
@@ -58,5 +80,12 @@
       "The Morning",
       "Ceylon Today"
     ]
+  },
+  "source_rank_info": {
+    "1": "Priority Sri Lankan business/news outlet",
+    "2": "Acceptable Sri Lankan outlet",
+    "3": "International source with Sri Lanka relevance",
+    "4": "Aggregator/syndication/low priority",
+    "5": "Blocked/spam/unusable"
   }
 }
