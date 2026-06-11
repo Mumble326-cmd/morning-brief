@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-brief.py — Morning Brief generator
+brief.py — Morning Brief generator (improved version)
 Fetches 30 days of Google News per client, validates Sri Lanka relevance,
-applies a hard date cutoff, builds an interactive HTML page.
+applies classification (mention/industry/market_watch/risk_watch),
+detects and groups duplicates, ranks sources, and builds an interactive HTML page.
 
-Run locally:  py brief.py
-Auto-runs:    GitHub Actions, weekdays 6:30 AM Sri Lanka time
+Run locally:  python brief.py
+Auto-runs:    GitHub Actions, daily
 """
 
 import xml.etree.ElementTree as ET
@@ -17,44 +18,18 @@ import re
 import sys
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
+from pathlib import Path
 
-from config import CLIENTS, CONTACTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE
+from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE
+from utils import (
+    load_json, save_json, normalize_text, extract_domain, source_rank,
+    classify_story, cluster_stories, choose_primary_story,
+    save_archive, validate_no_private_contacts
+)
 
 SL_TZ = timezone(timedelta(hours=5, minutes=30))
 
 # ── Fetch ──────────────────────────────────────────────────────────────────────
-
-def get_contact(source):
-    if not source:
-        return None
-    s = source.lower()
-    for key, val in CONTACTS.items():
-        if key in s:
-            return val
-    return None
-
-
-def is_sl_relevant(headline, snippet, sl_signals):
-    """Return True if headline or snippet contains a Sri Lanka signal."""
-    text = (headline + ' ' + snippet).lower()
-    return any(sig in text for sig in sl_signals)
-
-
-def matches_must_include(headline, snippet, must_include):
-    """Return True if headline or snippet contains at least one must_include term."""
-    if not must_include:
-        return True
-    text = (headline + ' ' + snippet).lower()
-    return any(term.lower() in text for term in must_include)
-
-
-def matches_exclude(headline, snippet, exclude):
-    """Return True if headline or snippet contains an excluded term (should be filtered out)."""
-    if not exclude:
-        return False
-    text = (headline + ' ' + snippet).lower()
-    return any(term.lower() in text for term in exclude)
-
 
 def parse_timestamp(pub_date):
     """Return (formatted string, unix epoch ms). Returns (label, 0) on failure."""
@@ -68,20 +43,28 @@ def parse_timestamp(pub_date):
     except Exception:
         return pub_date[:25], 0
 
-
 def clean_title(title, source):
+    """Remove source suffix from title if present."""
     if source and title.endswith(f' - {source}'):
         title = title[:-(len(source) + 3)]
     return html_lib.unescape(title.strip())
 
-
 def clean_html(text):
+    """Remove HTML tags and normalize whitespace."""
     text = re.sub(r'<[^>]+>', ' ', text)
     text = html_lib.unescape(text)
     return re.sub(r'\s+', ' ', text).strip()
 
+def is_sl_relevant(headline, snippet, sl_signals):
+    """Return True if headline or snippet contains a Sri Lanka signal."""
+    text = (headline + ' ' + snippet).lower()
+    return any(sig in text for sig in sl_signals)
 
-def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cutoff_ms, must_include=None, exclude=None):
+def fetch_news(query, client_key, window_days, max_results, sl_signals, cutoff_ms):
+    """Fetch news from Google News RSS."""
+    if not query or not query.strip():
+        return []
+    
     q   = urllib.parse.quote(f'({query}) when:{window_days}d')
     url = f'https://news.google.com/rss/search?q={q}&hl=en-LK&gl=LK&ceid=LK:en'
     sys.stdout.write(f'  → fetching...\n')
@@ -109,10 +92,8 @@ def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cu
 
     seen       = set()
     results    = []
-    disc_sl    = 0   # discarded: not SL relevant
-    disc_old   = 0   # discarded: too old
-    disc_must  = 0   # discarded: missing must_include
-    disc_excl  = 0   # discarded: matched exclude
+    disc_sl    = 0
+    disc_old   = 0
 
     for item in channel.findall('item'):
         link = (item.findtext('link') or '').strip()
@@ -128,55 +109,49 @@ def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cu
 
         date_label, epoch_ms = parse_timestamp(pub)
 
-        # ── Hard date cutoff: reject stories older than WINDOW_DAYS ───────────
+        # Hard date cutoff
         if epoch_ms > 0 and epoch_ms < cutoff_ms:
             disc_old += 1
             continue
 
-        # ── SL relevance gate ─────────────────────────────────────────────────
+        # SL relevance gate
         if not is_sl_relevant(headline, snippet, sl_signals):
             disc_sl += 1
             continue
 
-        # ── Must-include filter (safety gate) ──────────────────────────────────
-        if not matches_must_include(headline, snippet, must_include):
-            disc_must += 1
-            continue
-
-        # ── Exclude filter (noise reduction) ───────────────────────────────────
-        if matches_exclude(headline, snippet, exclude):
-            disc_excl += 1
-            continue
-
-        contact = get_contact(source)
+        domain = extract_domain(link)
 
         results.append({
             'client':   client_key,
-            'mode':     mode,
             'headline': headline,
             'url':      link,
             'source':   source,
+            'domain':   domain,
             'date':     date_label,
             'ts':       epoch_ms,
             'snippet':  snippet,
-            'contact':  list(contact) if contact else None,
         })
 
         if len(results) >= max_results:
             break
 
-    sys.stdout.write(
-        f'  ✓ {len(results)} kept · {disc_sl} not-SL · {disc_old} too-old · {disc_must} no-must · {disc_excl} excluded\n'
-    )
+    sys.stdout.write(f'  ✓ {len(results)} kept · {disc_sl} not-SL · {disc_old} too-old\n')
     sys.stdout.flush()
     return results
 
+# ── Build Query ────────────────────────────────────────────────────────────────
 
-# ── HTML ───────────────────────────────────────────────────────────────────────
+def build_query(terms):
+    """Build Google News query from keyword terms."""
+    if not terms:
+        return ''
+    return ' OR '.join(f'"{t}"' for t in terms)
+
+# ── HTML Rendering ────────────────────────────────────────────────────────────
 
 def h(s):
+    """HTML escape."""
     return html_lib.escape(str(s) if s is not None else '')
-
 
 CSS = """
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -184,6 +159,9 @@ CSS = """
   --ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;
   --rule:#c8bfae;--rule-soft:#ddd4c2;--accent:#1a1a2e;
   --gold:#c9a84c;--muted:#6b6357;--faint:#8a8275;
+  --category-mention:#2d5016;--category-industry:#4a5859;
+  --category-market:#a67c52;--category-risk:#8b0000;
+  --category-lowrel:#bfb3a0;
 }
 html,body{background:var(--paper);color:var(--ink);
   font-family:"IBM Plex Sans",sans-serif;font-size:14px;
@@ -192,7 +170,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
   opacity:.025;z-index:0;
   background-image:radial-gradient(var(--ink) .5px,transparent .5px);
   background-size:4px 4px;}
-.shell{position:relative;z-index:1;max-width:900px;margin:0 auto;
+.shell{position:relative;z-index:1;max-width:920px;margin:0 auto;
   border-left:1px solid var(--rule);border-right:1px solid var(--rule);
   min-height:100vh;background:var(--paper);}
 .masthead{border-bottom:3px double var(--ink);padding:24px 36px 14px;}
@@ -226,49 +204,41 @@ h1 .it{font-style:italic;font-weight:600;}
 .ctrl-right{margin-left:auto;}
 .result-count{font-family:"IBM Plex Mono",monospace;font-size:9px;
   color:var(--faint);letter-spacing:.06em;}
-.pages{padding:8px 36px 60px;}
-.section{padding:20px 0 8px;border-bottom:1px solid var(--rule-soft);}
-.section:last-child{border-bottom:none;}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
-.sec-name{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;}
+.pages{padding:20px 0 60px;}
+.section{padding:20px 0;}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;}
+.sec-name{font-family:"Playfair Display",serif;font-size:26px;font-weight:700;}
 .sec-tag{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold);background:var(--accent);
   padding:2px 7px;border-radius:2px;}
 .sec-rule{flex:1;height:2px;background:var(--ink);align-self:center;}
 .sec-count{font-family:"IBM Plex Mono",monospace;font-size:9px;
   color:var(--faint);text-transform:uppercase;}
-.mode-group{margin-bottom:16px;}
-.mode-label{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--rule-soft);
-  padding-bottom:5px;margin-bottom:8px;}
-.story{padding:11px 0;border-top:1px solid var(--rule-soft);}
-.story:first-child{border-top:none;}
+.story{padding:12px 0;border-bottom:1px solid var(--rule-soft);}
 .story-hl{font-family:"Playfair Display",serif;font-size:17px;font-weight:600;
   line-height:1.3;color:var(--ink);text-decoration:none;display:block;}
 .story-hl:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
 .ext{font-size:11px;color:var(--faint);margin-left:3px;}
-.story-snippet{font-size:13px;color:#2a2a2a;line-height:1.65;margin-top:5px;}
-.story-meta{display:flex;align-items:center;gap:9px;margin-top:7px;flex-wrap:wrap;
+.story-snippet{font-size:13px;color:#2a2a2a;line-height:1.65;margin-top:6px;}
+.story-meta{display:flex;align-items:center;gap:9px;margin-top:8px;flex-wrap:wrap;
   font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.05em;
   color:var(--muted);}
 .src{font-weight:600;color:var(--ink);text-transform:uppercase;}
 .sep{color:var(--rule);}
-.story-contact{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--faint);
-  margin-top:3px;}
-.story-contact a{color:var(--faint);text-decoration:none;}
-.story-contact a:hover{color:var(--accent);}
+.story-tags{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap;}
+.story-tag{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;
+  display:inline-block;}
+.tag-mention{background:var(--category-mention);color:var(--paper);}
+.tag-industry{background:var(--category-industry);color:var(--paper);}
+.tag-market{background:var(--category-market);color:var(--paper);}
+.tag-risk{background:var(--category-risk);color:var(--paper);}
+.tag-lowrel{background:var(--category-lowrel);color:var(--ink);}
+.also-covered{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--faint);
+  margin-top:6px;padding:6px 8px;background:var(--cream);border-left:2px solid var(--gold);}
+.also-covered strong{color:var(--muted);}
 .no-stories{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);
-  padding:8px 0;letter-spacing:.04em;}
-.kw-toggle{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--faint);background:transparent;border:none;
-  cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;
-  margin-bottom:8px;display:block;}
-.kw-toggle:hover{color:var(--accent);}
-.kw-panel{display:none;margin-bottom:10px;padding:10px 12px;background:var(--cream);
-  border:1px solid var(--rule);border-radius:2px;font-family:"IBM Plex Mono",monospace;
-  font-size:10px;color:var(--muted);line-height:1.9;}
-.kw-panel b{color:var(--ink);}
-.kw-hint{color:var(--faint);font-size:9px;margin-top:6px;display:block;}
+  padding:12px 0;letter-spacing:.04em;}
 .foot{padding:16px 36px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;
   font-size:9px;letter-spacing:.06em;color:var(--faint);line-height:1.7;}
 @media(max-width:600px){
@@ -286,20 +256,20 @@ FONTS = (
 )
 
 JS = r"""
-const STORIES   = JSON.parse(document.getElementById('story-data').textContent);
-const CLIENTS   = JSON.parse(document.getElementById('client-data').textContent);
+const STORIES = JSON.parse(document.getElementById('story-data').textContent);
+const CLIENTS = JSON.parse(document.getElementById('client-data').textContent);
 const GENERATED = parseInt(document.getElementById('gen-ts').textContent);
 const MS = { '1d':86400000,'7d':604800000,'14d':1209600000,'30d':2592000000 };
-let state = { win:'7d', client:'all', mode:'all', q:'' };
+let state = { win:'7d', client:'all', category:'all', q:'' };
 
-function setWin(v)    { state.win=v;    syncBtns('win'); }
-function setClient(v) { state.client=v; syncBtns('client'); }
-function setMode(v)   { state.mode=v;   syncBtns('mode'); }
-function setQ(v)      { state.q=v.toLowerCase().trim(); render(); }
+function setWin(v)      { state.win=v;       syncBtns('win'); }
+function setClient(v)   { state.client=v;    syncBtns('client'); }
+function setCategory(v) { state.category=v;  syncBtns('category'); }
+function setQ(v)        { state.q=v.toLowerCase().trim(); render(); }
 
 function syncBtns(dim) {
-  const sel = { win:'[data-win]', client:'[data-cl]', mode:'[data-mode]' }[dim];
-  const attr = { win:'data-win', client:'data-cl', mode:'data-mode' }[dim];
+  const sel = { win:'[data-win]', client:'[data-cl]', category:'[data-cat]' }[dim];
+  const attr = { win:'data-win', client:'data-cl', category:'data-cat' }[dim];
   document.querySelectorAll(sel).forEach(b =>
     b.classList.toggle('active', b.getAttribute(attr) === state[dim])
   );
@@ -315,22 +285,14 @@ function render() {
     if (!sec) return;
     const secVis = state.client==='all' || state.client===cl.key;
     let secCount = 0;
-    ['mentions','industry'].forEach(mode => {
-      const grp = sec.querySelector('.mode-group[data-mode="'+mode+'"]');
-      if (!grp) return;
-      const modeVis = state.mode==='all' || state.mode===mode;
-      grp.style.display = (secVis && modeVis) ? '' : 'none';
-      if (!secVis || !modeVis) return;
-      let n = 0;
-      grp.querySelectorAll('.story').forEach(s => {
-        const ts   = parseInt(s.dataset.ts) || GENERATED;
-        const text = (s.dataset.text||'').toLowerCase();
-        const show = ts >= cutoff && (!q || text.includes(q));
-        s.style.display = show ? '' : 'none';
-        if (show) { n++; secCount++; total++; }
-      });
-      const empty = grp.querySelector('.no-stories');
-      if (empty) empty.style.display = n===0 ? '' : 'none';
+    sec.querySelectorAll('.story').forEach(s => {
+      const ts = parseInt(s.dataset.ts) || GENERATED;
+      const text = (s.dataset.text||'').toLowerCase();
+      const cat = s.dataset.cat || 'mention';
+      const catVis = state.category==='all' || state.category===cat;
+      const show = ts >= cutoff && secVis && catVis && (!q || text.includes(q));
+      s.style.display = show ? '' : 'none';
+      if (show) { secCount++; total++; }
     });
     sec.style.display = (secVis && secCount>0) ? '' : 'none';
     const cnt = sec.querySelector('.sec-count');
@@ -340,92 +302,112 @@ function render() {
   if (rc) rc.textContent = total + (total===1?' story':' stories');
 }
 
-function toggleKw(id) {
-  const p = document.getElementById('kw-'+id);
-  if (p) p.style.display = p.style.display==='none' ? 'block' : 'none';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  syncBtns('win'); syncBtns('client'); syncBtns('mode');
+  syncBtns('win'); syncBtns('client'); syncBtns('category');
 });
 """
 
+def render_story_card(story, cluster_info=None):
+    """Render a single story card HTML."""
+    headline_html = h(story.get('headline', ''))
+    url = story.get('url', '#')
+    source = h(story.get('source', 'Unknown'))
+    date = h(story.get('date', ''))
+    snippet = h(story.get('snippet', ''))
+    category = story.get('category', 'mention')
+    relevance = story.get('relevance_score', 1.0)
+    
+    # Build search text for filtering
+    search_text = html_lib.escape(
+        (story.get('headline', '') + ' ' + story.get('snippet', '') + ' ' + story.get('source', '')).lower()
+    )
+    
+    # Category tag
+    cat_class = f'tag-{category}'
+    cat_display = category.replace('_', ' ').title()
+    
+    # Also covered
+    also_covered_html = ''
+    if cluster_info and cluster_info.get('also_covered_by'):
+        sources = ', '.join(h(s.get('source', 'Source')) for s in cluster_info['also_covered_by'])
+        also_covered_html = f'<div class="also-covered"><strong>Also covered by:</strong> {sources}</div>'
+    
+    return (
+        f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}">'
+        f'<a class="story-hl" href="{h(url)}" target="_blank" rel="noopener">'
+        f'{headline_html} <span class="ext">&#8599;</span></a>'
+        f'<p class="story-snippet">{snippet}</p>'
+        f'<div class="story-meta">'
+        f'<span class="src">{source}</span>'
+        f'<span class="sep">/</span><span>{date}</span>'
+        f'</div>'
+        f'<div class="story-tags"><span class="story-tag {cat_class}">{cat_display}</span></div>'
+        f'{also_covered_html}</div>'
+    )
 
-def build_html(all_stories, generated_at):
+def build_html(clustered_stories, clients_config, generated_at):
+    """Build the HTML output."""
     now_sl   = generated_at.astimezone(SL_TZ)
     dateline = now_sl.strftime('%A, %d %B %Y')
     gen_time = now_sl.strftime('%H:%M SL')
     gen_ts   = int(generated_at.timestamp() * 1000)
 
-    client_js   = json.dumps([{'key': c['key'], 'label': c['label']} for c in CLIENTS])
-    story_json  = json.dumps(all_stories, ensure_ascii=False)
-    client_names = ' &middot; '.join(h(c['label']) for c in CLIENTS)
+    client_js   = json.dumps([{'key': c['key'], 'label': c['label']} for c in clients_config])
+    client_names = ' &middot; '.join(h(c['label']) for c in clients_config)
 
-    # Client filter buttons
+    # Build control buttons
     client_btns = '<button class="ctrl-btn active" data-cl="all" onclick="setClient(\'all\')">All</button>'
-    for c in CLIENTS:
+    for c in clients_config:
         client_btns += (
             f'<button class="ctrl-btn" data-cl="{h(c["key"])}" '
             f'onclick="setClient(\'{h(c["key"])}\');">{h(c["label"])}</button>'
         )
 
-    sections = ''
-    for c in CLIENTS:
-        key    = c['key']
-        m_list = [s for s in all_stories if s['client']==key and s['mode']=='mentions']
-        i_list = [s for s in all_stories if s['client']==key and s['mode']=='industry']
-
-        def stories_html(items):
-            if not items:
-                return '<p class="no-stories" style="display:none;">No coverage found.</p>'
-            out = ''
-            for s in items:
-                ct = ''
-                if s['contact']:
-                    n, e = s['contact']
-                    ct = (f'<p class="story-contact">{h(n)} &middot; '
-                          f'<a href="mailto:{h(e)}">{h(e)}</a></p>')
-                search_text = html_lib.escape(
-                    (s['headline']+' '+s['snippet']+' '+s['source']).lower()
-                )
-                out += (
-                    f'<div class="story" data-ts="{s["ts"]}" data-text="{search_text}">'
-                    f'<a class="story-hl" href="{h(s["url"])}" target="_blank" rel="noopener">'
-                    f'{h(s["headline"])} <span class="ext">&#8599;</span></a>'
-                    f'<p class="story-snippet">{h(s["snippet"])}</p>'
-                    f'<div class="story-meta">'
-                    f'<span class="src">{h(s["source"])}</span>'
-                    f'<span class="sep">/</span><span>{h(s["date"])}</span>'
-                    f'</div>{ct}</div>'
-                )
-            return out
-
-        kw_html = (
-            f'<button class="kw-toggle" onclick="toggleKw(\'{key}\')">'
-            f'view search terms ▾</button>'
-            f'<div class="kw-panel" id="kw-{key}" style="display:none;">'
-            f'<div><b>Mentions:</b> {h(c["mentions_q"])}</div>'
-            f'<div><b>Industry:</b> {h(c["industry_q"])}</div>'
-            f'<span class="kw-hint">Edit in config.py via Claude Code → push → re-run Action</span>'
-            f'</div>'
+    # Build category buttons
+    category_btns = '<button class="ctrl-btn active" data-cat="all" onclick="setCategory(\'all\')">All</button>'
+    for cat in ['mention', 'industry', 'market_watch', 'risk_watch']:
+        cat_display = cat.replace('_', ' ').title()
+        category_btns += (
+            f'<button class="ctrl-btn" data-cat="{h(cat)}" '
+            f'onclick="setCategory(\'{h(cat)}\');">{cat_display}</button>'
         )
 
+    # Build sections
+    sections = ''
+    for client in clients_config:
+        client_key = client['key']
+        client_stories = [s for s in clustered_stories if s['client'] == client_key]
+        
+        if not client_stories:
+            continue
+        
+        stories_html = ''
+        for story in client_stories:
+            stories_html += render_story_card(story, story.get('_cluster_info'))
+        
+        if not stories_html:
+            stories_html = '<p class="no-stories">No stories in this view.</p>'
+        
         sections += (
-            f'<div class="section" id="sec-{key}">'
+            f'<div class="section" id="sec-{client_key}">'
             f'<div class="sec-head">'
-            f'<span class="sec-name">{h(c["label"])}</span>'
-            f'<span class="sec-tag">{h(c["tag"])}</span>'
+            f'<span class="sec-name">{h(client["label"])}</span>'
+            f'<span class="sec-tag">{h(client.get("sector", ""))}</span>'
             f'<span class="sec-rule"></span>'
             f'<span class="sec-count"></span>'
             f'</div>'
-            f'{kw_html}'
-            f'<div class="mode-group" data-mode="mentions">'
-            f'<p class="mode-label">Mentions</p>{stories_html(m_list)}</div>'
-            f'<div class="mode-group" data-mode="industry">'
-            f'<p class="mode-label">Industry</p>{stories_html(i_list)}</div>'
+            f'<div>{stories_html}</div>'
             f'</div>'
         )
-
+    
+    # Flatten clustered stories for JSON embedding
+    flat_stories = []
+    for cs in clustered_stories:
+        flat_story = {k: v for k, v in cs.items() if k != '_cluster_info'}
+        flat_stories.append(flat_story)
+    
+    story_json  = json.dumps(flat_stories, ensure_ascii=False)
+    
     return (
         '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
         '<meta charset="UTF-8"/>\n'
@@ -443,7 +425,7 @@ def build_html(all_stories, generated_at):
         f'<span>{dateline}</span><span class="dot">&bull;</span>'
         f'<span>Generated {gen_time}</span><span class="dot">&bull;</span>'
         f'<span>{client_names}</span></div>\n</header>\n'
-
+        
         '<div class="controls">\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Window</span>\n'
         '  <button class="ctrl-btn" data-win="1d" onclick="setWin(\'1d\')">1d</button>\n'
@@ -454,20 +436,23 @@ def build_html(all_stories, generated_at):
         '  <div class="ctrl-group"><span class="ctrl-label">Client</span>\n'
         f'  {client_btns}</div>\n'
         '  <div class="ctrl-divider"></div>\n'
-        '  <div class="ctrl-group"><span class="ctrl-label">Mode</span>\n'
-        '  <button class="ctrl-btn active" data-mode="all" onclick="setMode(\'all\')">All</button>\n'
-        '  <button class="ctrl-btn" data-mode="mentions" onclick="setMode(\'mentions\')">Mentions</button>\n'
-        '  <button class="ctrl-btn" data-mode="industry" onclick="setMode(\'industry\')">Industry</button></div>\n'
+        '  <div class="ctrl-group"><span class="ctrl-label">Category</span>\n'
+        f'  {category_btns}</div>\n'
         '  <div class="ctrl-divider"></div>\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Search</span>\n'
         '  <input class="ctrl-search" type="text" placeholder="filter stories…" oninput="setQ(this.value)"></div>\n'
         '  <div class="ctrl-right"><span class="result-count" id="result-count"></span></div>\n'
         '</div>\n'
-
+        
         f'<div class="pages" id="pages">{sections}</div>\n'
-        '<div class="foot">Auto-generated &middot; Google News (Sri Lanka) &middot; '
+        '<div class="foot">'
+        'Auto-generated &middot; Google News (Sri Lanka) &middot; '
         f'Fetched last {WINDOW_DAYS} days &middot; SL-validated &middot; '
-        'Verify before circulating</div>\n'
+        'Duplicates grouped &middot; '
+        'Verify before circulating &middot; '
+        'No media contacts stored &middot; '
+        '<a href="data/latest.json" style="color:var(--faint);text-decoration:none;">Raw data</a>'
+        '</div>\n'
         '</div>\n'
         f'<script id="story-data" type="application/json">{story_json}</script>\n'
         f'<script id="client-data" type="application/json">{client_js}</script>\n'
@@ -476,137 +461,125 @@ def build_html(all_stories, generated_at):
         '</body>\n</html>\n'
     )
 
-
-# ── Keywords ──────────────────────────────────────────────────────────────────
-
-def load_keywords():
-    import os
-    if not os.path.exists('keywords.json'):
-        return None
-    with open('keywords.json', encoding='utf-8') as f:
-        return json.load(f)
-
-def build_query(terms, exclude=None):
-    if not terms:
-        return ''
-    q = ' OR '.join(f'"{t}"' for t in terms)
-    if exclude:
-        q += ' ' + ' '.join(f'-"{e}"' for e in exclude)
-    return q
-
-def get_keyword_config(keywords_data, client_key, use_new_structure=True):
-    """
-    Extract keyword configuration for a client.
-    Supports both old structure (mentions/industry) and new structure 
-    (direct_mentions/industry_watch with must_include/exclude/priority_sources).
-    
-    Returns: {
-        'mentions_q': query string,
-        'industry_q': query string,
-        'direct_mentions': list,
-        'industry_watch': list,
-        'must_include': list,
-        'exclude': list,
-        'priority_sources': list
-    }
-    """
-    if client_key not in keywords_data:
-        return None
-    
-    ck = keywords_data[client_key]
-    config = {}
-    
-    # ── New structure (preferred) ──────────────────────────────────────────────
-    if use_new_structure and 'direct_mentions' in ck:
-        direct_mentions = ck.get('direct_mentions', [])
-        industry_watch = ck.get('industry_watch', [])
-        must_include = ck.get('must_include', [])
-        exclude = ck.get('exclude', [])
-        priority_sources = ck.get('priority_sources', [])
-        
-        config['direct_mentions'] = direct_mentions
-        config['industry_watch'] = industry_watch
-        config['must_include'] = must_include
-        config['exclude'] = exclude
-        config['priority_sources'] = priority_sources
-        
-        # Build query strings for UI display
-        config['mentions_q'] = build_query(direct_mentions, exclude)
-        config['industry_q'] = build_query(industry_watch, exclude)
-        
-    # ── Fallback: Old structure ────────────────────────────────────────────────
-    else:
-        mentions = ck.get('mentions', [])
-        industry = ck.get('industry', [])
-        excl_m = ck.get('exclude', [])
-        excl_i = ck.get('industry_exclude', [])
-        
-        config['direct_mentions'] = mentions
-        config['industry_watch'] = industry
-        config['must_include'] = []
-        config['exclude'] = excl_m + excl_i
-        config['priority_sources'] = []
-        
-        config['mentions_q'] = build_query(mentions, excl_m)
-        config['industry_q'] = build_query(industry, excl_i)
-    
-    return config
-
-
-# ── Main ───────────────────────────────────────────────────────────────────────
+# ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-    print('Morning Brief — starting\n')
+    print('Morning Brief — Starting\n')
 
     generated_at = datetime.now(timezone.utc)
-    # Hard cutoff: discard stories published before this timestamp
     cutoff_dt    = generated_at - timedelta(days=WINDOW_DAYS)
     cutoff_ms    = int(cutoff_dt.timestamp() * 1000)
 
-    kw = load_keywords()
-    if kw:
-        for c in CLIENTS:
-            if c['key'] in kw:
-                config = get_keyword_config(kw, c['key'])
-                if config:
-                    c['mentions_q'] = config['mentions_q']
-                    c['industry_q'] = config['industry_q']
-                    c['direct_mentions'] = config['direct_mentions']
-                    c['industry_watch'] = config['industry_watch']
-                    c['must_include'] = config['must_include']
-                    c['exclude'] = config['exclude']
-                    c['priority_sources'] = config['priority_sources']
-        print('Keywords loaded from keywords.json (new structure)\n')
+    # Load configurations
+    keywords = load_json('keywords.json', {})
+    outlets_config = load_json('outlets.json', {})
 
     all_stories = []
 
-    for c in CLIENTS:
-        print(f'[{c["label"]}] Mentions')
-        all_stories.extend(fetch_news(
-            c.get('mentions_q', ''), c['key'], 'mentions',
-            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms,
-            must_include=c.get('must_include', []),
-            exclude=c.get('exclude', [])
-        ))
-        print(f'[{c["label"]}] Industry')
-        all_stories.extend(fetch_news(
-            c.get('industry_q', ''), c['key'], 'industry',
-            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms,
-            must_include=c.get('must_include', []),
-            exclude=c.get('exclude', [])
-        ))
+    # ── Fetch all stories ──────────────────────────────────────────────────────
+    for client in CLIENTS:
+        client_key = client['key']
+        client_config = keywords.get(client_key, {})
+        
+        if not client_config:
+            print(f'[{client["label"]}] Skipped (no config)')
+            continue
+        
+        # Fetch direct mentions
+        print(f'[{client["label"]}] Direct Mentions')
+        direct_mentions = client_config.get('direct_mentions', [])
+        query = build_query(direct_mentions)
+        if query:
+            stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            all_stories.extend(stories)
+        
+        # Fetch industry watch
+        print(f'[{client["label"]}] Industry')
+        industry_watch = client_config.get('industry_watch', [])
+        query = build_query(industry_watch)
+        if query:
+            stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            all_stories.extend(stories)
+        
+        # Fetch market watch
+        print(f'[{client["label"]}] Market Watch')
+        market_watch = client_config.get('market_watch', [])
+        query = build_query(market_watch)
+        if query:
+            stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES * 2, SL_SIGNALS, cutoff_ms)
+            all_stories.extend(stories)
+        
+        # Fetch risk watch
+        print(f'[{client["label"]}] Risk Watch')
+        risk_watch = client_config.get('risk_watch', [])
+        query = build_query(risk_watch)
+        if query:
+            stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            all_stories.extend(stories)
+        
         print()
 
-    print(f'Total stories: {len(all_stories)}')
-    print('Building HTML...')
-    page = build_html(all_stories, generated_at)
+    print(f'Total stories before processing: {len(all_stories)}')
 
+    # ── Classify stories ──────────────────────────────────────────────────────
+    print('Classifying stories...')
+    for story in all_stories:
+        client_key = story['client']
+        client_config = keywords.get(client_key, {})
+        category, relevance, matched = classify_story(story, client_config, outlets_config)
+        story['category'] = category
+        story['relevance_score'] = relevance
+        story['matched_terms'] = matched
+        story['source_rank'] = source_rank(story.get('domain', ''), outlets_config)
+
+    # ── Remove low relevance stories (keep in JSON but hide from main view) ────
+    for story in all_stories:
+        story['is_low_relevance'] = story['category'] == 'low_relevance'
+
+    # ── Cluster duplicates ────────────────────────────────────────────────────
+    print('Grouping duplicate stories...')
+    clusters = cluster_stories(all_stories)
+    
+    clustered_stories = []
+    for cluster in clusters:
+        primary = cluster['primary']
+        
+        # Enhance primary with cluster info
+        primary['_cluster_info'] = cluster
+        primary['cluster_id'] = cluster['cluster_id']
+        primary['is_primary_in_cluster'] = True
+        
+        clustered_stories.append(primary)
+
+    # Sort by relevance and date
+    clustered_stories.sort(key=lambda s: (-s.get('relevance_score', 0), -s.get('ts', 0)))
+
+    print(f'Total stories after clustering: {len(clustered_stories)}')
+    
+    # ── Generate HTML ────────────────────────────────────────────────────────
+    print('Building HTML...')
+    page = build_html(clustered_stories, CLIENTS, generated_at)
+
+    # ── Validation ────────────────────────────────────────────────────────────
+    is_safe, messages = validate_no_private_contacts(page)
+    for msg in messages:
+        print(f'  {msg}')
+    if not is_safe:
+        print('  ✗ Privacy check FAILED')
+        sys.exit(1)
+
+    # ── Save output ────────────────────────────────────────────────────────────
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(page)
 
+    # ── Save archive ────────────────────────────────────────────────────────────
+    print('Saving archive...')
+    save_archive(clustered_stories, clusters)
+
     print(f'Done — {OUTPUT_FILE} written ({len(page):,} bytes)')
-    print(f'Open {OUTPUT_FILE} in a browser to preview locally.')
+    print(f'Done — data/latest.json and data/archive/ updated')
+    print()
 
 
 if __name__ == '__main__':
