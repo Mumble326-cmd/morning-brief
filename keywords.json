@@ -2,24 +2,12 @@
   "hnb": {
     "label": "HNB",
     "mentions": [
-      "HNB PLC",
-      "HNB Sri Lanka",
-      "Hatton National Bank",
+      "HNB",
+      "HNB Life",
       "HNB Assurance",
       "HNB Finance",
-      "HNB DIMO",
-      "HNB George Steuart",
-      "HNB David Pieris",
-      "HNB 447 Luna"
-    ],
-    "exclude": [
-      "stocks close down",
-      "indices close in red",
-      "indices continue to close",
-      "market turnover",
-      "share price",
-      "capital goods lead turnover",
-      "Lyceum Nuwara Eliya"
+      "HNB PLC",
+      "Hatton National Bank"
     ],
     "industry": [
       "CBSL",
@@ -29,39 +17,33 @@
       "NDB Bank",
       "Seylan Bank",
       "Bank of Ceylon",
-      "DFCC Bank",
-      "People's Bank Sri Lanka",
+      "banking sector Sri Lanka",
+      "bank interest rates Sri Lanka",
       "monetary policy Sri Lanka"
-    ],
-    "industry_exclude": [
-      "stocks close down",
-      "indices close in red",
-      "market turnover",
-      "capital goods lead turnover"
     ]
   },
   "hayleys": {
     "label": "Hayleys",
     "mentions": [
+      "Hayleys",
       "Hayleys PLC",
-      "Hayleys Sri Lanka",
+      "Hayleys Fabric",
       "Hayleys Mobility",
-      "Hayleys Fentons",
-      "Hayleys Agriculture",
       "Hayleys Plantations",
-      "Hayleys Leisure",
       "Hayleys Advantis",
-      "Haycarb Sri Lanka",
-      "Dipped Products Sri Lanka"
+      "Hayleys Solar",
+      "Hayleys Eco Solutions",
+      "Hayleys Lifesciences",
+      "Haycarb",
+      "Talawakelle Tea Estates"
     ],
     "industry": [
-      "John Keells Holdings",
       "Aitken Spence",
-      "Hemas Holdings",
-      "Softlogic Holdings",
-      "Melstacorp",
-      "Richard Pieris Sri Lanka",
-      "Expolanka Sri Lanka"
+      "John Keells Holdings",
+      "diversified conglomerate Sri Lanka",
+      "Singer Sri Lanka",
+      "sustainability award Sri Lanka",
+      "plantation sector Sri Lanka"
     ]
   },
   "mas": {
