@@ -40,6 +40,22 @@ def is_sl_relevant(headline, snippet, sl_signals):
     return any(sig in text for sig in sl_signals)
 
 
+def matches_must_include(headline, snippet, must_include):
+    """Return True if headline or snippet contains at least one must_include term."""
+    if not must_include:
+        return True
+    text = (headline + ' ' + snippet).lower()
+    return any(term.lower() in text for term in must_include)
+
+
+def matches_exclude(headline, snippet, exclude):
+    """Return True if headline or snippet contains an excluded term (should be filtered out)."""
+    if not exclude:
+        return False
+    text = (headline + ' ' + snippet).lower()
+    return any(term.lower() in text for term in exclude)
+
+
 def parse_timestamp(pub_date):
     """Return (formatted string, unix epoch ms). Returns (label, 0) on failure."""
     if not pub_date:
@@ -65,7 +81,7 @@ def clean_html(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 
-def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cutoff_ms):
+def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cutoff_ms, must_include=None, exclude=None):
     q   = urllib.parse.quote(f'({query}) when:{window_days}d')
     url = f'https://news.google.com/rss/search?q={q}&hl=en-LK&gl=LK&ceid=LK:en'
     sys.stdout.write(f'  → fetching...\n')
@@ -95,6 +111,8 @@ def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cu
     results    = []
     disc_sl    = 0   # discarded: not SL relevant
     disc_old   = 0   # discarded: too old
+    disc_must  = 0   # discarded: missing must_include
+    disc_excl  = 0   # discarded: matched exclude
 
     for item in channel.findall('item'):
         link = (item.findtext('link') or '').strip()
@@ -120,6 +138,16 @@ def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cu
             disc_sl += 1
             continue
 
+        # ── Must-include filter (safety gate) ──────────────────────────────────
+        if not matches_must_include(headline, snippet, must_include):
+            disc_must += 1
+            continue
+
+        # ── Exclude filter (noise reduction) ───────────────────────────────────
+        if matches_exclude(headline, snippet, exclude):
+            disc_excl += 1
+            continue
+
         contact = get_contact(source)
 
         results.append({
@@ -138,7 +166,7 @@ def fetch_news(query, client_key, mode, window_days, max_results, sl_signals, cu
             break
 
     sys.stdout.write(
-        f'  ✓ {len(results)} kept · {disc_sl} not-SL · {disc_old} too-old\n'
+        f'  ✓ {len(results)} kept · {disc_sl} not-SL · {disc_old} too-old · {disc_must} no-must · {disc_excl} excluded\n'
     )
     sys.stdout.flush()
     return results
@@ -466,6 +494,64 @@ def build_query(terms, exclude=None):
         q += ' ' + ' '.join(f'-"{e}"' for e in exclude)
     return q
 
+def get_keyword_config(keywords_data, client_key, use_new_structure=True):
+    """
+    Extract keyword configuration for a client.
+    Supports both old structure (mentions/industry) and new structure 
+    (direct_mentions/industry_watch with must_include/exclude/priority_sources).
+    
+    Returns: {
+        'mentions_q': query string,
+        'industry_q': query string,
+        'direct_mentions': list,
+        'industry_watch': list,
+        'must_include': list,
+        'exclude': list,
+        'priority_sources': list
+    }
+    """
+    if client_key not in keywords_data:
+        return None
+    
+    ck = keywords_data[client_key]
+    config = {}
+    
+    # ── New structure (preferred) ──────────────────────────────────────────────
+    if use_new_structure and 'direct_mentions' in ck:
+        direct_mentions = ck.get('direct_mentions', [])
+        industry_watch = ck.get('industry_watch', [])
+        must_include = ck.get('must_include', [])
+        exclude = ck.get('exclude', [])
+        priority_sources = ck.get('priority_sources', [])
+        
+        config['direct_mentions'] = direct_mentions
+        config['industry_watch'] = industry_watch
+        config['must_include'] = must_include
+        config['exclude'] = exclude
+        config['priority_sources'] = priority_sources
+        
+        # Build query strings for UI display
+        config['mentions_q'] = build_query(direct_mentions, exclude)
+        config['industry_q'] = build_query(industry_watch, exclude)
+        
+    # ── Fallback: Old structure ────────────────────────────────────────────────
+    else:
+        mentions = ck.get('mentions', [])
+        industry = ck.get('industry', [])
+        excl_m = ck.get('exclude', [])
+        excl_i = ck.get('industry_exclude', [])
+        
+        config['direct_mentions'] = mentions
+        config['industry_watch'] = industry
+        config['must_include'] = []
+        config['exclude'] = excl_m + excl_i
+        config['priority_sources'] = []
+        
+        config['mentions_q'] = build_query(mentions, excl_m)
+        config['industry_q'] = build_query(industry, excl_i)
+    
+    return config
+
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
@@ -482,27 +568,33 @@ def main():
     if kw:
         for c in CLIENTS:
             if c['key'] in kw:
-                ck       = kw[c['key']]
-                excl_m   = ck.get('exclude', [])
-                excl_i   = ck.get('industry_exclude', [])
-                if 'mentions' in ck:
-                    c['mentions_q'] = build_query(ck['mentions'], excl_m)
-                if 'industry' in ck:
-                    c['industry_q'] = build_query(ck['industry'], excl_i)
-        print('Keywords loaded from keywords.json')
+                config = get_keyword_config(kw, c['key'])
+                if config:
+                    c['mentions_q'] = config['mentions_q']
+                    c['industry_q'] = config['industry_q']
+                    c['direct_mentions'] = config['direct_mentions']
+                    c['industry_watch'] = config['industry_watch']
+                    c['must_include'] = config['must_include']
+                    c['exclude'] = config['exclude']
+                    c['priority_sources'] = config['priority_sources']
+        print('Keywords loaded from keywords.json (new structure)\n')
 
     all_stories = []
 
     for c in CLIENTS:
         print(f'[{c["label"]}] Mentions')
         all_stories.extend(fetch_news(
-            c['mentions_q'], c['key'], 'mentions',
-            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms
+            c.get('mentions_q', ''), c['key'], 'mentions',
+            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms,
+            must_include=c.get('must_include', []),
+            exclude=c.get('exclude', [])
         ))
         print(f'[{c["label"]}] Industry')
         all_stories.extend(fetch_news(
-            c['industry_q'], c['key'], 'industry',
-            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms
+            c.get('industry_q', ''), c['key'], 'industry',
+            WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms,
+            must_include=c.get('must_include', []),
+            exclude=c.get('exclude', [])
         ))
         print()
 
