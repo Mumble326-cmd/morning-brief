@@ -449,6 +449,21 @@ def build_html(all_stories, generated_at):
     )
 
 
+# ── Keywords ──────────────────────────────────────────────────────────────────
+
+def load_keywords():
+    import os
+    if not os.path.exists('keywords.json'):
+        return None
+    with open('keywords.json', encoding='utf-8') as f:
+        return json.load(f)
+
+def build_query(terms):
+    if not terms:
+        return ''
+    return ' OR '.join(f'"{t}"' for t in terms)
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -459,6 +474,16 @@ def main():
     # Hard cutoff: discard stories published before this timestamp
     cutoff_dt    = generated_at - timedelta(days=WINDOW_DAYS)
     cutoff_ms    = int(cutoff_dt.timestamp() * 1000)
+
+    kw = load_keywords()
+    if kw:
+        for c in CLIENTS:
+            if c['key'] in kw:
+                if 'mentions' in kw[c['key']]:
+                    c['mentions_q'] = build_query(kw[c['key']]['mentions'])
+                if 'industry' in kw[c['key']]:
+                    c['industry_q'] = build_query(kw[c['key']]['industry'])
+        print('Keywords loaded from keywords.json')
 
     all_stories = []
 

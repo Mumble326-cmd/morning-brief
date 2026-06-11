@@ -1,0 +1,97 @@
+{
+  "hnb": {
+    "label": "HNB",
+    "mentions": [
+      "HNB PLC",
+      "HNB Sri Lanka",
+      "Hatton National Bank"
+    ],
+    "industry": [
+      "CBSL",
+      "Central Bank of Sri Lanka",
+      "Sampath Bank",
+      "Commercial Bank of Ceylon",
+      "NDB Bank",
+      "Seylan Bank",
+      "Bank of Ceylon",
+      "banking sector Sri Lanka",
+      "bank interest rates Sri Lanka",
+      "monetary policy Sri Lanka"
+    ]
+  },
+  "hayleys": {
+    "label": "Hayleys",
+    "mentions": [
+      "Hayleys Sri Lanka",
+      "Hayleys PLC"
+    ],
+    "industry": [
+      "Hayleys Fabric",
+      "Hayleys Advantis",
+      "Dipped Products",
+      "Haycarb",
+      "Hayleys Agriculture",
+      "Singer Sri Lanka",
+      "Hayleys Leisure",
+      "Hayleys Fentons"
+    ]
+  },
+  "mas": {
+    "label": "MAS",
+    "mentions": [
+      "MAS Holdings",
+      "MAS Holdings Sri Lanka"
+    ],
+    "industry": [
+      "Brandix",
+      "Hirdaramani",
+      "apparel exports Sri Lanka",
+      "garment sector Sri Lanka",
+      "GSP+ Sri Lanka",
+      "JAAF Sri Lanka"
+    ]
+  },
+  "byd": {
+    "label": "BYD",
+    "mentions": [
+      "BYD Sri Lanka"
+    ],
+    "industry": [
+      "electric vehicle Sri Lanka",
+      "EV policy Sri Lanka",
+      "Denza Sri Lanka",
+      "MG Sri Lanka",
+      "EV charging Sri Lanka",
+      "hybrid vehicle Sri Lanka"
+    ]
+  },
+  "mifl": {
+    "label": "MIFL",
+    "mentions": [
+      "Mahindra Ideal Finance",
+      "MIFL Sri Lanka"
+    ],
+    "industry": [
+      "licensed finance company Sri Lanka",
+      "leasing company Sri Lanka",
+      "People's Leasing Sri Lanka",
+      "Central Finance Sri Lanka",
+      "LB Finance Sri Lanka",
+      "Senkadagala Finance"
+    ]
+  },
+  "pcc": {
+    "label": "Port City Colombo",
+    "mentions": [
+      "Port City Colombo",
+      "Colombo Port City"
+    ],
+    "industry": [
+      "CHEC Port City",
+      "CHEC Sri Lanka",
+      "special economic zone Sri Lanka",
+      "Colombo real estate",
+      "foreign investment Colombo"
+    ]
+  }
+}
