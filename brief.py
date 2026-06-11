@@ -492,6 +492,8 @@ def main():
         query = build_query(direct_mentions)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            for s in stories:
+                s['fetch_type'] = 'direct_mentions'
             all_stories.extend(stories)
         
         # Fetch industry watch
@@ -500,6 +502,8 @@ def main():
         query = build_query(industry_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            for s in stories:
+                s['fetch_type'] = 'industry_watch'
             all_stories.extend(stories)
         
         # Fetch market watch
@@ -508,6 +512,8 @@ def main():
         query = build_query(market_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES * 2, SL_SIGNALS, cutoff_ms)
+            for s in stories:
+                s['fetch_type'] = 'market_watch'
             all_stories.extend(stories)
         
         # Fetch risk watch
@@ -516,6 +522,8 @@ def main():
         query = build_query(risk_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+            for s in stories:
+                s['fetch_type'] = 'risk_watch'
             all_stories.extend(stories)
         
         print()
@@ -527,7 +535,8 @@ def main():
     for story in all_stories:
         client_key = story['client']
         client_config = keywords.get(client_key, {})
-        category, relevance, matched = classify_story(story, client_config, outlets_config)
+        fetch_type = story.get('fetch_type', 'direct_mentions')  # default to direct_mentions
+        category, relevance, matched = classify_story(story, client_config, outlets_config, fetch_type_hint=fetch_type)
         story['category'] = category
         story['relevance_score'] = relevance
         story['matched_terms'] = matched

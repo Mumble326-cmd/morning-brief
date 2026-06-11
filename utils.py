@@ -86,11 +86,14 @@ def source_rank(domain, outlets_config):
 
 # ── Story Classification ──────────────────────────────────────────────────────
 
-def classify_story(story, client_config, outlets_config):
+def classify_story(story, client_config, outlets_config, fetch_type_hint=None):
     """
     Classify a story based on keywords and rules.
     Returns: (category, relevance_score, matched_terms)
     Categories: 'mention', 'industry', 'market_watch', 'risk_watch', 'low_relevance'
+    
+    fetch_type_hint: If provided ('direct_mentions', 'industry_watch', 'market_watch', 'risk_watch'),
+    uses it as primary classification hint but can override based on content.
     """
     headline = (story.get('headline') or '').lower()
     snippet = (story.get('snippet') or '').lower()
@@ -100,48 +103,61 @@ def classify_story(story, client_config, outlets_config):
     relevance_score = 0.0
     matched_terms = []
     
-    # ── Check risk_watch first (high impact) ───────────────────────────────────
-    risk_terms = client_config.get('risk_watch', [])
-    for term in risk_terms:
-        if term.lower() in text:
-            matched_terms.append(term)
-            category = 'risk_watch'
-            relevance_score = 0.8
-            break
-    
-    # ── Check direct_mentions ─────────────────────────────────────────────────
-    if category == 'low_relevance':
-        mention_terms = client_config.get('direct_mentions', [])
-        for term in mention_terms:
-            if term.lower() in text:
-                matched_terms.append(term)
-                category = 'mention'
-                relevance_score = 1.0
-                break
-    
-    # ── Check market_watch (for certain patterns) ─────────────────────────────
-    if category == 'low_relevance':
+    # If fetched via market_watch or risk_watch query, preserve that classification
+    # unless content contradicts it
+    if fetch_type_hint == 'market_watch':
         market_terms = client_config.get('market_watch', [])
         for term in market_terms:
             if term.lower() in text:
                 matched_terms.append(term)
                 category = 'market_watch'
                 relevance_score = 0.5
-                break
+                return category, relevance_score, matched_terms
     
-    # ── Check industry_watch ──────────────────────────────────────────────────
-    if category == 'low_relevance':
-        industry_terms = client_config.get('industry_watch', [])
-        for term in industry_terms:
+    elif fetch_type_hint == 'risk_watch':
+        risk_terms = client_config.get('risk_watch', [])
+        for term in risk_terms:
             if term.lower() in text:
                 matched_terms.append(term)
-                category = 'industry'
-                relevance_score = 0.7
-                break
+                category = 'risk_watch'
+                relevance_score = 0.8
+                return category, relevance_score, matched_terms
     
-    # ── If still low_relevance, check if it's relevant at all ────────────────
-    if category == 'low_relevance' and matched_terms:
-        relevance_score = 0.3
+    # ── Check direct_mentions (highest priority) ───────────────────────────────
+    mention_terms = client_config.get('direct_mentions', [])
+    for term in mention_terms:
+        if term.lower() in text:
+            matched_terms.append(term)
+            category = 'mention'
+            relevance_score = 1.0
+            return category, relevance_score, matched_terms
+    
+    # ── Check industry_watch (if not a mention) ──────────────────────────────────
+    industry_terms = client_config.get('industry_watch', [])
+    for term in industry_terms:
+        if term.lower() in text:
+            matched_terms.append(term)
+            category = 'industry'
+            relevance_score = 0.7
+            return category, relevance_score, matched_terms
+    
+    # ── Check market_watch (if not mention or industry) ───────────────────────────
+    market_terms = client_config.get('market_watch', [])
+    for term in market_terms:
+        if term.lower() in text:
+            matched_terms.append(term)
+            category = 'market_watch'
+            relevance_score = 0.5
+            return category, relevance_score, matched_terms
+    
+    # ── Check risk_watch (independent) ──────────────────────────────────────────
+    risk_terms = client_config.get('risk_watch', [])
+    for term in risk_terms:
+        if term.lower() in text:
+            matched_terms.append(term)
+            category = 'risk_watch'
+            relevance_score = 0.8
+            return category, relevance_score, matched_terms
     
     return category, relevance_score, matched_terms
 
