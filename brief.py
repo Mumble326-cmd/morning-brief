@@ -458,10 +458,13 @@ def load_keywords():
     with open('keywords.json', encoding='utf-8') as f:
         return json.load(f)
 
-def build_query(terms):
+def build_query(terms, exclude=None):
     if not terms:
         return ''
-    return ' OR '.join(f'"{t}"' for t in terms)
+    q = ' OR '.join(f'"{t}"' for t in terms)
+    if exclude:
+        q += ' ' + ' '.join(f'-"{e}"' for e in exclude)
+    return q
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -479,10 +482,13 @@ def main():
     if kw:
         for c in CLIENTS:
             if c['key'] in kw:
-                if 'mentions' in kw[c['key']]:
-                    c['mentions_q'] = build_query(kw[c['key']]['mentions'])
-                if 'industry' in kw[c['key']]:
-                    c['industry_q'] = build_query(kw[c['key']]['industry'])
+                ck       = kw[c['key']]
+                excl_m   = ck.get('exclude', [])
+                excl_i   = ck.get('industry_exclude', [])
+                if 'mentions' in ck:
+                    c['mentions_q'] = build_query(ck['mentions'], excl_m)
+                if 'industry' in ck:
+                    c['industry_q'] = build_query(ck['industry'], excl_i)
         print('Keywords loaded from keywords.json')
 
     all_stories = []

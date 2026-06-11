@@ -6,7 +6,20 @@
       "HNB Sri Lanka",
       "Hatton National Bank",
       "HNB Assurance",
-      "HNB Finance"
+      "HNB Finance",
+      "HNB DIMO",
+      "HNB George Steuart",
+      "HNB David Pieris",
+      "HNB 447 Luna"
+    ],
+    "exclude": [
+      "stocks close down",
+      "indices close in red",
+      "indices continue to close",
+      "market turnover",
+      "share price",
+      "capital goods lead turnover",
+      "Lyceum Nuwara Eliya"
     ],
     "industry": [
       "CBSL",
@@ -18,9 +31,13 @@
       "Bank of Ceylon",
       "DFCC Bank",
       "People's Bank Sri Lanka",
-      "banking sector Sri Lanka",
-      "bank interest rates Sri Lanka",
       "monetary policy Sri Lanka"
+    ],
+    "industry_exclude": [
+      "stocks close down",
+      "indices close in red",
+      "market turnover",
+      "capital goods lead turnover"
     ]
   },
   "hayleys": {
