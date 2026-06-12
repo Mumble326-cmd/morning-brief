@@ -20,11 +20,12 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE
+from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE, DIRECT_FEEDS
 from utils import (
     load_json, save_json, normalize_text, extract_domain, source_rank,
     classify_story, cluster_stories, choose_primary_story,
-    save_archive, validate_no_private_contacts
+    save_archive, validate_no_private_contacts,
+    load_previous_story_keys, load_trend_counts
 )
 
 SL_TZ = timezone(timedelta(hours=5, minutes=30))
@@ -139,6 +140,73 @@ def fetch_news(query, client_key, window_days, max_results, sl_signals, cutoff_m
     sys.stdout.flush()
     return results
 
+# ── Direct outlet feeds ────────────────────────────────────────────────────────
+
+# Some outlets (EconomyNext) 403 the default bot UA
+BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+              '(KHTML, like Gecko) Chrome/126.0 Safari/537.36')
+
+def fetch_outlet_feed(feed, cutoff_ms):
+    """Fetch a direct outlet RSS 2.0 feed. Returns raw items (no client yet)."""
+    sys.stdout.write(f'  [{feed["source"]}] fetching...\n')
+    sys.stdout.flush()
+    try:
+        req = urllib.request.Request(feed['url'], headers={
+            'User-Agent': BROWSER_UA,
+            'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
+        })
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            content = resp.read().decode('utf-8', errors='replace')
+        root = ET.fromstring(content)
+    except Exception as e:
+        sys.stdout.write(f'    ✗ {e}\n'); sys.stdout.flush()
+        return []
+
+    items = []
+    for item in root.findall('.//item'):
+        link     = (item.findtext('link') or '').strip()
+        headline = html_lib.unescape((item.findtext('title') or '').strip())
+        if not link or not headline:
+            continue
+        snippet = clean_html(item.findtext('description') or '')
+        # WordPress feeds append "The post X appeared first on Y."
+        snippet = re.sub(r'The post .{0,200} appeared first on .*$', '', snippet).strip()[:320]
+        date_label, epoch_ms = parse_timestamp(item.findtext('pubDate') or '')
+        if epoch_ms > 0 and epoch_ms < cutoff_ms:
+            continue
+        items.append({
+            'headline': headline,
+            'url':      link,
+            'source':   feed['source'],
+            'domain':   extract_domain(link),
+            'date':     date_label,
+            'ts':       epoch_ms,
+            'snippet':  snippet,
+        })
+    return items
+
+def match_feed_items_to_clients(items, keywords):
+    """
+    Assign direct-feed items to every client whose direct_mentions (or
+    risk_watch) terms appear in the headline/snippet. These are domestic
+    outlets, so the SL-signal gate is skipped.
+    """
+    matched = []
+    for item in items:
+        text = (item['headline'] + ' ' + item['snippet']).lower()
+        for client_key, cfg in keywords.items():
+            fetch_type = None
+            if any(t.lower() in text for t in cfg.get('direct_mentions', [])):
+                fetch_type = 'direct_mentions'
+            elif any(t.lower() in text for t in cfg.get('risk_watch', [])):
+                fetch_type = 'risk_watch'
+            if fetch_type:
+                story = dict(item)
+                story['client'] = client_key
+                story['fetch_type'] = fetch_type
+                matched.append(story)
+    return matched
+
 # ── Build Query ────────────────────────────────────────────────────────────────
 
 def build_query(terms, context=None):
@@ -211,9 +279,28 @@ h1 .it{font-style:italic;font-weight:600;}
 .ctrl-right{margin-left:auto;}
 .result-count{font-family:"IBM Plex Mono",monospace;font-size:9px;
   color:var(--faint);letter-spacing:.06em;}
+.exec{background:var(--cream);border-bottom:1px solid var(--rule);padding:14px 36px 16px;}
+.exec-label{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+.exec-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.exec-item{display:flex;gap:10px;align-items:baseline;}
+.exec-num{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);
+  font-size:14px;width:13px;flex-shrink:0;text-align:right;}
+.exec-client{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--accent);color:var(--paper);
+  padding:2px 6px;border-radius:2px;flex-shrink:0;}
+.exec-hl{font-family:"Playfair Display",serif;font-size:14.5px;font-weight:600;
+  color:var(--ink);text-decoration:none;line-height:1.3;}
+.exec-hl:hover{text-decoration:underline;text-underline-offset:3px;}
+.exec-meta{font-family:"IBM Plex Mono",monospace;font-size:8.5px;color:var(--faint);
+  flex-shrink:0;white-space:nowrap;}
 .pages{padding:20px 0 60px;}
 .section{padding:20px 0;}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;}
+.sec-trend{display:inline-flex;align-items:center;gap:6px;align-self:center;
+  font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--faint);
+  letter-spacing:.05em;white-space:nowrap;}
+.sec-trend .spark{color:var(--category-market);display:block;}
 .sec-name{font-family:"Playfair Display",serif;font-size:26px;font-weight:700;}
 .sec-tag{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold);background:var(--accent);
@@ -241,6 +328,7 @@ h1 .it{font-style:italic;font-weight:600;}
 .tag-market{background:var(--category-market);color:var(--paper);}
 .tag-risk{background:var(--category-risk);color:var(--paper);}
 .tag-lowrel{background:var(--category-lowrel);color:var(--ink);}
+.tag-new{background:var(--accent);color:var(--gold);}
 .pub-chips{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:6px;}
 .pub-chips-label{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--faint);}
@@ -254,8 +342,9 @@ h1 .it{font-style:italic;font-weight:600;}
   font-size:9px;letter-spacing:.06em;color:var(--faint);line-height:1.7;}
 @media(max-width:600px){
   h1{font-size:30px;}
-  .pages,.masthead,.controls,.foot{padding-left:18px;padding-right:18px;}
+  .pages,.masthead,.controls,.foot,.exec{padding-left:18px;padding-right:18px;}
   .ctrl-search{width:110px;}
+  .exec-meta{display:none;}
 }
 """
 
@@ -797,6 +886,51 @@ function downloadClips() {
 }
 """
 
+def sparkline_svg(values, width=84, height=20):
+    """Inline SVG sparkline for a list of daily story counts."""
+    if not values:
+        return ''
+    vmax = max(max(values), 1)
+    if len(values) == 1:
+        values = values * 2  # flat line for a single data point
+    step = width / (len(values) - 1)
+    pts = ' '.join(
+        f'{i * step:.1f},{height - 2 - (v / vmax) * (height - 4):.1f}'
+        for i, v in enumerate(values)
+    )
+    return (
+        f'<svg class="spark" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" aria-hidden="true">'
+        f'<polyline points="{pts}" fill="none" stroke="currentColor" '
+        f'stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/></svg>'
+    )
+
+def pick_executive_stories(stories, limit=5, per_client_cap=2):
+    """
+    Top stories for the Executive Summary strip: risk stories first, then
+    manual clips, then new-since-yesterday stories from the best outlets.
+    Capped per client so one busy client can't fill the strip.
+    """
+    def sort_key(s):
+        return (
+            0 if s.get('category') == 'risk_watch' else 1,
+            0 if s.get('is_manual') else 1,
+            0 if s.get('is_new') else 1,
+            s.get('source_rank', 4),
+            -s.get('ts', 0),
+        )
+    picked, per_client = [], {}
+    for s in sorted(stories, key=sort_key):
+        if s.get('category') == 'low_relevance':
+            continue
+        if per_client.get(s['client'], 0) >= per_client_cap:
+            continue
+        picked.append(s)
+        per_client[s['client']] = per_client.get(s['client'], 0) + 1
+        if len(picked) >= limit:
+            break
+    return picked
+
 def render_story_card(story, cluster_info=None):
     """Render a single story card HTML."""
     headline_html = h(story.get('headline', ''))
@@ -840,6 +974,7 @@ def render_story_card(story, cluster_info=None):
             f'<div class="pub-chips"><span class="pub-chips-label">Also in</span>{chips}</div>'
         )
 
+    new_tag       = '<span class="story-tag tag-new">&#9733; New</span>' if story.get('is_new') else ''
     manual_tag    = '<span class="story-tag tag-manual">&#9986; Manual Clip</span>' if is_manual else ''
     reason_html   = (
         f'<div class="story-manual-reason">{reason}</div>'
@@ -855,12 +990,13 @@ def render_story_card(story, cluster_info=None):
         f'<span class="src">{source}</span>'
         f'<span class="sep">/</span><span>{date}</span>'
         f'</div>'
-        f'<div class="story-tags"><span class="story-tag {cat_class}">{cat_display}</span>{manual_tag}</div>'
+        f'<div class="story-tags"><span class="story-tag {cat_class}">{cat_display}</span>{new_tag}{manual_tag}</div>'
         f'{reason_html}'
         f'{also_covered_html}</div>'
     )
 
-def build_html(clustered_stories, clients_config, generated_at, keywords=None, manual_data=None):
+def build_html(clustered_stories, clients_config, generated_at, keywords=None,
+               manual_data=None, exec_stories=None, trend_counts=None):
     """Build the HTML output."""
     now_sl   = generated_at.astimezone(SL_TZ)
     dateline = now_sl.strftime('%A, %d %B %Y')
@@ -887,28 +1023,68 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None, m
             f'onclick="setCategory(\'{h(cat)}\');">{cat_display}</button>'
         )
 
+    # Executive Summary strip — today's top stories across all clients
+    exec_html = ''
+    if exec_stories:
+        label_map = {c['key']: c['label'] for c in clients_config}
+        items = ''
+        for i, s in enumerate(exec_stories, 1):
+            cat_display = (s.get('category', '') or '').replace('_', ' ').title()
+            items += (
+                f'<li class="exec-item">'
+                f'<span class="exec-num">{i}</span>'
+                f'<span class="exec-client">{h(label_map.get(s["client"], s["client"]))}</span>'
+                f'<a class="exec-hl" href="{h(s.get("url", "#"))}" target="_blank" rel="noopener">'
+                f'{h(s.get("headline", ""))}</a>'
+                f'<span class="exec-meta">{h(s.get("source", ""))} &middot; {h(cat_display)}</span>'
+                f'</li>'
+            )
+        exec_html = (
+            f'<div class="exec"><div class="exec-label">Executive Summary &mdash; top stories today</div>'
+            f'<ol class="exec-list">{items}</ol></div>\n'
+        )
+
+    # Per-client trend series: archived days + today, excluding low relevance
+    trend_counts = trend_counts or {}
+    trend_dates  = sorted(trend_counts.keys())
+    today_counts = {}
+    for s in clustered_stories:
+        if s.get('category') != 'low_relevance':
+            today_counts[s['client']] = today_counts.get(s['client'], 0) + 1
+    total_today = sum(today_counts.values())
+
     # Build sections
     sections = ''
     for client in clients_config:
         client_key = client['key']
         client_stories = [s for s in clustered_stories if s['client'] == client_key]
-        
+
         if not client_stories:
             continue
-        
+
         stories_html = ''
         for story in client_stories:
             stories_html += render_story_card(story, story.get('_cluster_info'))
-        
+
         if not stories_html:
             stories_html = '<p class="no-stories">No stories in this view.</p>'
-        
+
+        n_today = today_counts.get(client_key, 0)
+        sov     = round(100 * n_today / total_today) if total_today else 0
+        series  = [trend_counts[d].get(client_key, 0) for d in trend_dates] + [n_today]
+        trend_html = (
+            f'<span class="sec-trend" title="Stories per day, last {len(series)} day(s) &middot; '
+            f'share of voice across clients today">{sparkline_svg(series)}'
+            f'<span>{sov}&#37; SOV</span></span>'
+        )
+
         sections += (
             f'<div class="section" id="sec-{client_key}">'
             f'<div class="sec-head">'
             f'<span class="sec-name">{h(client["label"])}</span>'
             f'<span class="sec-tag">{h(client.get("sector", ""))}</span>'
             f'<span class="sec-rule"></span>'
+            f'{trend_html}'
             f'<span class="sec-count"></span>'
             f'</div>'
             f'<div>{stories_html}</div>'
@@ -1013,6 +1189,7 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None, m
         f'<span>Generated {gen_time}</span><span class="dot">&bull;</span>'
         f'<span>{client_names}</span></div>\n</header>\n'
 
+        f'{exec_html}'
         '<div class="controls">\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Window</span>\n'
         '  <button class="ctrl-btn" data-win="1d" onclick="setWin(\'1d\')">1d</button>\n'
@@ -1141,6 +1318,16 @@ def main():
         
         print()
 
+    # ── Fetch direct outlet feeds (bypasses Google News indexing gaps) ────────
+    print('Direct outlet feeds')
+    for feed in DIRECT_FEEDS:
+        items   = fetch_outlet_feed(feed, cutoff_ms)
+        matched = match_feed_items_to_clients(items, keywords)
+        sys.stdout.write(f'    ✓ {len(items)} items · {len(matched)} matched to clients\n')
+        sys.stdout.flush()
+        all_stories.extend(matched)
+    print()
+
     print(f'Total stories before processing: {len(all_stories)}')
 
     # ── Classify stories ──────────────────────────────────────────────────────
@@ -1199,10 +1386,54 @@ def main():
 
     print(f'Total stories after clustering: {len(clustered_stories)}')
 
+    # ── Mark new-since-yesterday stories ──────────────────────────────────────
+    today_iso = generated_at.astimezone(SL_TZ).date().isoformat()
+    prev_urls, prev_cids, prev_date = load_previous_story_keys(today_iso)
+    for s in clustered_stories:
+        s['is_new'] = bool(prev_date) and \
+            s.get('url') not in prev_urls and \
+            s.get('cluster_id') not in prev_cids
+    n_new = sum(1 for s in clustered_stories if s['is_new'])
+    if prev_date:
+        print(f'New since {prev_date}: {n_new} stories')
+
+    # ── Risk alerts: new risk_watch stories → data/alerts.json ────────────────
+    # The GitHub Action opens an issue when alert_count > 0.
+    label_map = {c['key']: c['label'] for c in CLIENTS}
+    new_risk = [s for s in clustered_stories
+                if s.get('category') == 'risk_watch' and s.get('is_new')]
+    alerts = [{
+        'client':       s['client'],
+        'client_label': label_map.get(s['client'], s['client']),
+        'headline':     s.get('headline', ''),
+        'url':          s.get('url', ''),
+        'source':       s.get('source', ''),
+        'date':         s.get('date', ''),
+    } for s in new_risk]
+    issue_lines = [f'New risk_watch stories detected by the Morning Brief (vs {prev_date}):', '']
+    issue_lines += [
+        f'- **[{a["client_label"]}]** [{a["headline"]}]({a["url"]}) — {a["source"]} ({a["date"]})'
+        for a in alerts
+    ]
+    save_json('data/alerts.json', {
+        'generated_at': generated_at.isoformat(),
+        'compared_to':  prev_date,
+        'alert_count':  len(alerts),
+        'alerts':       alerts,
+        'issue_body':   '\n'.join(issue_lines) if alerts else '',
+    })
+    if new_risk:
+        print(f'⚠ {len(new_risk)} new risk story(ies) → data/alerts.json')
+
+    # ── Executive summary + trend data ────────────────────────────────────────
+    exec_stories = pick_executive_stories(clustered_stories)
+    trend_counts = load_trend_counts([c['key'] for c in CLIENTS], today_iso)
+
     # ── Generate HTML ────────────────────────────────────────────────────────
     print('Building HTML...')
     page = build_html(clustered_stories, CLIENTS, generated_at,
-                      keywords=keywords, manual_data=manual_data)
+                      keywords=keywords, manual_data=manual_data,
+                      exec_stories=exec_stories, trend_counts=trend_counts)
 
     # ── Validation ────────────────────────────────────────────────────────────
     is_safe, messages = validate_no_private_contacts(page)

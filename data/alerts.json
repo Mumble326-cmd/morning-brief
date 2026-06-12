@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-12T16:31:36.667827+00:00",
+  "compared_to": "2026-06-11",
+  "alert_count": 1,
+  "alerts": [
+    {
+      "client": "byd",
+      "client_label": "BYD",
+      "headline": "JKCG rejects claims of prior knowledge of vehicle import surcharge",
+      "url": "https://economynext.com/sri-lanka-stocks-close-up-capital-goods-push-turnover-272604/",
+      "source": "EconomyNext",
+      "date": "22 May 2026"
+    }
+  ],
+  "issue_body": "New risk_watch stories detected by the Morning Brief (vs 2026-06-11):\n\n- **[BYD]** [JKCG rejects claims of prior knowledge of vehicle import surcharge](https://economynext.com/sri-lanka-stocks-close-up-capital-goods-push-turnover-272604/) — EconomyNext (22 May 2026)"
+}

@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write  # needed so the workflow can commit files back to the repo
+  issues: write    # needed so the workflow can open risk-alert issues
 
 jobs:
   generate:
@@ -36,4 +37,19 @@ jobs:
           # Only commit if files actually changed
           git diff --staged --quiet && echo "No changes to commit." || git commit -m "Daily brief: $(date -u +'%Y-%m-%d')"
           git push
+
+      - name: Open issue for new risk stories
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          count=$(python -c "import json; print(json.load(open('data/alerts.json')).get('alert_count', 0))" 2>/dev/null || echo 0)
+          if [ "$count" -gt 0 ]; then
+            python -c "import json; print(json.load(open('data/alerts.json')).get('issue_body', ''))" > /tmp/alert_body.md
+            title="Risk alert: $count new risk story(ies) — $(date -u +'%Y-%m-%d')"
+            gh label create risk-alert --color B60205 --description "New risk_watch story in the Morning Brief" 2>/dev/null || true
+            gh issue create --title "$title" --body-file /tmp/alert_body.md --label risk-alert \
+              || gh issue create --title "$title" --body-file /tmp/alert_body.md
+          else
+            echo "No new risk stories."
+          fi
 

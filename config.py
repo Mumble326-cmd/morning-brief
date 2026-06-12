@@ -100,6 +100,24 @@ CLIENTS = [
     # },
 ]
 
+# ── Direct outlet RSS feeds ───────────────────────────────────────────────────
+# Fetched in addition to Google News, which caps results at 100 and misses
+# articles some outlets block from indexing. These are all Sri Lankan outlets,
+# so items skip the SL-signal gate; an item is kept only when it matches a
+# client's direct_mentions or risk_watch keywords.
+# Probed 2026-06-12: ft.lk (timeout), dailymirror.lk (no XML feed),
+# themorning.lk (404) and colombogazette.com (origin errors) have no usable
+# feed — those outlets still arrive via Google News.
+DIRECT_FEEDS = [
+    {'source': 'EconomyNext',         'url': 'https://economynext.com/feed/'},
+    {'source': 'The Island',          'url': 'https://island.lk/feed/'},
+    {'source': 'Ada Derana',          'url': 'https://www.adaderana.lk/rss.php'},
+    {'source': 'Newswire',            'url': 'https://www.newswire.lk/feed/'},
+    {'source': 'Lanka Business News', 'url': 'https://www.lankabusinessnews.com/feed/'},
+    {'source': 'Daily News',          'url': 'https://www.dailynews.lk/feed/'},
+    {'source': 'LBO',                 'url': 'https://www.lankabusinessonline.com/feed/'},
+]
+
 # ── SL relevance signals ──────────────────────────────────────────────────────
 # Post-fetch validation: a story is kept only if its headline+snippet
 # contains at least one of these. Keep these SPECIFIC to Sri Lanka.

@@ -284,6 +284,52 @@ def choose_primary_story(cluster, outlets_config):
     
     return best
 
+# ── History (NEW badges, trend counts) ────────────────────────────────────────
+
+def load_previous_story_keys(today_iso, archive_dir='data/archive'):
+    """
+    Load story URLs and cluster ids from the most recent archive BEFORE today.
+    Used to mark stories as new-since-yesterday.
+    Returns: (urls set, cluster_ids set, prev_date_iso or None)
+    """
+    try:
+        dates = sorted(f[:-5] for f in os.listdir(archive_dir) if f.endswith('.json'))
+    except OSError:
+        return set(), set(), None
+    prev_dates = [d for d in dates if d < today_iso]
+    if not prev_dates:
+        return set(), set(), None
+    prev_date = prev_dates[-1]
+    data = load_json(os.path.join(archive_dir, prev_date + '.json'), {})
+    urls, cids = set(), set()
+    for s in data.get('stories', []):
+        if s.get('url'):
+            urls.add(s['url'])
+        if s.get('cluster_id'):
+            cids.add(s['cluster_id'])
+    return urls, cids, prev_date
+
+def load_trend_counts(client_keys, today_iso, days=14, archive_dir='data/archive'):
+    """
+    Per-client story counts per archived day (excluding low_relevance),
+    for up to `days` dates before today. Returns {date_iso: {client: count}}.
+    """
+    counts = {}
+    try:
+        dates = sorted(f[:-5] for f in os.listdir(archive_dir) if f.endswith('.json'))
+    except OSError:
+        return counts
+    for d in [x for x in dates if x < today_iso][-days:]:
+        data = load_json(os.path.join(archive_dir, d + '.json'), {})
+        day = {k: 0 for k in client_keys}
+        for s in data.get('stories', []):
+            if s.get('category') == 'low_relevance':
+                continue
+            if s.get('client') in day:
+                day[s['client']] += 1
+        counts[d] = day
+    return counts
+
 # ── Archive Handling ──────────────────────────────────────────────────────────
 
 def get_archive_path(date=None):

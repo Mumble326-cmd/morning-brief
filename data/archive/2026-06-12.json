@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-12T16:22:01.714550+00:00",
+  "generated_at": "2026-06-12T16:32:20.169728+00:00",
   "generated_date": "2026-06-12",
-  "generated_time": "21:52:01 SL",
+  "generated_time": "22:02:20 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -25,7 +25,8 @@
       "matched_terms": [
         "manual"
       ],
-      "source_rank": 1
+      "source_rank": 1,
+      "is_new": true
     },
     {
       "id": "manual_1749773220000",
@@ -49,7 +50,8 @@
       "matched_terms": [
         "manual"
       ],
-      "source_rank": 4
+      "source_rank": 4,
+      "is_new": true
     },
     {
       "id": "manual_mifl_cse_debenture",
@@ -73,7 +75,8 @@
       "matched_terms": [
         "manual"
       ],
-      "source_rank": 1
+      "source_rank": 1,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -93,7 +96,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "8b6b09593e91",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -113,7 +117,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "556faba6f3ab",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -133,7 +138,29 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "ae3fc7c05bf6",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "headline": "Port City Colombo Forum in Dubai Positions Sri Lanka as South Asia’s Gateway for UAE Business Expansion",
+      "url": "https://www.lankabusinessnews.com/port-city-colombo-forum-in-dubai-positions-sri-lanka-as-south-asias-gateway-for-uae-business-expansion/",
+      "source": "Lanka Business News",
+      "domain": "www.lankabusinessnews.com",
+      "date": "12 Jun 2026 · 16:14 SL",
+      "ts": 1781261083000,
+      "snippet": "Exclusive invitation-only engagement at the Ritz-Carlton DIFC brought together approximately 200 senior UAE business and diplomatic leaders to explore Sri Lanka’s role as a platform for regional growth [12th June 2026, Dubai, UAE] The Embassy of Sri Lanka in the United Arab Emirates and the Consulate General of Sri Lan",
+      "client": "pcc",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "a9cdd1cd5b10",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -153,7 +180,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "3880cdc682a0",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -173,7 +201,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "4b0f7b9f3270",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -193,7 +222,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "1e81f603a0aa",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -213,7 +243,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "63fb468d448a",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -233,7 +264,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "73aa0997ec43",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -253,7 +285,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "28d7d5cf87b7",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -273,17 +306,18 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "5def967a26d3",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
-      "headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUm9XdkhOcVdTaGVkaEs3QnFaUmlQVENIX1JZVGN5bUFoTHRpdVo3VFhnT1duRWllUlhIbHpUVk1pcV8tOXlXMmtsUGxQUm9ITzJIV2J6TDNid0RTZm5Hck9ZNlhWemNFdTY4RHpORnlIMmJkVTlwV2JBNVUxVHlSdzh5R1lKcXZ1WExBckttRk90VE9EY1dINTIwbkQ4QWgwOEUwUHlLQnN5TmxsaW0wTWdIZ1NMdXcxRDIyWnlvT0RoVGRNVEZCZDRR?oc=5",
-      "source": "Colombo Gazette",
+      "headline": "New investments reinforce Colombo Port City’s role as growth catalyst | Daily FT - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSHplcDIyRDA3elZuaWRVVXg0QmVleWV1RWZ3QlVRODdLT3BkMkZheVBaWXNYeEY2bzVYOGZpMmJxYWcxVGo2d2xWck54Nk5lT3RyUXVZczhpQlEzMTZlSVFBSnhXa20zY28zODdqM0ozNE5PYVNMeGpTZlJtb2M4UGFDTF9aSUU0REY3bkk2MTZKWk9jRGZNN0tRcUhJei1oWXBxMlVTajYzSlpzZ0NhYWo5UEdFdy04MHZJ?oc=5",
+      "source": "Magzter",
       "domain": "news.google.com",
-      "date": "11 Jun 2026 · 15:27 SL",
-      "ts": 1781171835000,
-      "snippet": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition Colombo Gazette",
+      "date": "11 Jun 2026 · 10:57 SL",
+      "ts": 1781155677000,
+      "snippet": "New investments reinforce Colombo Port City’s role as growth catalyst | Daily FT - newspaper Magzter",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -292,8 +326,9 @@
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "fd7ee6b3abdc",
-      "is_primary_in_cluster": true
+      "cluster_id": "2add833dc3e7",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "byd",
@@ -313,7 +348,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "cab5e12cb7c5",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -333,7 +369,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "dc6477472f71",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -353,7 +390,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "5475101213e8",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -361,8 +399,8 @@
       "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxONEFtZ1Bud1Q4OFZNa0haVloxQ3VKYktEVmdDTzFSQ3VCSmlKRUxLLXlEaWc0SW94VHhJdWRYOVRJUEJyS0dqbnJkTEFlYXdrM1I3WWp1T2tGLUJlYlZPcm04U3hWcjA3cm4zRG5pSUNyX1BrYlhqcG9mNFhwUEpGOWMxOU9GQ3E2YVNYSHZRbHRzc3RzdkhDVFJsdE9kTUV5Uk9QcURNSXVqSjJBQVl2X2ZQMDZMMzdTeUtoUEdJQkplanp4aW5ZanBXT19CZER0R0RZektLRGwxc0p5VUZoSGhDXzRoZw?oc=5",
       "source": "Newswire",
       "domain": "news.google.com",
-      "date": "10 Jun 2026 · 13:51 SL",
-      "ts": 1781079678000,
+      "date": "10 Jun 2026 · 13:53 SL",
+      "ts": 1781079811000,
       "snippet": "Home Lands Set to Unveil ‘Central Park Boulevard Port City Colombo’ at the Largest Ever Real Estate Launch in Sri Lanka Newswire",
       "fetch_type": "direct_mentions",
       "category": "mention",
@@ -373,7 +411,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "898da074cd9e",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -393,7 +432,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "4e2a4d521c55",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -413,7 +453,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "23561bb72b29",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -433,7 +474,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "83be30275deb",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -453,7 +495,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "1b204b842196",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -473,7 +516,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "caf03d513723",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -493,7 +537,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "11bebd76b9a9",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "byd",
@@ -513,7 +558,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "3dc64f3e2218",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "byd",
@@ -533,7 +579,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "f66cf6bf3d24",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -553,7 +600,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "60f32639ba58",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -573,7 +621,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "211c7b044adc",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -593,7 +642,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "2970c3d59ea0",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -613,7 +663,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "38e0394ae3b3",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -633,7 +684,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "9dc462b198b0",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -653,7 +705,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "e989cc7d7d8e",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -673,7 +726,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "de758541e229",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -693,7 +747,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "db3fbd074e21",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -713,7 +768,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "49eb59ff182b",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -733,7 +789,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "87e6c6cd2426",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -753,7 +810,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "5aaa650025cf",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -773,7 +831,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "e8bcfc695986",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -793,7 +852,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "c4cccb14002e",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -813,7 +873,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "f58987ff3f82",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -833,17 +894,18 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "327da79b3f61",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
-      "headline": "Sampath Bank Leads Sri Lanka’s Financial Future with Landmark Agreement for Port City Colombo Branch",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPYVBETGw0OHBCWmZjTmNOWUUwMk1tdndTckt2ZXRRVW5fWm5CblZnNE8zOVhHMXF5RGY0OEkydlJJVVg2a2FUamtockVsNUZzaE03ekhlYWt0UEd5WVVrN1dlb3ZFcUxGbU5oNmE0S0x2NlZuOFZ1QThrdGhBcFdXRVJCdGVpeXFvMTBMYUxHV1NZUTduWllERW8wTmNxMG5scDF3RFcyQ1hvelpkSUF1VnE3VWRycXZjcVRKU0gwUXlDdm1raUpiaDd6Zw?oc=5",
-      "source": "Adaderana Biz English",
+      "headline": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNREVOc3JEUlFDOG5sRXpDUW4wT3V4X3NRb0FmLWZOQ1lGVzdHcVhkSm1hTXlULTVUeXQ4V0VoWlg4MTNyTUZJOXFmSndTczFqX0dGVlA1U1NPYzFpY09aRWZnRGVsVmZTZENyVDRJZE1NZm90UXJaS0V3YmJKZU9ndUhuNDRWcGVSWXp4MkpoM3RReW90cFYxa3lhVEVBTk4xZXBnWlptc0dpUnFyeVNtcEpiUzVzeDJ4aTQ4d0FBYlNFTW9Ma2c?oc=5",
+      "source": "Daily FT",
       "domain": "news.google.com",
-      "date": "02 Jun 2026 · 10:47 SL",
-      "ts": 1780377464000,
-      "snippet": "Sampath Bank Leads Sri Lanka’s Financial Future with Landmark Agreement for Port City Colombo Branch Adaderana Biz English",
+      "date": "02 Jun 2026 · 09:43 SL",
+      "ts": 1780373608000,
+      "snippet": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch Daily FT",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -852,8 +914,9 @@
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "d0d3013eea2d",
-      "is_primary_in_cluster": true
+      "cluster_id": "ad5d5b775817",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -873,7 +936,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "5f51dc16c039",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -893,7 +957,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "b50c8efca330",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -913,7 +978,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "3c24e2780529",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "byd",
@@ -933,7 +999,29 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "2d5cae8149cc",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB: Sri Lanka’s Leading Leasing Provider",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSHRZWXdrbWJYTFN0VWM4ZGdyeU5hcmRZdjBfaXA5LThQWjg2bkdvMTZrQy1yS3prQmJhYVN0UHNrN3M5M24xUnV6QzBJLWltOHRlNU9KMXBkLW91cVhSdlFRa3A0OE1aWkZOYlBSWE1tTjJ2WlF0bEJJbzJ4RWozMllvZDNOZ0ktUXhPUkd4WXc?oc=5",
+      "source": "Daily FT",
+      "domain": "news.google.com",
+      "date": "27 May 2026 · 12:30 SL",
+      "ts": 1779865200000,
+      "snippet": "HNB: Sri Lanka’s Leading Leasing Provider Daily FT",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "f7969d993e71",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -953,7 +1041,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "2e466962d13b",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -973,7 +1062,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "924e372855a7",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -993,7 +1083,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "807fdba61929",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -1013,7 +1104,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "7f8e8a0d8e6b",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "mas",
@@ -1033,7 +1125,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "a13a44b88464",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -1053,7 +1146,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "ed4a088c52af",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "mas",
@@ -1073,7 +1167,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "c726229ce7eb",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "mas",
@@ -1093,7 +1188,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "7c648fc7d953",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1113,7 +1209,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "8ee7b9a38f81",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1133,7 +1230,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "90eda4e135bf",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "mas",
@@ -1153,7 +1251,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "9f8a81683290",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -1173,7 +1272,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "9269f0ce275c",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1193,7 +1293,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "195942b9a60b",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "byd",
@@ -1213,7 +1314,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "c34f29654f75",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1233,7 +1335,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "1e705d111e07",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1253,7 +1356,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "41e0ddb48bd0",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -1273,7 +1377,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "e3e63fb739f0",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1293,7 +1398,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "b7f66772f850",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1313,7 +1419,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "b2b9cb3beed7",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1333,7 +1440,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "4f38dec5e714",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -1353,7 +1461,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "436a1f632ca5",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1373,7 +1482,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "559784f9251a",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1393,27 +1503,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "577f1d50718a",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "Treasury-CBSL playing blame game over $ 2.5 m cyber theft | Daily FT - newspaper",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLW1nTEpMS2ROcmNwUGt2N2ZfbDE5WktkQjJfS0FSVFlLeVllX0FaU20xUnJ6el8zd2dxU2tFS2JGX0Vma25xckNpNG5rZUMzQjUyQUgydVNqS2d0OWFmOWVqbWlyOWE0Z05xTGFBMEVHR0d4RTU3M1JsdTFvLVZhcU5uY2JPRUwyYl9MMzc2aUpmNEp1Ql9MeG1iOHBUY2R4MkxfRWx5SQ?oc=5",
-      "source": "Magzter",
-      "domain": "news.google.com",
-      "date": "12 Jun 2026 · 12:15 SL",
-      "ts": 1781246701000,
-      "snippet": "Treasury-CBSL playing blame game over $ 2.5 m cyber theft | Daily FT - newspaper Magzter",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "822873d4bfd4",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1433,7 +1524,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "be112c3a9a6a",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1453,7 +1545,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "d5b70125b7d9",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1473,7 +1566,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "e24959486acf",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1493,7 +1587,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "0afcbefda8b3",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1513,7 +1608,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "591dff6b5981",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1533,7 +1629,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "ee13fca0a988",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1553,7 +1650,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "6f0912e1c740",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1573,7 +1671,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "bfb8dea9fdf7",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1593,7 +1692,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "9b2c0fb2e994",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1613,7 +1713,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "de7a890e70f5",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1633,7 +1734,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "fcf94c1b3de9",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1651,7 +1753,8 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "8910801c2bf5",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1669,7 +1772,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "611775812c9a",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -1687,7 +1791,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "e694ac6dff5e",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -1695,8 +1800,8 @@
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSDQwT3g4MVM4V1FQY0pBUlJRRnF1czA5N0ZKQzduams2Xzc5TjVPOVN3eVQ1a09vNnVRamlxSnFPaFRmWVlWTnFKX0tuXzRjTnF2a0IzUjkwYnVkSk5qSnVmT1VJbklaVzZ6dzdsaGIzUVBacVRCRlBTRzFnenVXY1NJcFVWSmpBbzJvZG96cjBnbWtf?oc=5",
       "source": "The island.lk",
       "domain": "news.google.com",
-      "date": "08 Jun 2026 · 05:12 SL",
-      "ts": 1780875776000,
+      "date": "09 Jun 2026 · 04:42 SL",
+      "ts": 1780960360000,
       "snippet": "Sri Lankan conglomerates leading the charge in Port City’s economic surge The island.lk",
       "fetch_type": "direct_mentions",
       "category": "low_relevance",
@@ -1705,7 +1810,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "a6f7284a0be3",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -1723,7 +1829,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "d37046670e0d",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "mas",
@@ -1741,7 +1848,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "8c62e1952a2e",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1759,7 +1867,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "b837d649d566",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hnb",
@@ -1777,7 +1886,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "7672cdc4c6b4",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1795,7 +1905,27 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "56c795349a3a",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka: Policy tightening supports Rupee – Standard Chartered",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMzVQUkt0c2dPVW5zS2VCd2VmakUwOHNzOXFDdVo0OUhac2k4SzJGdll0TWp2d2EyWFItU0xxdUt5NkNBaVh1NmhfZlVMZTFGeUdWcE1XS2FyZ0h5MDA3UmpUdWlpclVyaGtCOHNZR1E3NTBHMEtHcWQ5REMySmRKaS1vZVRFcjVkSEFJRXVpZHZqMUZxNTNsNnhkRUwyX1p2LWNEbndIV0JMYm81Yi1LbHF2SThLcXRLZkxWcWtvOTA1X0t3cnc?oc=5",
+      "source": "TMGM",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "Sri Lanka: Policy tightening supports Rupee – Standard Chartered TMGM",
+      "fetch_type": "industry_watch",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": true,
+      "cluster_id": "5ab40f1c52d8",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1813,7 +1943,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "b481322ad2da",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "mas",
@@ -1831,7 +1962,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "d277d34b81a5",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -1849,7 +1981,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "49b270740bdc",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -1867,7 +2000,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "bb3d0575c49b",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hayleys",
@@ -1885,7 +2019,8 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "610ed33414e3",
-      "is_primary_in_cluster": true
+      "is_primary_in_cluster": true,
+      "is_new": true
     }
   ],
   "clusters_summary": [
@@ -1893,7 +2028,7 @@
       "cluster_id": "8b6b09593e91",
       "primary_headline": "Central Park Boulevard Port City Colombo officially launched",
       "primary_source": "Newswire",
-      "also_covered_count": 1
+      "also_covered_count": 2
     },
     {
       "cluster_id": "559784f9251a",
@@ -1914,6 +2049,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "a9cdd1cd5b10",
+      "primary_headline": "Port City Colombo Forum in Dubai Positions Sri Lanka as South Asia’s Gateway for UAE Business Expansion",
+      "primary_source": "Lanka Business News",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "3880cdc682a0",
       "primary_headline": "Nucleus Software and Hatton National Bank celebrate five-year partnership with FinnAxia",
       "primary_source": "Business Upturn",
@@ -1928,12 +2069,6 @@
     {
       "cluster_id": "4b0f7b9f3270",
       "primary_headline": "New investments reinforce Colombo Port City's role as a catalyst for economic growth",
-      "primary_source": "Magzter",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "822873d4bfd4",
-      "primary_headline": "Treasury-CBSL playing blame game over $ 2.5 m cyber theft | Daily FT - newspaper",
       "primary_source": "Magzter",
       "also_covered_count": 0
     },
@@ -1983,18 +2118,12 @@
       "cluster_id": "5def967a26d3",
       "primary_headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 2
+      "also_covered_count": 1
     },
     {
       "cluster_id": "611775812c9a",
       "primary_headline": "Sri Lanka’s reserves rise, but the numbers tell a murkier story",
       "primary_source": "Tamil Guardian",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "fd7ee6b3abdc",
-      "primary_headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
-      "primary_source": "Colombo Gazette",
       "also_covered_count": 0
     },
     {
@@ -2006,6 +2135,12 @@
     {
       "cluster_id": "591dff6b5981",
       "primary_headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
+      "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "2add833dc3e7",
+      "primary_headline": "New investments reinforce Colombo Port City’s role as growth catalyst | Daily FT - newspaper",
       "primary_source": "Magzter",
       "also_covered_count": 0
     },
@@ -2112,6 +2247,12 @@
       "also_covered_count": 1
     },
     {
+      "cluster_id": "a6f7284a0be3",
+      "primary_headline": "Sri Lankan conglomerates leading the charge in Port City’s economic surge",
+      "primary_source": "The island.lk",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "f66cf6bf3d24",
       "primary_headline": "BYD Motor Show Attracts Visitors Amid Sri Lanka’s Plans to Lift Vehicle Import Ban by 2025",
       "primary_source": "News On AIR",
@@ -2146,12 +2287,6 @@
       "primary_headline": "HNB Life introduces future-ready protection solution for the new generation",
       "primary_source": "The island.lk",
       "also_covered_count": 1
-    },
-    {
-      "cluster_id": "a6f7284a0be3",
-      "primary_headline": "Sri Lankan conglomerates leading the charge in Port City’s economic surge",
-      "primary_source": "The island.lk",
-      "also_covered_count": 0
     },
     {
       "cluster_id": "e989cc7d7d8e",
@@ -2214,9 +2349,9 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "d0d3013eea2d",
-      "primary_headline": "Sampath Bank Leads Sri Lanka’s Financial Future with Landmark Agreement for Port City Colombo Branch",
-      "primary_source": "Adaderana Biz English",
+      "cluster_id": "ad5d5b775817",
+      "primary_headline": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch",
+      "primary_source": "Daily FT",
       "also_covered_count": 1
     },
     {
@@ -2268,6 +2403,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "f7969d993e71",
+      "primary_headline": "HNB: Sri Lanka’s Leading Leasing Provider",
+      "primary_source": "Daily FT",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "7672cdc4c6b4",
       "primary_headline": "Sri Lanka jolts markets with outsized 100-bp rate hike to counter Gulf crisis",
       "primary_source": "WTVB",
@@ -2283,6 +2424,12 @@
       "cluster_id": "56c795349a3a",
       "primary_headline": "Sri Lanka lifts rates 100 bps as oil shock hits economy",
       "primary_source": "MSN",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "5ab40f1c52d8",
+      "primary_headline": "Sri Lanka: Policy tightening supports Rupee – Standard Chartered",
+      "primary_source": "TMGM",
       "also_covered_count": 0
     },
     {
@@ -2460,6 +2607,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 95,
-  "total_clusters": 95
+  "total_stories": 97,
+  "total_clusters": 97
 }
