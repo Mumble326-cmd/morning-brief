@@ -141,11 +141,18 @@ def fetch_news(query, client_key, window_days, max_results, sl_signals, cutoff_m
 
 # ── Build Query ────────────────────────────────────────────────────────────────
 
-def build_query(terms):
-    """Build Google News query from keyword terms."""
+def build_query(terms, context=None):
+    """Build Google News query from keyword terms.
+    context: if given, ANDed with the OR group — e.g. 'Sri Lanka' turns
+    ("BYD" OR "JKCG") into ("BYD" OR "JKCG") "Sri Lanka", keeping the
+    RSS feed from being flooded by global results for short ambiguous terms.
+    """
     if not terms:
         return ''
-    return ' OR '.join(f'"{t}"' for t in terms)
+    inner = ' OR '.join(f'"{t}"' for t in terms)
+    if context:
+        return f'({inner}) "{context}"'
+    return inner
 
 # ── HTML Rendering ────────────────────────────────────────────────────────────
 
@@ -825,40 +832,42 @@ def main():
             print(f'[{client["label"]}] Skipped (no config)')
             continue
         
+        ctx = client_config.get('query_context', '')
+
         # Fetch direct mentions
         print(f'[{client["label"]}] Direct Mentions')
         direct_mentions = client_config.get('direct_mentions', [])
-        query = build_query(direct_mentions)
+        query = build_query(direct_mentions, context=ctx)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'direct_mentions'
             all_stories.extend(stories)
-        
+
         # Fetch industry watch
         print(f'[{client["label"]}] Industry')
         industry_watch = client_config.get('industry_watch', [])
-        query = build_query(industry_watch)
+        query = build_query(industry_watch, context=ctx)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'industry_watch'
             all_stories.extend(stories)
-        
+
         # Fetch market watch
         print(f'[{client["label"]}] Market Watch')
         market_watch = client_config.get('market_watch', [])
-        query = build_query(market_watch)
+        query = build_query(market_watch, context=ctx)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES * 2, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'market_watch'
             all_stories.extend(stories)
-        
+
         # Fetch risk watch
         print(f'[{client["label"]}] Risk Watch')
         risk_watch = client_config.get('risk_watch', [])
-        query = build_query(risk_watch)
+        query = build_query(risk_watch, context=ctx)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:

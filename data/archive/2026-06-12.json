@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-12T03:22:35.633565+00:00",
+  "generated_at": "2026-06-12T03:28:13.680980+00:00",
   "generated_date": "2026-06-12",
-  "generated_time": "08:52:35 SL",
+  "generated_time": "08:58:13 SL",
   "stories": [
     {
       "client": "hnb",
@@ -84,6 +84,26 @@
       "is_primary_in_cluster": true
     },
     {
+      "client": "byd",
+      "headline": "BYD tops global automotive innovation ranking in historic first",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQQlZjSW0tR1NPU0s5cUYtMXkxTHJJQVJqWXdSWGNtTXNqaEx5SGFMWVpJMl8wX1dGWExjeXdvSDFCR0cxUnB0a3F5bzBlbXZEX1FFOVMxOW0tV3lUeVhTTHZjZTBGblBCSnlqQm5jY1FPQXNuVERydUNmblBGd3NCOTNxOXg0dkJyQjdTSkVGSDB1YXFWLXN3S3owMU0zS01iUEMwMmlKWVRYbk1UMVRTb2plRUNuME5nYUxsaWh3?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "11 Jun 2026 · 09:49 SL",
+      "ts": 1781151573000,
+      "snippet": "BYD tops global automotive innovation ranking in historic first Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "cab5e12cb7c5",
+      "is_primary_in_cluster": true
+    },
+    {
       "client": "hayleys",
       "headline": "No Statements on Hayleys : Court Order Against Wimal Weerawansa",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUDBVbXB5eC1oNEpNblNQbWZTZEFZQ3B3bFJGS0Y5bmVDRzY3bjAtbEVLT05WWU9sOXp1bTRTTG42SWlUcEVvenFBZ21qV25scW1QZHEwYWVlWjZTd0J5V2VHWU05d3BXcVhIVHByc0lJbzlNXy1rV3plS21mQ2pKdkEzRUNMbHdMYkVzVS1NN0dRRG8?oc=5",
@@ -161,6 +181,46 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "11bebd76b9a9",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "byd",
+      "headline": "US adds BYD to list of firms with alleged Chinese military ties",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTkxEUWNQTlhIRW5tUW13UWRwRndTSUZocERnN2F1ZnhTM1NUZE1uRmtSS2dWc2E4U2JSQUdsWkRHZEJCVk92SGFRZlVWMEdHTlpON2pNNVgzSW42Y3ViekRUdUliaWVnS0R1cFhYYmdEMU5fZy15SVhfdHR3cFN0R29xcEVDM3pFNlVCMDR1X3RjeU04Y2c1bGk4Z3p1MGtBNVEzMWx5ZW1xdHVCdXcycnIxeWZTMlpoekhlbFN3?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "09 Jun 2026 · 10:22 SL",
+      "ts": 1780980727000,
+      "snippet": "US adds BYD to list of firms with alleged Chinese military ties Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "3dc64f3e2218",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "byd",
+      "headline": "BYD Motor Show Attracts Visitors Amid Sri Lanka’s Plans to Lift Vehicle Import Ban by 2025",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPM2k4aHo5TV84NTZ6RFdqNEJpSkdMdnpYU3ZiRzhoNGRtU1NFR2wxakdDTVpodHFCRHc5Um44YkdlQVgtdnBqeUNCN2NPT2FJbFFFSnlXQllSZmtjeUx3UmlhZTFjVXBwZ05od2stR2RpNzhJM2J1YmZVS3Q3ZVFSdUxUYTJaNi1xdXlXQjR2MVpzRTlOLVJiUTZJYjkzclhDdEI2WGVtQ04tTEY1WU4zSzNrTl9EUQ?oc=5",
+      "source": "News On AIR",
+      "domain": "news.google.com",
+      "date": "09 Jun 2026 · 04:40 SL",
+      "ts": 1780960232000,
+      "snippet": "BYD Motor Show Attracts Visitors Amid Sri Lanka’s Plans to Lift Vehicle Import Ban by 2025 News On AIR",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "f66cf6bf3d24",
       "is_primary_in_cluster": true
     },
     {
@@ -344,6 +404,26 @@
       "is_primary_in_cluster": true
     },
     {
+      "client": "byd",
+      "headline": "Sampath Bank and John Keells CG Auto inks deal to introduce financial solutions for NEV buyers",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOODFfMjJwaWNuN1dCYUJ4MUJFNm5iZnFiRHRrekdVVlcxSTJWaEtWSDJ2V1BJTFU4bXFUWndUQ2NISUd1M0gxejhXTDFpUHY4RlRoUE4yRXVoclNUVHRNNmozT1NmZXhKRndzZUtkb1pjVFZzdjlvUTM4ZEkyRWhIVk1VbUVLYzhOUjR3cmRHRDVWb2Jrbk1MVzlPeGNIR09KRmVSNGJvYU11NHo0T2VZV1VLM3pjZnNDZFBaWXV4NjZLb1pxRkhtUjhTTm5GY08xRE90WXpPZklucXZV?oc=5",
+      "source": "dailynews.lk",
+      "domain": "news.google.com",
+      "date": "29 May 2026 · 12:30 SL",
+      "ts": 1780038000000,
+      "snippet": "Sampath Bank and John Keells CG Auto inks deal to introduce financial solutions for NEV buyers dailynews.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "John Keells CG Auto"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "2d5cae8149cc",
+      "is_primary_in_cluster": true
+    },
+    {
       "client": "pcc",
       "headline": "China Duty Free Group hails Port City Colombo shopping regulation changes",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNeko4WUltTEJlU09SbkYtTHdXV1lfX1A5d0xGckNoMm9uMnNfYzRGMTBFNW5BTVFYMVRHMDNDZ1VBcUpTb2c3TDVGZHpBaVNiRnphUzVCOE9VNy1RaXNja0x1SzM3czdVYzU0YmtCQWdtU0xITmNwSGFsVzRXMl9KSGY1WDNSSWlJTEhhNlpLSkRWZDRNa3EtYXNkT2M4T3l3aExwS0NvS3k?oc=5",
@@ -461,6 +541,26 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "195942b9a60b",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "byd",
+      "headline": "JKCG, BOC and SLIC offer EVs to state workers",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWHdySWphUnlPelhkYnI0OEtjMWNWaXdTWWUwSmRrNWFRdFVEQjhEU2tXQV9MdDREUFhUZkhDODgyM1ZSUUVWZ0lYd29kVnNmeFpFVHhtWHdNaTNVRUcxSHVHbmp6MmIwQzNwaXZ1Y2dJSENwM0djSy1oZl9lZlRuZFZ2VWpxQ2dRZnZNb3hlRl9qcHZSV1FwS2lrblpXUzNROWh6NUNLX0o?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
+      "domain": "news.google.com",
+      "date": "17 May 2026 · 12:30 SL",
+      "ts": 1779001200000,
+      "snippet": "JKCG, BOC and SLIC offer EVs to state workers The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "JKCG"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "c34f29654f75",
       "is_primary_in_cluster": true
     },
     {
@@ -732,6 +832,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "cab5e12cb7c5",
+      "primary_headline": "BYD tops global automotive innovation ranking in historic first",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "23561bb72b29",
       "primary_headline": "No Statements on Hayleys : Court Order Against Wimal Weerawansa",
       "primary_source": "Lanka Sara",
@@ -756,9 +862,21 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "3dc64f3e2218",
+      "primary_headline": "US adds BYD to list of firms with alleged Chinese military ties",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 3
+    },
+    {
       "cluster_id": "a6f7284a0be3",
       "primary_headline": "Sri Lankan conglomerates leading the charge in Port City’s economic surge",
       "primary_source": "The island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f66cf6bf3d24",
+      "primary_headline": "BYD Motor Show Attracts Visitors Amid Sri Lanka’s Plans to Lift Vehicle Import Ban by 2025",
+      "primary_source": "News On AIR",
       "also_covered_count": 0
     },
     {
@@ -824,6 +942,12 @@
     {
       "cluster_id": "3c24e2780529",
       "primary_headline": "HNB partners United Tractor & Equipment to expand solar energy for customers",
+      "primary_source": "dailynews.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "2d5cae8149cc",
+      "primary_headline": "Sampath Bank and John Keells CG Auto inks deal to introduce financial solutions for NEV buyers",
       "primary_source": "dailynews.lk",
       "also_covered_count": 0
     },
@@ -894,12 +1018,18 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "c34f29654f75",
+      "primary_headline": "JKCG, BOC and SLIC offer EVs to state workers",
+      "primary_source": "The Sunday Times, Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "1e705d111e07",
       "primary_headline": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026",
       "primary_source": "dailynews.lk",
       "also_covered_count": 0
     }
   ],
-  "total_stories": 35,
-  "total_clusters": 35
+  "total_stories": 40,
+  "total_clusters": 40
 }

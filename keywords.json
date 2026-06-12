@@ -200,20 +200,19 @@
   "byd": {
     "label": "BYD",
     "sector": "Electric Vehicles",
+    "query_context": "Sri Lanka",
     "direct_mentions": [
-      "BYD Sri Lanka",
       "BYD",
       "John Keells CG Auto",
       "JKCG Auto",
       "JKCG",
-      "BYD Atto 3 Sri Lanka",
-      "BYD Dolphin Sri Lanka",
-      "BYD Seal Sri Lanka",
-      "BYD aftersales Sri Lanka",
-      "BYD service centre Sri Lanka",
-      "BYD showroom Sri Lanka",
-      "BYD charging Sri Lanka",
-      "Denza Sri Lanka"
+      "BYD Atto 3",
+      "BYD Dolphin",
+      "BYD Seal",
+      "BYD aftersales",
+      "BYD service centre",
+      "BYD showroom",
+      "Denza"
     ],
     "industry_watch": [
       "electric vehicle Sri Lanka",
@@ -259,13 +258,11 @@
   "mifl": {
     "label": "MIFL",
     "sector": "Finance",
+    "query_context": "Sri Lanka",
     "direct_mentions": [
       "Mahindra Ideal Finance",
-      "Mahindra Ideal Finance Ltd",
-      "Mahindra Ideal Finance Limited",
-      "MIFL Sri Lanka",
       "Ideal Finance",
-      "Mahindra Finance Sri Lanka"
+      "Mahindra Finance"
     ],
     "industry_watch": [
       "licensed finance companies Sri Lanka",
