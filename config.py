@@ -4,7 +4,7 @@
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 WINDOW_DAYS  = 30          # Always fetch 30 days; user filters on the page
-MAX_STORIES  = 8           # Max stories per client per mode (pre-filter)
+MAX_STORIES  = 20          # Max stories per client per mode (pre-filter)
 OUTPUT_FILE  = 'index.html'
 
 # ── Clients ───────────────────────────────────────────────────────────────────

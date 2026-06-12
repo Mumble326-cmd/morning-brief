@@ -15,6 +15,36 @@
       "category": "mention",
       "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article and the CORS policy blocks the studio auto-fill. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Use as baseline whenever MIFL coverage looks thin — these numbers set the competitive context for the NBFI sector.",
       "added_at": "2026-06-12"
+    },
+    {
+      "id": "manual_byd_jkcg_surcharge",
+      "url": "https://economynext.com/sri-lanka-stocks-close-up-capital-goods-push-turnover-272604/",
+      "headline": "JKCG rejects claims of prior knowledge of vehicle import surcharge",
+      "source": "EconomyNext",
+      "domain": "economynext.com",
+      "date": "22 May 2026",
+      "ts": 1779408000000,
+      "snippet": "John Keells CG Auto categorically rejected claims it had prior knowledge of Sri Lanka's 50% surcharge on vehicle imports (effective May 16, 2026) and established Letters of Credit before announcement. Most recent BYD vehicle orders were March to April 30.",
+      "client": "byd",
+      "client_label": "BYD",
+      "category": "risk_watch",
+      "reason": "Major risk story for JKCG/BYD in Sri Lanka — government imposed 50% surcharge on vehicle imports effective May 16 2026 to defend the rupee. JKCG publicly rejected allegations of insider knowledge. Risk Watch because it directly affects BYD's commercial operations and public trust in the distributor.",
+      "added_at": "2026-06-12"
+    },
+    {
+      "id": "manual_mifl_cse_debenture",
+      "url": "https://colombogazette.com/2026/04/15/mahindra-ideal-finance-debuts-on-cse-with-oversubscribed-debenture-issue",
+      "headline": "Mahindra Ideal Finance debuts on CSE with oversubscribed Rs.1bn debenture",
+      "source": "Colombo Gazette",
+      "domain": "colombogazette.com",
+      "date": "15 Apr 2026",
+      "ts": 1776211200000,
+      "snippet": "MIFL marked official listing of its inaugural Rs.1bn debenture on the Colombo Stock Exchange. Fully oversubscribed on day 1 (March 23). Fitch rated A(lka), managed by NDB Investment Bank. 37 branches island-wide.",
+      "client": "mifl",
+      "client_label": "MIFL",
+      "category": "mention",
+      "reason": "MIFL's CSE debut — first capital markets milestone. Outside 30-day auto-fetch window but critical institutional context. Chairman Thilan Wijesinghe keynote. Signals MIFL moving from private NBFI to capital-market-facing entity.",
+      "added_at": "2026-06-12"
     }
   ]
 }

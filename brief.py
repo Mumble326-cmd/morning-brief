@@ -412,12 +412,19 @@ const STORIES = JSON.parse(document.getElementById('story-data').textContent);
 const CLIENTS = JSON.parse(document.getElementById('client-data').textContent);
 const GENERATED = parseInt(document.getElementById('gen-ts').textContent);
 const MS = { '1d':86400000,'7d':604800000,'14d':1209600000,'30d':2592000000 };
-let state = { win:'7d', client:'all', category:'all', q:'' };
+let state = { win:'7d', client:'all', category:'all', q:'', showLowRel:false };
 
 function setWin(v)      { state.win=v;       syncBtns('win'); }
 function setClient(v)   { state.client=v;    syncBtns('client'); }
 function setCategory(v) { state.category=v;  syncBtns('category'); }
 function setQ(v)        { state.q=v.toLowerCase().trim(); render(); }
+
+function toggleLowRel() {
+  state.showLowRel = !state.showLowRel;
+  const btn = document.getElementById('lowrel-btn');
+  if (btn) btn.classList.toggle('active', state.showLowRel);
+  render();
+}
 
 function syncBtns(dim) {
   const sel = { win:'[data-win]', client:'[data-cl]', category:'[data-cat]' }[dim];
@@ -442,7 +449,8 @@ function render() {
       const text = (s.dataset.text||'').toLowerCase();
       const cat = s.dataset.cat || 'mention';
       const catVis = state.category==='all' || state.category===cat;
-      const show = ts >= cutoff && secVis && catVis && (!q || text.includes(q));
+      const lowOk = cat !== 'low_relevance' || state.showLowRel;
+      const show = ts >= cutoff && secVis && catVis && lowOk && (!q || text.includes(q));
       s.style.display = show ? '' : 'none';
       if (show) { secCount++; total++; }
     });
@@ -1000,6 +1008,8 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None, m
         '<span class="result-count" id="result-count"></span>'
         '  <button class="ctrl-btn" style="margin-left:10px;" '
         'onclick="location.reload()" title="Reload page to fetch latest brief">&#8635; Refresh</button>'
+        '  <button class="ctrl-btn" id="lowrel-btn" style="margin-left:6px;" '
+        'onclick="toggleLowRel()" title="Toggle visibility of low relevance stories">Show low relevance</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;border-color:var(--gold);color:var(--gold);" '
         'onclick="openStudio()">&#9998; Keyword Studio</button>'
         '</div>\n'
@@ -1056,15 +1066,24 @@ def main():
         # and adding context makes the query too long, returning 0 results.
         ctx = client_config.get('query_context', '')
 
-        # Fetch direct mentions
+        # Fetch direct mentions. Clients with 10+ terms (HNB, Hayleys) are split
+        # into a primary fetch (main brand + most-used subsidiary, first 4 terms)
+        # and a secondary fetch (the rest), so the dominant brand name doesn't
+        # crowd subsidiaries out of the 100-result RSS feed. Results merge into
+        # all_stories before deduplication and classification.
         print(f'[{client["label"]}] Direct Mentions')
         direct_mentions = client_config.get('direct_mentions', [])
-        query = build_query(direct_mentions, context=ctx)
-        if query:
-            stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
-            for s in stories:
-                s['fetch_type'] = 'direct_mentions'
-            all_stories.extend(stories)
+        if len(direct_mentions) >= 10:
+            term_groups = [direct_mentions[:4], direct_mentions[4:]]
+        else:
+            term_groups = [direct_mentions]
+        for term_group in term_groups:
+            query = build_query(term_group, context=ctx)
+            if query:
+                stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
+                for s in stories:
+                    s['fetch_type'] = 'direct_mentions'
+                all_stories.extend(stories)
 
         # Fetch industry watch — no context; terms are SL-specific or named competitors
         print(f'[{client["label"]}] Industry')

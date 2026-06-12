@@ -102,27 +102,20 @@ def classify_story(story, client_config, outlets_config, fetch_type_hint=None):
     category = 'low_relevance'
     relevance_score = 0.0
     matched_terms = []
-    
-    # If fetched via market_watch or risk_watch query, preserve that classification
-    # unless content contradicts it
-    if fetch_type_hint == 'market_watch':
-        market_terms = client_config.get('market_watch', [])
-        for term in market_terms:
+
+    # Stories fetched via a market_watch or risk_watch query keep that category
+    # as a floor: RSS snippets are usually just the headline repeated, so the
+    # query terms rarely reappear in the text. Only an exclude term demotes them.
+    if fetch_type_hint in ('market_watch', 'risk_watch'):
+        exclude_terms = client_config.get('exclude', [])
+        for term in exclude_terms:
             if term.lower() in text:
-                matched_terms.append(term)
-                category = 'market_watch'
-                relevance_score = 0.5
-                return category, relevance_score, matched_terms
-    
-    elif fetch_type_hint == 'risk_watch':
-        risk_terms = client_config.get('risk_watch', [])
-        for term in risk_terms:
-            if term.lower() in text:
-                matched_terms.append(term)
-                category = 'risk_watch'
-                relevance_score = 0.8
-                return category, relevance_score, matched_terms
-    
+                return 'low_relevance', 0.0, []
+        hint_terms = client_config.get(fetch_type_hint, [])
+        matched_terms = [t for t in hint_terms if t.lower() in text]
+        relevance_score = 0.5 if fetch_type_hint == 'market_watch' else 0.8
+        return fetch_type_hint, relevance_score, matched_terms
+
     # ── Check direct_mentions (highest priority) ───────────────────────────────
     mention_terms = client_config.get('direct_mentions', [])
     for term in mention_terms:
