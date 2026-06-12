@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-12T03:49:48.582083+00:00",
+  "generated_at": "2026-06-12T05:49:15.114721+00:00",
   "generated_date": "2026-06-12",
-  "generated_time": "09:19:48 SL",
+  "generated_time": "11:19:15 SL",
   "stories": [
     {
       "id": "manual_1749773220000",
@@ -26,6 +26,26 @@
         "manual"
       ],
       "source_rank": 4
+    },
+    {
+      "client": "pcc",
+      "headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBzb2VzN19EZWNXeC1oOVZLQm9wYmpacEJac09id2RvSTNxYzFlSDhONWVmWk9XemJpckxyZWJXekFGUzJOTzRMS2xfekxqRHp3Rlowb19EU1M2SDFnNGIyU0l6TVNpczJ0Q21jd0RvZk14QTNBQ2FJ?oc=5",
+      "source": "South Asian Voices",
+      "domain": "news.google.com",
+      "date": "12 Jun 2026 · 10:35 SL",
+      "ts": 1781240751000,
+      "snippet": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy South Asian Voices",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "1e81f603a0aa",
+      "is_primary_in_cluster": true
     },
     {
       "client": "hnb",
@@ -149,13 +169,13 @@
     },
     {
       "client": "hayleys",
-      "headline": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbzJzZDRCWktjMkpoYlZrQy1IRTBkVi1IWEJGdVpFWDlNMVk5WEhEZi1JUFZSRXpqeFN4bXZhbnZMWUZmZmlBa04ydlJTaXdfcUo5X0NVdzU5RFFWeVdmZjB2ZjZnaEllNTRScE5MMlZPbk9VemxSMkota0JpZ1JVVnZ3S0lEd2N3czhWMHNWZzVFbC1wVW9BRjBJbzFNXzB5YWVOVHc3dkN5cE0yc19vbTNxenBrVklvdlktNkhUSm4ySGRObWhyRTVfWQ?oc=5",
-      "source": "dailynews.lk",
+      "headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka | Daily Mirror - Sri Lanka - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOOGRYSWFiRHg1eVpuUDJfY2pHSjI2dGNmalVwUm9nN1BROC1CZ29BNkR0VTUyZ19ENnRTRTBnc1IzWld1MjYzaVJSR1RxaVNGdFNST01pUk5xUFNXeVVpN2xQdldWS1Z2alJ1bzRqSlBza05pNDRmVllvZXNQMzd0a2ZLYkE1X1VXRzYwSHJ4cXIzd1Z4RFBTQ2k2Z3RYVk5FS053RThLeWZRSW1ZcWNCYllLdFdmYVQ5SWM1TUxrMEllZw?oc=5",
+      "source": "Magzter",
       "domain": "news.google.com",
-      "date": "10 Jun 2026 · 01:04 SL",
-      "ts": 1781033640000,
-      "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment dailynews.lk",
+      "date": "10 Jun 2026 · 07:13 SL",
+      "ts": 1781055826000,
+      "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka | Daily Mirror - Sri Lanka - newspaper Magzter",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -164,7 +184,7 @@
       ],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "9bb71af3b6a7",
+      "cluster_id": "bc1441747640",
       "is_primary_in_cluster": true
     },
     {
@@ -609,6 +629,26 @@
     },
     {
       "client": "hnb",
+      "headline": "PDMO responsible for secondary market reporting: CBSL",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE4zZklKR3A0a0owS0VFMF92LUNMV3BILUhtTEtZcU1VVWpDR3lqMk81aU5HSTJxZ2tzcWdJNmIwcFlXaTNzdGRITTNFMDl4YnZsNUpPUlJjalcyZGRIbkZzUUVFNVB1Zw?oc=5",
+      "source": "The Morning",
+      "domain": "news.google.com",
+      "date": "12 Jun 2026 · 06:40 SL",
+      "ts": 1781226627000,
+      "snippet": "PDMO responsible for secondary market reporting: CBSL The Morning",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "be112c3a9a6a",
+      "is_primary_in_cluster": true
+    },
+    {
+      "client": "hnb",
       "headline": "Treasury-CBSL playing blame game over $ 2.5 m cyber theft",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcmdWZ1NlcXd5Qno0MXFNZWZLTERfNG9DV0JRcy1tb2IxMHhwbUxWdGhObklpSkhhaWVSTHZVN0hubDgzZFBlbGREWGxOeTFUTXJicGNOSG5tS1lBNzRJSjNyUVpmNWRCcHVWemI5aUxJbnlUQzJ3eWROUVZYdE52U041LTZQWnBIUy1iNHk2dTE1c1RFaXpRUQ?oc=5",
       "source": "Daily FT",
@@ -625,26 +665,6 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "e24959486acf",
-      "is_primary_in_cluster": true
-    },
-    {
-      "client": "hnb",
-      "headline": "CBSL Rates : USD selling rate increases to Rs. 337",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ2MtLUxlTlJxdFptX0llR0NnNEtOWnhlUUVwaEhLSG9DNGtONjBvaFVfb29tTnlXU1RQWXg1WVZ1WEdZVUpLWV9uQVZqdmk1a0FGQWZVQ0FGdnpYb01TemtuZmliZ29qQ1pseGxwWkpTbjlBams4bmRoYS1HYzVGZmZqOFRJb3AyNEdZ?oc=5",
-      "source": "Newswire",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 13:07 SL",
-      "ts": 1781163442000,
-      "snippet": "CBSL Rates : USD selling rate increases to Rs. 337 Newswire",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "0afcbefda8b3",
       "is_primary_in_cluster": true
     },
     {
@@ -814,6 +834,18 @@
   ],
   "clusters_summary": [
     {
+      "cluster_id": "1e81f603a0aa",
+      "primary_headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
+      "primary_source": "South Asian Voices",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "be112c3a9a6a",
+      "primary_headline": "PDMO responsible for secondary market reporting: CBSL",
+      "primary_source": "The Morning",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "e24959486acf",
       "primary_headline": "Treasury-CBSL playing blame game over $ 2.5 m cyber theft",
       "primary_source": "Daily FT",
@@ -850,12 +882,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "0afcbefda8b3",
-      "primary_headline": "CBSL Rates : USD selling rate increases to Rs. 337",
-      "primary_source": "Newswire",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "cab5e12cb7c5",
       "primary_headline": "BYD tops global automotive innovation ranking in historic first",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -868,9 +894,9 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "9bb71af3b6a7",
-      "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment",
-      "primary_source": "dailynews.lk",
+      "cluster_id": "bc1441747640",
+      "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka | Daily Mirror - Sri Lanka - newspaper",
+      "primary_source": "Magzter",
       "also_covered_count": 0
     },
     {
@@ -907,7 +933,7 @@
       "cluster_id": "211c7b044adc",
       "primary_headline": "Sri Lanka’s Sampath Bank opens first branch in Colombo Port City",
       "primary_source": "EconomyNext",
-      "also_covered_count": 1
+      "also_covered_count": 0
     },
     {
       "cluster_id": "4567feb0fea3",
@@ -1060,6 +1086,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 41,
-  "total_clusters": 41
+  "total_stories": 42,
+  "total_clusters": 42
 }
