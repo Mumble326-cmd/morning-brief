@@ -1,8 +1,32 @@
 {
-  "generated_at": "2026-06-12T03:40:33.989219+00:00",
+  "generated_at": "2026-06-12T03:49:48.582083+00:00",
   "generated_date": "2026-06-12",
-  "generated_time": "09:10:33 SL",
+  "generated_time": "09:19:48 SL",
   "stories": [
+    {
+      "id": "manual_1749773220000",
+      "url": "https://www.dailymirror.lk/business-news/MIFL-records-Rs-818mn-PBT-in-FY-2025-26-up-193-YoY/273-340102",
+      "headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
+      "source": "Daily Mirror",
+      "domain": "www.dailymirror.lk",
+      "date": "13 May 2026 · 00:47 SL",
+      "ts": 1778613420000,
+      "snippet": "Mahindra Ideal Finance Ltd (MIFL) posted its strongest ever financial performance in FY 2025-26: PBT Rs.818mn (+193% YoY), PAT Rs.478mn (+228% YoY), disbursements Rs.57.6bn (+98% YoY). Loan book grew 82% YoY to Rs.26.95bn. Cost-to-income ratio improved to 50.5% from 68.9%. Gross stage 3 ratio declined to 1.73%.",
+      "client": "mifl",
+      "client_label": "MIFL",
+      "category": "mention",
+      "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article and the CORS policy blocks the studio auto-fill. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Use as baseline whenever MIFL coverage looks thin — these numbers set the competitive context for the NBFI sector.",
+      "added_at": "2026-06-12",
+      "is_manual": true,
+      "is_low_relevance": false,
+      "is_primary_in_cluster": true,
+      "cluster_id": "3cbc20d2bbc2",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "manual"
+      ],
+      "source_rank": 4
+    },
     {
       "client": "hnb",
       "headline": "HNB General Insurance appoints Dilshan Perera as COO",
@@ -1028,8 +1052,14 @@
       "primary_headline": "HNB reaches Rs 2.5 Tn asset milestone, marking a strong start to 2026",
       "primary_source": "dailynews.lk",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "3cbc20d2bbc2",
+      "primary_headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
+      "primary_source": "Daily Mirror",
+      "also_covered_count": 0
     }
   ],
-  "total_stories": 40,
-  "total_clusters": 40
+  "total_stories": 41,
+  "total_clusters": 41
 }

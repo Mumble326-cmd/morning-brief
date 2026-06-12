@@ -1,4 +1,20 @@
 {
   "_info": "Manually curated articles for the Morning Brief. The 'reason' field on each entry records the editorial decision — this is institutional memory: coverage gaps, competitive intelligence, classification edge cases, or important context that auto-fetching missed. brief.py merges these into the story feed on every run. Any Claude session revisiting this project should read this file to understand past coverage decisions and patterns.",
-  "articles": []
+  "articles": [
+    {
+      "id": "manual_1749773220000",
+      "url": "https://www.dailymirror.lk/business-news/MIFL-records-Rs-818mn-PBT-in-FY-2025-26-up-193-YoY/273-340102",
+      "headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
+      "source": "Daily Mirror",
+      "domain": "www.dailymirror.lk",
+      "date": "13 May 2026 · 00:47 SL",
+      "ts": 1778613420000,
+      "snippet": "Mahindra Ideal Finance Ltd (MIFL) posted its strongest ever financial performance in FY 2025-26: PBT Rs.818mn (+193% YoY), PAT Rs.478mn (+228% YoY), disbursements Rs.57.6bn (+98% YoY). Loan book grew 82% YoY to Rs.26.95bn. Cost-to-income ratio improved to 50.5% from 68.9%. Gross stage 3 ratio declined to 1.73%.",
+      "client": "mifl",
+      "client_label": "MIFL",
+      "category": "mention",
+      "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article and the CORS policy blocks the studio auto-fill. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Use as baseline whenever MIFL coverage looks thin — these numbers set the competitive context for the NBFI sector.",
+      "added_at": "2026-06-12"
+    }
+  ]
 }

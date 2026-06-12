@@ -892,7 +892,15 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None, m
     story_json = json.dumps(flat_stories, ensure_ascii=False)
     kw_json    = json.dumps(keywords or {}, ensure_ascii=False)
 
-    clips_json = json.dumps(manual_data or {'articles': []}, ensure_ascii=False)
+    raw_clips     = manual_data or {}
+    clean_articles = [
+        {k: v for k, v in a.items() if k != '_cluster_info'}
+        for a in raw_clips.get('articles', [])
+    ]
+    clips_json = json.dumps(
+        {'_info': raw_clips.get('_info', ''), 'articles': clean_articles},
+        ensure_ascii=False
+    )
 
     studio_overlay = (
         '<div id="studio-overlay" class="studio-overlay hidden" onclick="if(event.target===this)closeStudio()">\n'
