@@ -241,9 +241,13 @@ h1 .it{font-style:italic;font-weight:600;}
 .tag-market{background:var(--category-market);color:var(--paper);}
 .tag-risk{background:var(--category-risk);color:var(--paper);}
 .tag-lowrel{background:var(--category-lowrel);color:var(--ink);}
-.also-covered{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--faint);
-  margin-top:6px;padding:6px 8px;background:var(--cream);border-left:2px solid var(--gold);}
-.also-covered strong{color:var(--muted);}
+.pub-chips{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.pub-chips-label{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--faint);}
+.pub-chip{font-family:"IBM Plex Mono",monospace;font-size:8.5px;letter-spacing:.04em;
+  text-decoration:none;color:var(--muted);background:var(--cream);
+  border:1px solid var(--rule-soft);padding:2px 7px;border-radius:2px;transition:all .12s;}
+.pub-chip:hover{border-color:var(--accent);color:var(--ink);}
 .no-stories{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);
   padding:12px 0;letter-spacing:.04em;}
 .foot{padding:16px 36px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;
@@ -808,13 +812,33 @@ def render_story_card(story, cluster_info=None):
         (story.get('headline', '') + ' ' + story.get('snippet', '') + ' ' + story.get('source', '')).lower()
     )
 
-    cat_class   = f'tag-{category}'
+    tag_classes = {
+        'mention':       'tag-mention',
+        'industry':      'tag-industry',
+        'market_watch':  'tag-market',
+        'risk_watch':    'tag-risk',
+        'low_relevance': 'tag-lowrel',
+    }
+    cat_class   = tag_classes.get(category, 'tag-mention')
     cat_display = category.replace('_', ' ').title()
 
     also_covered_html = ''
     if cluster_info and cluster_info.get('also_covered_by'):
-        sources = ', '.join(h(s.get('source', 'Source')) for s in cluster_info['also_covered_by'])
-        also_covered_html = f'<div class="also-covered"><strong>Also covered by:</strong> {sources}</div>'
+        # One linked chip per outlet, deduped by source name, under the same banner
+        seen_sources = set()
+        chips = ''
+        for s in cluster_info['also_covered_by']:
+            name = s.get('source') or s.get('domain') or 'Source'
+            if name in seen_sources:
+                continue
+            seen_sources.add(name)
+            chips += (
+                f'<a class="pub-chip" href="{h(s.get("url", "#"))}" '
+                f'target="_blank" rel="noopener">{h(name)}</a>'
+            )
+        also_covered_html = (
+            f'<div class="pub-chips"><span class="pub-chips-label">Also in</span>{chips}</div>'
+        )
 
     manual_tag    = '<span class="story-tag tag-manual">&#9986; Manual Clip</span>' if is_manual else ''
     reason_html   = (

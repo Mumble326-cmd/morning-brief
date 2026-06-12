@@ -185,7 +185,13 @@ def are_likely_duplicates(story_a, story_b, threshold=0.7):
     # Normalize titles for comparison
     title_a = normalize_for_dedup(story_a.get('headline', ''))
     title_b = normalize_for_dedup(story_b.get('headline', ''))
-    
+
+    # Identical headline = same story republished by another outlet.
+    # Merge regardless of publication time — press releases and wire copy
+    # get re-run across outlets days apart.
+    if title_a and title_a == title_b:
+        return True
+
     # Simple word overlap check
     words_a = set(title_a.split())
     words_b = set(title_b.split())
