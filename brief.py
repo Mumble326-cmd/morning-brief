@@ -341,6 +341,54 @@ STUDIO_CSS = """
 .ks-add::placeholder{color:var(--faint);}
 .ks-add:focus{border-style:solid;border-color:var(--accent);color:var(--ink);}
 
+/* Manual clip badge in brief */
+.tag-manual{background:var(--gold);color:var(--accent);}
+.story-manual-reason{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  color:var(--muted);margin-top:5px;padding:5px 8px;
+  border-left:2px solid var(--gold);background:var(--cream);font-style:italic;}
+
+/* ── Clippings panel ──────────────────────────────────── */
+.clip-form{display:grid;gap:7px;margin-bottom:14px;}
+.clip-row{display:flex;gap:6px;align-items:flex-start;}
+.clip-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint);width:72px;flex-shrink:0;padding-top:5px;}
+.clip-input,.clip-select{font-family:'IBM Plex Mono',monospace;font-size:10px;flex:1;
+  background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+  padding:4px 8px;color:var(--ink);outline:none;}
+.clip-input:focus,.clip-select:focus{border-color:var(--accent);}
+.clip-input.url{font-size:9px;}
+.clip-textarea{font-family:'IBM Plex Mono',monospace;font-size:10px;flex:1;
+  background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+  padding:4px 8px;color:var(--ink);outline:none;resize:vertical;min-height:48px;}
+.clip-textarea:focus{border-color:var(--accent);}
+.clip-fetch-btn{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;border:1px solid var(--rule);background:transparent;
+  color:var(--muted);padding:4px 9px;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.clip-fetch-btn:hover{border-color:var(--accent);color:var(--ink);}
+.clip-fetch-status{font-family:'IBM Plex Mono',monospace;font-size:8.5px;
+  color:var(--muted);min-height:1.4em;}
+.clip-add-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--category-mention);color:var(--paper);
+  border:1px solid var(--category-mention);padding:6px 14px;border-radius:2px;
+  cursor:pointer;width:100%;margin-top:2px;}
+.clip-add-btn:hover{opacity:.85;}
+.clip-list{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.clip-item{padding:9px 10px;background:var(--cream);border:1px solid var(--rule);
+  border-left:3px solid var(--gold);border-radius:2px;}
+.clip-item-hl{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;
+  line-height:1.3;margin-bottom:3px;}
+.clip-item-meta{font-family:'IBM Plex Mono',monospace;font-size:8px;
+  color:var(--faint);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:3px;}
+.clip-item-reason{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  color:var(--muted);font-style:italic;margin-bottom:4px;}
+.clip-item-rm{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--faint);cursor:pointer;background:none;
+  border:none;padding:0;text-decoration:underline;}
+.clip-item-rm:hover{color:var(--category-risk);}
+.clip-empty{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--faint);
+  padding:8px 0;text-align:center;}
+.clip-dl-row{margin-top:10px;display:flex;gap:8px;align-items:center;}
+
 /* Studio footer */
 .studio-foot{position:sticky;bottom:0;flex-shrink:0;
   background:var(--cream);border-top:1px solid var(--rule);
@@ -431,11 +479,14 @@ let KW = deepClone(KW_RAW);
 function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
 
 function openStudio() {
-  KW = deepClone(KW_RAW);
+  KW    = deepClone(KW_RAW);
+  CLIPS = deepClone(CLIPS_RAW);
   document.getElementById('studio-overlay').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   renderHealth();
   renderClients();
+  initClipClientSelect();
+  renderClips();
   setKsStatus('Keywords loaded · edit then download to apply', '');
 }
 
@@ -615,6 +666,123 @@ function htmlesc(s) {
 function jsesc(s) {
   return String(s==null?'':s).replace(/'/g,"\\'").replace(/\\/g,'\\\\');
 }
+
+/* ── Manual Clippings ──────────────────────────────────────────── */
+const CLIPS_RAW = JSON.parse(document.getElementById('clips-data').textContent);
+let CLIPS = deepClone(CLIPS_RAW);
+
+function initClipClientSelect() {
+  const sel = document.getElementById('clip-client');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">— select client —</option>' +
+    CLIENTS.map(c => `<option value="${htmlesc(c.key)}">${htmlesc(c.label)}</option>`).join('');
+}
+
+function renderClips() {
+  const list = document.getElementById('clip-list');
+  if (!list) return;
+  const arts = CLIPS.articles || [];
+  if (!arts.length) {
+    list.innerHTML = '<div class="clip-empty">No manual clippings yet — paste a URL above to add one.</div>';
+    return;
+  }
+  list.innerHTML = arts.map((a, i) =>
+    `<div class="clip-item">
+      <div class="clip-item-hl">${htmlesc(a.headline)}</div>
+      <div class="clip-item-meta">
+        <span>${htmlesc(a.source||'')}</span>
+        <span>${htmlesc(a.date||'')}</span>
+        <span>${htmlesc(a.client_label||a.client||'')}</span>
+        <span>${htmlesc((a.category||'').replace(/_/g,' '))}</span>
+      </div>
+      ${a.reason ? `<div class="clip-item-reason">${htmlesc(a.reason)}</div>` : ''}
+      <button class="clip-item-rm" onclick="removeClip(${i})">remove</button>
+    </div>`
+  ).join('');
+}
+
+function removeClip(i) {
+  CLIPS.articles.splice(i, 1);
+  renderClips();
+  setKsStatus('Clipping removed — download to apply', 'warn');
+}
+
+async function fetchClipMeta() {
+  const urlVal = document.getElementById('clip-url').value.trim();
+  if (!urlVal) return;
+  const st = document.getElementById('clip-fetch-status');
+  st.textContent = 'Fetching page details…';
+  try {
+    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(urlVal);
+    const resp = await fetch(proxy, {signal: AbortSignal.timeout(9000)});
+    const data = await resp.json();
+    const raw  = data.contents || '';
+    const doc  = new DOMParser().parseFromString(raw, 'text/html');
+    const og   = sel => { const el = doc.querySelector(sel); return el ? (el.getAttribute('content')||'') : ''; };
+    const title   = og('meta[property="og:title"]') || doc.title || '';
+    const siteName= og('meta[property="og:site_name"]') || og('meta[name="publisher"]') || '';
+    const desc    = og('meta[property="og:description"]') || og('meta[name="description"]') || '';
+    const pubDate = og('meta[property="article:published_time"]') || og('meta[name="article:published_time"]') || '';
+    if (title) document.getElementById('clip-headline').value =
+      title.replace(/\s[-|]\s[^-|]+$/, '').trim();
+    if (siteName) document.getElementById('clip-source').value = siteName;
+    if (desc)  document.getElementById('clip-snippet').value  = desc.slice(0,280);
+    if (pubDate) {
+      try {
+        const d = new Date(pubDate);
+        document.getElementById('clip-date').value =
+          d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      } catch(e){}
+    }
+    st.textContent = title ? '✓ Details fetched — review and adjust if needed' :
+      '⚠ Could not extract details — fill in manually';
+  } catch(e) {
+    st.textContent = '⚠ Auto-fill failed (CORS or timeout) — fill in manually';
+  }
+}
+
+function addClip() {
+  const g   = id => document.getElementById(id).value.trim();
+  const url = g('clip-url'), headline = g('clip-headline');
+  const client = g('clip-client'), category = g('clip-category');
+  if (!url || !headline || !client || !category) {
+    setKsStatus('URL, headline, client and category are required', 'err'); return;
+  }
+  const clientLabel = (CLIENTS.find(c => c.key === client)||{}).label || client;
+  const now = new Date();
+  let domain = '';
+  try { domain = new URL(url).hostname; } catch(e){}
+  if (!CLIPS.articles) CLIPS.articles = [];
+  CLIPS.articles.push({
+    id: 'manual_' + now.getTime(),
+    url, headline,
+    source:   g('clip-source')  || 'Unknown',
+    date:     g('clip-date')    || now.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),
+    ts:       now.getTime(),
+    snippet:  g('clip-snippet'),
+    client,   client_label: clientLabel,
+    category, reason: g('clip-reason'),
+    domain,   added_at: now.toISOString().slice(0,10)
+  });
+  ['clip-url','clip-headline','clip-source','clip-snippet','clip-reason'].forEach(id =>
+    { document.getElementById(id).value = ''; }
+  );
+  document.getElementById('clip-date').value = '';
+  document.getElementById('clip-fetch-status').textContent = '';
+  renderClips();
+  setKsStatus('Clipping added — download manual_articles.json to apply', 'ok');
+}
+
+function downloadClips() {
+  const out = {
+    _info: 'Manually curated articles for the Morning Brief. The "reason" field on each entry records the editorial decision — this is institutional memory: coverage gaps, competitive intelligence, or classification edge cases. brief.py merges these into the story feed on every run. Any Claude session revisiting this project can read this file to understand past coverage decisions.',
+    articles: CLIPS.articles || []
+  };
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'manual_articles.json'; a.click();
+  setKsStatus('Downloaded manual_articles.json — save to repo root and re-run brief.py', 'ok');
+}
 """
 
 def render_story_card(story, cluster_info=None):
@@ -625,23 +793,27 @@ def render_story_card(story, cluster_info=None):
     date = h(story.get('date', ''))
     snippet = h(story.get('snippet', ''))
     category = story.get('category', 'mention')
-    relevance = story.get('relevance_score', 1.0)
-    
-    # Build search text for filtering
+    is_manual = story.get('is_manual', False)
+    reason = h(story.get('reason', ''))
+
     search_text = html_lib.escape(
         (story.get('headline', '') + ' ' + story.get('snippet', '') + ' ' + story.get('source', '')).lower()
     )
-    
-    # Category tag
-    cat_class = f'tag-{category}'
+
+    cat_class   = f'tag-{category}'
     cat_display = category.replace('_', ' ').title()
-    
-    # Also covered
+
     also_covered_html = ''
     if cluster_info and cluster_info.get('also_covered_by'):
         sources = ', '.join(h(s.get('source', 'Source')) for s in cluster_info['also_covered_by'])
         also_covered_html = f'<div class="also-covered"><strong>Also covered by:</strong> {sources}</div>'
-    
+
+    manual_tag    = '<span class="story-tag tag-manual">&#9986; Manual Clip</span>' if is_manual else ''
+    reason_html   = (
+        f'<div class="story-manual-reason">{reason}</div>'
+        if (is_manual and reason) else ''
+    )
+
     return (
         f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}">'
         f'<a class="story-hl" href="{h(url)}" target="_blank" rel="noopener">'
@@ -651,11 +823,12 @@ def render_story_card(story, cluster_info=None):
         f'<span class="src">{source}</span>'
         f'<span class="sep">/</span><span>{date}</span>'
         f'</div>'
-        f'<div class="story-tags"><span class="story-tag {cat_class}">{cat_display}</span></div>'
+        f'<div class="story-tags"><span class="story-tag {cat_class}">{cat_display}</span>{manual_tag}</div>'
+        f'{reason_html}'
         f'{also_covered_html}</div>'
     )
 
-def build_html(clustered_stories, clients_config, generated_at, keywords=None):
+def build_html(clustered_stories, clients_config, generated_at, keywords=None, manual_data=None):
     """Build the HTML output."""
     now_sl   = generated_at.astimezone(SL_TZ)
     dateline = now_sl.strftime('%A, %d %B %Y')
@@ -719,6 +892,8 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None):
     story_json = json.dumps(flat_stories, ensure_ascii=False)
     kw_json    = json.dumps(keywords or {}, ensure_ascii=False)
 
+    clips_json = json.dumps(manual_data or {'articles': []}, ensure_ascii=False)
+
     studio_overlay = (
         '<div id="studio-overlay" class="studio-overlay hidden" onclick="if(event.target===this)closeStudio()">\n'
         '  <div class="studio-panel">\n'
@@ -731,6 +906,40 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None):
         '      <div class="studio-section">\n'
         '        <div class="studio-section-title">Coverage Health &mdash; current brief</div>\n'
         '        <div class="health-grid" id="ks-health-grid"></div>\n'
+        '      </div>\n'
+        '      <div class="studio-section">\n'
+        '        <div class="studio-section-title">Manual Clippings &mdash; paste a URL, auto-fill, classify, download</div>\n'
+        '        <div class="clip-form">\n'
+        '          <div class="clip-row"><span class="clip-label">URL</span>'
+        '<input class="clip-input url" id="clip-url" type="url" placeholder="https://ft.lk/…">'
+        '<button class="clip-fetch-btn" onclick="fetchClipMeta()">Auto-fill ↗</button></div>\n'
+        '          <div class="clip-fetch-status" id="clip-fetch-status"></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Headline</span>'
+        '<input class="clip-input" id="clip-headline" type="text" placeholder="Article headline"></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Source</span>'
+        '<input class="clip-input" id="clip-source" type="text" placeholder="Daily FT"></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Date</span>'
+        '<input class="clip-input" id="clip-date" type="text" placeholder="12 Jun 2026"></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Snippet</span>'
+        '<textarea class="clip-textarea" id="clip-snippet" placeholder="Brief summary (optional)"></textarea></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Client</span>'
+        '<select class="clip-select" id="clip-client"><option value="">— select —</option></select></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Category</span>'
+        '<select class="clip-select" id="clip-category">'
+        '<option value="mention">Mention</option>'
+        '<option value="industry" selected>Industry</option>'
+        '<option value="market_watch">Market Watch</option>'
+        '<option value="risk_watch">Risk Watch</option>'
+        '</select></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Reason</span>'
+        '<textarea class="clip-textarea" id="clip-reason" '
+        'placeholder="Why are you adding this? Becomes institutional memory for future briefs and Claude sessions."></textarea></div>\n'
+        '          <button class="clip-add-btn" onclick="addClip()">+ Add to Clippings</button>\n'
+        '        </div>\n'
+        '        <div class="clip-list" id="clip-list"></div>\n'
+        '        <div class="clip-dl-row">'
+        '<button class="ks-btn" onclick="downloadClips()">&#x2193; Download manual_articles.json</button>'
+        '</div>\n'
         '      </div>\n'
         '      <div class="studio-section">\n'
         '        <div class="studio-section-title">Keywords per Client &mdash; click to expand &middot; Enter to add &middot; &times; to remove</div>\n'
@@ -803,6 +1012,7 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None):
         f'<script id="client-data" type="application/json">{client_js}</script>\n'
         f'<script id="gen-ts" type="application/json">{gen_ts}</script>\n'
         f'<script id="kw-data" type="application/json">{kw_json}</script>\n'
+        f'<script id="clips-data" type="application/json">{clips_json}</script>\n'
         f'<script>{JS}\n{STUDIO_JS}</script>\n'
         '</body>\n</html>\n'
     )
@@ -832,6 +1042,10 @@ def main():
             print(f'[{client["label"]}] Skipped (no config)')
             continue
         
+        # query_context only applies to direct_mentions — it's needed for
+        # ambiguous short brand names (BYD, MAS, HNB) that flood the RSS feed
+        # with global results. Industry / market / risk terms are already SL-specific
+        # and adding context makes the query too long, returning 0 results.
         ctx = client_config.get('query_context', '')
 
         # Fetch direct mentions
@@ -844,30 +1058,30 @@ def main():
                 s['fetch_type'] = 'direct_mentions'
             all_stories.extend(stories)
 
-        # Fetch industry watch
+        # Fetch industry watch — no context; terms are SL-specific or named competitors
         print(f'[{client["label"]}] Industry')
         industry_watch = client_config.get('industry_watch', [])
-        query = build_query(industry_watch, context=ctx)
+        query = build_query(industry_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'industry_watch'
             all_stories.extend(stories)
 
-        # Fetch market watch
+        # Fetch market watch — no context
         print(f'[{client["label"]}] Market Watch')
         market_watch = client_config.get('market_watch', [])
-        query = build_query(market_watch, context=ctx)
+        query = build_query(market_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES * 2, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'market_watch'
             all_stories.extend(stories)
 
-        # Fetch risk watch
+        # Fetch risk watch — no context
         print(f'[{client["label"]}] Risk Watch')
         risk_watch = client_config.get('risk_watch', [])
-        query = build_query(risk_watch, context=ctx)
+        query = build_query(risk_watch)
         if query:
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
@@ -883,12 +1097,31 @@ def main():
     for story in all_stories:
         client_key = story['client']
         client_config = keywords.get(client_key, {})
-        fetch_type = story.get('fetch_type', 'direct_mentions')  # default to direct_mentions
+        fetch_type = story.get('fetch_type', 'direct_mentions')
         category, relevance, matched = classify_story(story, client_config, outlets_config, fetch_type_hint=fetch_type)
         story['category'] = category
         story['relevance_score'] = relevance
         story['matched_terms'] = matched
         story['source_rank'] = source_rank(story.get('domain', ''), outlets_config)
+
+    # ── Merge manual clippings (pre-classified, injected after auto-classify) ─
+    manual_data = load_json('manual_articles.json', {'articles': []})
+    manual_articles = manual_data.get('articles', [])
+    for art in manual_articles:
+        art['is_manual']             = True
+        art['is_low_relevance']      = False
+        art['is_primary_in_cluster'] = True
+        art['cluster_id']            = art.get('id', f'manual_{art.get("ts",0)}')
+        art['relevance_score']       = art.get('relevance_score', 1.0)
+        art['matched_terms']         = art.get('matched_terms', ['manual'])
+        art['source_rank']           = source_rank(
+            art.get('domain', extract_domain(art.get('url', ''))), outlets_config
+        )
+        if 'snippet' not in art:
+            art['snippet'] = ''
+    if manual_articles:
+        print(f'Manual clippings loaded: {len(manual_articles)}')
+    all_stories.extend(manual_articles)
 
     # ── Remove low relevance stories (keep in JSON but hide from main view) ────
     for story in all_stories:
@@ -897,26 +1130,28 @@ def main():
     # ── Cluster duplicates ────────────────────────────────────────────────────
     print('Grouping duplicate stories...')
     clusters = cluster_stories(all_stories)
-    
+
     clustered_stories = []
     for cluster in clusters:
         primary = cluster['primary']
-        
-        # Enhance primary with cluster info
         primary['_cluster_info'] = cluster
-        primary['cluster_id'] = cluster['cluster_id']
+        primary['cluster_id']    = cluster['cluster_id']
         primary['is_primary_in_cluster'] = True
-        
         clustered_stories.append(primary)
 
-    # Sort by relevance and date
-    clustered_stories.sort(key=lambda s: (-s.get('relevance_score', 0), -s.get('ts', 0)))
+    # Sort: manual clips always surface first within their relevance tier
+    clustered_stories.sort(key=lambda s: (
+        -int(s.get('is_manual', False)),
+        -s.get('relevance_score', 0),
+        -s.get('ts', 0)
+    ))
 
     print(f'Total stories after clustering: {len(clustered_stories)}')
-    
+
     # ── Generate HTML ────────────────────────────────────────────────────────
     print('Building HTML...')
-    page = build_html(clustered_stories, CLIENTS, generated_at, keywords=keywords)
+    page = build_html(clustered_stories, CLIENTS, generated_at,
+                      keywords=keywords, manual_data=manual_data)
 
     # ── Validation ────────────────────────────────────────────────────────────
     is_safe, messages = validate_no_private_contacts(page)

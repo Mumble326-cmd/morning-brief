@@ -1,0 +1,4 @@
+{
+  "_info": "Manually curated articles for the Morning Brief. The 'reason' field on each entry records the editorial decision — this is institutional memory: coverage gaps, competitive intelligence, classification edge cases, or important context that auto-fetching missed. brief.py merges these into the story feed on every run. Any Claude session revisiting this project should read this file to understand past coverage decisions and patterns.",
+  "articles": []
+}

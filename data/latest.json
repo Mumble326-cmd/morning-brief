@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-12T03:28:13.680980+00:00",
+  "generated_at": "2026-06-12T03:40:33.989219+00:00",
   "generated_date": "2026-06-12",
-  "generated_time": "08:58:13 SL",
+  "generated_time": "09:10:33 SL",
   "stories": [
     {
       "client": "hnb",
@@ -865,7 +865,7 @@
       "cluster_id": "3dc64f3e2218",
       "primary_headline": "US adds BYD to list of firms with alleged Chinese military ties",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 3
+      "also_covered_count": 1
     },
     {
       "cluster_id": "a6f7284a0be3",
