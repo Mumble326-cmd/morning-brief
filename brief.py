@@ -255,6 +255,103 @@ FONTS = (
     '&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap'
 )
 
+STUDIO_CSS = """
+/* ── Keyword Studio ─────────────────────────────────────────────── */
+.studio-overlay{position:fixed;inset:0;z-index:200;display:flex;justify-content:flex-end;
+  background:rgba(13,13,13,.5);backdrop-filter:blur(2px);}
+.studio-overlay.hidden{display:none;}
+.studio-panel{width:min(700px,100vw);height:100vh;background:var(--paper);
+  border-left:2px solid var(--ink);display:flex;flex-direction:column;overflow:hidden;}
+.studio-head{display:flex;align-items:center;gap:12px;padding:18px 28px 14px;
+  border-bottom:3px double var(--ink);flex-shrink:0;}
+.studio-head h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;flex:1;}
+.studio-head-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.studio-close{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1;
+  background:transparent;border:1px solid var(--rule);color:var(--muted);
+  width:28px;height:28px;border-radius:2px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.studio-close:hover{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+.studio-body{flex:1;overflow-y:auto;padding:0 28px 100px;}
+.studio-section{padding:18px 0;border-bottom:1px solid var(--rule-soft);}
+.studio-section:last-child{border-bottom:none;}
+.studio-section-title{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;}
+
+/* Coverage Health */
+.health-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;}
+.health-card{padding:10px 12px;border-radius:2px;border:1px solid var(--rule);
+  font-family:'IBM Plex Mono',monospace;}
+.health-card.zero{border-color:var(--category-risk);background:rgba(139,0,0,.05);}
+.health-card.ok{border-color:var(--category-mention);background:rgba(45,80,22,.04);}
+.health-card-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;
+  margin-bottom:3px;}
+.health-card-count{font-size:9px;letter-spacing:.06em;color:var(--faint);}
+.health-card.zero .health-card-count{color:var(--category-risk);font-weight:600;}
+.health-card.ok .health-card-count{color:var(--category-mention);}
+.health-fallbacks{margin-top:8px;}
+.health-fb-label{font-size:8px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:4px;}
+.fallback-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8px;
+  background:var(--cream);border:1px solid var(--rule-soft);
+  padding:2px 7px;border-radius:2px;cursor:pointer;margin:2px 2px 0 0;transition:all .12s;}
+.fallback-chip:hover{border-color:var(--accent);background:var(--accent);color:var(--paper);}
+
+/* Client keyword editors */
+.studio-client{padding:14px 0;border-bottom:1px solid var(--rule-soft);}
+.studio-client:last-child{border-bottom:none;}
+.studio-cl-head{display:flex;align-items:center;gap:10px;margin-bottom:0;cursor:pointer;
+  user-select:none;}
+.studio-cl-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;}
+.studio-cl-sector{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);background:var(--accent);
+  padding:2px 6px;border-radius:2px;}
+.studio-cl-toggle{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  color:var(--faint);margin-left:auto;}
+.studio-cl-body{display:none;margin-top:12px;}
+.studio-cl-body.open{display:block;}
+
+.ks-mode{margin-bottom:11px;}
+.ks-mode-label{display:flex;align-items:center;gap:7px;
+  font-family:'IBM Plex Mono',monospace;font-size:8px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px;}
+.ks-mode-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.ks-dot-mention{background:var(--category-mention);}
+.ks-dot-industry{background:var(--category-industry);}
+.ks-dot-market{background:var(--category-market);}
+.ks-dot-risk{background:var(--category-risk);}
+.ks-dot-exclude{background:var(--faint);}
+.ks-tags{display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+.ks-tag{display:inline-flex;align-items:center;gap:4px;
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  background:var(--cream);border:1px solid var(--rule);
+  padding:3px 8px;border-radius:2px;color:var(--ink);}
+.ks-rm{cursor:pointer;color:var(--faint);font-size:11px;font-weight:600;padding:0 1px;}
+.ks-rm:hover{color:var(--category-risk);}
+.ks-add{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  background:transparent;border:1px dashed var(--rule);
+  padding:3px 8px;border-radius:2px;color:var(--muted);outline:none;min-width:130px;}
+.ks-add::placeholder{color:var(--faint);}
+.ks-add:focus{border-style:solid;border-color:var(--accent);color:var(--ink);}
+
+/* Studio footer */
+.studio-foot{position:sticky;bottom:0;flex-shrink:0;
+  background:var(--cream);border-top:1px solid var(--rule);
+  padding:11px 28px;display:flex;align-items:center;gap:10px;}
+.ks-status{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  letter-spacing:.05em;color:var(--faint);flex:1;min-width:0;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;}
+.ks-status.ok{color:var(--category-mention);}
+.ks-status.warn{color:var(--category-market);}
+.ks-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;border:1px solid var(--rule);background:transparent;
+  color:var(--muted);padding:5px 12px;border-radius:2px;cursor:pointer;transition:all .14s;
+  white-space:nowrap;}
+.ks-btn:hover{border-color:var(--accent);color:var(--ink);}
+.ks-btn.primary{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+.ks-btn.primary:hover{opacity:.85;}
+"""
+
 JS = r"""
 const STORIES = JSON.parse(document.getElementById('story-data').textContent);
 const CLIENTS = JSON.parse(document.getElementById('client-data').textContent);
@@ -307,6 +404,212 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 """
 
+STUDIO_JS = r"""
+/* ── Keyword Studio ─────────────────────────────────────────────── */
+const KW_RAW = JSON.parse(document.getElementById('kw-data').textContent);
+
+const FALLBACK_SUGGESTIONS = {
+  byd: {
+    direct_mentions: ['JKCG Auto Sri Lanka','John Keells CG Auto','BYD Lanka dealer','BYD electric Sri Lanka'],
+    industry_watch:  ['vehicle import policy Sri Lanka','EV tax Sri Lanka','electric car market Sri Lanka','motor vehicle permit Sri Lanka'],
+  },
+  mifl: {
+    direct_mentions: ['Ideal Finance Sri Lanka','Mahindra Finance Sri Lanka','Mahindra leasing Lanka','Ideal Finance Limited'],
+    industry_watch:  ['hire purchase Sri Lanka','micro finance Sri Lanka','NBFI regulation Sri Lanka','vehicle leasing Sri Lanka'],
+  },
+};
+
+let KW = deepClone(KW_RAW);
+
+function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+
+function openStudio() {
+  KW = deepClone(KW_RAW);
+  document.getElementById('studio-overlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  renderHealth();
+  renderClients();
+  setKsStatus('Keywords loaded · edit then download to apply', '');
+}
+
+function closeStudio() {
+  document.getElementById('studio-overlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+/* Coverage Health */
+function clientCounts() {
+  const c = {};
+  CLIENTS.forEach(cl => { c[cl.key] = 0; });
+  STORIES.forEach(s => { if (c.hasOwnProperty(s.client)) c[s.client]++; });
+  return c;
+}
+
+function renderHealth() {
+  const counts = clientCounts();
+  const grid = document.getElementById('ks-health-grid');
+  grid.innerHTML = '';
+  const zeroes = CLIENTS.filter(cl => (counts[cl.key]||0) === 0);
+  const haves  = CLIENTS.filter(cl => (counts[cl.key]||0) > 0);
+  [...zeroes, ...haves].forEach(cl => {
+    const n = counts[cl.key] || 0;
+    const card = document.createElement('div');
+    card.className = 'health-card ' + (n === 0 ? 'zero' : 'ok');
+    let fbHtml = '';
+    if (n === 0 && FALLBACK_SUGGESTIONS[cl.key]) {
+      const fb = FALLBACK_SUGGESTIONS[cl.key];
+      const chips = [
+        ...(fb.direct_mentions||[]).map(t => ({t, cat:'direct_mentions'})),
+        ...(fb.industry_watch||[]).map(t => ({t, cat:'industry_watch'})),
+      ].map(({t, cat}) =>
+        `<span class="fallback-chip" title="Add to ${cat.replace(/_/g,' ')}"
+          onclick="addFallback('${jsesc(cl.key)}','${jsesc(cat)}','${jsesc(t)}')">&plus; ${htmlesc(t)}</span>`
+      ).join('');
+      fbHtml = `<div class="health-fallbacks"><div class="health-fb-label">Suggested fallbacks</div>${chips}</div>`;
+    }
+    card.innerHTML =
+      `<div class="health-card-name">${htmlesc(cl.label)}</div>` +
+      `<div class="health-card-count">${n===0 ? '⚠ No coverage' : n+' '+(n===1?'story':'stories')}</div>` +
+      fbHtml;
+    grid.appendChild(card);
+  });
+}
+
+function addFallback(clientKey, category, term) {
+  if (!KW[clientKey]) return;
+  if (!KW[clientKey][category]) KW[clientKey][category] = [];
+  if (!KW[clientKey][category].includes(term)) {
+    KW[clientKey][category].push(term);
+    setKsStatus('Added "' + term + '" — download to apply', 'ok');
+    renderClients();
+    expandClient(clientKey);
+  }
+}
+
+/* Client keyword editors */
+const MODES = [
+  {key:'direct_mentions', label:'Mentions',    dot:'ks-dot-mention'},
+  {key:'industry_watch',  label:'Industry',    dot:'ks-dot-industry'},
+  {key:'market_watch',    label:'Market Watch',dot:'ks-dot-market'},
+  {key:'risk_watch',      label:'Risk Watch',  dot:'ks-dot-risk'},
+  {key:'exclude',         label:'Exclusions',  dot:'ks-dot-exclude'},
+];
+
+function renderClients() {
+  const counts = clientCounts();
+  const container = document.getElementById('ks-clients');
+  const openStates = {};
+  container.querySelectorAll('.studio-cl-body.open').forEach(el => {
+    openStates[el.dataset.client] = true;
+  });
+  container.innerHTML = '';
+  CLIENTS.forEach(cl => {
+    const data = KW[cl.key] || {};
+    const isOpen = !!openStates[cl.key];
+    const div = document.createElement('div');
+    div.className = 'studio-client';
+    const modesHtml = MODES.map(m => {
+      const terms = data[m.key] || [];
+      const tags = terms.map((t, i) =>
+        `<span class="ks-tag">${htmlesc(t)}<span class="ks-rm"
+          onclick="removeTerm('${jsesc(cl.key)}','${jsesc(m.key)}',${i})">&#x2715;</span></span>`
+      ).join('');
+      return `<div class="ks-mode">
+        <div class="ks-mode-label"><span class="ks-mode-dot ${m.dot}"></span>${m.label}</div>
+        <div class="ks-tags" id="kst-${jsesc(cl.key)}-${m.key}">
+          ${tags}
+          <input class="ks-add" id="ksadd-${jsesc(cl.key)}-${m.key}"
+            placeholder="+ add term, press Enter"
+            data-client="${jsesc(cl.key)}" data-mode="${jsesc(m.key)}">
+        </div>
+      </div>`;
+    }).join('');
+    div.innerHTML =
+      `<div class="studio-cl-head" onclick="toggleClient('${jsesc(cl.key)}')">
+        <span class="studio-cl-name">${htmlesc(cl.label)}</span>
+        <span class="studio-cl-sector">${htmlesc(data.sector||'')}</span>
+        <span class="studio-cl-toggle" id="ks-tog-${jsesc(cl.key)}">${isOpen?'▾ collapse':'▸ expand'}</span>
+      </div>
+      <div class="studio-cl-body${isOpen?' open':''}" data-client="${jsesc(cl.key)}" id="ks-body-${jsesc(cl.key)}">${modesHtml}</div>`;
+    container.appendChild(div);
+  });
+  container.querySelectorAll('.ks-add').forEach(inp => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ',') {
+        e.preventDefault();
+        const val = inp.value.trim().replace(/^,+|,+$/g,'');
+        if (val) {
+          addTerm(inp.dataset.client, inp.dataset.mode, val);
+          inp.value = '';
+        }
+      }
+    });
+  });
+}
+
+function toggleClient(key) {
+  const body = document.getElementById('ks-body-' + key);
+  const tog  = document.getElementById('ks-tog-'  + key);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  if (tog) tog.textContent = open ? '▾ collapse' : '▸ expand';
+}
+
+function expandClient(key) {
+  const body = document.getElementById('ks-body-' + key);
+  const tog  = document.getElementById('ks-tog-'  + key);
+  if (body && !body.classList.contains('open')) {
+    body.classList.add('open');
+    if (tog) tog.textContent = '▾ collapse';
+  }
+}
+
+function addTerm(clientKey, mode, val) {
+  if (!KW[clientKey]) KW[clientKey] = {};
+  if (!KW[clientKey][mode]) KW[clientKey][mode] = [];
+  if (!KW[clientKey][mode].includes(val)) {
+    KW[clientKey][mode].push(val);
+    setKsStatus('Added "' + val + '" — download to apply', 'ok');
+    renderClients();
+    expandClient(clientKey);
+  }
+}
+
+function removeTerm(clientKey, mode, idx) {
+  if (KW[clientKey] && KW[clientKey][mode]) {
+    const removed = KW[clientKey][mode].splice(idx, 1)[0];
+    setKsStatus('Removed "' + removed + '" — download to apply', 'warn');
+    renderClients();
+    expandClient(clientKey);
+  }
+}
+
+function downloadKW() {
+  const blob = new Blob([JSON.stringify(KW, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'keywords.json';
+  a.click();
+  setKsStatus('Downloaded keywords.json — replace the file and re-run brief.py', 'ok');
+}
+
+function setKsStatus(msg, cls) {
+  const el = document.getElementById('ks-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.className = 'ks-status' + (cls ? ' '+cls : '');
+}
+
+function htmlesc(s) {
+  return String(s==null?'':s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function jsesc(s) {
+  return String(s==null?'':s).replace(/'/g,"\\'").replace(/\\/g,'\\\\');
+}
+"""
+
 def render_story_card(story, cluster_info=None):
     """Render a single story card HTML."""
     headline_html = h(story.get('headline', ''))
@@ -345,7 +648,7 @@ def render_story_card(story, cluster_info=None):
         f'{also_covered_html}</div>'
     )
 
-def build_html(clustered_stories, clients_config, generated_at):
+def build_html(clustered_stories, clients_config, generated_at, keywords=None):
     """Build the HTML output."""
     now_sl   = generated_at.astimezone(SL_TZ)
     dateline = now_sl.strftime('%A, %d %B %Y')
@@ -406,8 +709,36 @@ def build_html(clustered_stories, clients_config, generated_at):
         flat_story = {k: v for k, v in cs.items() if k != '_cluster_info'}
         flat_stories.append(flat_story)
     
-    story_json  = json.dumps(flat_stories, ensure_ascii=False)
-    
+    story_json = json.dumps(flat_stories, ensure_ascii=False)
+    kw_json    = json.dumps(keywords or {}, ensure_ascii=False)
+
+    studio_overlay = (
+        '<div id="studio-overlay" class="studio-overlay hidden" onclick="if(event.target===this)closeStudio()">\n'
+        '  <div class="studio-panel">\n'
+        '    <div class="studio-head">\n'
+        '      <h2>Keyword Studio</h2>\n'
+        '      <span class="studio-head-sub">Morning Brief &middot; Adfactors PR</span>\n'
+        '      <button class="studio-close" onclick="closeStudio()" title="Close">&#x2715;</button>\n'
+        '    </div>\n'
+        '    <div class="studio-body">\n'
+        '      <div class="studio-section">\n'
+        '        <div class="studio-section-title">Coverage Health &mdash; current brief</div>\n'
+        '        <div class="health-grid" id="ks-health-grid"></div>\n'
+        '      </div>\n'
+        '      <div class="studio-section">\n'
+        '        <div class="studio-section-title">Keywords per Client &mdash; click to expand &middot; Enter to add &middot; &times; to remove</div>\n'
+        '        <div id="ks-clients"></div>\n'
+        '      </div>\n'
+        '    </div>\n'
+        '    <div class="studio-foot">\n'
+        '      <span class="ks-status" id="ks-status">Ready</span>\n'
+        '      <button class="ks-btn" onclick="KW=deepClone(KW_RAW);renderClients();setKsStatus(\'Reset to current keywords\',\'\')">Reset</button>\n'
+        '      <button class="ks-btn primary" onclick="downloadKW()">&#x2193; Download keywords.json</button>\n'
+        '    </div>\n'
+        '  </div>\n'
+        '</div>\n'
+    )
+
     return (
         '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
         '<meta charset="UTF-8"/>\n'
@@ -415,7 +746,7 @@ def build_html(clustered_stories, clients_config, generated_at):
         f'<title>The Morning Brief — {dateline}</title>\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         f'<link href="{FONTS}" rel="stylesheet">\n'
-        f'<style>{CSS}</style>\n'
+        f'<style>{CSS}{STUDIO_CSS}</style>\n'
         '</head>\n<body>\n<div class="shell">\n'
         '<header class="masthead">\n'
         '  <div class="mk"><span class="line"></span>'
@@ -425,7 +756,7 @@ def build_html(clustered_stories, clients_config, generated_at):
         f'<span>{dateline}</span><span class="dot">&bull;</span>'
         f'<span>Generated {gen_time}</span><span class="dot">&bull;</span>'
         f'<span>{client_names}</span></div>\n</header>\n'
-        
+
         '<div class="controls">\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Window</span>\n'
         '  <button class="ctrl-btn" data-win="1d" onclick="setWin(\'1d\')">1d</button>\n'
@@ -441,9 +772,13 @@ def build_html(clustered_stories, clients_config, generated_at):
         '  <div class="ctrl-divider"></div>\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Search</span>\n'
         '  <input class="ctrl-search" type="text" placeholder="filter stories…" oninput="setQ(this.value)"></div>\n'
-        '  <div class="ctrl-right"><span class="result-count" id="result-count"></span></div>\n'
+        '  <div class="ctrl-right">'
+        '<span class="result-count" id="result-count"></span>'
+        '  <button class="ctrl-btn" style="margin-left:10px;border-color:var(--gold);color:var(--gold);" '
+        'onclick="openStudio()">&#9998; Keyword Studio</button>'
         '</div>\n'
-        
+        '</div>\n'
+
         f'<div class="pages" id="pages">{sections}</div>\n'
         '<div class="foot">'
         'Auto-generated &middot; Google News (Sri Lanka) &middot; '
@@ -454,10 +789,12 @@ def build_html(clustered_stories, clients_config, generated_at):
         '<a href="data/latest.json" style="color:var(--faint);text-decoration:none;">Raw data</a>'
         '</div>\n'
         '</div>\n'
+        f'{studio_overlay}'
         f'<script id="story-data" type="application/json">{story_json}</script>\n'
         f'<script id="client-data" type="application/json">{client_js}</script>\n'
         f'<script id="gen-ts" type="application/json">{gen_ts}</script>\n'
-        f'<script>{JS}</script>\n'
+        f'<script id="kw-data" type="application/json">{kw_json}</script>\n'
+        f'<script>{JS}\n{STUDIO_JS}</script>\n'
         '</body>\n</html>\n'
     )
 
@@ -568,7 +905,7 @@ def main():
     
     # ── Generate HTML ────────────────────────────────────────────────────────
     print('Building HTML...')
-    page = build_html(clustered_stories, CLIENTS, generated_at)
+    page = build_html(clustered_stories, CLIENTS, generated_at, keywords=keywords)
 
     # ── Validation ────────────────────────────────────────────────────────────
     is_safe, messages = validate_no_private_contacts(page)
