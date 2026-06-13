@@ -16,14 +16,19 @@ import html as html_lib
 import json
 import re
 import sys
+import time
+import socket
+import calendar
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
+import feedparser
+
 from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE, DIRECT_FEEDS
 from utils import (
     load_json, save_json, normalize_text, extract_domain, source_rank,
-    classify_story, cluster_stories, choose_primary_story,
+    classify_story, cluster_stories, choose_primary_story, term_matches,
     save_archive, validate_no_private_contacts,
     load_previous_story_keys, load_trend_counts
 )
@@ -147,31 +152,55 @@ BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
               '(KHTML, like Gecko) Chrome/126.0 Safari/537.36')
 
 def fetch_outlet_feed(feed, cutoff_ms):
-    """Fetch a direct outlet RSS 2.0 feed. Returns raw items (no client yet)."""
+    """
+    Fetch a direct outlet feed via feedparser. Returns raw items (no client yet).
+
+    feedparser is used here (instead of the hand-rolled ElementTree parse) because
+    it tolerates the malformed XML, mismatched encodings, RSS 1.0/2.0/Atom variants,
+    and timezone-naive dates that have caused these outlet feeds to fail silently.
+    """
     sys.stdout.write(f'  [{feed["source"]}] fetching...\n')
     sys.stdout.flush()
     try:
+        # Fetch the bytes ourselves with an explicit timeout — feedparser.parse()
+        # does its own fetch with NO timeout and will hang forever on a stalled
+        # feed. We keep feedparser only for its robust parsing of the bytes.
         req = urllib.request.Request(feed['url'], headers={
             'User-Agent': BROWSER_UA,
             'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
         })
         with urllib.request.urlopen(req, timeout=25) as resp:
-            content = resp.read().decode('utf-8', errors='replace')
-        root = ET.fromstring(content)
+            raw = resp.read()
+        d = feedparser.parse(raw)
+        # bozo flags a parse problem; only fatal if it also yielded no entries.
+        if d.bozo and not d.entries:
+            raise ValueError(str(d.bozo_exception))
     except Exception as e:
-        sys.stdout.write(f'    ✗ {e}\n'); sys.stdout.flush()
+        sys.stdout.write(f'    x {e}\n'); sys.stdout.flush()
         return []
 
     items = []
-    for item in root.findall('.//item'):
-        link     = (item.findtext('link') or '').strip()
-        headline = html_lib.unescape((item.findtext('title') or '').strip())
+    for entry in d.entries:
+        link     = (entry.get('link') or '').strip()
+        headline = html_lib.unescape((entry.get('title') or '').strip())
         if not link or not headline:
             continue
-        snippet = clean_html(item.findtext('description') or '')
+        snippet = clean_html(entry.get('summary') or entry.get('description') or '')
         # WordPress feeds append "The post X appeared first on Y."
         snippet = re.sub(r'The post .{0,200} appeared first on .*$', '', snippet).strip()[:320]
-        date_label, epoch_ms = parse_timestamp(item.findtext('pubDate') or '')
+
+        # Prefer the raw RFC-822 string; fall back to feedparser's parsed
+        # struct_time (already UTC) for feeds whose date strings we can't parse.
+        date_label, epoch_ms = parse_timestamp(
+            entry.get('published') or entry.get('updated') or ''
+        )
+        if epoch_ms == 0:
+            tp = entry.get('published_parsed') or entry.get('updated_parsed')
+            if tp:
+                dt = datetime.fromtimestamp(calendar.timegm(tp), tz=timezone.utc).astimezone(SL_TZ)
+                date_label = dt.strftime('%d %b %Y · %H:%M SL')
+                epoch_ms   = int(dt.timestamp() * 1000)
+
         if epoch_ms > 0 and epoch_ms < cutoff_ms:
             continue
         items.append({
@@ -185,6 +214,53 @@ def fetch_outlet_feed(feed, cutoff_ms):
         })
     return items
 
+# ── Google News redirect resolution ──────────────────────────────────────────
+
+_GOOGLE_URL_CACHE = {}
+_RESOLVE_DEADLINE = {'t': None}   # overall time budget for a single run
+
+def resolve_google_url(redirect_url):
+    """
+    Resolve a Google News RSS redirect (news.google.com/rss/articles/CBMi...)
+    to the real publisher URL by following the redirect once (5s timeout, no
+    retry). Resolved URLs are cached for the run so the same redirect is never
+    fetched twice. On any failure the original redirect URL is returned and a
+    warning logged — a story is never dropped over an unresolvable link.
+    """
+    if not redirect_url or 'news.google.com' not in redirect_url:
+        return redirect_url
+    if redirect_url in _GOOGLE_URL_CACHE:
+        return _GOOGLE_URL_CACHE[redirect_url]
+    # Stop resolving once the per-run budget is spent; keep originals thereafter.
+    if _RESOLVE_DEADLINE['t'] and time.monotonic() > _RESOLVE_DEADLINE['t']:
+        return redirect_url
+
+    resolved = redirect_url
+    try:
+        req = urllib.request.Request(redirect_url, headers={'User-Agent': BROWSER_UA})
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            final = resp.geturl()
+            if final and 'news.google.com' not in final:
+                resolved = final
+            else:
+                # Newer Google News uses a JS/meta redirect rather than an HTTP
+                # 3xx — scrape the publisher URL out of the interstitial body.
+                body = resp.read(60000).decode('utf-8', errors='replace')
+                for pat in (
+                    r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"',
+                    r'data-n-au="([^"]+)"',
+                    r'rel="canonical"\s+href="([^"]+)"',
+                ):
+                    m = re.search(pat, body)
+                    if m and 'news.google.com' not in m.group(1):
+                        resolved = html_lib.unescape(m.group(1))
+                        break
+    except Exception as e:
+        sys.stdout.write(f'    ! url resolve failed ({e})\n'); sys.stdout.flush()
+
+    _GOOGLE_URL_CACHE[redirect_url] = resolved
+    return resolved
+
 def match_feed_items_to_clients(items, keywords):
     """
     Assign direct-feed items to every client whose direct_mentions (or
@@ -193,12 +269,14 @@ def match_feed_items_to_clients(items, keywords):
     """
     matched = []
     for item in items:
-        text = (item['headline'] + ' ' + item['snippet']).lower()
+        text = item['headline'] + ' ' + item['snippet']
         for client_key, cfg in keywords.items():
             fetch_type = None
-            if any(t.lower() in text for t in cfg.get('direct_mentions', [])):
+            # term_matches enforces word boundaries for short terms so a feed
+            # item doesn't get tagged BYD because it contains "ABYDOS", etc.
+            if any(term_matches(t, text) for t in cfg.get('direct_mentions', [])):
                 fetch_type = 'direct_mentions'
-            elif any(t.lower() in text for t in cfg.get('risk_watch', [])):
+            elif any(term_matches(t, text) for t in cfg.get('risk_watch', [])):
                 fetch_type = 'risk_watch'
             if fetch_type:
                 story = dict(item)
@@ -543,7 +621,10 @@ function render() {
       const cat = s.dataset.cat || 'mention';
       const catVis = state.category==='all' || state.category===cat;
       const lowOk = cat !== 'low_relevance' || state.showLowRel;
-      const show = ts >= cutoff && secVis && catVis && lowOk && (!q || text.includes(q));
+      // Manual clips bypass the date-window filter — they're curated and must
+      // stay visible on every window (e.g. the MIFL debenture is >30 days old).
+      const isManual = s.dataset.manual === 'true';
+      const show = (isManual || ts >= cutoff) && secVis && catVis && lowOk && (!q || text.includes(q));
       s.style.display = show ? '' : 'none';
       if (show) { secCount++; total++; }
     });
@@ -981,8 +1062,10 @@ def render_story_card(story, cluster_info=None):
         if (is_manual and reason) else ''
     )
 
+    manual_attr = ' data-manual="true"' if is_manual else ''
+
     return (
-        f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}">'
+        f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}"{manual_attr}>'
         f'<a class="story-hl" href="{h(url)}" target="_blank" rel="noopener">'
         f'{headline_html} <span class="ext">&#8599;</span></a>'
         f'<p class="story-snippet">{snippet}</p>'
@@ -1240,6 +1323,9 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
 
 def main():
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    # Global safety net: no socket operation anywhere (urllib, feedparser
+    # internals, redirect resolution) may block longer than this.
+    socket.setdefaulttimeout(30)
     print('Morning Brief — Starting\n')
 
     generated_at = datetime.now(timezone.utc)
@@ -1249,6 +1335,20 @@ def main():
     # Load configurations
     keywords = load_json('keywords.json', {})
     outlets_config = load_json('outlets.json', {})
+
+    # ── Validate CLIENTS ↔ keywords.json consistency ──────────────────────────
+    # Adding a client should be a two-step paste (keywords.json block + CLIENTS
+    # entry). Warn loudly if the two drift apart so a half-added client is caught
+    # at startup instead of silently fetching nothing.
+    client_keys = {c['key'] for c in CLIENTS}
+    kw_keys     = set(keywords.keys())
+    for k in sorted(kw_keys - client_keys):
+        print(f'  ⚠ keywords.json defines "{k}" but config.py CLIENTS has no such key — it will be ignored')
+    for k in sorted(client_keys - kw_keys):
+        print(f'  ⚠ CLIENTS lists "{k}" but keywords.json has no block for it — that client will fetch nothing')
+    if client_keys == kw_keys:
+        print(f'Config OK — {len(client_keys)} clients aligned between config.py and keywords.json')
+    print()
 
     all_stories = []
 
@@ -1367,7 +1467,7 @@ def main():
 
     # ── Cluster duplicates ────────────────────────────────────────────────────
     print('Grouping duplicate stories...')
-    clusters = cluster_stories(all_stories)
+    clusters = cluster_stories(all_stories, outlets_config)
 
     clustered_stories = []
     for cluster in clusters:
@@ -1385,6 +1485,32 @@ def main():
     ))
 
     print(f'Total stories after clustering: {len(clustered_stories)}')
+
+    # ── Resolve Google News redirect URLs to real publisher URLs ──────────────
+    # Stored links are opaque news.google.com/rss/articles/CBMi... redirects that
+    # break if Google changes its format. Resolve the displayed set (primaries +
+    # "also covered by" chips) within a 90s overall budget; cluster_id carries
+    # new-since-yesterday continuity so changing URLs here won't reset NEW badges.
+    print('Resolving Google News links...')
+    _RESOLVE_DEADLINE['t'] = time.monotonic() + 90
+    n_resolved = 0
+    for s in clustered_stories:
+        if s.get('domain') == 'news.google.com':
+            real = resolve_google_url(s.get('url', ''))
+            if real != s.get('url'):
+                s['url']    = real
+                s['domain'] = extract_domain(real)
+                s['source_rank'] = source_rank(s['domain'], outlets_config)
+                n_resolved += 1
+        ci = s.get('_cluster_info')
+        if ci:
+            for chip in ci.get('also_covered_by', []):
+                if chip.get('domain') == 'news.google.com':
+                    real = resolve_google_url(chip.get('url', ''))
+                    if real != chip.get('url'):
+                        chip['url']    = real
+                        chip['domain'] = extract_domain(real)
+    print(f'Resolved {n_resolved} Google News links to publisher URLs')
 
     # ── Mark new-since-yesterday stories ──────────────────────────────────────
     today_iso = generated_at.astimezone(SL_TZ).date().isoformat()

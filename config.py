@@ -8,96 +8,29 @@ MAX_STORIES  = 20          # Max stories per client per mode (pre-filter)
 OUTPUT_FILE  = 'index.html'
 
 # ── Clients ───────────────────────────────────────────────────────────────────
-# RULE: Every query must force "Sri Lanka" locality.
-# RULE: Never use short ambiguous acronyms alone (MAS, MIFL, HNB).
-#       Always use full names or append "Sri Lanka" directly.
+# A client entry needs only three keys: 'key', 'label', 'sector'.
+#   key    — short id; MUST match the top-level key in keywords.json
+#   label  — display name in the brief
+#   sector — shown as the section chip; also the client's industry grouping
+#
+# All keyword queries (direct_mentions / industry_watch / market_watch /
+# risk_watch / exclude) live in keywords.json, NOT here. Adding a client is two
+# steps: (1) paste a keywords.json block, (2) add a {key,label,sector} entry
+# below. Use new_client.py to scaffold both — `py -3 new_client.py "Name" "Sector"`.
+#
+# RULE: keep brand queries unambiguous in keywords.json — short acronyms (MAS,
+#       MIFL, HNB, BYD) need a "Sri Lanka" query_context or full company names.
 
 CLIENTS = [
-    {
-        'key':        'hnb',
-        'label':      'HNB',
-        'tag':        'Banking',
-        # "HNB" alone matches Croatia's Hrvatska Narodna Banka.
-        # "HNB PLC" and "HNB Sri Lanka" are unambiguous.
-        'mentions_q': '"HNB PLC" OR "HNB Sri Lanka" OR "Hatton National Bank"',
-        'industry_q': (
-            '("CBSL" OR "Central Bank of Sri Lanka" OR "Sampath Bank" '
-            'OR "Commercial Bank of Ceylon" OR "NDB Bank" OR "Seylan Bank" '
-            'OR "Bank of Ceylon" OR "banking sector") "Sri Lanka"'
-        ),
-    },
-    {
-        'key':        'hayleys',
-        'label':      'Hayleys',
-        'tag':        'Conglomerate',
-        'mentions_q': '"Hayleys" "Sri Lanka" OR "Hayleys PLC"',
-        'industry_q': (
-            '("Hayleys Fabric" OR "Hayleys Advantis" OR "Dipped Products" '
-            'OR "Haycarb" OR "Hayleys Agriculture" OR "Singer Sri Lanka" '
-            'OR "Hayleys Leisure" OR "Hayleys Fentons") "Sri Lanka"'
-        ),
-    },
-    {
-        'key':        'mas',
-        'label':      'MAS',
-        'tag':        'Apparel',
-        # "MAS" alone matches hundreds of unrelated things globally.
-        # Only use full company names.
-        'mentions_q': '"MAS Holdings" OR "MAS Holdings Sri Lanka"',
-        'industry_q': (
-            '("Brandix" OR "Hirdaramani" OR "apparel exports Sri Lanka" '
-            'OR "garment sector Sri Lanka" OR "GSP+ Sri Lanka" OR "JAAF Sri Lanka") '
-            '"Sri Lanka"'
-        ),
-    },
-    {
-        'key':        'byd',
-        'label':      'BYD',
-        'tag':        'Auto / EV',
-        # BYD is a global brand — must always pair with "Sri Lanka"
-        'mentions_q': '"BYD" "Sri Lanka"',
-        'industry_q': (
-            '("electric vehicle Sri Lanka" OR "EV policy Sri Lanka" '
-            'OR "Denza Sri Lanka" OR "MG Sri Lanka" OR "EV charging Sri Lanka" '
-            'OR "hybrid vehicle Sri Lanka")'
-        ),
-    },
-    {
-        'key':        'mifl',
-        'label':      'MIFL',
-        'tag':        'Finance',
-        # "MIFL" alone matches Mediolanum International Funds (Ireland).
-        # Only use the full Sri Lankan company name.
-        'mentions_q': '"Mahindra Ideal Finance" OR "MIFL Sri Lanka"',
-        'industry_q': (
-            '("licensed finance company" OR "leasing company" '
-            'OR "People\'s Leasing" OR "Central Finance" '
-            'OR "LB Finance" OR "Senkadagala Finance") "Sri Lanka"'
-        ),
-    },
-    {
-        'key':        'pcc',
-        'label':      'Port City Colombo',
-        'tag':        'Development',
-        'mentions_q': '"Port City Colombo" OR "Colombo Port City"',
-        # CHEC alone matches CHEC projects in Libya, Nigeria, Bangladesh.
-        # Must pair CHEC with Sri Lanka, or use "CHEC Port City".
-        'industry_q': (
-            '"CHEC Port City" OR "CHEC Sri Lanka" '
-            'OR "special economic zone Sri Lanka" '
-            'OR "Colombo real estate" OR "foreign investment Colombo"'
-        ),
-    },
+    {'key': 'hnb',     'label': 'HNB',               'sector': 'Banking'},
+    {'key': 'hayleys', 'label': 'Hayleys',           'sector': 'Conglomerate'},
+    {'key': 'mas',     'label': 'MAS',               'sector': 'Apparel'},
+    {'key': 'byd',     'label': 'BYD',               'sector': 'Auto / EV'},
+    {'key': 'mifl',    'label': 'MIFL',              'sector': 'Finance'},
+    {'key': 'pcc',     'label': 'Port City Colombo', 'sector': 'Development'},
 
     # ── Add more clients here ─────────────────────────────────────────────────
-    # Template — copy, fill in, save, push, run Action:
-    # {
-    #     'key':        'cinnamon',
-    #     'label':      'Cinnamon Life',
-    #     'tag':        'Hospitality',
-    #     'mentions_q': '"Cinnamon Life" "Sri Lanka"',
-    #     'industry_q': '("hotel Sri Lanka" OR "tourism Sri Lanka" OR "John Keells") "Sri Lanka"',
-    # },
+    # {'key': 'cinnamon', 'label': 'Cinnamon Life', 'sector': 'Hospitality'},
 ]
 
 # ── Direct outlet RSS feeds ───────────────────────────────────────────────────

@@ -86,73 +86,81 @@ def source_rank(domain, outlets_config):
 
 # ── Story Classification ──────────────────────────────────────────────────────
 
+def term_matches(term, text):
+    """
+    Test whether a keyword term occurs in text.
+
+    Short terms (<= 4 chars) need word-boundary matching to avoid false
+    positives — bare substring matching makes "BYD" hit "ABYDOS", "CSE" hit
+    "SELECTED", "MAS" hit "THOMAS". Longer, multi-word terms are unambiguous
+    enough that plain substring matching is both safe and cheaper.
+    """
+    t = term.lower()
+    text = text.lower()
+    if len(term) <= 4:
+        return bool(re.search(r'\b' + re.escape(t) + r'\b', text))
+    return t in text
+
 def classify_story(story, client_config, outlets_config, fetch_type_hint=None):
     """
     Classify a story based on keywords and rules.
     Returns: (category, relevance_score, matched_terms)
     Categories: 'mention', 'industry', 'market_watch', 'risk_watch', 'low_relevance'
-    
+
     fetch_type_hint: If provided ('direct_mentions', 'industry_watch', 'market_watch', 'risk_watch'),
     uses it as primary classification hint but can override based on content.
+
+    Order of precedence:
+      1. exclude terms  → low_relevance (GLOBAL, any fetch_type)
+      2. market/risk fetch floor (snippets rarely echo query terms)
+      3. risk_watch     → a negative story must never be buried as a neutral
+                          mention, so risk is checked before direct_mentions
+                          (fixes "US adds BYD to military ties" → was Mention)
+      4. direct_mentions
+      5. industry_watch
+      6. market_watch
     """
     headline = (story.get('headline') or '').lower()
     snippet = (story.get('snippet') or '').lower()
     text = headline + ' ' + snippet
-    
-    category = 'low_relevance'
-    relevance_score = 0.0
-    matched_terms = []
 
-    # Stories fetched via a market_watch or risk_watch query keep that category
-    # as a floor: RSS snippets are usually just the headline repeated, so the
-    # query terms rarely reappear in the text. Only an exclude term demotes them.
+    # ── 1. Global exclude gate — demotes ALL stories regardless of fetch_type ──
+    # A "HNB cricket sponsorship" fetched by direct_mentions should not surface
+    # as a Mention just because the brand name appears.
+    for term in client_config.get('exclude', []):
+        if term_matches(term, text):
+            return 'low_relevance', 0.0, []
+
+    # ── 2. market_watch / risk_watch fetch floor ──────────────────────────────
+    # RSS snippets are usually just the headline repeated, so the query terms
+    # rarely reappear in the text. Keep the fetched category as a floor.
     if fetch_type_hint in ('market_watch', 'risk_watch'):
-        exclude_terms = client_config.get('exclude', [])
-        for term in exclude_terms:
-            if term.lower() in text:
-                return 'low_relevance', 0.0, []
         hint_terms = client_config.get(fetch_type_hint, [])
-        matched_terms = [t for t in hint_terms if t.lower() in text]
+        matched_terms = [t for t in hint_terms if term_matches(t, text)]
         relevance_score = 0.5 if fetch_type_hint == 'market_watch' else 0.8
         return fetch_type_hint, relevance_score, matched_terms
 
-    # ── Check direct_mentions (highest priority) ───────────────────────────────
-    mention_terms = client_config.get('direct_mentions', [])
-    for term in mention_terms:
-        if term.lower() in text:
-            matched_terms.append(term)
-            category = 'mention'
-            relevance_score = 1.0
-            return category, relevance_score, matched_terms
-    
-    # ── Check industry_watch (if not a mention) ──────────────────────────────────
-    industry_terms = client_config.get('industry_watch', [])
-    for term in industry_terms:
-        if term.lower() in text:
-            matched_terms.append(term)
-            category = 'industry'
-            relevance_score = 0.7
-            return category, relevance_score, matched_terms
-    
-    # ── Check market_watch (if not mention or industry) ───────────────────────────
-    market_terms = client_config.get('market_watch', [])
-    for term in market_terms:
-        if term.lower() in text:
-            matched_terms.append(term)
-            category = 'market_watch'
-            relevance_score = 0.5
-            return category, relevance_score, matched_terms
-    
-    # ── Check risk_watch (independent) ──────────────────────────────────────────
-    risk_terms = client_config.get('risk_watch', [])
-    for term in risk_terms:
-        if term.lower() in text:
-            matched_terms.append(term)
-            category = 'risk_watch'
-            relevance_score = 0.8
-            return category, relevance_score, matched_terms
-    
-    return category, relevance_score, matched_terms
+    # ── 3. risk_watch (checked before mentions: negative news takes priority) ──
+    for term in client_config.get('risk_watch', []):
+        if term_matches(term, text):
+            return 'risk_watch', 0.8, [term]
+
+    # ── 4. direct_mentions ─────────────────────────────────────────────────────
+    for term in client_config.get('direct_mentions', []):
+        if term_matches(term, text):
+            return 'mention', 1.0, [term]
+
+    # ── 5. industry_watch ──────────────────────────────────────────────────────
+    for term in client_config.get('industry_watch', []):
+        if term_matches(term, text):
+            return 'industry', 0.7, [term]
+
+    # ── 6. market_watch ────────────────────────────────────────────────────────
+    for term in client_config.get('market_watch', []):
+        if term_matches(term, text):
+            return 'market_watch', 0.5, [term]
+
+    return 'low_relevance', 0.0, []
 
 # ── Duplicate Detection ────────────────────────────────────────────────────────
 
@@ -165,124 +173,146 @@ def normalize_for_dedup(title):
     t = re.sub(r'\s+', ' ', t).strip()
     return t
 
-def are_likely_duplicates(story_a, story_b, threshold=0.7):
+DEDUP_WINDOW_MS = 72 * 3600 * 1000   # 72 hours
+
+def _jaccard(title_a, title_b):
     """
-    Check if two stories are likely duplicates/near-duplicates.
-    Uses title similarity, domain, and date proximity.
+    Token-level Jaccard similarity of two headlines. Threshold 0.5 per the
+    academic / industry standard for news-title near-duplicate detection
+    (USPTO patent 10783200; arxiv.org/abs/2410.01141; NewsCatcher API dedup
+    docs). Returns a value in [0, 1].
     """
-    # Same URL = definite duplicate
-    if story_a.get('url') == story_b.get('url'):
+    a = set(normalize_for_dedup(title_a).split())
+    b = set(normalize_for_dedup(title_b).split())
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+def are_likely_duplicates(story_a, story_b):
+    """
+    Decide whether two stories are the same news item republished/reworded.
+
+    Rules:
+      • Same URL                                        → merge
+      • Different client                                → never merge
+      • Exact headline (after normalisation), any gap   → merge (wire copy and
+        press releases get re-run across outlets days apart)
+      • Jaccard >= 0.5 AND published within 72 hours    → merge
+      • Jaccard >= 0.5 but a timestamp is missing        → merge (can't gate on
+        time we don't have; strong title match is enough)
+      • Jaccard < 0.5                                    → do not merge, even if
+        the same outlet publishes twice
+    """
+    # Same (non-empty) URL = definite duplicate
+    if story_a.get('url') and story_a.get('url') == story_b.get('url'):
         return True
-    
-    # Same domain and similar title and similar date = likely duplicate
-    domain_a = extract_domain(story_a.get('url', ''))
-    domain_b = extract_domain(story_b.get('url', ''))
-    
+
     # Different client = not a duplicate
     if story_a.get('client') != story_b.get('client'):
         return False
-    
-    # Normalize titles for comparison
+
     title_a = normalize_for_dedup(story_a.get('headline', ''))
     title_b = normalize_for_dedup(story_b.get('headline', ''))
+    if not title_a or not title_b:
+        return False
 
-    # Identical headline = same story republished by another outlet.
-    # Merge regardless of publication time — press releases and wire copy
-    # get re-run across outlets days apart.
-    if title_a and title_a == title_b:
+    # Fast path: identical normalised headline → merge regardless of time gap.
+    if title_a == title_b:
         return True
 
-    # Simple word overlap check
-    words_a = set(title_a.split())
-    words_b = set(title_b.split())
-    
-    if not words_a or not words_b:
-        return False
-    
-    # Calculate overlap percentage
-    common_words = words_a & words_b
-    overlap = len(common_words) / min(len(words_a), len(words_b))
-    
-    # If overlap is high, check date proximity
-    if overlap >= threshold:
+    # Jaccard similarity on title tokens, gated by a 72-hour window.
+    if _jaccard(title_a, title_b) >= 0.5:
         ts_a = story_a.get('ts', 0)
         ts_b = story_b.get('ts', 0)
-        # If within 2 hours, likely duplicates
-        if abs(ts_a - ts_b) < 7200000:  # 2 hours in ms
+        if not ts_a or not ts_b:
             return True
-    
+        if abs(ts_a - ts_b) <= DEDUP_WINDOW_MS:
+            return True
+
     return False
 
-def cluster_stories(stories):
+def choose_primary_story(members, outlets_config):
+    """
+    Select the best primary from a list of clustered member stories.
+
+    Preference order:
+      1. Manual clips always win (curated, must stay the face of the cluster)
+      2. Highest-ranked outlet — lowest source_rank (1 = priority SL outlet,
+         4 = aggregator). Uses a story's stored source_rank if present, else
+         derives it from the URL domain.
+      3. Most recent publication (freshest framing of the same story)
+
+    Fixes the original bug where the loop tracked best_rank/best_ts but never
+    reassigned `best`, so it always returned the arbitrary first member.
+    """
+    def rank(s):
+        r = s.get('source_rank')
+        if r is None:
+            r = source_rank(extract_domain(s.get('url', '')), outlets_config)
+        return r
+
+    return sorted(
+        members,
+        key=lambda s: (0 if s.get('is_manual') else 1, rank(s), -s.get('ts', 0)),
+    )[0]
+
+def cluster_stories(stories, outlets_config=None):
     """
     Group duplicate/near-duplicate stories into clusters.
-    Returns list of clusters: each cluster is {primary_story, secondary_stories, cluster_id}
+    Each cluster: {primary, members, also_covered_by, cluster_id}.
+
+    The primary is chosen by source rank (via choose_primary_story), NOT simply
+    the newest story — so the highest-quality outlet fronts the cluster while
+    the rest become "also covered by" chips.
     """
     if not stories:
         return []
-    
-    # Sort by timestamp descending (newest first)
+    outlets_config = outlets_config or {}
+
+    # Anchor on newest-first so the comparison anchor is the freshest item.
     sorted_stories = sorted(stories, key=lambda s: s.get('ts', 0), reverse=True)
-    
+
     clusters = []
     used_indices = set()
-    
+
     for i, story_a in enumerate(sorted_stories):
         if i in used_indices:
             continue
-        
-        cluster = {
-            'primary': story_a,
-            'also_covered_by': [],
-            'cluster_id': hashlib.md5(f"{story_a['client']}{story_a['headline']}".encode()).hexdigest()[:12]
-        }
-        
-        # Find other stories in this cluster
+
+        members = [story_a]
         for j in range(i + 1, len(sorted_stories)):
             if j in used_indices:
                 continue
-            
             story_b = sorted_stories[j]
             if are_likely_duplicates(story_a, story_b):
-                cluster['also_covered_by'].append({
-                    'source': story_b.get('source'),
-                    'url': story_b.get('url'),
-                    'domain': extract_domain(story_b.get('url', ''))
-                })
+                members.append(story_b)
                 used_indices.add(j)
-        
-        clusters.append(cluster)
         used_indices.add(i)
-    
-    return clusters
 
-def choose_primary_story(cluster, outlets_config):
-    """
-    Select the best primary story from a cluster based on source rank.
-    Higher rank preference: rank 1 > 2 > 3 > 4 > 5
-    If same rank, choose earliest publication date.
-    """
-    primary = cluster['primary']
-    primary_domain = extract_domain(primary.get('url', ''))
-    primary_rank = source_rank(primary_domain, outlets_config)
-    primary_ts = primary.get('ts', 0)
-    
-    best = primary
-    best_rank = primary_rank
-    best_ts = primary_ts
-    
-    # Check secondary sources
-    for secondary in cluster.get('also_covered_by', []):
-        sec_rank = source_rank(secondary.get('domain', ''), outlets_config)
-        sec_ts = 0  # We don't have timestamp for secondary in this format
-        
-        # Prefer higher rank (lower number), then earlier date
-        if sec_rank < best_rank or (sec_rank == best_rank and sec_ts < best_ts):
-            # Update primary if secondary is better
-            best_rank = sec_rank
-            best_ts = sec_ts
-    
-    return best
+        # Pick the best-ranked member as the cluster face.
+        primary = choose_primary_story(members, outlets_config)
+        secondaries = [m for m in members if m is not primary]
+
+        cluster = {
+            'primary': primary,
+            'members': members,
+            'also_covered_by': [
+                {
+                    'source':   s.get('source'),
+                    'url':      s.get('url'),
+                    'domain':   extract_domain(s.get('url', '')),
+                    'headline': s.get('headline'),
+                    'date':     s.get('date'),
+                }
+                for s in secondaries
+            ],
+            'cluster_id': hashlib.md5(
+                f"{primary['client']}{primary['headline']}".encode()
+            ).hexdigest()[:12],
+        }
+        clusters.append(cluster)
+
+    return clusters
 
 # ── History (NEW badges, trend counts) ────────────────────────────────────────
 
