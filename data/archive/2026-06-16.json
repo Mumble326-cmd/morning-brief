@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T16:38:56.965689+00:00",
+  "generated_at": "2026-06-16T16:57:39.579786+00:00",
   "generated_date": "2026-06-16",
-  "generated_time": "22:08:56 SL",
+  "generated_time": "22:27:39 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -394,27 +394,6 @@
       "is_new": false
     },
     {
-      "client": "hnb",
-      "headline": "HNB General Insurance appoints Dilshan Perera as COO",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQcUtXV1kxRHRyeVFodVJMdTdEMzhaOXlTMzNkbEcxNVZsM05TVmVPQ0VpcjlUVlNINFoyUTlHT2RYRk9XWXBkZ2pVdFRGUWFvdVFSOUZPTWZJaENxNzFaUlcxMTdWZkxaNk1NX1FvdGJSWXlrZm5tTWRwblNkRWlnWDB0ZDRZbkpNLWwtOTN2NE4yYWpLS1Q3NG5aaDZqbGpnS3gtYw?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "12 Jun 2026 · 01:03 SL",
-      "ts": 1781206380000,
-      "snippet": "HNB General Insurance appoints Dilshan Perera as COO dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "73aa0997ec43",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
       "client": "hayleys",
       "headline": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTVdxemFPSFFJNDBqdjB3QjNCcEVEZkRUMm5BSDBWcmYyb2pudXNEWFBIZUdEYVBSek5nY1VfdjJxOWRoX1JkRVhoZ0UwUjgtSDU3aEFMMXlIM3NnLXJBZFgxY1o1TjJjcWRLWWtaNm5pMmljQUhWanBXOVR1elg0T2dVb0lSV0tpZWYwVGE3amwyZXpvTXVuSkcwdlZpR29OQmdPZmVqX2cycmIzQ2R4VkFB?oc=5",
@@ -516,27 +495,6 @@
       "source_rank": 4,
       "is_low_relevance": false,
       "cluster_id": "cab5e12cb7c5",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hayleys",
-      "headline": "Assetline Finance and Hayleys Mobility sign MoU to expand access in financing solutions",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQbGxqdEpJWVpXZnhmdnZVLWZncTVLcnAyY3dXQmE4QzBYQU12eVpEV3IyN2JTMUF6eG1HVFh6ZzN2WjNORW9xZUJGVjcteWltaFNmR0hiOWpfZ0s1Mk5admtJLVI5RlBqWHZTNGJTRlkwUEFERUhPaVBxd1hlT3phVEpKVDlEbURuNGs5QkJOWVVQeVBMUjkydktTZ2xZYzNkaUlDWk5KQW5TdGVHTGE2SjBGNi1hSnpCbFZRdXlBeWtiWmhkSnViUDV6OEk5SElZNEdV?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 01:04 SL",
-      "ts": 1781120040000,
-      "snippet": "Assetline Finance and Hayleys Mobility sign MoU to expand access in financing solutions dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "Hayleys"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "5475101213e8",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -833,27 +791,6 @@
       "cluster_id": "9a632fcd6eac",
       "is_primary_in_cluster": true,
       "is_new": true
-    },
-    {
-      "client": "hayleys",
-      "headline": "HNB launches leasing solutions with Hayleys Agriculture to support agricultural growth",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNaC1yMUpXME1QSHB4Q0pTZ2t1ZEZMU1JCMnliT3ZnVzVmSF81Wnh6YXpZbW03LWZfWVFReVBwbHRvdXZBb2hEck5NUUE5SnhyYnRWLWJjUXdlSFpPaFpaenhGeWNWS3QwQ1hoNGQxMHlTRlIwazNqZHFSNlNNaUoyUHppeTdzTWJDWWxfd3U5Yl9iakRzcUZiWjNVQ0RwUjRENV9nei01Q1VxX0dhUVpzNS0tSG9WMkhUYzhhZm12Um9JdHJaakhWdTFWMlVyUHlfMkE?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "02 Jun 2026 · 01:05 SL",
-      "ts": 1780342500000,
-      "snippet": "HNB launches leasing solutions with Hayleys Agriculture to support agricultural growth dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "Hayleys"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "5f51dc16c039",
-      "is_primary_in_cluster": true,
-      "is_new": false
     },
     {
       "client": "hayleys",
@@ -1319,6 +1256,67 @@
     },
     {
       "client": "hnb",
+      "headline": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbXFJV2xTWG45MU55eVhuTEtFeGNGd05IR0tCYkdobEFKYmNWSGNaZHpvcXkwSDktMy1hTk5ZcHN6WDBPUFNTN1ZlRktEd2gzZjZxbE9naTF1TUdyd2dmSmszbHdGbUJmNkpYYS1XV3V0a3JXUjBId1piaGJOc2xsQjBaNzdGanRaZVJwVFJzeFM0enVud083a1JUQS1hZ1U?oc=5",
+      "source": "Magzter",
+      "domain": "news.google.com",
+      "date": "15 Jun 2026 · 11:41 SL",
+      "ts": 1781503870000,
+      "snippet": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper Magzter",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "24714a614fde",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWVBVMjNtUzlkc1FQaUo0cDdBa2hkNkhnZFBVV3Y4MEZDdGdGdEppcUE4UjNSOVNzRmJ2RVZ1aWZXWlpHbjkxT3l4U0hraG1hTkJqZnY1LUp2dWc2QnhSaTZQWDJTZ1dYSktOYUowTF9BRFNHNHFhbmRFdmxUU0FBc0NOaDAzTUE?oc=5",
+      "source": "The island.lk",
+      "domain": "news.google.com",
+      "date": "15 Jun 2026 · 05:29 SL",
+      "ts": 1781481597000,
+      "snippet": "Harmonising CBSL’s pragmatism with long-term structural freedom The island.lk",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "52bb22dc6bd3",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka’s central bank denies regulating Kasagala Green Plantation, to conduct investigation",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNalllanpGcGtVeVR1Ymt1Q2VpdFduT0NFRW1FalJHMkpyMzFlRHhJaHlzcnBha18wSkFuai1BR3NMTl9WYzR6UDZudmdaenFKRXJvRlFTd3V4SnAyc1VHQURib0pnTmtKVFRMWFlQaWdyT0p5X3pwY3huendfOGRlNHZlRlBmMzY5NW95WENObGVVaWs1RVQxbk9MdWFCRURWeHJqOWc0Ym8zOEZNU3REZFdkZVkxLUJvaU1RbHlRNzFtdw?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "13 Jun 2026 · 01:23 SL",
+      "ts": 1781294008000,
+      "snippet": "Sri Lanka’s central bank denies regulating Kasagala Green Plantation, to conduct investigation EconomyNext",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "615608496910",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
       "headline": "CBSL denies Kasagala Green Plantation claims, says investigation underway",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcDQtcUxsaXpRb1NCX2RodmgwUkhiWVhiWGdvbXdqaWNBWUtZUDRKdUwzd3NyZm51SzdILVlSaVhNWms3UEpnNzZRbzNEY05ONmdoYUsxM19fMUlwemNVb1h0UWRHQWJ5OWwyTUVBS1UxU2ZaZFdwT0t6eUlBUmpsdG5SRnkyTFhYcmhVNzhxR1h1bFBBRW5GZUpCR3pHZ3JQS24yd3ZPSmtZaXRv?oc=5",
       "source": "Newswire",
@@ -1361,64 +1359,58 @@
     },
     {
       "client": "hnb",
-      "headline": "CoPF grills CBSL over Rs. 13.2 b NDB fraud as forensic audit covers 10 years",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOW40YTd3UkJzaG5xcU45VFB5d0R6X3FhV0o5SjRNRlkwRHhsOUZzUmFFZDVQNW5uQThHWWx1cm4xN2d5Y2dUYld2aTA3MXNiaV9YcjR0T1RJdllHUWdQMGNZWlhTVUxwOXlVbmU0MlNKdHZGeWhGYnRIQm0zQTNkRXNldDN1eVNuVVhNOXF6X2pUWl9VaEJMdS1oOUk0MWJSQ3JfLXRGcXJab3NaOXY0Y3A1Q2M?oc=5",
-      "source": "Daily FT",
+      "headline": "Sri Lanka’s reserves rise, but the numbers tell a murkier story",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOV01Jdk02Q3FTNGF0ZjdVeFo4bk1Mbk1MSDJla2JSTFVjSmUzSkhYYnRqUmExSGtNZXJCd0pVVlotYU5uTjVvdnYydkJoNEg4c2R5dE10bWR4dEs2bkFQelMzR2hMOEFiZTZNTE9jS0phSkFKeU5hSW9NMzI5S24yYkw4cjJScmxEQVNpY2tJeGFSMUE?oc=5",
+      "source": "Tamil Guardian",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 04:17 SL",
-      "ts": 1781218040000,
-      "snippet": "CoPF grills CBSL over Rs. 13.2 b NDB fraud as forensic audit covers 10 years Daily FT",
+      "date": "12 Jun 2026 · 09:03 SL",
+      "ts": 1781235225000,
+      "snippet": "Sri Lanka’s reserves rise, but the numbers tell a murkier story Tamil Guardian",
       "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
+      "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "d5b70125b7d9",
+      "cluster_id": "611775812c9a",
       "is_primary_in_cluster": true,
-      "is_new": true
+      "is_new": false
     },
     {
-      "client": "hnb",
-      "headline": "CBSL briefs MPs on monetary policy and economic developments",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNMnZlZUVtZ3VxOEl4TXhaZG9MN19yTjBNbXk4VU91NlVrNE1iVWtOSkxqV2FEU0FVYldoRHAzdlVFcy1VenJXaFM1UWx2RC1oSzh2N0NPUlNISFJFVDI5a25oTlFZNWFfWGQ1cGhiclhIQTBHT1pLV2dqLTZ4ZkV6b2pYWEJHQlZEYnpjUnRFakJEQlRwbzBPUWltMUY?oc=5",
-      "source": "Newswire",
+      "client": "hayleys",
+      "headline": "Renewable energy: Sri Lanka’s battery storage push",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE02eWk4bC1ualBYQTJQbWh1M2pEZm05RThSWVdyZmpYa2hja1FPM2QwNWhRa196YldKcmhKT3YtemRFaVdTV0VsdHB0SnptbTlRYmREaTJhSWxsX3FlTUtjUmdnelliQQ?oc=5",
+      "source": "The Morning",
       "domain": "news.google.com",
-      "date": "11 Jun 2026 · 09:47 SL",
-      "ts": 1781151440000,
-      "snippet": "CBSL briefs MPs on monetary policy and economic developments Newswire",
+      "date": "31 May 2026 · 03:41 SL",
+      "ts": 1780179076000,
+      "snippet": "Renewable energy: Sri Lanka’s battery storage push The Morning",
       "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
+      "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "ee13fca0a988",
+      "cluster_id": "d37046670e0d",
       "is_primary_in_cluster": true,
       "is_new": false
     },
     {
       "client": "hnb",
-      "headline": "CBSL Rates : USD buying & selling rates rise",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOZExibnlTWWhmWDFnN2tsWkZGYV9vN04xR1Q5NWFPelBOX1gwajFnWmF1YWpQWGhmTTdhZjQ5elkwRkx5MUhVMlMyVGJsSUdWMWlFVHdNLVpKc0Q4WWdUYVNCTjFUR2hjYUc2WUQ4T1RwMUxtc1JmcnBCMTh4cVNrR0pn?oc=5",
-      "source": "Newswire",
+      "headline": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOY09DMmhkNzh2bVFhY21CSEswVEltZU92aGlDel9BMXJBY3M4Wlp6N01mQUo1akVQNmQ0YmIySGUyZGFkMElLano2SGROVTJsYTF2YTNtS2h0anhJMDRYdkVGQk1WczBueU81TUdrY3laNVNBZVNLMWhybEwtVG03OUpld1lpcWhRT2VpZG5UNTc1ZUIxaS02OUEzbEFxUzNXZGRNY20xWGsxb3JmOG5VV1hGRF95UEZIWklwRWszdw?oc=5",
+      "source": "Reuters",
       "domain": "news.google.com",
-      "date": "29 May 2026 · 12:30 SL",
-      "ts": 1780038000000,
-      "snippet": "CBSL Rates : USD buying & selling rates rise Newswire",
+      "date": "28 May 2026 · 12:30 SL",
+      "ts": 1779951600000,
+      "snippet": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery Reuters",
       "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
+      "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "d625ca4a657b",
+      "cluster_id": "b837d649d566",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -1445,24 +1437,60 @@
     },
     {
       "client": "hnb",
-      "headline": "Central Bank of Sri Lanka warns against misleading economic claims",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYnRFVnFudC1ka1UxZXZEbjdidDNBMEZYVUlXUVFWMTB3dTVvWFpMaWJBUzh2WGptT2ttSkItRXNqcEhhcmU4d2cxWk5oZFFSN3BzSW5zQzdLZjV6b0pONFNscG9NYzlJdVNtcmtRT09QVTREN2dsdkw3STdrLTF3eTJsMTM0TlJ2SzJlbC1rQkREYlVkbFhwYnpibWk4ZEJkM21JMA?oc=5",
-      "source": "Newswire",
+      "headline": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTFFMdlBXWlluVzlIZHV6V0YteTBIaGx5bktVOFFtSGM3YWlISjJlRHpnYUFlbVFYSmhQVDV4U3NjNGxTb2hEQlhpX0xsU25ES0Q4OUtmQUxsWmlfMkRIVWJCYkhNS0JGeWY4SDVwQ2l6dmxfWDQwOExlY2h4bmo1dlo1dHZBS3RRdW13R2QyNl9BTXQ3SU00eXZneDRWdzZlSlV6Tmt0ZzN1aEh4Tm5RMUFYdU1kWlV2UU96Y2pTWQ?oc=5",
+      "source": "Reuters",
       "domain": "news.google.com",
-      "date": "25 May 2026 · 12:30 SL",
-      "ts": 1779692400000,
-      "snippet": "Central Bank of Sri Lanka warns against misleading economic claims Newswire",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation Reuters",
       "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
-      "matched_terms": [
-        "Central Bank of Sri Lanka"
-      ],
+      "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": false,
-      "cluster_id": "51bd88f9e298",
+      "cluster_id": "4f8b37a9c0c5",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka lifts rates 100 bps as oil shock hits economy",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQRlA3WFpoSTZkTC1wV3VHZU9XNVZIQkUxT1Y0X2l0UkJaZEVMZmQtTFdIcy14RmtORHZ4RlNWRjNlUTZhU2xJQXFqSzVCMHd6MXVOYTFWYmIyOVVhUHNwcjdKRnhpQW1TeS0tNnZMeXhxY1huUl9rV0N3eWtHM05FUFBDWlItTmFLdDVmX1VCQjBIMEY0eWFfN1pFN215Z1Zfb1ZtaFlONTN4WHlxU00zSFBma0djOXA4aWNHeXJpaFFMM0FUd1M4VHQzWmt6TXpPUVdiNXhGZWhpaDVPVFE?oc=5",
+      "source": "MSN",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "Sri Lanka lifts rates 100 bps as oil shock hits economy MSN",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "56c795349a3a",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPOEdCaEJJZlFGWGJBWW1uRWJLZ25VMnA5V3ZxclpLUVBhT1Y2UGVKQ2ZCT1AwVjlFamdOQXlteEFRajhRa1B1c1lTcW43dzlGYWxhM2pIQjFwbGJqQ2pjRk1zNkxCdDZuOGZfaThkLXpSckVSTEJFbnRYVDhOOW1nVG45cnFpN0F2WjlMcTZfUmtIWnlRTVE?oc=5",
+      "source": "Finimize",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike Finimize",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": false,
+      "cluster_id": "7fd602c9c429",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1505,25 +1533,6 @@
       "is_new": false
     },
     {
-      "client": "pcc",
-      "headline": "More than 100 units of Home Lands’ Port City project sold to serial investors from overseas",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQd01CM1VNUjNrNGh1a2loM2p3UWdRUlR3YnFvR1RBWDM5a2p3MGJ2d3dHdjE5dFhwVW5XOVUtS2REVUM4RnFBRFZHQXV3X05vWlItTzR2bTlNTzB0bm5saWR1a1Nnak4zRVdkUjI4OE5UY2J6WlhuVnBSbUt3VVlWVzNsWnFUTlg0WDlacFhNZW9QTHExdE5udDRSRzEyQW9GZGJMZTdTU3JFcVpRT2N4WTlibUdZcEVDWDBncGkzRVBKeldUbU1Db043cWp1ZHI2UldqV3EtUDh1QktubWRUV1BEeVlQUQ?oc=5",
-      "source": "The Sunday Times, Sri Lanka",
-      "domain": "news.google.com",
-      "date": "14 Jun 2026 · 10:02 SL",
-      "ts": 1781411521000,
-      "snippet": "More than 100 units of Home Lands’ Port City project sold to serial investors from overseas The Sunday Times, Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "fae5a996965f",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
       "client": "hnb",
       "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Week ends in green",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxORzBsU0tfeDM1WmNxVEZUdXY2Zmw3WU93TGFtUkRXWjlKT3FRVUpJamZXeWJCaVZlWGg4U2M2WXMwQjhCWmxGS2VMZmE3czBGbWxBUkZYRkhIOUZ3bjRxWDFISEZDMjRtUHhkVEl0Z0c5UjVmT3A5ZE0xYmg2TDBxWjZ3?oc=5",
@@ -1541,44 +1550,6 @@
       "cluster_id": "fb82e804a04f",
       "is_primary_in_cluster": true,
       "is_new": true
-    },
-    {
-      "client": "hnb",
-      "headline": "Sri Lanka’s central bank denies regulating Kasagala Green Plantation, to conduct investigation",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNalllanpGcGtVeVR1Ymt1Q2VpdFduT0NFRW1FalJHMkpyMzFlRHhJaHlzcnBha18wSkFuai1BR3NMTl9WYzR6UDZudmdaenFKRXJvRlFTd3V4SnAyc1VHQURib0pnTmtKVFRMWFlQaWdyT0p5X3pwY3huendfOGRlNHZlRlBmMzY5NW95WENObGVVaWs1RVQxbk9MdWFCRURWeHJqOWc0Ym8zOEZNU3REZFdkZVkxLUJvaU1RbHlRNzFtdw?oc=5",
-      "source": "EconomyNext",
-      "domain": "news.google.com",
-      "date": "13 Jun 2026 · 01:23 SL",
-      "ts": 1781294008000,
-      "snippet": "Sri Lanka’s central bank denies regulating Kasagala Green Plantation, to conduct investigation EconomyNext",
-      "fetch_type": "industry_watch",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "615608496910",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
-      "headline": "Sri Lanka’s reserves rise, but the numbers tell a murkier story",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOV01Jdk02Q3FTNGF0ZjdVeFo4bk1Mbk1MSDJla2JSTFVjSmUzSkhYYnRqUmExSGtNZXJCd0pVVlotYU5uTjVvdnYydkJoNEg4c2R5dE10bWR4dEs2bkFQelMzR2hMOEFiZTZNTE9jS0phSkFKeU5hSW9NMzI5S24yYkw4cjJScmxEQVNpY2tJeGFSMUE?oc=5",
-      "source": "Tamil Guardian",
-      "domain": "news.google.com",
-      "date": "12 Jun 2026 · 09:03 SL",
-      "ts": 1781235225000,
-      "snippet": "Sri Lanka’s reserves rise, but the numbers tell a murkier story Tamil Guardian",
-      "fetch_type": "industry_watch",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "611775812c9a",
-      "is_primary_in_cluster": true,
-      "is_new": false
     },
     {
       "client": "hayleys",
@@ -1657,6 +1628,25 @@
       "is_new": true
     },
     {
+      "client": "pcc",
+      "headline": "Sampath Bank to open branch in Sri Lanka’s Port City",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbHlhdVZId1F6RFJWb09MOU5EWUpRNnl1OFFqWnR5NGNpX3pDZTlxYkp5bjVTX3NJVHRaU3FBN0VsU1BwVW1aWG9BeG5LZFU3Sm9BUGpGUEVJenRyRDlFOTVKR0dSaUtCU1ZmUkdlcjZpM0J0Q3hKenJ2WmhyYjVMbUJYLVQ3S002YWcw?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "02 Jun 2026 · 12:30 SL",
+      "ts": 1780383600000,
+      "snippet": "Sampath Bank to open branch in Sri Lanka’s Port City EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 4,
+      "is_low_relevance": true,
+      "cluster_id": "fc4acd3f0289",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
       "client": "hnb",
       "headline": "Kyle turns back clock in inspiring comeback",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPam1HZ0hrbTI4MXRYUDk1dkJGUldyTElUMGxSLW9zVU54SUJpbVc3V1ZSYTl2OFZ6MHI3OUVWUWc0TlRWczd1VDNGa3EwbXYzeVFFOHNiRWVBVnpVb0w0cnp2UmVVb2cxemJDcFFmalJLTkJBWDEtOWs5aVNXcWNNOGRTbmE4MzRMU2xMZVJRbzIyMjJTU3Y3NmZnczM?oc=5",
@@ -1676,23 +1666,23 @@
       "is_new": true
     },
     {
-      "client": "hayleys",
-      "headline": "Renewable energy: Sri Lanka’s battery storage push",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE02eWk4bC1ualBYQTJQbWh1M2pEZm05RThSWVdyZmpYa2hja1FPM2QwNWhRa196YldKcmhKT3YtemRFaVdTV0VsdHB0SnptbTlRYmREaTJhSWxsX3FlTUtjUmdnelliQQ?oc=5",
-      "source": "The Morning",
+      "client": "hnb",
+      "headline": "Lyceum Nuwara Eliya Shines at Nuwara Eliya Flower Show",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNQ3QxbUdyUm9hd1RwWkxfTjVlX1NDUWRqRVBPRHFqbWQycU8tb1BCVXBqVHh3bmVNX2hjNG9tc2c2cFhiWTBDZVlSeU82NEthOFhyNDVQeGJEZ3ZZZm5JbDNBT1FOY3VMM0FFTlpIc3dBT1JxVUNndk5KTGQ0bjFRU1ZUX0xndFRQZ0JlWndzT3hFbXJRTFV1WTcyREFHcTRfb2VvVHprNlk5cllFSklZ?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
       "domain": "news.google.com",
-      "date": "31 May 2026 · 03:41 SL",
-      "ts": 1780179076000,
-      "snippet": "Renewable energy: Sri Lanka’s battery storage push The Morning",
-      "fetch_type": "industry_watch",
+      "date": "31 May 2026 · 12:30 SL",
+      "ts": 1780210800000,
+      "snippet": "Lyceum Nuwara Eliya Shines at Nuwara Eliya Flower Show The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
       "source_rank": 4,
       "is_low_relevance": true,
-      "cluster_id": "d37046670e0d",
+      "cluster_id": "335c1b39b1a7",
       "is_primary_in_cluster": true,
-      "is_new": false
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1734,25 +1724,6 @@
     },
     {
       "client": "hnb",
-      "headline": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOY09DMmhkNzh2bVFhY21CSEswVEltZU92aGlDel9BMXJBY3M4Wlp6N01mQUo1akVQNmQ0YmIySGUyZGFkMElLano2SGROVTJsYTF2YTNtS2h0anhJMDRYdkVGQk1WczBueU81TUdrY3laNVNBZVNLMWhybEwtVG03OUpld1lpcWhRT2VpZG5UNTc1ZUIxaS02OUEzbEFxUzNXZGRNY20xWGsxb3JmOG5VV1hGRF95UEZIWklwRWszdw?oc=5",
-      "source": "Reuters",
-      "domain": "news.google.com",
-      "date": "28 May 2026 · 12:30 SL",
-      "ts": 1779951600000,
-      "snippet": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery Reuters",
-      "fetch_type": "industry_watch",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "b837d649d566",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
       "headline": "Bourse indices dip as West Asian tensions continue to simmer",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPR21ZbWlQUXd2OFhodWlQaEYwVkkyMEdLUE5HTHFKbGwwd3FJdEg0VlIwX184OVhOM283cTRmbXRUMkV2NEdMN1JqdkdZWUluRWlpNHJNRXJDcVhoTzUtSFZhQ3NfblBmZVI2RzlROVpjOU01Ql96UVZLbVdwc19WVlk0Yng?oc=5",
       "source": "The island.lk",
@@ -1767,25 +1738,6 @@
       "source_rank": 4,
       "is_low_relevance": true,
       "cluster_id": "592f48926d9b",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
-      "client": "hnb",
-      "headline": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTFFMdlBXWlluVzlIZHV6V0YteTBIaGx5bktVOFFtSGM3YWlISjJlRHpnYUFlbVFYSmhQVDV4U3NjNGxTb2hEQlhpX0xsU25ES0Q4OUtmQUxsWmlfMkRIVWJCYkhNS0JGeWY4SDVwQ2l6dmxfWDQwOExlY2h4bmo1dlo1dHZBS3RRdW13R2QyNl9BTXQ3SU00eXZneDRWdzZlSlV6Tmt0ZzN1aEh4Tm5RMUFYdU1kWlV2UU96Y2pTWQ?oc=5",
-      "source": "Reuters",
-      "domain": "news.google.com",
-      "date": "26 May 2026 · 12:30 SL",
-      "ts": 1779778800000,
-      "snippet": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation Reuters",
-      "fetch_type": "industry_watch",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 4,
-      "is_low_relevance": true,
-      "cluster_id": "4f8b37a9c0c5",
       "is_primary_in_cluster": true,
       "is_new": true
     },
@@ -1904,21 +1856,27 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "24714a614fde",
+      "primary_headline": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper",
+      "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "bec51c697ac8",
       "primary_headline": "HNB General Insurance appoints Dilshan Perera as COO | Daily Mirror - Sri Lanka - newspaper",
       "primary_source": "Magzter",
       "also_covered_count": 2
     },
     {
-      "cluster_id": "1363e33bdf53",
-      "primary_headline": "Port City Colombo to develop into a dynamic economic zone, Govt’s goal – President",
-      "primary_source": "dailynews.lk",
+      "cluster_id": "52bb22dc6bd3",
+      "primary_headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
+      "primary_source": "The island.lk",
       "also_covered_count": 0
     },
     {
-      "cluster_id": "fae5a996965f",
-      "primary_headline": "More than 100 units of Home Lands’ Port City project sold to serial investors from overseas",
-      "primary_source": "The Sunday Times, Sri Lanka",
+      "cluster_id": "1363e33bdf53",
+      "primary_headline": "Port City Colombo to develop into a dynamic economic zone, Govt’s goal – President",
+      "primary_source": "dailynews.lk",
       "also_covered_count": 0
     },
     {
@@ -2006,20 +1964,8 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "d5b70125b7d9",
-      "primary_headline": "CoPF grills CBSL over Rs. 13.2 b NDB fraud as forensic audit covers 10 years",
-      "primary_source": "Daily FT",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "63fb468d448a",
       "primary_headline": "HNB expands vehicle financing in collaboration with Access Motors",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "73aa0997ec43",
-      "primary_headline": "HNB General Insurance appoints Dilshan Perera as COO",
       "primary_source": "dailynews.lk",
       "also_covered_count": 0
     },
@@ -2027,7 +1973,7 @@
       "cluster_id": "28d7d5cf87b7",
       "primary_headline": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka",
       "primary_source": "dailynews.lk",
-      "also_covered_count": 2
+      "also_covered_count": 1
     },
     {
       "cluster_id": "5def967a26d3",
@@ -2054,18 +2000,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "ee13fca0a988",
-      "primary_headline": "CBSL briefs MPs on monetary policy and economic developments",
-      "primary_source": "Newswire",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "5475101213e8",
-      "primary_headline": "Assetline Finance and Hayleys Mobility sign MoU to expand access in financing solutions",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "898da074cd9e",
       "primary_headline": "Home Lands Set to Unveil ‘Central Park Boulevard Port City Colombo’ at the Largest Ever Real Estate Launch in Sri Lanka",
       "primary_source": "Newswire",
@@ -2087,7 +2021,7 @@
       "cluster_id": "83be30275deb",
       "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 2
+      "also_covered_count": 1
     },
     {
       "cluster_id": "caf03d513723",
@@ -2129,7 +2063,7 @@
       "cluster_id": "11bebd76b9a9",
       "primary_headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment",
       "primary_source": "The island.lk",
-      "also_covered_count": 3
+      "also_covered_count": 1
     },
     {
       "cluster_id": "a6f7284a0be3",
@@ -2177,12 +2111,12 @@
       "cluster_id": "9a632fcd6eac",
       "primary_headline": "Sampath Bank leads Lanka’s Financial Future with Agreement for Port City Colombo Branch",
       "primary_source": "dailynews.lk",
-      "also_covered_count": 3
+      "also_covered_count": 2
     },
     {
-      "cluster_id": "5f51dc16c039",
-      "primary_headline": "HNB launches leasing solutions with Hayleys Agriculture to support agricultural growth",
-      "primary_source": "dailynews.lk",
+      "cluster_id": "fc4acd3f0289",
+      "primary_headline": "Sampath Bank to open branch in Sri Lanka’s Port City",
+      "primary_source": "EconomyNext",
       "also_covered_count": 0
     },
     {
@@ -2204,6 +2138,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "335c1b39b1a7",
+      "primary_headline": "Lyceum Nuwara Eliya Shines at Nuwara Eliya Flower Show",
+      "primary_source": "The Sunday Times, Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "d37046670e0d",
       "primary_headline": "Renewable energy: Sri Lanka’s battery storage push",
       "primary_source": "The Morning",
@@ -2219,12 +2159,6 @@
       "cluster_id": "fb6a15bb62d2",
       "primary_headline": "Kyle rises to number one in Sri Lanka swimming",
       "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "d625ca4a657b",
-      "primary_headline": "CBSL Rates : USD buying & selling rates rise",
-      "primary_source": "Newswire",
       "also_covered_count": 0
     },
     {
@@ -2276,6 +2210,18 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "56c795349a3a",
+      "primary_headline": "Sri Lanka lifts rates 100 bps as oil shock hits economy",
+      "primary_source": "MSN",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "7fd602c9c429",
+      "primary_headline": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike",
+      "primary_source": "Finimize",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "ac6b588c7888",
       "primary_headline": "China Duty Free Group hails Port City Colombo shopping regulation changes",
       "primary_source": "Moodie Davitt Report",
@@ -2291,12 +2237,6 @@
       "cluster_id": "924e372855a7",
       "primary_headline": "Home Lands unveils ‘Central Park Boulevard Port City’ twin tower high-rise",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "51bd88f9e298",
-      "primary_headline": "Central Bank of Sri Lanka warns against misleading economic claims",
-      "primary_source": "Newswire",
       "also_covered_count": 0
     },
     {
@@ -2408,6 +2348,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 90,
-  "total_clusters": 90
+  "total_stories": 88,
+  "total_clusters": 88
 }
