@@ -151,9 +151,20 @@ def classify_story(story, client_config, outlets_config, fetch_type_hint=None):
             return 'mention', 1.0, [term]
 
     # ── 5. industry_watch ──────────────────────────────────────────────────────
-    for term in client_config.get('industry_watch', []):
-        if term_matches(term, text):
-            return 'industry', 0.7, [term]
+    matched_industry = [t for t in client_config.get('industry_watch', []) if term_matches(t, text)]
+    if matched_industry:
+        return 'industry', 0.7, matched_industry
+
+    # industry_watch fetch floor — sits BELOW risk + mention (unlike the
+    # market/risk floor in section 2) so a sector story that actually names the
+    # client or is negative still gets promoted. A story pulled in by the
+    # industry query whose long phrase terms don't re-appear in the snippet
+    # (e.g. "apparel exports Sri Lanka" vs a reordered real headline) would
+    # otherwise drop to low_relevance — this keeps it as industry. NOTE: returns
+    # the 'industry' category, not the 'industry_watch' fetch_type, because the
+    # renderer/filters key off 'industry'.
+    if fetch_type_hint == 'industry_watch':
+        return 'industry', 0.7, matched_industry
 
     # ── 6. market_watch ────────────────────────────────────────────────────────
     for term in client_config.get('market_watch', []):
