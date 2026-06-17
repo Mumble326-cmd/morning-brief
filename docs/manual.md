@@ -1,280 +1,224 @@
-# Morning Brief - Manual
+# Morning Brief — Operations Manual
 
-## What This Tool Does
-
-The Morning Brief automatically scans news articles from ~15 Sri Lankan news outlets and groups coverage by client company (HNB, Hayleys, MAS, BYD, MIFL, Port City Colombo).
-
-Every day:
-1. Google News is searched for keywords related to each client
-2. Results are categorized as **direct mentions** (client in headline) or **industry context** (sector/competitor news)
-3. An HTML brief is generated and published to GitHub Pages
-4. Archive is stored for historical comparison
+A practical guide for running the daily media-monitoring brief. Written for PR
+professionals, not developers. No coding knowledge needed for day-to-day use.
 
 ---
 
-## Project Structure
+## What this tool is
+
+The Morning Brief is an automated daily media-monitoring report for Adfactors PR
+Lanka. Every weekday at 6:30 AM Sri Lanka time it searches the news for our six
+clients — **HNB, Hayleys, MAS, BYD, MIFL, and Port City Colombo** — groups the
+coverage by client, removes duplicates, classifies each story, and publishes a
+clean web page you can open on any device.
+
+It runs entirely on free infrastructure (GitHub Actions + GitHub Pages) and uses
+**no Claude tokens** in normal operation — it is pure Python reading public news
+feeds. It lives at **github.com/Mumble326-cmd/morning-brief** and publishes to
+**https://mumble326-cmd.github.io/morning-brief/**.
+
+---
+
+## The brief — how to read it
+
+**Controls bar** (top of the page):
+
+- **Window** — `1d` / `7d` / `14d` / `30d`. How far back to show stories. The
+  tool always *fetches* 30 days; this just filters what you see (default `7d`).
+- **Client** — show all clients or just one.
+- **Category** — `Mention` (the client is in the news) / `Industry` (sector or
+  competitor news) / `Market Watch` (stock-market news) / `Risk Watch` (negative
+  or reputational stories).
+- **Search** — type to filter stories by any word in the headline, snippet, or
+  outlet.
+- **Show low relevance** — a toggle. Off by default; turn it on to see stories
+  the tool judged weak matches.
+- **↻ Refresh** — reloads the page to pull the latest published brief.
+- **✎ Keyword Studio** — opens the in-browser editor (see *Updating keywords*).
+
+**Story cards** show: the headline (links to the article), the publication, the
+date, and a colour-coded **category tag**. Two extra badges may appear:
+
+- **★ New** — the story wasn't in yesterday's brief.
+- **✂ Manual Clip** — a story added by hand (see *Adding a manual clip*).
+
+If the same story ran in several outlets, the duplicates are merged into one card
+with an **"Also in"** row linking the other outlets.
+
+**Executive Summary** strip at the very top lists the top stories across all
+clients for the day. Each client section also shows a small **SOV sparkline** —
+a per-day trend line plus that client's share of voice across all clients today.
+
+---
+
+## Daily workflow
+
+Nothing to do. Wake up, open **https://mumble326-cmd.github.io/morning-brief/**,
+and it's already updated for the day. The page rebuilds itself every weekday
+morning automatically.
+
+---
+
+## Updating keywords
+
+Keywords decide what each client's search pulls in. There are two ways to edit
+them. (For *how* to choose good keywords, see `docs/keyword-guide.md`.)
+
+**Option A — Keyword Studio (no technical knowledge):**
+
+1. Open the brief and click **✎ Keyword Studio** (top right).
+2. Click a client to expand it, then edit the tags under each category. Press
+   **Enter** to add a tag, click **×** to remove one.
+3. Click **↓ Download keywords.json**.
+4. Go to **github.com/Mumble326-cmd/morning-brief** → **Add file → Upload files**
+   → drag in the downloaded `keywords.json` → **Commit changes**.
+5. To refresh immediately: **Actions → Daily Morning Brief → Run workflow**.
+
+**Option B — Direct edit in VS Code:**
+
+1. Open `keywords.json`, make your edits, **Ctrl+S**.
+2. **Source Control** panel → write a message → **Commit** → **Sync Changes**.
+
+**The five keyword categories** (per client):
+
+- **direct_mentions** — the client's own names, subsidiaries, products. A hit
+  here = **Mention**.
+- **industry_watch** — competitors, regulators, sector terms. A hit here =
+  **Industry**.
+- **market_watch** — stock-exchange / index / trading terms. A hit = **Market
+  Watch**.
+- **risk_watch** — negative signals (fraud, recall, investigation, ban). A hit =
+  **Risk Watch**. Checked *before* mentions so bad news is never buried.
+- **exclude** — false-positive killers (sports, cricket, school). A hit here
+  pushes the story to *low relevance*.
+
+**query_context** — only **BYD** and **MIFL** have this, set to `"Sri Lanka"`.
+Their names are globally ambiguous, so this forces `"Sri Lanka"` into every
+search and stops the feed filling with global noise. Leave it as is.
+
+---
+
+## Adding a manual clip
+
+Use this when an important story didn't get picked up automatically (e.g. an
+outlet that blocks Google News indexing).
+
+1. Open **Keyword Studio → Manual Clippings**.
+2. Paste the article **URL** and click **Auto-fill ↗**.
+3. Fill any fields it couldn't auto-fill (headline, source, date, snippet).
+4. Select the **client** and the **category**.
+5. Write a **reason** — why this matters. This becomes institutional memory for
+   future briefs and Claude sessions, so be specific.
+6. Click **+ Add to Clippings**, then **↓ Download manual_articles.json**.
+7. Upload it to GitHub the same way as keywords (Add file → Upload files →
+   commit).
+
+**Note — sites that block auto-fill:** Daily Mirror and Sunday Times block the
+auto-fill (CORS). For those, paste the article text into Claude chat and ask it
+to add the clip directly to `manual_articles.json`.
+
+**Note — manual clips ignore the date window.** They always show regardless of
+age (e.g. the MIFL debenture clip is over 30 days old but still appears). This is
+intentional — curated context shouldn't expire.
+
+---
+
+## Adding a new client
+
+A two-step paste, no code changes. From the repo folder run:
 
 ```
-morning-brief/
-├─ brief.py              # Main script (runs daily via GitHub Action)
-├─ config.py             # Configuration (API keys, parameters)
-├─ keywords.json         # Client keyword definitions (EDIT THIS)
-├─ outlets.json          # Approved news outlets and domains
-├─ index.html            # Generated output page
-├─ README.md             # Project overview
-│
-├─ data/                 # Output archive
-│  ├─ latest.json        # Latest results
-│  └─ archive/           # Historical snapshots (YYYY-MM-DD.json)
-│
-├─ docs/                 # Documentation
-│  ├─ manual.md          # This file
-│  ├─ keyword-guide.md   # How to edit keywords.json
-│  └─ changelog.md       # Version history
-│
-└─ .github/workflows/    # GitHub Actions CI/CD
-   └─ daily-brief.yml    # Automation trigger
+py -3 new_client.py "Client Name" "Sector"
+```
+
+It prints two blocks:
+
+1. **Step 1** — paste the printed JSON block into `keywords.json`, inside the
+   top-level object.
+2. **Step 2** — paste the printed entry into the `CLIENTS` list in `config.py`.
+
+That's all. On the next run, a startup check warns you if the two files have
+drifted apart (e.g. a client added to one but not the other).
+
+For short or ambiguous brand names, add the context flag so the search stays
+Sri Lanka-only:
+
+```
+py -3 new_client.py "Client Name" "Sector" --context "Sri Lanka"
 ```
 
 ---
 
-## Quick Start
+## Triggering a manual run
 
-### Run Locally
+To refresh the brief without waiting for tomorrow morning:
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+**github.com/Mumble326-cmd/morning-brief → Actions → Daily Morning Brief →
+Run workflow.**
 
-# Run the brief generator
-python brief.py
+It finishes in about 90 seconds, then the live URL updates.
 
-# Output appears in index.html
+---
+
+## Machines and setup
+
+**Home laptop (ASUS TUF, Windows):**
+
+- Python: **`py -3`** (not `python` or `python3`)
+- pip: `py -3 -m pip install <package> --break-system-packages`
+- Claude Code: run `claude` from the repo directory
+- Repo: `C:\Users\ASUS TUF\morning-brief`
+
+**Work laptop (Windows):**
+
+- No Python installed — **edit and commit only**, via VS Code + Claude extension
+- Repo: `C:\Users\Abdullah Firdousi\morning-brief`
+
+**Git routine (always pull before changes):**
+
 ```
-
-### Edit Keywords
-
-1. Open `keywords.json` in VSCode
-2. Refer to `docs/keyword-guide.md` for structure
-3. Make changes (add subsidiaries, adjust filters, etc.)
-4. Commit and push:
-
-```bash
 git pull --rebase origin main
-git add keywords.json
-git commit -m "Reason for the change"
+git add .
+git commit -m "message"
 git push
 ```
 
-5. GitHub Action runs automatically; check **Actions** tab for results
-
-### View Results
-
-- **Latest brief:** https://yourGitHubPages URL (set in repo settings)
-- **Archive:** `data/archive/` folder in repo
-- **Raw JSON:** `data/latest.json`
+The `--rebase` matters: the daily run commits the generated brief back to the
+repo, so your local copy is usually behind. Always pull first.
 
 ---
 
-## Client Keyword Management
+## What auto-runs and when
 
-Each client is defined in `keywords.json` with these fields:
-
-| Field | Purpose |
-|-------|---------|
-| `label` | Display name in brief |
-| `sector` | Industry classification |
-| `must_include` | Safety filter (story must contain one) |
-| `direct_mentions` | Exact brand/subsidiary names |
-| `industry_watch` | Competitor/regulatory/sector context |
-| `exclude` | False-positive filters |
-| `priority_sources` | Preferred news outlets |
-
-**Full guide:** See `docs/keyword-guide.md`
+GitHub Actions runs on cron `0 1 * * 1-5` — that's **1:00 AM UTC = 6:30 AM Sri
+Lanka time, Monday to Friday**. The result is committed and published
+automatically. You can also trigger a run any time via **Actions → Run
+workflow**.
 
 ---
 
-## Current Clients
+## Media contacts
 
-### HNB (Hatton National Bank)
-**Sector:** Banking
-- Tracks HNB and all subsidiaries (Life, Finance, General Insurance, Investment Bank, Securities, Stockbrokers, Assurance)
-- Industry context: CBSL, monetary policy, competing banks
-- Excludes: sports, horse racing
-
-### Hayleys
-**Sector:** Diversified Conglomerate
-- Tracks Hayleys PLC and all subsidiaries (Fabric, Mobility, Plantations, Advantis, Solar, Eco Solutions, Lifesciences, Haycarb, etc.)
-- Industry context: plantation sector, competing conglomerates, renewables
-- Excludes: sports, cricket
-
-### MAS
-**Sector:** Apparel Manufacturing & Export
-- Tracks MAS Holdings and all brands (Intimates, Active, Kreeda, Bodyline, Twinery, etc.)
-- Industry context: apparel exports, GSP+ status, tariff policy, competing manufacturers
-- Excludes: school uniforms, sports, cricket
-
-### BYD
-**Sector:** Electric Vehicles
-- Tracks BYD Sri Lanka and vehicle models (Atto 3, Dolphin, Seal)
-- Industry context: EV policy, charging infrastructure, competing EVs
-- Excludes: global BYD news, China factory updates, Tesla comparisons
-
-### MIFL
-**Sector:** Finance
-- Tracks Mahindra Ideal Finance only (strict acronym filtering)
-- Industry context: licensed finance companies, NBFIs, leasing landscape
-- Excludes: sports leagues, geographic matches
-
-### Port City Colombo
-**Sector:** Real Estate & Development
-- Tracks Port City and all official names (Colombo Port City, CHEC Port City, SEZ)
-- Industry context: foreign investment, banking partnerships, real estate
-- Excludes: port operations, unrelated commerce
+Journalist names and contact details are **never** stored in this public repo.
+They live in a private local file (`media-contacts.md`) that is not committed.
+The brief shows outlet names only.
 
 ---
 
-## GitHub Action Workflow
+## Known limitations
 
-File: `.github/workflows/daily-brief.yml`
-
-**Trigger:** Daily at a set time (usually 06:00 AM)
-
-**What it does:**
-1. Pulls latest code from main branch
-2. Runs `python brief.py`
-3. Generates `data/latest.json` and archives to `data/archive/YYYY-MM-DD.json`
-4. Commits and pushes results
-5. Publishes to GitHub Pages (if enabled in repo settings)
-
-**To manually trigger:**
-- GitHub → Actions → Daily Morning Brief → Run workflow
+- **Some outlets have no RSS feed.** Daily FT, Daily Mirror, The Morning, and
+  Colombo Gazette expose no usable feed, so they arrive via Google News only —
+  and some of their articles never get indexed there. Manual clips are the fix.
+- **Google News results are volatile.** The same search returns different
+  results run to run, because Google's date filter is loose. Daily story counts
+  fluctuate — that's the data source, not a bug.
+- **Google News links are redirect URLs** (`news.google.com/rss/…`). They work
+  but are opaque. The tool tries to resolve them to the real publisher URL, but
+  Google now uses a JavaScript interstitial, so most links stay as redirects.
 
 ---
 
-## Troubleshooting
-
-### Missing Stories
-
-**Problem:** A known HNB story isn't appearing.
-
-**Diagnosis:**
-1. Check if the outlet is in `outlets.json` → `allowed_domains`
-2. Check if keywords match in `keywords.json` → `direct_mentions` or `industry_watch`
-3. Check if the story is being excluded in `exclude` array
-4. Run `python brief.py` locally with debug output
-
-**Fix:**
-- Add missing keywords to `direct_mentions` or `industry_watch`
-- Add outlet to `outlets.json` if it's a valid source
-- Remove the keyword from `exclude` if it's a false positive
-
-### Too Many False Positives
-
-**Problem:** MAS apparel stories mixed with school uniform articles.
-
-**Diagnosis:**
-1. Check `keywords.json` → `exclude` array
-2. Verify `must_include` logic
-
-**Fix:**
-- Add specific false-positive patterns to `exclude`, e.g., `"school apparel"`, `"Brandix cricket"`
-- Avoid broad exclusions like `"school"` (might exclude "school factory expansion")
-
-### Acronym Pollution
-
-**Problem:** MIFL stories mixed with Michigan Football or Indian Film League.
-
-**Diagnosis:**
-- `must_include` array is not strict enough
-- `direct_mentions` includes bare `"MIFL"` without context
-
-**Fix:**
-- Keep `direct_mentions` to full names only: `"Mahindra Ideal Finance"`
-- Ensure `must_include` has context anchors: `["Sri Lanka", "Mahindra", "Ideal Finance"]`
-- Add exclusions: `["MIFL football", "MIFL league", "Michigan", "India league"]`
-
-### GitHub Action Failed
-
-**Problem:** Workflow shows red X in Actions tab.
-
-**Steps:**
-1. Click on the failed run
-2. Expand the job to see error log
-3. Common issues:
-   - `keywords.json` is malformed JSON → validate syntax
-   - Missing dependency → update `requirements.txt`
-   - API rate limit → wait or reduce query frequency
-4. Fix locally, commit, and re-run
-
----
-
-## Data Export & Archiving
-
-### Latest Results
-`data/latest.json` contains today's stories with metadata:
-- headline
-- url
-- source
-- publish date
-- matched keywords
-- category (direct_mention / industry_watch)
-
-### Historical Archive
-`data/archive/2026-06-11.json` stores daily snapshots.
-
-**Use cases:**
-- "Which outlet covered HNB most in May?"
-- "Did BYD coverage spike after the new model launch?"
-- "How many Port City stories in Q1?"
-
----
-
-## Media Contact Safety
-
-**⚠️ IMPORTANT:** Do NOT store journalist names, email addresses, or phone numbers in this public GitHub repo.
-
-**Current policy:**
-- Brief output shows only: `Outlet Name · Date · Link`
-- No contact details are hardcoded in public files
-- Keep media contact lists in private files (Excel, OneNote, CRM)
-
-**If adding contact data later:**
-- Store in `media_contacts.json` (add to `.gitignore`)
-- Or create a private report generator for internal use only
-
----
-
-## Next Improvements
-
-### Short Term
-1. ✅ Expanded keyword coverage (HNB subsidiaries, BYD models, etc.)
-2. ✅ Governance structure (must_include, direct_mentions, industry_watch)
-3. ⏳ Update `brief.py` to parse new keyword structure
-4. ⏳ Archive output capability
-
-### Medium Term
-5. ⏳ Duplicate story grouping
-6. ⏳ Client report view with date range filtering
-7. ⏳ Outlet performance tracking
-
-### Long Term
-8. ⏳ PDF export
-9. ⏳ Negative mention flagging
-10. ⏳ Trend analysis dashboard
-
----
-
-## Support
-
-For issues or questions:
-1. Check `docs/changelog.md` for recent updates
-2. Review `docs/keyword-guide.md` for keyword structure
-3. Check GitHub Issues (if using)
-4. Contact project maintainer
-
----
-
-**Last Updated:** 2026-06-11
-**Maintainer:** Mumble326
 **Repository:** https://github.com/Mumble326-cmd/morning-brief
+**Live brief:** https://mumble326-cmd.github.io/morning-brief/

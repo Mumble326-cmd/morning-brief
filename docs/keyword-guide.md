@@ -1,338 +1,198 @@
-# Keywords.json - Governance Guide
+# Morning Brief — Keyword Tuning Guide
 
-## Structure Overview
-
-Each client object in `keywords.json` follows this structure:
-
-```json
-{
-  "label": "Display name for reports",
-  "sector": "Industry classification",
-  "must_include": ["Essential terms that define this client"],
-  "direct_mentions": ["Exact brand/product names"],
-  "industry_watch": ["Competitor, regulatory, and sector context"],
-  "exclude": ["Terms to ignore/filter out"],
-  "priority_sources": ["Preferred news outlets for this client"]
-}
-```
-
-## Field Definitions
-
-### `label`
-The display name in the brief output.
-
-**Example:** `"HNB"`, `"Hayleys"`, `"MAS Holdings"`
+How keywords drive the brief, and how to tune them well. All examples are real,
+taken from the current `keywords.json`.
 
 ---
 
-### `sector`
-Classification for internal organization. Helps group clients by industry.
+## How keywords work
 
-**Values:**
-- `Banking`
-- `Diversified Conglomerate`
-- `Apparel Manufacturing & Export`
-- `Electric Vehicles`
-- `Finance`
-- `Real Estate & Development`
+The pipeline in plain terms:
 
-**Example:** `"sector": "Banking"`
+1. `brief.py` builds a Google News RSS query from a client's keyword terms.
+2. Google News (Sri Lanka edition) returns up to ~20 matching articles.
+3. The **SL_SIGNALS** gate removes articles with no Sri Lanka signal in the
+   headline or snippet (`sri lanka`, `lanka`, `colombo`, `cbsl`, `ceylon`, `lkr`,
+   `.lk`, and a few place names).
+4. `classify_story()` assigns each surviving article a category.
+5. Classified articles are deduplicated and placed into the brief.
+
+**The five categories** (and the score each carries):
+
+- **Mention (1.0)** — matched a `direct_mentions` term. The client itself is in
+  the news.
+- **Industry (0.7)** — matched an `industry_watch` term, **or** was pulled in by
+  an `industry_watch` query even if no term re-appeared in the snippet (the
+  *industry floor*).
+- **Market Watch (0.5)** — pulled in by a `market_watch` query.
+- **Risk Watch (0.8)** — pulled in by a `risk_watch` query, **or** a `risk_watch`
+  term appears anywhere in the text.
+- **Low Relevance (0.0)** — nothing matched, or an `exclude` term fired.
+
+**Precedence** — `classify_story()` checks in this exact order and returns on the
+first match:
+
+```
+1. exclude term            → low_relevance   (global gate, any fetch type)
+2. market_watch / risk_watch fetch floor → that category
+3. risk_watch term         → risk_watch      (checked BEFORE mentions)
+4. direct_mentions term    → mention
+5. industry_watch term     → industry
+6. industry_watch fetch floor → industry
+7. market_watch term       → market_watch
+   (otherwise)             → low_relevance
+```
+
+Two consequences worth understanding:
+
+- **exclude wins over everything.** A story matching both `"HNB"` and an HNB
+  exclude term is demoted, not reported.
+- **The industry floor (step 6)** means any story the `industry_watch` *query*
+  returns becomes Industry, even if the exact term isn't echoed in the snippet.
+  So the query terms are the real relevance gate — broaden too far and you pull
+  noise into Industry.
 
 ---
 
-### `must_include`
-**Anchor terms** that must appear in a story for it to be relevant. This is the safety filter.
+## Term design rules
 
-If a story doesn't contain at least one of these terms, it's rejected before matching against `direct_mentions` or `industry_watch`.
+**Rule 1 — Short terms and named entities work; long phrases fail.**
+A long fixed-word-order phrase rarely appears verbatim in a real headline.
+- ❌ `"plantation sector Sri Lanka"` (never appears as-is)
+- ✅ `"plantation sector"` or `"Aitken Spence"`
 
-**Why?** Prevents false positives when acronyms or company names appear in unrelated contexts.
+**Rule 2 — Short acronyms get automatic word-boundary matching.**
+Terms of 4 characters or fewer are matched on word boundaries by the code, so
+`BYD` won't hit "ABYDOS", `CSE` won't hit "SELECTED", `MAS` won't hit "THOMAS".
+You don't need to guard against this yourself.
 
-**Example for HNB:**
-```json
-"must_include": [
-  "Sri Lanka",
-  "HNB",
-  "HNB PLC",
-  "Hatton National Bank",
-  "HNB Finance",
-  "HNB Life",
-  "HNB General Insurance",
-  "HNB Investment Bank"
-]
-```
+**Rule 3 — Avoid `"Sri Lanka"` inside terms.**
+The tool already queries the Sri Lanka edition (`gl=LK`) and applies the
+SL_SIGNALS gate. Adding `"Sri Lanka"` to a term just makes it longer and rarer.
+- ❌ `"apparel exports Sri Lanka"`
+- ✅ `"apparel exports"`
 
-**Example for MIFL (highest risk):**
-```json
-"must_include": [
-  "Sri Lanka",
-  "Mahindra",
-  "Ideal Finance"
-]
-```
-This ensures we never match "MIFL football" or Michigan teams.
+**Rule 4 — `query_context` is for globally ambiguous names only.**
+`BYD` and `MIFL` have `"query_context": "Sri Lanka"`, which ANDs `"Sri Lanka"`
+into every one of their queries so the feed isn't flooded with global BYD/MIFL
+results. Do not remove it from those two. Don't add it to clients whose names are
+already unambiguous (it makes their queries too narrow).
+
+**Rule 5 — `exclude` terms are global and fire first.**
+They demote a story before any positive match is considered. Powerful, so use
+sparingly and specifically.
 
 ---
 
-### `direct_mentions`
-**Exact brand/product/subsidiary names** that are definitely client coverage when mentioned.
+## Tuning a zero-coverage client
 
-If a story mentions any of these, it's flagged as direct coverage. No second-guessing.
+**Symptoms:** the client's section is missing, or shows only low-relevance items.
 
-**Example for Hayleys:**
-```json
-"direct_mentions": [
-  "Hayleys",
-  "Hayleys PLC",
-  "Hayleys Fabric",
-  "Hayleys Mobility",
-  "Hayleys Plantations",
-  "Hayleys Advantis",
-  "Hayleys Solar",
-  "Hayleys Eco Solutions",
-  "Hayleys Lifesciences",
-  "Haycarb",
-  "Talawakelle Tea Estates"
-]
-```
+1. **Is the client wired up?** Run `py -3 brief.py` and watch the startup line.
+   It warns if `config.py` `CLIENTS` and `keywords.json` have drifted apart.
+2. **Are `direct_mentions` too narrow?** Use the exact company names and short
+   acronyms actually used in Sri Lankan media.
+3. **Are `industry_watch` terms long phrases?** Shorten them (Rule 1). This is
+   the single most common cause — long `"… Sri Lanka"` phrases return nothing.
+4. **Genuinely little press?** Some clients (e.g. MIFL — small-cap, ambiguous
+   acronym) have near-zero automatic coverage. Use **manual clips** for the
+   important stories instead of forcing broad terms.
 
 ---
 
-### `industry_watch`
-**Context terms** that signal relevant sector/competitor/regulatory news.
+## Tuning a noisy client
 
-These are secondary filters. A story matching `industry_watch` is useful to include because it provides competitive or regulatory context, but it's not direct client coverage.
+**Symptoms:** low-relevance flooding, or unrelated articles tagged as Mention.
 
-**When to include a term:**
-- It's a direct competitor (`Sampath Bank` for HNB)
-- It's a regulatory body (`CBSL` for banking)
-- It's a sector keyword (`apparel exports Sri Lanka`)
-- It's a policy area (`EV policy Sri Lanka`)
-
-**Example for BYD:**
-```json
-"industry_watch": [
-  "electric vehicle Sri Lanka",
-  "EV imports Sri Lanka",
-  "vehicle import tax Sri Lanka",
-  "NEV Sri Lanka",
-  "charging stations Sri Lanka",
-  "David Pieris Automobiles",
-  "BAIC Sri Lanka",
-  "GWM Sri Lanka",
-  "MG Sri Lanka"
-]
-```
+- **Fix 1 — add `exclude` terms** for recurring noise, e.g. `"cricket"`, `"MCA"`,
+  `"school"`, `"Brandix cricket"`.
+- **Fix 2 — tighten `direct_mentions`** to full company names; drop bare short
+  terms that pull unrelated stories.
+- **Fix 3 — check `industry_watch` competitor names aren't too broad.** A name
+  like `"CHEC"` can pull CHEC's projects in other countries; pair it with
+  Sri Lanka-specific siblings or rely on the SL gate.
 
 ---
 
-### `exclude`
-**Terms to filter out** stories that match `direct_mentions` or `industry_watch`.
+## market_watch vs industry_watch
 
-**When to add an exclusion:**
-- A term causes too many false positives
-- A term overlaps with unrelated topics
-- A term pollutes results with sports/entertainment
+- **industry_watch** — competitor names, sector bodies, export/import and policy
+  terms.
+- **market_watch** — stock-exchange names, index names, trading terms.
 
-**Example for MAS:**
-```json
-"exclude": [
-  "sports",
-  "cricket",
-  "school",
-  "tournament",
-  "Brandix cricket",
-  "MCA"
-]
-```
+| Term | Goes in |
+|------|---------|
+| `"Aitken Spence"` | industry_watch |
+| `"apparel exports"` | industry_watch |
+| `"ASPI"` / `"CSE"` | market_watch |
+| `"market turnover"` | market_watch |
 
-This prevents MAS apparel manufacturing stories from getting mixed with school uniform or cricket team coverage.
-
-**Example for MIFL:**
-```json
-"exclude": [
-  "MIFL football",
-  "MIFL league",
-  "MIFL sports",
-  "Michigan",
-  "India league"
-]
-```
+Most clients have an empty `market_watch` today — only HNB tracks the bourse.
+Add market terms only for listed clients whose share price / index movements you
+actually want surfaced.
 
 ---
 
-### `priority_sources`
-**News outlets** to prioritize when ranking or filtering results.
+## When to use risk_watch
 
-A story from Daily FT is more valuable than a story from a small online blog. This field tells the tool which outlets matter most.
+`risk_watch` is for negative or reputational signals: court orders,
+investigations, customs disputes, military-ties allegations, regulatory action.
 
-**Values:** Use outlet names from `outlets.json`.
+Real examples:
+- BYD: `"BYD military ties"`, `"JKCG Letter of Credit"`, `"vehicle import surcharge Sri Lanka"`
+- HNB: `"HNB fraud"`, `"HNB investigation"`
 
-**Example for HNB:**
-```json
-"priority_sources": [
-  "Daily FT",
-  "Daily Mirror",
-  "The Island",
-  "Daily News",
-  "Sunday Times",
-  "EconomyNext",
-  "Newswire",
-  "LBO"
-]
-```
+**Important:** `risk_watch` is checked **before** `direct_mentions`. A story
+matching both `"BYD"` and `"BYD military ties"` is classified **Risk Watch, not
+Mention** — intentionally, so negative stories are never buried as neutral
+coverage.
 
 ---
 
-## Workflow: Adding New Keywords
+## Adding a client: keyword checklist
 
-### Step 1: Identify the Gap
-- Run the brief
-- Note missing stories
-- Example: "HNB leasing stories aren't showing up"
+When scaffolding a client with `py -3 new_client.py "Name" "Sector"`, fill the
+blocks like this:
 
-### Step 2: Add to Appropriate Array
-
-| Issue | Fix Array | Example |
-|-------|-----------|---------|
-| Missing direct coverage | `direct_mentions` | Add `"HNB leasing"` |
-| Industry context missing | `industry_watch` | Add `"private sector credit"` |
-| False positives from a term | `exclude` | Add `"unrelated acronym"` |
-| Competitor context missing | `industry_watch` | Add `"Sampath Bank"` |
-
-### Step 3: Test & Commit
-
-```bash
-# Make sure you're up to date
-git pull --rebase origin main
-
-# Edit keywords.json in VSCode
-# Test locally if possible
-
-# Commit with clear message
-git add keywords.json
-git commit -m "Add HNB leasing and pawning keywords"
-
-# Push
-git push
-
-# Trigger GitHub Action
-# Go to Actions → Daily Morning Brief → Run workflow
-```
+- **direct_mentions** — own brand + subsidiary names + short acronyms. ~6–10 terms.
+- **industry_watch** — 2–4 named competitors plus 2–4 short sector / sector-body
+  terms. Start narrow (Rule 1).
+- **market_watch** — CSE ticker if listed, `"ASPI"`, sector index terms.
+  Otherwise leave empty.
+- **risk_watch** — leave empty until a specific risk pattern emerges.
+- **exclude** — leave empty at first; add as real noise appears.
+- **query_context** — set to `"Sri Lanka"` **only** if the brand name is
+  globally ambiguous. Currently just BYD and MIFL.
 
 ---
 
-## Examples
+## Reference: current client keyword counts
 
-### HNB: Banking Focus
-- **Direct mentions:** All HNB products and subsidiaries
-- **Industry watch:** Regulatory terms (CBSL, AWPLR), competitor banks, macroeconomic indicators
-- **Exclude:** Unrelated acronyms, sports
+Run this to print the live counts:
 
-### Hayleys: Conglomerate Ecosystem
-- **Direct mentions:** All group companies and brands
-- **Industry watch:** Sector terms (plantations, logistics, renewable), competitor conglomerates
-- **Exclude:** Unrelated "Hayley" names
-
-### MAS: Apparel Manufacturing
-- **Direct mentions:** All MAS brands and subsidiaries
-- **Industry watch:** Export trends, GSP+ status, tariff policy, competitor manufacturers
-- **Exclude:** School uniforms, cricket teams, sports
-
-### BYD: EV Market Entrant
-- **Direct mentions:** Brand name, vehicle models, service touchpoints
-- **Industry watch:** EV policy, charging infrastructure, competitor EVs
-- **Exclude:** Global BYD news, China factory updates, Tesla comparisons
-
-### MIFL: Acronym Risk
-- **Direct mentions:** Full legal names only (avoid acronym)
-- **Exclude:** Sports leagues, geographic matches (Michigan)
-
-### Port City: Development Hub
-- **Direct mentions:** All official names
-- **Industry watch:** Investment climate, banking partnerships, real estate
-- **Exclude:** Unrelated port operations
-
----
-
-## Anti-Patterns to Avoid
-
-### ❌ Too Broad
-```json
-"industry_watch": ["banking", "finance", "insurance"]
 ```
-**Problem:** Every finance article appears. Not useful.
-
-**Fix:** Be specific.
-```json
-"industry_watch": ["CBSL policy", "bank interest rates", "monetary policy"]
+py -3 -c "
+import json
+kw = json.load(open('keywords.json'))
+for k, v in kw.items():
+    print(f'{k:12} mentions={len(v.get(\"direct_mentions\",[]))} '
+          f'industry={len(v.get(\"industry_watch\",[]))} '
+          f'risk={len(v.get(\"risk_watch\",[]))} '
+          f'exclude={len(v.get(\"exclude\",[]))}')"
 ```
 
-### ❌ Acronym Pollution
-```json
-"direct_mentions": ["MIFL"]
-```
-**Problem:** Matches "Michigan Football League", "Indian Film League", sports stories, etc.
+Output (as of this writing):
 
-**Fix:** Use full names in `direct_mentions`, restrict acronym in `must_include`.
-```json
-"must_include": ["Sri Lanka", "Mahindra", "Ideal Finance"],
-"direct_mentions": ["Mahindra Ideal Finance", "Ideal Finance", "Mahindra Finance Sri Lanka"]
 ```
-
-### ❌ Over-Excluding
-```json
-"exclude": ["cricket", "sports", "school", "tournament", "match", "team"]
-```
-**Problem:** You might exclude "Hayleys Sports Complex Development" which is relevant.
-
-**Fix:** Exclude specific known false positives only.
-```json
-"exclude": ["Brandix cricket", "school apparel", "MAS cricket"]
+hnb          mentions=16 industry=25 risk=5 exclude=5
+hayleys      mentions=23 industry=12 risk=0 exclude=3
+mas          mentions=16 industry=10 risk=0 exclude=6
+byd          mentions=11 industry=14 risk=12 exclude=5
+mifl         mentions=3 industry=10 risk=0 exclude=6
+pcc          mentions=10 industry=9 risk=0 exclude=3
 ```
 
-### ❌ Mixing Sectors
-```json
-"direct_mentions": [
-  "HNB",
-  "Hayleys",
-  "Port City Colombo"
-]
-```
-**Problem:** This is not how it works. Each client has its own object.
-
-**Correct Structure:**
-```json
-{
-  "hnb": { ... },
-  "hayleys": { ... },
-  "pcc": { ... }
-}
-```
-
----
-
-## Audit Checklist
-
-Before committing keyword changes:
-
-- [ ] Does `must_include` prevent false positives?
-- [ ] Are all direct subsidiaries/products in `direct_mentions`?
-- [ ] Does `industry_watch` add real context without noise?
-- [ ] Are known false-positive patterns in `exclude`?
-- [ ] Are `priority_sources` set to the outlets that matter most?
-- [ ] Have I tested the changes locally?
-- [ ] Does my commit message explain why the changes were made?
-
----
-
-## Quick Reference
-
-| Scenario | Array | Action |
-|----------|-------|--------|
-| "Add a new HNB subsidiary" | `direct_mentions` | Add `"HNB ServiceName"` |
-| "Track a new competitor" | `industry_watch` | Add `"CompetitorName"` |
-| "Stop false sports stories" | `exclude` | Add `"sport_keyword"` |
-| "Add a regulatory term" | `industry_watch` | Add `"CBSL term"` |
-| "Prefer Daily FT coverage" | `priority_sources` | Ensure `"Daily FT"` is listed |
-| "Safety check for acronym" | `must_include` | Add context like `"Sri Lanka"` |
-
+Note HNB is the only client with `market_watch` terms and broad `industry_watch`
+(competitor banks + CBSL/rates), which is why its Industry coverage is the
+healthiest. BYD carries the largest `risk_watch` set (the JKCG / import-surcharge
+situation). MIFL has only 3 `direct_mentions` and relies on manual clips.
