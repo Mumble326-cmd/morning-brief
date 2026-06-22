@@ -10,12 +10,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # needed so the workflow can commit files back to the repo
-  issues: write    # needed so the workflow can open risk-alert issues
+  contents: write  # commit the generated brief back to main
+  issues: write    # open risk-alert issues
+  pages: write     # deploy to GitHub Pages
+  id-token: write  # required by actions/deploy-pages for OIDC
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -56,3 +60,15 @@ jobs:
             echo "No new risk stories."
           fi
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Deploy the whole repo root: index.html, admin.html, keywords.json, data/
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
