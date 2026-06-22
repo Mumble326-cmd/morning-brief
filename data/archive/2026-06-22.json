@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T17:32:07.965957+00:00",
+  "generated_at": "2026-06-22T17:44:43.905040+00:00",
   "generated_date": "2026-06-22",
-  "generated_time": "23:02:07 SL",
+  "generated_time": "23:14:43 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -142,27 +142,6 @@
       "is_new": true
     },
     {
-      "client": "hnb",
-      "headline": "HNB Life engages communities through Vesak season activities",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWU9WbjNPNHJKVWJxX2t6N0ZhOE1GX24yTWswLXRoUTVkV3ZhMVUtc1NKTGUtTGQwV0dfMWZkMU9oVVZaQ0pGa2JXWFRhdndvUm1PVGJGZlgxVVhLTVZGNkdGWDlZUVQ0a3VSUllMUlduZW5TMDZGdVVsZXN0dWVYM2ZpU05tMEJvckpMZVJpckItSFI4OE1IRE5sVVVzdVlXdXVsX2RtMXktSXNBMHJxTWtUNmxUQThIQ1E?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "20 Jun 2026 · 14:46 SL",
-      "ts": 1781946988000,
-      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "fe4d0e83fc14",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
       "client": "mas",
       "headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMTBxNHJEYTV6anhENmxiREd2ZWplQnJCVWxHVVB1d0prazBhb01hTWNsN3V3Y0NqYktSUVBDTm5UeDJ4NWxoQTEwWFNhaEJOY2ZzVHpUVm05U0ZzUW5XT3ZvZ3ZaS3l3ZnhibjR3Vk1neXdaUUpiQTZGemdfNk1yS0NRZWRUWUt1MG9WbXRBLVJfZUFUNDBhb0NMX3ZiWjJQT25CeEhmNjdwb0FQei1qbzZ3ZnBpcUlnZG43cGhMaTI?oc=5",
@@ -201,6 +180,27 @@
       "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "9d1e7c6fbf58",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB Life engages communities through Vesak season activities",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPLXhtY3hoTnliTGFZanVad2lqbFZkY09HNTVhSThCc01uRndsVUxQNDc1TnJQTFdKMlNPSXNLQ1duU0hkNkRKbmVuS0paQUU1M1VYSzgzQ2w2Q3VBeWpnNm85RW9yS2VZT2NoSmdpeEIxLUNyNlpZZWNVX2NhTzNhemx2ZVcySW5LS3VTdVd6TU5xZ0lYaS1Tc2VuUnJmdU8ycnlybHZSN0NpWWRCXzVSc2dR?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 00:00 SL",
+      "ts": 1781893800000,
+      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "fe4d0e83fc14",
       "is_primary_in_cluster": true,
       "is_new": true
     },
@@ -520,27 +520,6 @@
       "is_new": false
     },
     {
-      "client": "hnb",
-      "headline": "HNB expands vehicle financing in collaboration with Access Motors",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdEhDTGx1YmNoZW82MFJmN3ktT3pZVE9VOVJudFBOSzJFMFRPTWRObVh0em1pYmEwNEZBTFowM21uWXFCeWVJeXMwNHFibWdJU3RwblIyUHFDM1BSdXJyeS1zMzZfNWhteURlOU9CbC1CVGRSSzB0bzAxM2s3dU5PMXFSbEk0MllvaFBCV0U4Q0tfN1FSQkFVWVZ4dWRnRnA4NHZWamJRZkxlMUdCSHByNjBsQmRMZw?oc=5",
-      "source": "dailynews.lk",
-      "domain": "news.google.com",
-      "date": "12 Jun 2026 · 12:30 SL",
-      "ts": 1781247600000,
-      "snippet": "HNB expands vehicle financing in collaboration with Access Motors dailynews.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "63fb468d448a",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
       "client": "pcc",
       "headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBzb2VzN19EZWNXeC1oOVZLQm9wYmpacEJac09id2RvSTNxYzFlSDhONWVmWk9XemJpckxyZWJXekFGUzJOTzRMS2xfekxqRHp3Rlowb19EU1M2SDFnNGIyU0l6TVNpczJ0Q21jd0RvZk14QTNBQ2FJ?oc=5",
@@ -558,6 +537,27 @@
       "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "1e81f603a0aa",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB expands vehicle financing in collaboration with Access Motors",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdEhDTGx1YmNoZW82MFJmN3ktT3pZVE9VOVJudFBOSzJFMFRPTWRObVh0em1pYmEwNEZBTFowM21uWXFCeWVJeXMwNHFibWdJU3RwblIyUHFDM1BSdXJyeS1zMzZfNWhteURlOU9CbC1CVGRSSzB0bzAxM2s3dU5PMXFSbEk0MllvaFBCV0U4Q0tfN1FSQkFVWVZ4dWRnRnA4NHZWamJRZkxlMUdCSHByNjBsQmRMZw?oc=5",
+      "source": "dailynews.lk",
+      "domain": "news.google.com",
+      "date": "12 Jun 2026 · 01:04 SL",
+      "ts": 1781206440000,
+      "snippet": "HNB expands vehicle financing in collaboration with Access Motors dailynews.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "63fb468d448a",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -585,11 +585,11 @@
     {
       "client": "hayleys",
       "headline": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMV9jZVBqV043Y1JTUDJ3T0JZNzQzeVpDRDYzMEh5T25hX0ZETlRZQzJQdTBrRDNmS0ZROFNETE02YlpIYzhDRndGOXRJWmxJeHpIUndHT195OHQ2SHdFbnQxN0dXMmZ3djBQU1dubVRrS0VSTHNVazBMenBJaTAwVG4tczlBc2tpSUg4eVh3MURUa0ZyWTQ5elJtXzB4aEJva2I5TkRxRDRlS2ZrRjRUaVpB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNU21UNDRoZGZMWUdQTUJGUW13RGk0SUlPc1otd2dxNmp1T01fTXFrYVNsNEtZVzhYWi13MGlqS1RKYU5QVWkyQTBTWnNCaTRDelI0MGZIVEt5NWR5cEIwRHZFZlo0UXUyZmxLZzVWR0VoWnFDQmc5RE82U0JDSHBkbUNmYWY3UmlfR3VieHBMYXdLQ0I4TE92NHFLV3p2Nm5OZE80dExaQkVHQQ?oc=5",
       "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 00:55 SL",
-      "ts": 1781205921000,
+      "date": "12 Jun 2026 · 00:42 SL",
+      "ts": 1781205120000,
       "snippet": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
@@ -731,24 +731,24 @@
     },
     {
       "client": "hayleys",
-      "headline": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbzJzZDRCWktjMkpoYlZrQy1IRTBkVi1IWEJGdVpFWDlNMVk5WEhEZi1JUFZSRXpqeFN4bXZhbnZMWUZmZmlBa04ydlJTaXdfcUo5X0NVdzU5RFFWeVdmZjB2ZjZnaEllNTRScE5MMlZPbk9VemxSMkota0JpZ1JVVnZ3S0lEd2N3czhWMHNWZzVFbC1wVW9BRjBJbzFNXzB5YWVOVHc3dkN5cE0yc19vbTNxenBrVklvdlktNkhUSm4ySGRObWhyRTVfWQ?oc=5",
-      "source": "dailynews.lk",
+      "headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOVTRibmNMcENUZDF3SEwxS01xMHRFelo2Z3hYY1NDWEcwWGotYW5hblpMcGxzS21qVEJ2UWFuUHg4VHdZZEVvazNJMXRmSDZETGlqYk0yNlJtVEZNelUzbzMyYUw1RmNzMWltcXZPWHpxaU1CUFVibElwZWY1SEppOEFfeXl6QXZrVW0zbENrTEJqczBkLU9IUHQ1eTVZNlhyM0I4dmFBM3VGNnNoNS1GM0pR?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "10 Jun 2026 · 01:04 SL",
-      "ts": 1781033640000,
-      "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment dailynews.lk",
+      "date": "10 Jun 2026 · 12:30 SL",
+      "ts": 1781074800000,
+      "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 3,
+      "source_rank": 1,
       "is_low_relevance": false,
-      "cluster_id": "9bb71af3b6a7",
+      "cluster_id": "83be30275deb",
       "is_primary_in_cluster": true,
-      "is_new": true
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -975,7 +975,7 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 3,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "f58987ff3f82",
       "is_primary_in_cluster": true,
@@ -1192,27 +1192,6 @@
       "is_new": false
     },
     {
-      "client": "mas",
-      "headline": "President chairs discussion on providing swift solutions to challenges in apparel sector",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMjJ5eHFpRU05b0szWWk5MUppT3gwdVBtcGtpMm52dVBmaFIyekFueDV6c3lZYTVKT0dVakE5ZEUwVU5ZNmE3bTJNbEx4WHhfMVNKMzJoTTJYNVo2bTc4ODlRektCUE9vdjRoNjhXZW1GU3daWS1rYzR1bHN0bWhPeWFERTNfVUltbGpFaUVhemFuLVZZS0Z6c3hBd0o2TTFpdEYzSUxnX3VyQQ?oc=5",
-      "source": "Island.lk",
-      "domain": "news.google.com",
-      "date": "22 Jun 2026 · 20:09 SL",
-      "ts": 1782139161000,
-      "snippet": "President chairs discussion on providing swift solutions to challenges in apparel sector Island.lk",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "apparel sector"
-      ],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "40fde175cda5",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
       "client": "hnb",
       "headline": "CBSL Rates : USD selling rate increases to Rs. 339",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOTdZcnJONjZTOUhXd3VQTVRfblFfM0E3cnRBYjRtMUVwNW5uamltdjJXbjExeXllNFBzMG54V0U3OFNaTXBHUFFYM1NhNmpVODB2SEc2QnU1RTZodHFMdmQzMUdnb0FTakJUZzdKWTNtbkp2RG9ydFJtb2d0V3JHSVBjZ1drUVlTZmI0?oc=5",
@@ -1235,22 +1214,22 @@
     },
     {
       "client": "hnb",
-      "headline": "COPF approves CBSL data collection, export proceeds rules",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQXZuRDJLNmJRV3ZGZmVScm15c3puMmlMWkFQUHhTVFVCQVdSTVlrWEE2TjUyLTUybC04aXZ3bXhRb0ZIVjR3dGEtMC1xeUhFbEQwN18xNENrTDFhZncxdmZCWXJnenFWQ3QxOEd2bHluSGhxeUk2VF9jTVpveVdWTFd4NE1RV05LMFpXZU01ZnNUM1pQY0kzbV9qRQ?oc=5",
-      "source": "Daily FT",
+      "headline": "COPF approves CBSL data collection, export proceeds rules | Daily FT - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQblA3Q0FjLXRvU0dvZkhoVjlRYkdXOEtkanlnWTN4WGhKbGs1X3BxeXZ3UmpoT05sSzZ5WVkyVHM2dnNHRC1WODVPdF84R3hqMUhOQm5zczJpVUR6eG9mbm5mbXdRNndZQU01YURCRnNNbGNEN2ZfX1FQRmJnMmF4Rk1ZX1dOaEtEV0xGcTZVaHZ3QXJpNmQ4YkJUYzRia1BLRldIWF94TzJzQ00?oc=5",
+      "source": "Magzter",
       "domain": "news.google.com",
-      "date": "20 Jun 2026 · 05:34 SL",
-      "ts": 1781913860000,
-      "snippet": "COPF approves CBSL data collection, export proceeds rules Daily FT",
+      "date": "20 Jun 2026 · 11:49 SL",
+      "ts": 1781936370000,
+      "snippet": "COPF approves CBSL data collection, export proceeds rules | Daily FT - newspaper Magzter",
       "fetch_type": "industry_watch",
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 1,
+      "source_rank": 3,
       "is_low_relevance": false,
-      "cluster_id": "72c8d643083d",
+      "cluster_id": "5a52396e65ff",
       "is_primary_in_cluster": true,
       "is_new": true
     },
@@ -1276,6 +1255,25 @@
       "is_new": false
     },
     {
+      "client": "mifl",
+      "headline": "New gold-loan rules strengthen safeguards; limited rating impact seen: Fitch",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNeUM3azhkdVRVcjlzbXQzcFNSVDUtYjdjR0lKREhuVEJQOVMweEhCNmx1ZmtiQ3B2RWJOY3U2TjlnUUZwcGV6cEN0bVlYOUs1RTI4NjR1aHlaR2hyanl6RmNtQXVpUHVZN1c0VUNYdFpVdFFBa0VOVlU5Y3dnbk5xem5ERXNhTTJRU2oyVWR6NGxvcHFwblNHeDJWR2lCZFk2OGNhOWtSSUgwdmtNcHJ5VFZ5b0EyM2o5ZXJCaWF4cGNNX2hheC1sWVR3?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "17 Jun 2026 · 06:57 SL",
+      "ts": 1781659675000,
+      "snippet": "New gold-loan rules strengthen safeguards; limited rating impact seen: Fitch Daily Mirror - Sri Lanka",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "d4360a9bf01d",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
       "client": "hnb",
       "headline": "Build stronger export engine for lasting recovery: CBSL Governor",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOa3ZUUjR3Q1BQRF9aSkNJQW1Ca1BWSmVkajFIR3dTd1AzelA1QW9DbURDWHRHR2p0b3VfQ1F3NDFFc09Mb3N3ZlVFOFdGYzY5cjIyeDR0eDlOdTF1TkV4M3JwQUZRbm1SdWNNeEh2MzBwVGl3R2NvWjlTNmg3ai1DdFRLamwzNkVrem1hcll1S3g5NVg3SlZJeVlqQ19rRXJ6ZkhrSmtGMDJkZFhOS1BmT1d1R1BJdw?oc=5",
@@ -1298,6 +1296,27 @@
     },
     {
       "client": "hnb",
+      "headline": "UNDP and CBSL strengthen partnership to boost financial literacy",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5kSWE2b3RxZUxxVnpza194Z2pab3RFRkQ4TFBmVV81NmJzaXR6VkhvU0JtUXdVQ2c4SjRkRXhCdFFNanVPYlBvTW1HMjVCakxnLWZyRFVUcExQUzlRejAyT0tNbWZHZw?oc=5",
+      "source": "The Morning",
+      "domain": "news.google.com",
+      "date": "16 Jun 2026 · 22:19 SL",
+      "ts": 1781628562000,
+      "snippet": "UNDP and CBSL strengthen partnership to boost financial literacy The Morning",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "3a5a19730138",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
       "headline": "UNDP and Central Bank of Sri Lanka Strengthen Partnership to Advance Financial Literacy",
       "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNNTVqX1JhR3JwRnhkT3RucG9CU1dYOTY1V1d4OFNEYkw0OEExZ1cxaWNoV1ZXRENidFp0Tko1dXpaa05PQVQ4NXpLNHI0UFNsWHo0RTJEVGd1VmM5TW9wR29lR2F1UW1JV1JPRlF1bW5zMTdvTlFwUTJSSjVqc3hBZ3RmVS1vazVUanc5VUZiMUJWVjBwSHJWRk10SEY0M2dvZldNQ3E5UmEtRFd4UE01cTVQeDlsVmlMcmVHMmxpWGpBUHYyb0hJYjlhdnVWWXRHeE1BQ0c3QnF4QQ?oc=5",
       "source": "dailynews.lk",
@@ -1316,6 +1335,67 @@
       "cluster_id": "eac60c303599",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "mifl",
+      "headline": "Manageable impact on Sri Lankan lenders’ capital from higher gold-loan risk weights – Fitch Ratings",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1kRnhRamJBOFI0S0dsNnZQSVpzZ09kenhvTlV3cU1BUHh3MXN0WnJTaDVFcDd3MlZvVXk1RWs2SUJHN2xWdDlFNlRUNkNETDkyX056VzdXTVN6VFdocFdpMw?oc=5",
+      "source": "Ada Derana",
+      "domain": "news.google.com",
+      "date": "15 Jun 2026 · 12:39 SL",
+      "ts": 1781507377000,
+      "snippet": "Manageable impact on Sri Lankan lenders’ capital from higher gold-loan risk weights – Fitch Ratings Ada Derana",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "6e2507a794ab",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbXFJV2xTWG45MU55eVhuTEtFeGNGd05IR0tCYkdobEFKYmNWSGNaZHpvcXkwSDktMy1hTk5ZcHN6WDBPUFNTN1ZlRktEd2gzZjZxbE9naTF1TUdyd2dmSmszbHdGbUJmNkpYYS1XV3V0a3JXUjBId1piaGJOc2xsQjBaNzdGanRaZVJwVFJzeFM0enVud083a1JUQS1hZ1U?oc=5",
+      "source": "Magzter",
+      "domain": "news.google.com",
+      "date": "15 Jun 2026 · 11:41 SL",
+      "ts": 1781503870000,
+      "snippet": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper Magzter",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "24714a614fde",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWVBVMjNtUzlkc1FQaUo0cDdBa2hkNkhnZFBVV3Y4MEZDdGdGdEppcUE4UjNSOVNzRmJ2RVZ1aWZXWlpHbjkxT3l4U0hraG1hTkJqZnY1LUp2dWc2QnhSaTZQWDJTZ1dYSktOYUowTF9BRFNHNHFhbmRFdmxUU0FBc0NOaDAzTUE?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "15 Jun 2026 · 05:29 SL",
+      "ts": 1781481597000,
+      "snippet": "Harmonising CBSL’s pragmatism with long-term structural freedom Island.lk",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "52bb22dc6bd3",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -1402,48 +1482,6 @@
       "is_new": false
     },
     {
-      "client": "hnb",
-      "headline": "CBSL Issues New Gazette: Exporters Mandated to Convert Residual Proceeds by 10th of Following Month",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOUmMxQjM1YUpKcVVhZ3Jhbk15WHNpZ2d5MWlXdDV4cFRFTGY5dFVRZXJ2MnE1Q2J0OXEtcXJfeUg1MXJVOEp6NmdEak9OeWh3RDdqblBLR1RnMTZyZkFVeEhTSU1ha3lPM3ZUMjJXMGR5Y1ZmZ09PTER2enNuR0o0OHVBTU50WFp4eC1ibDQyZXBmTTVqVFR4bnU2M2lQSnRFZUJ2YzdTdjdDa0QtVjNmSmM4T1R5dUFFUUltOWRtTEgycmQ2bEEtcWM0UlV0cUk?oc=5",
-      "source": "Newsfirst",
-      "domain": "news.google.com",
-      "date": "09 Jun 2026 · 12:30 SL",
-      "ts": 1780988400000,
-      "snippet": "CBSL Issues New Gazette: Exporters Mandated to Convert Residual Proceeds by 10th of Following Month Newsfirst",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "c783b9e2b300",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
-      "headline": "CBSL Rates : USD selling rate increases to Rs. 342",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPODQtXzQwclZSci1aSlRaS3I0MkJ6M3hhZFVmYmFoeWYtRzJpaThUZXZjbkhwOTd4RHV1YXRiQm5XMlQwX2FfTkVMS2ZkN1NtVXpxUm1zQlRtaUNJZzNOYlNnUTViQjBDaHU4b21EeGZKc3FOdDhJU1NBdmg2UTNLM1Z1S3dxTTVwUkZF?oc=5",
-      "source": "Newswire",
-      "domain": "news.google.com",
-      "date": "05 Jun 2026 · 12:30 SL",
-      "ts": 1780642800000,
-      "snippet": "CBSL Rates : USD selling rate increases to Rs. 342 Newswire",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "de7a890e70f5",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
       "client": "mas",
       "headline": "| Sri Lanka's garment exports fall 7.4% to $1.5 bn in Jan-April 2026",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOd2ljMHdva2dUenAwcW96U3FEcnl0YzV4cEJNN2ZwYm4zaUNYWERWalNLNWVLelh3ZkpvdzdQWkY5c3o3OWl1cXpuT01rT2JmY3hZakNQdUZTVFVMX1FORGRidTI4SkJ4bW5HT2dBQ1I1Q0VRWGpiNldlbmN2YWVnY1RMdExYX1ZBMGlpZTlIbmV2WnBFUW9HX0Q5SHRsd19RakxBOTNPWjhzQVVibkFlbVpLd0xPX1RPMWNOUjJpODlvalZpcGstcENtMmNzZUdr?oc=5",
@@ -1463,27 +1501,6 @@
       "cluster_id": "a3f00ebe3b99",
       "is_primary_in_cluster": true,
       "is_new": false
-    },
-    {
-      "client": "mifl",
-      "headline": "LOLC Finance reinforces market leadership with strong growth, earnings quality and capital resilience",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQOEZZUi02cWw0Q1A3R0V5QTRBeDJKalE1X3FITFc3M0t5RkdaZ0pVa2pNR1lsVDdBTEtBYllGdEFSb2ZPd3gzcGdvVzJGeG0wODFOdWNhd2tGM1c4a19DVnVPMU1TS2oySHI5ZjZlSU1sZnhKTS1DTWliZW9FQWZBTWNUQmFWV1UtUmFYRHlmbjdTMlh2SFhXak1vZWw5WEdBN1dMS21mUVRIamppOGs1TlZBRE9kb3Vpd2RIMy1iUlJKWEZSbnpCcWRmMG1BMFRYWFFQUkg1Nk5icXpCQ0dFaVQwbW9WUVFrZjIzZ0YwVQ?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "02 Jun 2026 · 12:30 SL",
-      "ts": 1780383600000,
-      "snippet": "LOLC Finance reinforces market leadership with strong growth, earnings quality and capital resilience Daily Mirror - Sri Lanka",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "LOLC Finance"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "17b1a1fae9c2",
-      "is_primary_in_cluster": true,
-      "is_new": true
     },
     {
       "client": "hnb",
@@ -1507,6 +1524,25 @@
       "is_new": false
     },
     {
+      "client": "mifl",
+      "headline": "Sri Lanka’s vehicle, gold loan curbs support lenders’ risk profiles",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQUTVaZTdmVkhlZnRQdjVXRHRRRnllUk8zTzJaMWFORkVhU25ZYmVEMlZlTjJRRzRYTVg0dkptYTNKSmttaWJzMU1fWHpfeEJpYlpSZWxZQjVxSVVnbWhBUFFmcTQ2U3owYk9vdzBPWmcyaXdwLUpEYmJXaTdwTkoxOHVSYkJpUEtmSGJkU3daZTlwT1dOVnIwVkxDV0xSdUwwa0R0dkEtZm9zQ0lHS0loQUt6RW5hXzgwY0ZV?oc=5",
+      "source": "dailynews.lk",
+      "domain": "news.google.com",
+      "date": "29 May 2026 · 12:30 SL",
+      "ts": 1780038000000,
+      "snippet": "Sri Lanka’s vehicle, gold loan curbs support lenders’ risk profiles dailynews.lk",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "ac5d749b307c",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
       "client": "hnb",
       "headline": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOY09DMmhkNzh2bVFhY21CSEswVEltZU92aGlDel9BMXJBY3M4Wlp6N01mQUo1akVQNmQ0YmIySGUyZGFkMElLano2SGROVTJsYTF2YTNtS2h0anhJMDRYdkVGQk1WczBueU81TUdrY3laNVNBZVNLMWhybEwtVG03OUpld1lpcWhRT2VpZG5UNTc1ZUIxaS02OUEzbEFxUzNXZGRNY20xWGsxb3JmOG5VV1hGRF95UEZIWklwRWszdw?oc=5",
@@ -1524,6 +1560,25 @@
       "cluster_id": "b837d649d566",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka jolts markets with outsized 100-bp rate hike to counter Gulf crisis",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUmlDZ0Q0WDRMWHVtLUtjbGdJWEpXNkdYZzFOMTVrX3NHSWxfbGlFRDN4OFowMU5sR25vdFYzaEJmaGZRSTd0ejduWEtCUkhfRUo1ampnaGU5bVEwdmJZTk9EdnhGV3d4SGE1Ty1BSklsNzRPdzM3dG91VXhjTFdHRXUzeG1pdmx4X0pIaEtoVUo5QXVtd2ZHRWxRY09jc19uZDlKZkN3ajNfR3d2?oc=5",
+      "source": "WTVB",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 13:58 SL",
+      "ts": 1779784100000,
+      "snippet": "Sri Lanka jolts markets with outsized 100-bp rate hike to counter Gulf crisis WTVB",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "7672cdc4c6b4",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1583,25 +1638,6 @@
       "cluster_id": "0a15c6f228e3",
       "is_primary_in_cluster": true,
       "is_new": true
-    },
-    {
-      "client": "hnb",
-      "headline": "Central Bank of Sri ‌Lanka raises overnight policy rate to 8.75%",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMVUxQWZPNk9wdzZCeGtyVHdCS2w4YlBfREVabDhFVnMwNlNQbnRpQUhyTGRrOXJqWUVEWXdQM3ZXSHJsakR5bHNEWEJaZVZTZDdnb3EzMWd5OGVMQzgzSWhxM011MExYSVpZQnhZOUlXZmVINlpreGo2LXZBUFhKM1dxRnlwcjRIMHB6dktzWlVKQQ?oc=5",
-      "source": "Newsonair",
-      "domain": "news.google.com",
-      "date": "26 May 2026 · 12:30 SL",
-      "ts": 1779778800000,
-      "snippet": "Central Bank of Sri ‌Lanka raises overnight policy rate to 8.75% Newsonair",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "cacfa4398e55",
-      "is_primary_in_cluster": true,
-      "is_new": false
     },
     {
       "client": "mas",
@@ -1664,25 +1700,6 @@
       "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "83d5619d5e07",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
-      "headline": "Sri Lankan shares slide on broad-based sectoral losses",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUHNsZTEzcjBzWXJYOS1fcWpFRUcxWUFyMTMwZ2hoNksxSDJIRHRfSHdPOEtKa1BfZTdjMlBGV3R5Z1JSM3BXMFRLRmR1ZWtranVET1VfX0l2cDV5d21ydzVFNXNsRkwtdnY2RHF2SUNqRDBxVFJHaG5QczNsVDlHY1dZQ0lTU2Znbm5xblA2bmNDQ3BkRmM2YkJ0NV9SNGQw?oc=5",
-      "source": "Reuters",
-      "domain": "news.google.com",
-      "date": "01 Jun 2026 · 12:30 SL",
-      "ts": 1780297200000,
-      "snippet": "Sri Lankan shares slide on broad-based sectoral losses Reuters",
-      "fetch_type": "market_watch",
-      "category": "market_watch",
-      "relevance_score": 0.5,
-      "matched_terms": [],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "8910801c2bf5",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -1898,16 +1915,10 @@
   ],
   "clusters_summary": [
     {
-      "cluster_id": "40fde175cda5",
-      "primary_headline": "President chairs discussion on providing swift solutions to challenges in apparel sector",
-      "primary_source": "Island.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "700903c9779c",
       "primary_headline": "Port City Colombo deepens Oman investment ties",
       "primary_source": "ZAWYA",
-      "also_covered_count": 1
+      "also_covered_count": 0
     },
     {
       "cluster_id": "30a327ca9f0a",
@@ -1934,12 +1945,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "fe4d0e83fc14",
-      "primary_headline": "HNB Life engages communities through Vesak season activities",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 1
-    },
-    {
       "cluster_id": "0ecdf241707d",
       "primary_headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -1952,15 +1957,15 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "5fe5874e71d2",
-      "primary_headline": "Indian diplomat meets Sri Lanka’s business leaders for economic talks",
-      "primary_source": "EconomyNext",
+      "cluster_id": "5a52396e65ff",
+      "primary_headline": "COPF approves CBSL data collection, export proceeds rules | Daily FT - newspaper",
+      "primary_source": "Magzter",
       "also_covered_count": 0
     },
     {
-      "cluster_id": "72c8d643083d",
-      "primary_headline": "COPF approves CBSL data collection, export proceeds rules",
-      "primary_source": "Daily FT",
+      "cluster_id": "5fe5874e71d2",
+      "primary_headline": "Indian diplomat meets Sri Lanka’s business leaders for economic talks",
+      "primary_source": "EconomyNext",
       "also_covered_count": 0
     },
     {
@@ -1968,6 +1973,12 @@
       "primary_headline": "HNB and IESL sign MoU to extend exclusive financial benefits to Sri Lanka’s engineering community",
       "primary_source": "Daily FT",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "fe4d0e83fc14",
+      "primary_headline": "HNB Life engages communities through Vesak season activities",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
     },
     {
       "cluster_id": "6a6208f461e7",
@@ -2024,6 +2035,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "d4360a9bf01d",
+      "primary_headline": "New gold-loan rules strengthen safeguards; limited rating impact seen: Fitch",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "8393fb8b21d9",
       "primary_headline": "Build stronger export engine for lasting recovery: CBSL Governor",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -2033,6 +2050,12 @@
       "cluster_id": "bd85ed6b6cfa",
       "primary_headline": "Assetline Finance-Hayleys Mobility expand accessible mobility financing",
       "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "3a5a19730138",
+      "primary_headline": "UNDP and CBSL strengthen partnership to boost financial literacy",
+      "primary_source": "The Morning",
       "also_covered_count": 0
     },
     {
@@ -2048,9 +2071,27 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "6e2507a794ab",
+      "primary_headline": "Manageable impact on Sri Lankan lenders’ capital from higher gold-loan risk weights – Fitch Ratings",
+      "primary_source": "Ada Derana",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "24714a614fde",
+      "primary_headline": "CBSL denies claims by Kasagala Green Plantation | Daily FT - newspaper",
+      "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "bec51c697ac8",
       "primary_headline": "HNB General Insurance appoints Dilshan Perera as COO | Daily Mirror - Sri Lanka - newspaper",
       "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "52bb22dc6bd3",
+      "primary_headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
+      "primary_source": "Island.lk",
       "also_covered_count": 0
     },
     {
@@ -2108,12 +2149,6 @@
       "also_covered_count": 1
     },
     {
-      "cluster_id": "63fb468d448a",
-      "primary_headline": "HNB expands vehicle financing in collaboration with Access Motors",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "559784f9251a",
       "primary_headline": "CBSL denies Kasagala Green Plantation claims, says investigation underway",
       "primary_source": "Newswire",
@@ -2123,12 +2158,18 @@
       "cluster_id": "577f1d50718a",
       "primary_headline": "CBSL Rates : USD selling rate further increases to Rs. 341",
       "primary_source": "Newswire",
-      "also_covered_count": 1
+      "also_covered_count": 0
     },
     {
       "cluster_id": "1e81f603a0aa",
       "primary_headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
       "primary_source": "South Asian Voices",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "63fb468d448a",
+      "primary_headline": "HNB expands vehicle financing in collaboration with Access Motors",
+      "primary_source": "dailynews.lk",
       "also_covered_count": 0
     },
     {
@@ -2180,21 +2221,15 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "e694ac6dff5e",
-      "primary_headline": "Increased foreign remittances pep-up stock trading",
-      "primary_source": "Island.lk",
+      "cluster_id": "83be30275deb",
+      "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
+      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
-      "cluster_id": "9bb71af3b6a7",
-      "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV, expands Lanka’s hybrid SUV segment",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 1
-    },
-    {
-      "cluster_id": "c783b9e2b300",
-      "primary_headline": "CBSL Issues New Gazette: Exporters Mandated to Convert Residual Proceeds by 10th of Following Month",
-      "primary_source": "Newsfirst",
+      "cluster_id": "e694ac6dff5e",
+      "primary_headline": "Increased foreign remittances pep-up stock trading",
+      "primary_source": "Island.lk",
       "also_covered_count": 0
     },
     {
@@ -2219,6 +2254,12 @@
       "cluster_id": "641844d6d570",
       "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Week begins in red",
       "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "87e6c6cd2426",
+      "primary_headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
+      "primary_source": "Newswire",
       "also_covered_count": 1
     },
     {
@@ -2258,18 +2299,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "87e6c6cd2426",
-      "primary_headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
-      "primary_source": "Newswire",
-      "also_covered_count": 1
-    },
-    {
-      "cluster_id": "de7a890e70f5",
-      "primary_headline": "CBSL Rates : USD selling rate increases to Rs. 342",
-      "primary_source": "Newswire",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "c4cccb14002e",
       "primary_headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
       "primary_source": "Daily FT",
@@ -2306,12 +2335,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "17b1a1fae9c2",
-      "primary_headline": "LOLC Finance reinforces market leadership with strong growth, earnings quality and capital resilience",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "327da79b3f61",
       "primary_headline": "Melbourne investors invited to explore Port City Colombo opportunities",
       "primary_source": "Newswire",
@@ -2327,12 +2350,6 @@
       "cluster_id": "83d5619d5e07",
       "primary_headline": "Indices close in red",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "8910801c2bf5",
-      "primary_headline": "Sri Lankan shares slide on broad-based sectoral losses",
-      "primary_source": "Reuters",
       "also_covered_count": 0
     },
     {
@@ -2360,9 +2377,21 @@
       "also_covered_count": 2
     },
     {
+      "cluster_id": "ac5d749b307c",
+      "primary_headline": "Sri Lanka’s vehicle, gold loan curbs support lenders’ risk profiles",
+      "primary_source": "dailynews.lk",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "b837d649d566",
       "primary_headline": "Sri Lanka's surprise rate hike risks choking off IMF-backed recovery",
       "primary_source": "Reuters",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "7672cdc4c6b4",
+      "primary_headline": "Sri Lanka jolts markets with outsized 100-bp rate hike to counter Gulf crisis",
+      "primary_source": "WTVB",
       "also_covered_count": 0
     },
     {
@@ -2387,12 +2416,6 @@
       "cluster_id": "0a15c6f228e3",
       "primary_headline": "Sri Lanka rate decision surprises markets as rupee slides",
       "primary_source": "Latest news from Azerbaijan",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "cacfa4398e55",
-      "primary_headline": "Central Bank of Sri ‌Lanka raises overnight policy rate to 8.75%",
-      "primary_source": "Newsonair",
       "also_covered_count": 0
     },
     {
@@ -2444,6 +2467,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 91,
-  "total_clusters": 91
+  "total_stories": 92,
+  "total_clusters": 92
 }
