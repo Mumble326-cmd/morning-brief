@@ -1122,28 +1122,45 @@ def sparkline_svg(values, width=84, height=20):
 
 def pick_executive_stories(stories, limit=5, per_client_cap=2):
     """
-    Top stories for the Executive Summary strip: risk stories first, then
-    manual clips, then new-since-yesterday stories from the best outlets.
-    Capped per client so one busy client can't fill the strip.
+    Top stories for the Executive Summary strip.
+    Scored by category weight × source quality × freshness, with a two-pass
+    selection to ensure client variety before allowing repeats.
     """
-    def sort_key(s):
-        return (
-            0 if s.get('category') == 'risk_watch' else 1,
-            0 if s.get('is_manual') else 1,
-            0 if s.get('is_new') else 1,
-            s.get('source_rank', 4),
-            -s.get('ts', 0),
-        )
+    def score(s):
+        cat  = s.get('category', '')
+        rank = s.get('source_rank', 4)
+        cat_w = {'mention': 100, 'risk_watch': 80, 'industry': 50,
+                 'market_watch': 20}.get(cat, 0)
+        src_w = {1: 1.0, 2: 0.7, 3: 0.4}.get(rank, 0.15)
+        fresh  = 1.1 if s.get('is_new') else 1.0
+        manual = 1.3 if s.get('is_manual') else 1.0
+        return cat_w * src_w * fresh * manual
+
+    candidates = sorted(
+        [s for s in stories if s.get('category') != 'low_relevance'],
+        key=score, reverse=True,
+    )
+
+    # Pass 1: one per client for variety
     picked, per_client = [], {}
-    for s in sorted(stories, key=sort_key):
-        if s.get('category') == 'low_relevance':
-            continue
-        if per_client.get(s['client'], 0) >= per_client_cap:
-            continue
-        picked.append(s)
-        per_client[s['client']] = per_client.get(s['client'], 0) + 1
+    for s in candidates:
+        if per_client.get(s['client'], 0) < 1:
+            picked.append(s)
+            per_client[s['client']] = 1
         if len(picked) >= limit:
-            break
+            return picked
+
+    # Pass 2: fill remaining slots up to per_client_cap
+    picked_set = {id(s) for s in picked}
+    for s in candidates:
+        if id(s) in picked_set:
+            continue
+        if per_client.get(s['client'], 0) < per_client_cap:
+            picked.append(s)
+            per_client[s['client']] = per_client.get(s['client'], 0) + 1
+            if len(picked) >= limit:
+                break
+
     return picked
 
 def render_story_card(story, cluster_info=None):
