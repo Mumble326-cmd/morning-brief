@@ -1629,9 +1629,7 @@ def main():
         art['cluster_id']            = art.get('id', f'manual_{art.get("ts",0)}')
         art['relevance_score']       = art.get('relevance_score', 1.0)
         art['matched_terms']         = art.get('matched_terms', ['manual'])
-        art['source_rank']           = source_rank(
-            art.get('domain', extract_domain(art.get('url', ''))), outlets_config
-        )
+        art['source_rank']           = effective_source_rank(art, outlets_config)
         if 'snippet' not in art:
             art['snippet'] = ''
     if manual_articles:
