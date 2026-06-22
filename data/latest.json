@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T17:12:23.220997+00:00",
+  "generated_at": "2026-06-22T17:17:02.714768+00:00",
   "generated_date": "2026-06-22",
-  "generated_time": "22:42:23 SL",
+  "generated_time": "22:47:02 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -93,7 +93,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "700903c9779c",
       "is_primary_in_cluster": true,
@@ -114,7 +114,7 @@
       "matched_terms": [
         "Mahindra Ideal Finance"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "bfb451df14d6",
       "is_primary_in_cluster": true,
@@ -142,6 +142,27 @@
       "is_new": true
     },
     {
+      "client": "hnb",
+      "headline": "HNB Life engages communities through Vesak season activities",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWU9WbjNPNHJKVWJxX2t6N0ZhOE1GX24yTWswLXRoUTVkV3ZhMVUtc1NKTGUtTGQwV0dfMWZkMU9oVVZaQ0pGa2JXWFRhdndvUm1PVGJGZlgxVVhLTVZGNkdGWDlZUVQ0a3VSUllMUlduZW5TMDZGdVVsZXN0dWVYM2ZpU05tMEJvckpMZVJpckItSFI4OE1IRE5sVVVzdVlXdXVsX2RtMXktSXNBMHJxTWtUNmxUQThIQ1E?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 14:46 SL",
+      "ts": 1781946988000,
+      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "fe4d0e83fc14",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
       "client": "mas",
       "headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMTBxNHJEYTV6anhENmxiREd2ZWplQnJCVWxHVVB1d0prazBhb01hTWNsN3V3Y0NqYktSUVBDTm5UeDJ4NWxoQTEwWFNhaEJOY2ZzVHpUVm05U0ZzUW5XT3ZvZ3ZaS3l3ZnhibjR3Vk1neXdaUUpiQTZGemdfNk1yS0NRZWRUWUt1MG9WbXRBLVJfZUFUNDBhb0NMX3ZiWjJQT25CeEhmNjdwb0FQei1qbzZ3ZnBpcUlnZG43cGhMaTI?oc=5",
@@ -156,7 +177,7 @@
       "matched_terms": [
         "MAS Bodyline"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "0ecdf241707d",
       "is_primary_in_cluster": true,
@@ -177,30 +198,9 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "9d1e7c6fbf58",
-      "is_primary_in_cluster": true,
-      "is_new": true
-    },
-    {
-      "client": "hnb",
-      "headline": "HNB Life engages communities through Vesak season activities",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPLXhtY3hoTnliTGFZanVad2lqbFZkY09HNTVhSThCc01uRndsVUxQNDc1TnJQTFdKMlNPSXNLQ1duU0hkNkRKbmVuS0paQUU1M1VYSzgzQ2w2Q3VBeWpnNm85RW9yS2VZT2NoSmdpeEIxLUNyNlpZZWNVX2NhTzNhemx2ZVcySW5LS3VTdVd6TU5xZ0lYaS1Tc2VuUnJmdU8ycnlybHZSN0NpWWRCXzVSc2dR?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "20 Jun 2026 · 00:00 SL",
-      "ts": 1781893800000,
-      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "fe4d0e83fc14",
       "is_primary_in_cluster": true,
       "is_new": true
     },
@@ -219,7 +219,7 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "6a6208f461e7",
       "is_primary_in_cluster": true,
@@ -240,7 +240,7 @@
       "matched_terms": [
         "Hatton National Bank"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "b234c2753795",
       "is_primary_in_cluster": true,
@@ -261,7 +261,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "8d07d11c012e",
       "is_primary_in_cluster": true,
@@ -282,7 +282,7 @@
       "matched_terms": [
         "Hatton National Bank"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "7140c47299f2",
       "is_primary_in_cluster": true,
@@ -303,11 +303,53 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "2ef922773d4c",
       "is_primary_in_cluster": true,
       "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys drives Colombo into the future",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRFdWSWp3WldMbDdIMDl0amNrdkR6blRNS3dhTVZCSEI5TDJYVkFXNkhFWXdRbGQ0TTBPODBSVm84OU1LZ0R2b1h2VHRUcUhYSzg4RXl3NGhoY3pSWG1mZmRBcUdaWUY4X0VBREptU1AtaHl5clk5SXhQLXZueFdhQWswZlBCX01fWlFUUWZZZTd6SnlvMC1NRmF0N2o?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "17 Jun 2026 · 11:26 SL",
+      "ts": 1781675801000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys drives Colombo into the future Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "cce467da2e63",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Assetline Finance-Hayleys Mobility expand accessible mobility financing",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdHNONGUwZE9aT0VKWHk0bFZWUjFCaExRcVJEdFgxZDBUTjNyV21TVTc3REZiR1Jrb1NERmM4S0lHdkhpSWtoVFdPR1c5eTA5TEpPU3VydS1XanU3N1B6VjQ3X1lYemtCQmdKdVQtVTNGWmhhbnd4MUV3Q1loZndxLVVhOTlDUW52RlJvYVlvSXM5RktNQm9fZ2t2RnRpQjdKUW10TUgyOWdZNEVaejl1cG5vcUhEZEtSTkR4UEtRZmc?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "17 Jun 2026 · 00:00 SL",
+      "ts": 1781634600000,
+      "snippet": "Assetline Finance-Hayleys Mobility expand accessible mobility financing Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "bd85ed6b6cfa",
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -324,7 +366,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "edf7d644242a",
       "is_primary_in_cluster": true,
@@ -345,7 +387,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "bec51c697ac8",
       "is_primary_in_cluster": true,
@@ -366,7 +408,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "1363e33bdf53",
       "is_primary_in_cluster": true,
@@ -387,7 +429,7 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "6005a10a355e",
       "is_primary_in_cluster": true,
@@ -408,7 +450,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "7e562c608095",
       "is_primary_in_cluster": true,
@@ -429,9 +471,30 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "d2dd2285370d",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Port City Colombo pitches Sri Lanka as South Asia gateway at high-level Dubai investment forum",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPMExNbG1mNWhBSWJrYlFFcW9xVldMT3ZyQjE2RHRBX1FUdzk4ZlJaelc1eV9RdUxWYUQyWUdOZU1mVVc3dnBuN2FIX0N4T2FOSS1ZTEhlX1NuNUtNNUYxSWZPMWVBNTFoOXlObXFHbFlVYm5SQURBNWJtSXcxY3pzanFGaDVaZzlCRmF4ak5VZUVuVnNHVVR0N0FzVVZuUkFaQnFkZk5fc09TcE9OU1UwNE1aMjBJY094dnRET3JPLUY3TThPR2htYzNjZ0hTdHhPNGpXUGtnUF9KNkxFZHdv?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "12 Jun 2026 · 17:47 SL",
+      "ts": 1781266620000,
+      "snippet": "Port City Colombo pitches Sri Lanka as South Asia gateway at high-level Dubai investment forum Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "ae3fc7c05bf6",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -450,7 +513,7 @@
       "matched_terms": [
         "Hatton National Bank"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "e3d56af8a934",
       "is_primary_in_cluster": true,
@@ -471,7 +534,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "63fb468d448a",
       "is_primary_in_cluster": true,
@@ -492,7 +555,7 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "1e81f603a0aa",
       "is_primary_in_cluster": true,
@@ -513,7 +576,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "73aa0997ec43",
       "is_primary_in_cluster": true,
@@ -521,33 +584,33 @@
     },
     {
       "client": "hayleys",
-      "headline": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTVdxemFPSFFJNDBqdjB3QjNCcEVEZkRUMm5BSDBWcmYyb2pudXNEWFBIZUdEYVBSek5nY1VfdjJxOWRoX1JkRVhoZ0UwUjgtSDU3aEFMMXlIM3NnLXJBZFgxY1o1TjJjcWRLWWtaNm5pMmljQUhWanBXOVR1elg0T2dVb0lSV0tpZWYwVGE3amwyZXpvTXVuSkcwdlZpR29OQmdPZmVqX2cycmIzQ2R4VkFB?oc=5",
-      "source": "dailynews.lk",
+      "headline": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMV9jZVBqV043Y1JTUDJ3T0JZNzQzeVpDRDYzMEh5T25hX0ZETlRZQzJQdTBrRDNmS0ZROFNETE02YlpIYzhDRndGOXRJWmxJeHpIUndHT195OHQ2SHdFbnQxN0dXMmZ3djBQU1dubVRrS0VSTHNVazBMenBJaTAwVG4tczlBc2tpSUg4eVh3MURUa0ZyWTQ5elJtXzB4aEJva2I5TkRxRDRlS2ZrRjRUaVpB?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 01:03 SL",
-      "ts": 1781206380000,
-      "snippet": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka dailynews.lk",
+      "date": "12 Jun 2026 · 00:55 SL",
+      "ts": 1781205921000,
+      "snippet": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
-      "cluster_id": "28d7d5cf87b7",
+      "cluster_id": "2f4fe837ce94",
       "is_primary_in_cluster": true,
-      "is_new": false
+      "is_new": true
     },
     {
       "client": "pcc",
       "headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNWng1bHlnVWxoR3Z2NFJFVUVIZldXOUNmNnFKZlJ1UEszZzFSZnhGa05uQnFiX1VHUXBzX3VodXc1QXI0dzI0Z2hKRFhIZzExam9sQ29GUnFzSDRqZHZyY2dOOWNlU25BZ0t2Q1ByNjB5TS1Qd08tN2FKVDVVOHBaSS1hbmdfTEdqc0NIbUtnZjZEYnhQNmNDLWp5MFI3cFpVa1dsV3Vuclh6bVdIYnZ3LVVyb18yNnlRckFjWm5jNUdna1F2bkJDUmxRREt1dHRh?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPblZnWjlESXhCdzduaU9HY1llbVUtLWoyWUdCTEloVDFvc1JXa2QwVi1zOTZTSVVaYzFqY21PM25TQ0tCRnBzdFBQcWlSUEg1bXE3c1ZzMmRTdVFjVlpxbmFfSTI5RHdjT1hWanQ0SnVUSTJDdzV3Q3U2eUwzSjR2Rm5SWXR6NUllX2pTaTlvTTRpY3FYaTJlYjR2T3pOWDdyV3Z4WlhaS2JMYUFEOGQySzNYbzhrWmJkR1gwZFlEbjRZRTZVRGlwRFFyeE9FNmJjR2Z1dHo3WTE?oc=5",
       "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 00:22 SL",
-      "ts": 1781203920000,
+      "date": "12 Jun 2026 · 00:33 SL",
+      "ts": 1781204591000,
       "snippet": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
@@ -555,7 +618,7 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "5def967a26d3",
       "is_primary_in_cluster": true,
@@ -576,7 +639,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "c2f782b5a99a",
       "is_primary_in_cluster": true,
@@ -597,7 +660,7 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "fd7ee6b3abdc",
       "is_primary_in_cluster": true,
@@ -618,7 +681,7 @@
       "matched_terms": [
         "BYD"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "cab5e12cb7c5",
       "is_primary_in_cluster": true,
@@ -639,7 +702,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "faa2f0098c44",
       "is_primary_in_cluster": true,
@@ -660,7 +723,7 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "5475101213e8",
       "is_primary_in_cluster": true,
@@ -681,7 +744,7 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "83be30275deb",
       "is_primary_in_cluster": true,
@@ -689,22 +752,43 @@
     },
     {
       "client": "hayleys",
-      "headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSzRyZHMzMVh6Q1VKT1A5YXNoS1hhV3BMN3R0TG11WmJkSzMtNThzZW9qYU15V3NPYzVpV2dqRG5fUG5GZHZQbTRaTlRydl9CaHJvMmlLSHZMMTE3dm9YM0ZhZFc2YlJQVkZyQ3ROOU1oc3ZGdTZXdUdnUXo2bDZhdGZNOEpscUdLTzV4X0RiV19DZDdFRk4xU0FLODdfZ0F1c3l2MHY3bTM?oc=5",
-      "source": "Island.lk",
+      "headline": "Hayleys obtains enjoining order against Wimal Weerawansa",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQQkdkMTZUQmRGSlRsM19NcTJhcDF6VzcyMXFWekcya1I5QjBhaFZfMlpNVUJWeWF1VEdNQklpSjlkaUwzMFR2c0o2UVJQVGx4M09iZXhPcmkwX0NmdkI1X3JWMjd0cTI0QkszdE5mM1cyUVFMaU1CLWJZRzdvb1NfUTAxUGIwUmY1bGJsTDcyY0Jtazd0OFlwQjFrVWxqcDhweU1WOUM3RkdLZTd3?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "08 Jun 2026 · 12:30 SL",
-      "ts": 1780902000000,
-      "snippet": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment Island.lk",
+      "date": "09 Jun 2026 · 12:30 SL",
+      "ts": 1780988400000,
+      "snippet": "Hayleys obtains enjoining order against Wimal Weerawansa Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
-      "cluster_id": "11bebd76b9a9",
+      "cluster_id": "caf03d513723",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka stocks pick up, interest in Dialog, Hayleys",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQa1BpNHp6Qm5VNzJ0UGRBd3IwS2R2bzhQcnEwU1lWYWQ2YWJoY1BRSE1rQkpKZjBUWTNva2JUSS1EN1gtOXJOcnRaYlZxOEdPWUs0dm1TRWtDVUtpRVd0QkJDeUNaTzZvM25SY2ZxVDU1amd4dGhUaXJFWTJ0allsbVdUVkEtVXgxVU1z?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "09 Jun 2026 · 11:17 SL",
+      "ts": 1780984024000,
+      "snippet": "Sri Lanka stocks pick up, interest in Dialog, Hayleys EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "1b204b842196",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -723,32 +807,11 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "211c7b044adc",
       "is_primary_in_cluster": true,
       "is_new": false
-    },
-    {
-      "client": "pcc",
-      "headline": "Commercial Bank extends operations to Port City Colombo | Daily FT - newspaper",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYUtZazd5Ym5CUEJJMUw4ZlctQ29HWFRQOU1obGJSUlQ1ZC1GVzRjMXZITFJJM1hmd3piQkhwSkYybjVaSldkQlZZYjYxNFA1cEY4OUo1RnRQWjVaTDFuUVRwXzFxOURrTTh5Rmg2bVQ1b1V3VWNTalFfakVoa2hPRG1JUnpfamprTDRXUmFISjJFaFVMbUdYQnAtdlNoQVZRSnJ1Z3RzcTVVQQ?oc=5",
-      "source": "Magzter",
-      "domain": "news.google.com",
-      "date": "08 Jun 2026 · 05:40 SL",
-      "ts": 1780877424000,
-      "snippet": "Commercial Bank extends operations to Port City Colombo | Daily FT - newspaper Magzter",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "Port City Colombo"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "1aa41966e4be",
-      "is_primary_in_cluster": true,
-      "is_new": true
     },
     {
       "client": "hayleys",
@@ -765,11 +828,53 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "e989cc7d7d8e",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Jyoti-Hayleys sign contract for Mannar-Mullikulam transmission line project",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOOXZHNGJNRFdCQUd6ZkttT3VWY1ZQeFVqalNCVkJrU2V6OGxibjljZE5Yc2lwWFdLUG0yaWN5azVpSGhEak1XN2tYNVlhdElKeGpQWnlvd1ZzbHpIZWJzcjJlMjZRMklZekQzTHp3ZWRhVkl3UGJRUFVfMm50RnJZN1hfTXJtZ1lxM2JWMVA4Ykw0b0F4TXRPNGx3MEU3UlhVc09ocEFPRk4temczZ1RLekZwSTZITU5mM2R3TjlKN0F6emN1b1lsakxQUTBpUQ?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "08 Jun 2026 · 02:03 SL",
+      "ts": 1780864409000,
+      "snippet": "Jyoti-Hayleys sign contract for Mannar-Mullikulam transmission line project Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "2b38a645d3f0",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "pcc",
+      "headline": "Commercial Bank extends operations to Port City Colombo",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPaFRZLUFNUmVLYkh1T1VhZ2tKc2dCOWRZX18zeVhhTTkybkxlWkdNbTBhRkVrM2NYQW5sc1JZcnlTY2FBTVhOQkZBcjZBTHgtdUJ5OHdmMEZDMEE0THpQUUFYeDZkRVMyaE8xZGpRWkp0OU4xNVRkVE52a1JVMDRaSWdlY0ZRallxcS14dGt6UFZqZndUYWhuSlVHSUc2emdlMHJuX3lsZWJ1cE9HdDFfUmw5Um5xQjA?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
+      "domain": "news.google.com",
+      "date": "07 Jun 2026 · 12:30 SL",
+      "ts": 1780815600000,
+      "snippet": "Commercial Bank extends operations to Port City Colombo The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "49eb59ff182b",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "pcc",
@@ -786,9 +891,30 @@
       "matched_terms": [
         "Colombo Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "365802d83afc",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMmdDeTZQcHdrQ1NFSmkwQUlrWTBhR0pDVnFzZXc5N0RhVlpkQWZ1OHN1dmVzWUtINTB1UHJqdU1tOVZTaFA2SWRraDN5VVJSTG5pQUpzWlZvdG9HbG9aNURXSzVheUIzWnpIX0hrTEJlbi1xc0t3SlZLNVo3Zm52Mk1vOXJpMk03RTdMZmhPZHpLTFl0Z2JVMjFrNEgyVXp5Z3pEa3B4ekpEbld2bVFfWjZkS2JiTmxJRThhNFU0cFltSVBpRUlLeTZWcU1nUQ?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "06 Jun 2026 · 12:30 SL",
+      "ts": 1780729200000,
+      "snippet": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "87e6c6cd2426",
       "is_primary_in_cluster": true,
       "is_new": true
     },
@@ -807,9 +933,30 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "c4cccb14002e",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys surpasses half-trillion revenue milestone in FY 2025/26",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcnBMWHdJaXQyV0JITTB4SjNhZVdmbzlTeHMxZmJ3OFNjOURaY0RqejRKU0hGNW51RW5mclM4cGthVW5SYzd6aG1hQXV1NWxjSmQ3cTNaVnRsa0RMbmxxWVpyQXA4dXlCclJLQkRnNFNXeU1ZLXZKcHBFbElueU04bTdwNTNJU2lSVlZ4MUVHbnJJc1dvYzNyUUszNU1RRWZLM3pfVTQxVDNXTTF0NFZ0N19YZWo?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "02 Jun 2026 · 12:30 SL",
+      "ts": 1780383600000,
+      "snippet": "Hayleys surpasses half-trillion revenue milestone in FY 2025/26 Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "b50c8efca330",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -828,7 +975,7 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "f58987ff3f82",
       "is_primary_in_cluster": true,
@@ -849,7 +996,7 @@
       "matched_terms": [
         "Hayleys"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "5f51dc16c039",
       "is_primary_in_cluster": true,
@@ -870,7 +1017,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "327da79b3f61",
       "is_primary_in_cluster": true,
@@ -878,24 +1025,24 @@
     },
     {
       "client": "pcc",
-      "headline": "Sampath Bank leads Lanka’s Financial Future with Agreement for Port City Colombo Branch",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOcEVEel9GMkwxdWFxOXdyYndVTG1RemZJRW5LOEoySnBDMkNCSkdNczN6N1ExMmQxMXpNVnMyNEJqYTJGZzJIemJ5LXRqWTVHU3pJOTAyZi03RGZoa0ZtTjg2NktrN3FGcGZvWUVCSG9LdWVNTkZwTmdfTy16WXZ2b1gzZWZpRnlhUkRXY0RVdnpnTGpkNU1DaFhpaENhNlBIZVVPQWFhMEROYzUzcmtWV2hVbDdoeVZMMWQ2RnBNWER4TlNCWFdPLWQ5YlVfWjMxUUE?oc=5",
-      "source": "dailynews.lk",
+      "headline": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNREVOc3JEUlFDOG5sRXpDUW4wT3V4X3NRb0FmLWZOQ1lGVzdHcVhkSm1hTXlULTVUeXQ4V0VoWlg4MTNyTUZJOXFmSndTczFqX0dGVlA1U1NPYzFpY09aRWZnRGVsVmZTZENyVDRJZE1NZm90UXJaS0V3YmJKZU9ndUhuNDRWcGVSWXp4MkpoM3RReW90cFYxa3lhVEVBTk4xZXBnWlptc0dpUnFyeVNtcEpiUzVzeDJ4aTQ4d0FBYlNFTW9Ma2c?oc=5",
+      "source": "Daily FT",
       "domain": "news.google.com",
-      "date": "02 Jun 2026 · 12:30 SL",
-      "ts": 1780383600000,
-      "snippet": "Sampath Bank leads Lanka’s Financial Future with Agreement for Port City Colombo Branch dailynews.lk",
+      "date": "02 Jun 2026 · 09:43 SL",
+      "ts": 1780373608000,
+      "snippet": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch Daily FT",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
-      "cluster_id": "9a632fcd6eac",
+      "cluster_id": "ad5d5b775817",
       "is_primary_in_cluster": true,
-      "is_new": false
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -912,7 +1059,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "0dc31b89b762",
       "is_primary_in_cluster": true,
@@ -933,7 +1080,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "3c24e2780529",
       "is_primary_in_cluster": true,
@@ -954,7 +1101,7 @@
       "matched_terms": [
         "HNB"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "b2d7facb164b",
       "is_primary_in_cluster": true,
@@ -975,7 +1122,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "ac6b588c7888",
       "is_primary_in_cluster": true,
@@ -996,7 +1143,7 @@
       "matched_terms": [
         "Central Park Boulevard Port City"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "924e372855a7",
       "is_primary_in_cluster": true,
@@ -1017,7 +1164,7 @@
       "matched_terms": [
         "Port City Colombo"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "131a8581861f",
       "is_primary_in_cluster": true,
@@ -1038,7 +1185,7 @@
       "matched_terms": [
         "US adds BYD"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "3dc64f3e2218",
       "is_primary_in_cluster": true,
@@ -1059,7 +1206,7 @@
       "matched_terms": [
         "apparel sector"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "40fde175cda5",
       "is_primary_in_cluster": true,
@@ -1080,7 +1227,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "06ecebde3a35",
       "is_primary_in_cluster": true,
@@ -1101,7 +1248,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "5a52396e65ff",
       "is_primary_in_cluster": true,
@@ -1122,7 +1269,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "0687ac4c3c3f",
       "is_primary_in_cluster": true,
@@ -1141,7 +1288,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "d4360a9bf01d",
       "is_primary_in_cluster": true,
@@ -1162,7 +1309,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "8393fb8b21d9",
       "is_primary_in_cluster": true,
@@ -1183,7 +1330,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "3a5a19730138",
       "is_primary_in_cluster": true,
@@ -1204,7 +1351,7 @@
       "matched_terms": [
         "Central Bank of Sri Lanka"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "eac60c303599",
       "is_primary_in_cluster": true,
@@ -1223,7 +1370,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "6e2507a794ab",
       "is_primary_in_cluster": true,
@@ -1244,7 +1391,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "24714a614fde",
       "is_primary_in_cluster": true,
@@ -1265,7 +1412,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "52bb22dc6bd3",
       "is_primary_in_cluster": true,
@@ -1286,7 +1433,7 @@
       "matched_terms": [
         "CHEC"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "90e1645c198b",
       "is_primary_in_cluster": true,
@@ -1307,7 +1454,7 @@
       "matched_terms": [
         "CHEC"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "cebac4cacfc7",
       "is_primary_in_cluster": true,
@@ -1328,30 +1475,9 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "559784f9251a",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
-      "headline": "CBSL Rates : USD selling rate further increases to Rs. 341",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQdi1uOTlrdkpZMFNTRE15SlZEaDJkMW14NC02QTFQZTJYY2VodnpBS0ZOQkFmXzVxSzBqVU16YmhEalJpbnFnNEdJNzhwanE3Q3E3d292RUxDOVhoM0x5S2NZdlJsMkJXT2lFQXZFUTBWRW15UWE5THY2YjVzUkRXdXlvcWZPZGNmY2F4TmZGckJYS285ekE?oc=5",
-      "source": "Newswire",
-      "domain": "news.google.com",
-      "date": "12 Jun 2026 · 12:30 SL",
-      "ts": 1781247600000,
-      "snippet": "CBSL Rates : USD selling rate further increases to Rs. 341 Newswire",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 4,
-      "is_low_relevance": false,
-      "cluster_id": "577f1d50718a",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -1370,7 +1496,7 @@
       "matched_terms": [
         "garment exports"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "a3f00ebe3b99",
       "is_primary_in_cluster": true,
@@ -1391,7 +1517,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "d625ca4a657b",
       "is_primary_in_cluster": true,
@@ -1410,7 +1536,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "ac5d749b307c",
       "is_primary_in_cluster": true,
@@ -1429,7 +1555,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "b837d649d566",
       "is_primary_in_cluster": true,
@@ -1448,7 +1574,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "7672cdc4c6b4",
       "is_primary_in_cluster": true,
@@ -1467,11 +1593,30 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "4f8b37a9c0c5",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPOEdCaEJJZlFGWGJBWW1uRWJLZ25VMnA5V3ZxclpLUVBhT1Y2UGVKQ2ZCT1AwVjlFamdOQXlteEFRajhRa1B1c1lTcW43dzlGYWxhM2pIQjFwbGJqQ2pjRk1zNkxCdDZuOGZfaThkLXpSckVSTEJFbnRYVDhOOW1nVG45cnFpN0F2WjlMcTZfUmtIWnlRTVE?oc=5",
+      "source": "Finimize",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike Finimize",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "7fd602c9c429",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1488,7 +1633,7 @@
       "matched_terms": [
         "CBSL"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "40223aa96eec",
       "is_primary_in_cluster": true,
@@ -1507,7 +1652,7 @@
       "category": "industry",
       "relevance_score": 0.7,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "0a15c6f228e3",
       "is_primary_in_cluster": true,
@@ -1528,7 +1673,7 @@
       "matched_terms": [
         "JAAF"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "032a5e20fd6d",
       "is_primary_in_cluster": true,
@@ -1550,7 +1695,7 @@
         "apparel exports",
         "JAAF"
       ],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "08aac4d01ef7",
       "is_primary_in_cluster": true,
@@ -1571,7 +1716,7 @@
       "matched_terms": [
         "indices close"
       ],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "83d5619d5e07",
       "is_primary_in_cluster": true,
@@ -1590,11 +1735,87 @@
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": true,
       "cluster_id": "30a327ca9f0a",
       "is_primary_in_cluster": true,
       "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Calico Colors launches EV initiative and carbon-free vision",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdlAwZzFMRFJaeDZqd0tXM0VKcWd4WmZMOFlmTlUtaXROdURwdlNSbGdOQWRwRGYwa1ZfWllfMHdzdjVZQ0o2UnlfU0hteWJZekFlWWl3UVYydGpSeExzM2NGdlA2Vjd3T3VlbGFaYklUbFBEUHB6azZEOURUWTJoZEZZVmVBc3RCZk1rT2I5RXhfRGttRUl4NWZfQWRvdnJTbU5BbVJIbHNEeTgxS2FhbWpPOFR4Z21w?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 14:46 SL",
+      "ts": 1781946983000,
+      "snippet": "Calico Colors launches EV initiative and carbon-free vision Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "58a42368e00e",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Indian diplomat meets Sri Lanka’s business leaders for economic talks",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTDdyQ1hoSmtycThTWEpkbEtaem9ESl96d0NtTE1kN2VSYlEybENoRlFPT0JfYmhVWUpFb21fMVpYMFFxa3BDVGtFbjBoVmVLVEtLRjJVWWFWZU00V2d4Qkx0TGhEeEtqUHI0UUQ5ZXRzSFkwR1FYMGtlNnVETkZjNmZwUlllNXMyYmM2Q2lBekN2ZmlqWEk3eTBubndDZHZBVFE?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 06:06 SL",
+      "ts": 1781915813000,
+      "snippet": "Indian diplomat meets Sri Lanka’s business leaders for economic talks EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "5fe5874e71d2",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka stocks close flat, ASPI inches up 0.04-pct",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbk5HRGFQMl9kR2U1b0xCSndXeDU3WVVsMXB5OHBKN3JGMHo5dHE5bXNDWWExLVNHYUVldzA1OF9rWi1tVmRWWjIyWVhsZjFrVy16Q3NnNEVWemFsSE40LTJMS3J0b3h1elQwM3hPdUhnRjVBNk0zQTM3MFB5YzAyYjZrdjJ1YjktNkFV?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "18 Jun 2026 · 10:56 SL",
+      "ts": 1781760375000,
+      "snippet": "Sri Lanka stocks close flat, ASPI inches up 0.04-pct EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "259414ce7703",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI closes in green",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPaFJYcTA2MFJnckt1TzZLY0hpNkxsU09kLXhxRFdiZjVSVTJka1hFNl9lUjlSZ0s4ZHFxbGNaNHBJNmw5NGtoc0VSYkE1eUdkZVI2Ynl4RmY3QVpzNmJlTXk5SVA5akdMSF9adGtSNGJVU3B3Nkhzc2k0N0pXUG01Qi1hU0g?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "18 Jun 2026 · 07:02 SL",
+      "ts": 1781746326000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI closes in green Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "a94acdb7d6b2",
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "pcc",
@@ -1609,7 +1830,7 @@
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 1,
       "is_low_relevance": true,
       "cluster_id": "fae5a996965f",
       "is_primary_in_cluster": true,
@@ -1628,11 +1849,68 @@
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": true,
       "cluster_id": "e694ac6dff5e",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "HayWind receives first 25 MW of Turbines for Mannar Wind Farm",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNYjhLMEhZU1RaZHBVVV9SaDI4SjBHazJ3UmN3TmZfRktNX21lRTR5c3FjT21jSS1VV2RSUVZXcEl4YkwxX3NGLWM3X0lOeGtoYzA3WWFVTkdjNk8zYTlsT0JTMWtpRG9kWVoweld5QW9SLXQ0Y2dJWGdsUXctYndpbjAtTTFmQkd1bjFZMWo3NnRzYkpHekVVakdLWUNVb1BWQ0JEU2xBLUZMWlNuX1RmZUtrV3ZpY0xxbFY3MmxFcw?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
+      "domain": "news.google.com",
+      "date": "07 Jun 2026 · 12:30 SL",
+      "ts": 1780815600000,
+      "snippet": "HayWind receives first 25 MW of Turbines for Mannar Wind Farm The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "b461d7fc53e8",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI loses 2.5% during the week",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRk5PQV9veWhMRGpjTVFyTlhVb2hOSXdLalgyYnJHcFNRWXVLUFFsZlpsYkNlNW5mWUUyS1hEd3NtR1p4dkNRdHR1SHdoaWlDcWdUN2JnbkNUMHh4SnRIYXZtUFNzRUJBYkNJbUtydC0yVnNrQnY4aXBjcndyRlhCYTRfdGI0QU0zZzBBODNUUjJFdw?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "06 Jun 2026 · 12:30 SL",
+      "ts": 1780729200000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI loses 2.5% during the week Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "d71a1ca2e1b3",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVHM2UnpSS2FhU3htbF81NFRlU2VqMVZaRmVWNmlDZ0dTX2UzVGN3MG1XS0hfMG84MzhCT1RLNlhmWDl6c0RqNmoyY3hGQTZHTmZHTGxBVWYteXhES3JOYnEwUm9fMm1rOFl5VXE4M3JTRjJvRER2T0NrcE5lYVp0T1NaLWVFV00?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "04 Jun 2026 · 12:30 SL",
+      "ts": 1780556400000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "f833a3a1ffdf",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "mas",
@@ -1647,7 +1925,7 @@
       "category": "low_relevance",
       "relevance_score": 0.0,
       "matched_terms": [],
-      "source_rank": 4,
+      "source_rank": 3,
       "is_low_relevance": true,
       "cluster_id": "8c62e1952a2e",
       "is_primary_in_cluster": true,
@@ -1692,8 +1970,20 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "fe4d0e83fc14",
+      "primary_headline": "HNB Life engages communities through Vesak season activities",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
+    },
+    {
       "cluster_id": "0ecdf241707d",
       "primary_headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "58a42368e00e",
+      "primary_headline": "Calico Colors launches EV initiative and carbon-free vision",
       "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
@@ -1704,16 +1994,16 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "5fe5874e71d2",
+      "primary_headline": "Indian diplomat meets Sri Lanka’s business leaders for economic talks",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "9d1e7c6fbf58",
       "primary_headline": "HNB and IESL sign MoU to extend exclusive financial benefits to Sri Lanka’s engineering community",
       "primary_source": "Daily FT",
       "also_covered_count": 0
-    },
-    {
-      "cluster_id": "fe4d0e83fc14",
-      "primary_headline": "HNB Life engages communities through Vesak season activities",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 1
     },
     {
       "cluster_id": "6a6208f461e7",
@@ -1740,6 +2030,18 @@
       "also_covered_count": 2
     },
     {
+      "cluster_id": "259414ce7703",
+      "primary_headline": "Sri Lanka stocks close flat, ASPI inches up 0.04-pct",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "a94acdb7d6b2",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI closes in green",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "7140c47299f2",
       "primary_headline": "Hatton National Bank and Nucleus Software celebrate five year partnership driving transaction banking transformation and excellence, powered by FinnAxia",
       "primary_source": "Island.lk",
@@ -1752,6 +2054,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "cce467da2e63",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys drives Colombo into the future",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "d4360a9bf01d",
       "primary_headline": "New gold-loan rules strengthen safeguards; limited rating impact seen: Fitch",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -1760,6 +2068,12 @@
     {
       "cluster_id": "8393fb8b21d9",
       "primary_headline": "Build stronger export engine for lasting recovery: CBSL Governor",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "bd85ed6b6cfa",
+      "primary_headline": "Assetline Finance-Hayleys Mobility expand accessible mobility financing",
       "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
@@ -1848,6 +2162,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "ae3fc7c05bf6",
+      "primary_headline": "Port City Colombo pitches Sri Lanka as South Asia gateway at high-level Dubai investment forum",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "e3d56af8a934",
       "primary_headline": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank",
       "primary_source": "Whalesbook",
@@ -1866,12 +2186,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "577f1d50718a",
-      "primary_headline": "CBSL Rates : USD selling rate further increases to Rs. 341",
-      "primary_source": "Newswire",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "1e81f603a0aa",
       "primary_headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
       "primary_source": "South Asian Voices",
@@ -1884,16 +2198,16 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "28d7d5cf87b7",
-      "primary_headline": "Hayleys Solar completes 1.7MWp solar installation at GPV Lanka",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 0
+      "cluster_id": "2f4fe837ce94",
+      "primary_headline": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 2
     },
     {
       "cluster_id": "5def967a26d3",
       "primary_headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
       "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 2
+      "also_covered_count": 3
     },
     {
       "cluster_id": "c2f782b5a99a",
@@ -1938,16 +2252,28 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "caf03d513723",
+      "primary_headline": "Hayleys obtains enjoining order against Wimal Weerawansa",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "3dc64f3e2218",
       "primary_headline": "US adds BYD to list of firms with alleged Chinese military ties",
       "primary_source": "Sri Lanka Mirror",
       "also_covered_count": 0
     },
     {
-      "cluster_id": "11bebd76b9a9",
-      "primary_headline": "Hayleys Mobility launches JAECOO J5 HEV, expanding Sri Lanka’s premium Hybrid SUV segment",
-      "primary_source": "Island.lk",
+      "cluster_id": "1b204b842196",
+      "primary_headline": "Sri Lanka stocks pick up, interest in Dialog, Hayleys",
+      "primary_source": "EconomyNext",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "87e6c6cd2426",
+      "primary_headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
+      "primary_source": "Newswire",
+      "also_covered_count": 2
     },
     {
       "cluster_id": "211c7b044adc",
@@ -1956,9 +2282,9 @@
       "also_covered_count": 1
     },
     {
-      "cluster_id": "1aa41966e4be",
-      "primary_headline": "Commercial Bank extends operations to Port City Colombo | Daily FT - newspaper",
-      "primary_source": "Magzter",
+      "cluster_id": "49eb59ff182b",
+      "primary_headline": "Commercial Bank extends operations to Port City Colombo",
+      "primary_source": "The Sunday Times, Sri Lanka",
       "also_covered_count": 1
     },
     {
@@ -1968,9 +2294,27 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "2b38a645d3f0",
+      "primary_headline": "Jyoti-Hayleys sign contract for Mannar-Mullikulam transmission line project",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "b461d7fc53e8",
+      "primary_headline": "HayWind receives first 25 MW of Turbines for Mannar Wind Farm",
+      "primary_source": "The Sunday Times, Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "365802d83afc",
       "primary_headline": "Colombo Port City approves 77 strategic businesses to boost FDI, jobs",
       "primary_source": "Hiru News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "d71a1ca2e1b3",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition ASPI loses 2.5% during the week",
+      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -1980,9 +2324,21 @@
       "also_covered_count": 2
     },
     {
+      "cluster_id": "f833a3a1ffdf",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "a3f00ebe3b99",
       "primary_headline": "| Sri Lanka's garment exports fall 7.4% to $1.5 bn in Jan-April 2026",
       "primary_source": "Fibre2Fashion",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "b50c8efca330",
+      "primary_headline": "Hayleys surpasses half-trillion revenue milestone in FY 2025/26",
+      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -2004,10 +2360,10 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "9a632fcd6eac",
-      "primary_headline": "Sampath Bank leads Lanka’s Financial Future with Agreement for Port City Colombo Branch",
-      "primary_source": "dailynews.lk",
-      "also_covered_count": 3
+      "cluster_id": "ad5d5b775817",
+      "primary_headline": "Sampath Bank leads financial future with landmark agreement for Port City Colombo branch",
+      "primary_source": "Daily FT",
+      "also_covered_count": 2
     },
     {
       "cluster_id": "83d5619d5e07",
@@ -2067,6 +2423,12 @@
       "cluster_id": "4f8b37a9c0c5",
       "primary_headline": "Sri Lanka stuns with 100-bp rate hike as Iran war rattles currency, fuels inflation",
       "primary_source": "Reuters",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "7fd602c9c429",
+      "primary_headline": "Sri Lankan Stocks Slip After A Surprise Central Bank Rate Hike",
+      "primary_source": "Finimize",
       "also_covered_count": 0
     },
     {
@@ -2130,6 +2492,6 @@
       "also_covered_count": 0
     }
   ],
-  "total_stories": 79,
-  "total_clusters": 79
+  "total_stories": 93,
+  "total_clusters": 93
 }
