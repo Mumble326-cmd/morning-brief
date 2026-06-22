@@ -13,7 +13,7 @@ Daily automated news briefing for 6 clients (HNB, Hayleys, MAS, BYD, MIFL, Port 
 - **Archive system** saving daily snapshots to `data/archive/YYYY-MM-DD.json`
 - **Privacy protection** ensuring no journalist contact information in output
 - **Interactive filters** for time window, client, category, and full-text search
-- **Zero external dependencies** (Python standard library only)
+- **Minimal dependencies** — only `feedparser` (for robust RSS/Atom parsing); everything else is Python standard library
 
 ## Quick Start
 

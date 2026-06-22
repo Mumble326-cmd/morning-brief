@@ -3,307 +3,51 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Morning Brief — Keyword Editor</title>
+<title>Morning Brief — Keyword Editor (Moved)</title>
+<meta http-equiv="refresh" content="6;url=./index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;--rule:#c8bfae;
-  --rule-soft:#ddd4c2;--accent:#1a1a2e;--gold:#c9a84c;--muted:#6b6357;
-  --faint:#8a8275;--pos:#4a6b4a;--neg:#a8513f;
-}
+:root{--ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;--rule:#c8bfae;
+  --accent:#1a1a2e;--gold:#c9a84c;--muted:#6b6357;--faint:#8a8275;}
 html,body{background:var(--paper);color:var(--ink);
-  font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;}
-.shell{max-width:820px;margin:0 auto;min-height:100vh;
-  border-left:1px solid var(--rule);border-right:1px solid var(--rule);
-  background:var(--paper);}
-
-/* Header */
-.hd{border-bottom:3px double var(--ink);padding:20px 36px 14px;}
-.hd-top{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
-.hd h1{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
-.hd-rule{flex:1;height:1px;background:var(--ink);opacity:.2;}
-.back-link{font-family:'IBM Plex Mono',monospace;font-size:9px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
-  text-decoration:none;border:1px solid var(--rule);padding:4px 10px;
-  border-radius:2px;white-space:nowrap;}
-.back-link:hover{background:var(--accent);color:var(--paper);border-color:var(--accent);}
-.hd-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
-
-/* Action bar */
-.action-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  padding:12px 36px;background:var(--cream);border-bottom:1px solid var(--rule);}
-.status{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.06em;color:var(--faint);flex:1;}
-.status.ok{color:var(--pos);}
-.status.err{color:var(--neg);}
-.btn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
-  text-transform:uppercase;border:1px solid var(--rule);background:transparent;
-  color:var(--muted);padding:6px 14px;border-radius:2px;cursor:pointer;
-  transition:all .14s;}
-.btn:hover{border-color:var(--accent);color:var(--ink);}
-.btn.primary{background:var(--accent);color:var(--paper);border-color:var(--accent);}
-.btn.primary:hover{opacity:.85;}
-.btn.danger:hover{border-color:var(--neg);color:var(--neg);}
-.file-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
-  text-transform:uppercase;border:1px solid var(--rule);background:transparent;
-  color:var(--muted);padding:6px 14px;border-radius:2px;cursor:pointer;
-  transition:all .14s;}
-.file-label:hover{border-color:var(--accent);color:var(--ink);}
-#file-input{display:none;}
-
-/* Body */
-.body{padding:8px 36px 60px;}
-
-/* Instructions */
-.instructions{margin:18px 0;padding:14px 16px;background:var(--cream);
-  border:1px solid var(--rule);border-radius:2px;
-  font-family:'IBM Plex Mono',monospace;font-size:10px;
-  color:var(--muted);line-height:2;}
-.instructions b{color:var(--ink);}
-.instructions ol{padding-left:16px;}
-.instructions li{margin-bottom:4px;}
-
-/* Client block */
-.client-block{padding:20px 0 8px;border-bottom:1px solid var(--rule-soft);}
-.client-block:last-child{border-bottom:none;}
-.client-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;}
-.client-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
-.client-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--gold);background:var(--accent);
-  padding:2px 7px;border-radius:2px;}
-.client-rule{flex:1;height:2px;background:var(--ink);align-self:center;}
-
-/* Mode section */
-.mode-section{margin-bottom:14px;}
-.mode-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--faint);margin-bottom:8px;}
-.tag-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
-.kw-tag{display:inline-flex;align-items:center;gap:5px;
-  font-family:'IBM Plex Mono',monospace;font-size:10px;
-  background:var(--paper);border:1px solid var(--rule);
-  padding:4px 9px;border-radius:2px;color:var(--ink);}
-.kw-tag .x{cursor:pointer;color:var(--faint);font-size:12px;line-height:1;
-  font-weight:600;padding:0 2px;}
-.kw-tag .x:hover{color:var(--neg);}
-.add-input{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  background:transparent;border:1px dashed var(--rule);
-  padding:4px 9px;border-radius:2px;color:var(--muted);
-  outline:none;min-width:140px;}
-.add-input::placeholder{color:var(--faint);}
-.add-input:focus{border-style:solid;border-color:var(--accent);color:var(--ink);}
-
-/* Query preview */
-.query-preview{margin-top:8px;padding:8px 10px;background:var(--cream);
-  border:1px solid var(--rule-soft);border-radius:2px;
-  font-family:'IBM Plex Mono',monospace;font-size:9px;
-  color:var(--faint);word-break:break-all;line-height:1.7;}
-.query-preview b{color:var(--ink);}
-
-/* Footer */
-.foot{padding:16px 36px;border-top:1px solid var(--rule);
-  font-family:'IBM Plex Mono',monospace;font-size:9px;
-  letter-spacing:.06em;color:var(--faint);line-height:1.7;}
-
-@media(max-width:600px){
-  .hd,.action-bar,.body,.foot{padding-left:18px;padding-right:18px;}
-}
+  font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.6;}
+.shell{max-width:640px;margin:80px auto;padding:40px 48px;
+  border:1px solid var(--rule);background:var(--paper);}
+h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:6px;}
+.sub{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+p{font-size:13px;color:#2a2a2a;line-height:1.8;margin-bottom:16px;}
+.note{background:var(--cream);border-left:3px solid var(--gold);padding:12px 16px;
+  font-size:12px;color:var(--muted);margin-bottom:24px;}
+.note b{color:var(--ink);}
+a.go{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--accent);color:var(--paper);border:1px solid var(--accent);
+  padding:8px 20px;border-radius:2px;text-decoration:none;margin-top:4px;}
+a.go:hover{opacity:.85;}
+.count{color:var(--faint);font-size:11px;margin-top:20px;}
 </style>
 </head>
 <body>
 <div class="shell">
+  <h1>Keyword Editor</h1>
+  <div class="sub">Morning Brief &middot; Page moved</div>
 
-<header class="hd">
-  <div class="hd-top">
-    <h1>Keyword Editor</h1>
-    <div class="hd-rule"></div>
-    <a class="back-link" href="./index.html">← Back to brief</a>
-  </div>
-  <div class="hd-sub">Morning Brief &middot; Adfactors PR &middot; Edit search terms per client</div>
-</header>
-
-<div class="action-bar">
-  <span class="status" id="status">Loading keywords.json…</span>
-  <label class="file-label" for="file-input">Upload keywords.json</label>
-  <input type="file" id="file-input" accept=".json">
-  <button class="btn" onclick="resetToLoaded()">Reset changes</button>
-  <button class="btn primary" onclick="downloadJSON()">⬇ Download keywords.json</button>
-</div>
-
-<div class="body">
-  <div class="instructions">
-    <b>How to update keywords:</b>
-    <ol>
-      <li>Edit the tags below — add or remove search terms per client</li>
-      <li>Click <b>Download keywords.json</b> to save the updated file</li>
-      <li>Go to <b>github.com/Mumble326-cmd/morning-brief</b></li>
-      <li>Click <b>Add file → Upload files</b> → drag in the downloaded file → <b>Commit changes</b></li>
-      <li>Go to <b>Actions → Daily Morning Brief → Run workflow</b> to refresh the brief immediately</li>
-    </ol>
-    <br>
-    To load an existing keywords.json from your computer: use <b>Upload keywords.json</b> above.
+  <div class="note">
+    <b>This page has been replaced.</b> Keyword editing is now built directly
+    into the Morning Brief — no separate tool required.
   </div>
 
-  <div id="editor"></div>
+  <p>Open the brief and click <b>&#9998; Keyword Studio</b> in the top control bar.
+  The Studio lets you add or remove keywords per client, manage manual clippings,
+  and download an updated <code>keywords.json</code> — all in one place.</p>
+
+  <p>The old editor used a different field schema and would have overwritten your
+  keyword config with empty values. It has been replaced to prevent data loss.</p>
+
+  <a class="go" href="./index.html">Go to the Brief &rarr;</a>
+
+  <p class="count">Redirecting automatically in 6 seconds&hellip;</p>
 </div>
-
-<div class="foot">
-  Changes only take effect after downloading the JSON, uploading to GitHub, and triggering the Action.
-  The brief auto-runs every weekday at 6:30 AM SL time.
-</div>
-
-</div>
-
-<script>
-let KW = {};        // current working copy
-let KW_LOADED = {}; // last loaded copy for reset
-
-/* ── Load on startup ── */
-async function init() {
-  try {
-    const res = await fetch('./keywords.json?' + Date.now());
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    KW = await res.json();
-    KW_LOADED = JSON.parse(JSON.stringify(KW));
-    setStatus('Loaded from GitHub Pages · ' + new Date().toLocaleTimeString(), 'ok');
-  } catch(e) {
-    setStatus('Could not auto-load — use "Upload keywords.json" to load from your computer', 'err');
-    KW = {};
-  }
-  render();
-}
-
-/* ── File upload ── */
-document.getElementById('file-input').addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      KW = JSON.parse(ev.target.result);
-      KW_LOADED = JSON.parse(JSON.stringify(KW));
-      setStatus('Loaded from ' + file.name, 'ok');
-      render();
-    } catch(err) {
-      setStatus('Invalid JSON — ' + err.message, 'err');
-    }
-  };
-  reader.readAsText(file);
-});
-
-function resetToLoaded() {
-  KW = JSON.parse(JSON.stringify(KW_LOADED));
-  setStatus('Reset to last loaded version', '');
-  render();
-}
-
-/* ── Render editor ── */
-function render() {
-  const ed = document.getElementById('editor');
-  if (!Object.keys(KW).length) {
-    ed.innerHTML = '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--faint);padding:20px 0;">No keywords loaded. Upload a keywords.json file to begin.</p>';
-    return;
-  }
-  ed.innerHTML = '';
-  Object.entries(KW).forEach(([key, data]) => {
-    const block = document.createElement('div');
-    block.className = 'client-block';
-    block.innerHTML =
-      '<div class="client-head">' +
-        '<span class="client-name">' + esc(data.label || key) + '</span>' +
-        (data.tag ? '<span class="client-tag">' + esc(data.tag) + '</span>' : '') +
-        '<span class="client-rule"></span>' +
-      '</div>' +
-      modeSection(key, 'mentions', 'Mentions') +
-      modeSection(key, 'industry', 'Industry');
-    ed.appendChild(block);
-    // Wire add inputs
-    ['mentions','industry'].forEach(mode => {
-      const inp = document.getElementById('add-'+key+'-'+mode);
-      if (inp) {
-        inp.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ',') {
-            e.preventDefault();
-            const val = inp.value.trim().replace(/^,|,$/, '');
-            if (val) addTerm(key, mode, val);
-            inp.value = '';
-          }
-        });
-      }
-    });
-  });
-}
-
-function modeSection(key, mode, label) {
-  const terms = (KW[key] && KW[key][mode]) || [];
-  const tags = terms.map((t, i) =>
-    '<span class="kw-tag">' + esc(t) +
-    '<span class="x" onclick="removeTerm(\'' + key + '\',\'' + mode + '\',' + i + ')">&#x2715;</span>' +
-    '</span>'
-  ).join('');
-  const query = buildQuery(terms);
-  return (
-    '<div class="mode-section">' +
-    '<div class="mode-label">' + label + '</div>' +
-    '<div class="tag-row" id="tags-' + key + '-' + mode + '">' +
-    tags +
-    '<input class="add-input" id="add-' + key + '-' + mode + '" placeholder="+ add term, press Enter">' +
-    '</div>' +
-    '<div class="query-preview"><b>Search query:</b> ' + esc(query || '(empty)') + '</div>' +
-    '</div>'
-  );
-}
-
-function buildQuery(terms) {
-  if (!terms || !terms.length) return '';
-  return terms.map(t => '"' + t + '"').join(' OR ');
-}
-
-function addTerm(key, mode, val) {
-  if (!KW[key]) KW[key] = { mentions: [], industry: [] };
-  if (!KW[key][mode]) KW[key][mode] = [];
-  if (!KW[key][mode].includes(val)) {
-    KW[key][mode].push(val);
-    setStatus('Added "' + val + '" to ' + KW[key].label + ' ' + mode, 'ok');
-    render();
-  }
-}
-
-function removeTerm(key, mode, idx) {
-  if (KW[key] && KW[key][mode]) {
-    const removed = KW[key][mode].splice(idx, 1);
-    setStatus('Removed "' + removed[0] + '"', '');
-    render();
-  }
-}
-
-/* ── Download ── */
-function downloadJSON() {
-  const blob = new Blob([JSON.stringify(KW, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'keywords.json';
-  a.click();
-  setStatus('Downloaded keywords.json — now upload it to GitHub', 'ok');
-}
-
-/* ── Helpers ── */
-function setStatus(msg, cls) {
-  const el = document.getElementById('status');
-  el.textContent = msg;
-  el.className = 'status' + (cls ? ' ' + cls : '');
-}
-
-function esc(s) {
-  return String(s == null ? '' : s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-init();
-</script>
 </body>
 </html>

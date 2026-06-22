@@ -55,32 +55,10 @@
     "feeds.bloomberg.com"
   ],
   "blocked_domains": [],
-  "outlet_categories": {
-    "daily_newspapers": [
-      "Daily FT",
-      "Daily Mirror",
-      "The Island",
-      "Daily News"
-    ],
-    "sunday_newspapers": [
-      "Sunday Times",
-      "Sunday Observer"
-    ],
-    "business_news": [
-      "EconomyNext",
-      "Newswire",
-      "LBO",
-      "Lanka Business News",
-      "Business Cafe",
-      "Ceylon Business Reporter"
-    ],
-    "news_portals": [
-      "Colombo Gazette",
-      "Ada Derana",
-      "The Morning",
-      "Ceylon Today"
-    ]
-  },
+  "accepted_outlets": [
+    "Sunday Observer",
+    "Lakehouse"
+  ],
   "source_rank_info": {
     "1": "Priority Sri Lankan business/news outlet",
     "2": "Acceptable Sri Lankan outlet",

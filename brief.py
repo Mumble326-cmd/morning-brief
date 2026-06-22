@@ -28,12 +28,12 @@ import feedparser
 from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE, DIRECT_FEEDS
 from utils import (
     load_json, save_json, normalize_text, extract_domain, source_rank,
+    source_name_rank, effective_source_rank,
     classify_story, cluster_stories, choose_primary_story, term_matches,
     save_archive, validate_no_private_contacts,
-    load_previous_story_keys, load_trend_counts
+    load_previous_story_keys, load_trend_counts, prune_old_archives,
+    SL_TZ,
 )
-
-SL_TZ = timezone(timedelta(hours=5, minutes=30))
 
 # ── Fetch ──────────────────────────────────────────────────────────────────────
 
@@ -414,6 +414,9 @@ h1 .it{font-style:italic;font-weight:600;}
   text-decoration:none;color:var(--muted);background:var(--cream);
   border:1px solid var(--rule-soft);padding:2px 7px;border-radius:2px;transition:all .12s;}
 .pub-chip:hover{border-color:var(--accent);color:var(--ink);}
+.cov-first{font-size:7px;letter-spacing:.06em;background:var(--gold);color:var(--accent);
+  padding:1px 4px;border-radius:2px;vertical-align:middle;font-weight:700;margin-left:2px;}
+.cov-date{font-size:7.5px;color:var(--faint);margin-left:1px;}
 .no-stories{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);
   padding:12px 0;letter-spacing:.04em;}
 .foot{padding:16px 36px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;
@@ -639,6 +642,36 @@ function render() {
 document.addEventListener('DOMContentLoaded', () => {
   syncBtns('win'); syncBtns('client'); syncBtns('category');
 });
+
+function downloadCoverage() {
+  const cl = state.client, cat = state.category;
+  const labelMap = {};
+  CLIENTS.forEach(c => { labelMap[c.key] = c.label; });
+  const rows = [['Date','Client','Category','Headline','Source','URL','Also Covered By (outlets)','Also Covered By (URLs)']];
+  STORIES.forEach(s => {
+    if (s.category === 'low_relevance') return;
+    if (cl !== 'all' && s.client !== cl) return;
+    if (cat !== 'all' && s.category !== cat) return;
+    const also = s.also_covered_by || [];
+    rows.push([
+      s.date || '',
+      labelMap[s.client] || s.client,
+      (s.category || '').replace(/_/g, ' '),
+      s.headline || '',
+      s.source || '',
+      s.url || '',
+      also.map(x => x.source || '').filter(Boolean).join(' | '),
+      also.map(x => x.url || '').filter(Boolean).join(' | '),
+    ]);
+  });
+  const csv = rows.map(r =>
+    r.map(cell => '"' + String(cell == null ? '' : cell).replace(/"/g, '""') + '"').join(',')
+  ).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['﻿' + csv], {type: 'text/csv'}));
+  a.download = 'morning-brief-coverage.csv';
+  a.click();
+}
 """
 
 STUDIO_JS = r"""
@@ -934,13 +967,17 @@ function addClip() {
   const now = new Date();
   let domain = '';
   try { domain = new URL(url).hostname; } catch(e){}
+  // Derive ts from the article's publication date; fall back to now if unparseable
+  const dateVal = g('clip-date');
+  let ts = now.getTime();
+  if (dateVal) { const pd = new Date(dateVal); if (!isNaN(pd.getTime())) ts = pd.getTime(); }
   if (!CLIPS.articles) CLIPS.articles = [];
   CLIPS.articles.push({
     id: 'manual_' + now.getTime(),
     url, headline,
     source:   g('clip-source')  || 'Unknown',
-    date:     g('clip-date')    || now.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),
-    ts:       now.getTime(),
+    date:     dateVal || now.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),
+    ts,
     snippet:  g('clip-snippet'),
     client,   client_label: clientLabel,
     category, reason: g('clip-reason'),
@@ -1038,21 +1075,35 @@ def render_story_card(story, cluster_info=None):
     cat_display = category.replace('_', ' ').title()
 
     also_covered_html = ''
-    if cluster_info and cluster_info.get('also_covered_by'):
-        # One linked chip per outlet, deduped by source name, under the same banner
-        seen_sources = set()
-        chips = ''
-        for s in cluster_info['also_covered_by']:
-            name = s.get('source') or s.get('domain') or 'Source'
+    # Build full coverage list: primary + all secondaries, sorted by publish date
+    all_cov = [{'source': story.get('source', 'Unknown'), 'url': url,
+                'ts': story.get('ts', 0), 'date': story.get('date', '')}]
+    if cluster_info:
+        for s in cluster_info.get('also_covered_by', []):
+            all_cov.append({'source': s.get('source') or s.get('domain') or 'Source',
+                            'url': s.get('url', '#'), 'ts': s.get('ts', 0),
+                            'date': s.get('date', '')})
+    if len(all_cov) > 1:
+        all_cov_sorted = sorted(all_cov, key=lambda x: x.get('ts') or 0)
+        first_ts = all_cov_sorted[0].get('ts') or 0
+        seen_sources, chips = set(), ''
+        for cov in all_cov_sorted:
+            name = cov['source']
             if name in seen_sources:
                 continue
             seen_sources.add(name)
+            is_first = first_ts and cov.get('ts') == first_ts
+            # Extract short date: "20 Jun" from "20 Jun 2026 · 14:30 SL"
+            dm = re.match(r'(\d{1,2}\s+\w{3})', cov.get('date', ''))
+            short_date = dm.group(1) if dm else ''
+            first_badge = ' <span class="cov-first">1st</span>' if is_first else ''
+            date_badge = f' <span class="cov-date">{h(short_date)}</span>' if short_date else ''
             chips += (
-                f'<a class="pub-chip" href="{h(s.get("url", "#"))}" '
-                f'target="_blank" rel="noopener">{h(name)}</a>'
+                f'<a class="pub-chip" href="{h(cov.get("url","#"))}" '
+                f'target="_blank" rel="noopener">{h(name)}{first_badge}{date_badge}</a>'
             )
         also_covered_html = (
-            f'<div class="pub-chips"><span class="pub-chips-label">Also in</span>{chips}</div>'
+            f'<div class="pub-chips"><span class="pub-chips-label">Coverage</span>{chips}</div>'
         )
 
     new_tag       = '<span class="story-tag tag-new">&#9733; New</span>' if story.get('is_new') else ''
@@ -1178,6 +1229,11 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
     flat_stories = []
     for cs in clustered_stories:
         flat_story = {k: v for k, v in cs.items() if k != '_cluster_info'}
+        ci = cs.get('_cluster_info')
+        flat_story['also_covered_by'] = [
+            {'source': x.get('source'), 'url': x.get('url'), 'date': x.get('date'), 'ts': x.get('ts', 0)}
+            for x in (ci.get('also_covered_by', []) if ci else [])
+        ]
         flat_stories.append(flat_story)
     
     story_json = json.dumps(flat_stories, ensure_ascii=False)
@@ -1294,6 +1350,8 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         'onclick="location.reload()" title="Reload page to fetch latest brief">&#8635; Refresh</button>'
         '  <button class="ctrl-btn" id="lowrel-btn" style="margin-left:6px;" '
         'onclick="toggleLowRel()" title="Toggle visibility of low relevance stories">Show low relevance</button>'
+        '  <button class="ctrl-btn" style="margin-left:6px;" '
+        'onclick="downloadCoverage()" title="Download all coverage as CSV">&#x2193; Coverage CSV</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;border-color:var(--gold);color:var(--gold);" '
         'onclick="openStudio()">&#9998; Keyword Studio</button>'
         '</div>\n'
@@ -1440,7 +1498,9 @@ def main():
         story['category'] = category
         story['relevance_score'] = relevance
         story['matched_terms'] = matched
-        story['source_rank'] = source_rank(story.get('domain', ''), outlets_config)
+        # Use name-based rank for Google News stories (domain is news.google.com
+        # before URL resolution, so domain-only lookup always returns rank 4).
+        story['source_rank'] = effective_source_rank(story, outlets_config)
 
     # ── Merge manual clippings (pre-classified, injected after auto-classify) ─
     manual_data = load_json('manual_articles.json', {'articles': []})
@@ -1576,6 +1636,9 @@ def main():
     # ── Save archive ────────────────────────────────────────────────────────────
     print('Saving archive...')
     save_archive(clustered_stories, clusters)
+    pruned = prune_old_archives(keep_days=90)
+    if pruned:
+        print(f'Pruned {pruned} archive file(s) older than 90 days')
 
     print(f'Done — {OUTPUT_FILE} written ({len(page):,} bytes)')
     print(f'Done — data/latest.json and data/archive/ updated')

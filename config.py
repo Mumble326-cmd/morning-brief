@@ -69,43 +69,5 @@ SL_SIGNALS = {
     'trincomalee',
     'hatton',
     'negombo',
-    'lk',            # domain suffix, e.g. ft.lk, derana.lk
-}
-
-# ── Media contacts ────────────────────────────────────────────────────────────
-# Key = lowercase substring to match against the outlet name.
-# Value = (journalist name, email)
-CONTACTS = {
-    # Print
-    'daily mirror':             ('Shabiya Ahlam',           'shabiya.ahlam@gmail.com'),
-    'daily ft':                 ('Nisthar Cassim',           'nisthar@ft.lk'),
-    'ft.lk':                    ('Nisthar Cassim',           'nisthar@ft.lk'),
-    'daily news':               ('Dharma Sri',               'dharmassri05@gmail.com'),
-    'sunday observer':          ('Lalin Fernandopulle',      'lalinfernandopulle08@gmail.com'),
-    'the island':               ('Lynn Ockersz',             'lynnockersz976@gmail.com'),
-    'island.lk':                ('Lynn Ockersz',             'lynnockersz976@gmail.com'),
-    'the morning':              ('Madhusha Thevapalkumara',  'madhusha.news@gmail.com'),
-    'sunday morning':           ('Madhusha Thevapalkumara',  'madhusha.news@gmail.com'),
-    'sunday times':             ('Feizal Samath',            'bt@sundaytimes.wnl.lk'),
-    'ceylon today':             ('Ishara',                   'isharaorg@gmail.com'),
-    # Online
-    'ada derana':               ('Sisira Kannangara',        'sisira.derana@gmail.com'),
-    'economy next':             ('Asantha Sirimanne',        'asanthamail@gmail.com'),
-    'economynext':              ('Asantha Sirimanne',        'asanthamail@gmail.com'),
-    'lbo':                      ('Ashanthi Ratnasingham',    'ashanthir2@gmail.com'),
-    'lanka business online':    ('Ashanthi Ratnasingham',    'ashanthir2@gmail.com'),
-    'colombo gazette':          ('Easwaran Rutnam',           'easwaran@live.com'),
-    'business cafe':            ('Asanka',                   'asanka@businesscafe.lk'),
-    'ceylon business reporter': ('Isuru',                    'cbrwebeditor@gmail.com'),
-    'lankapuvath':              ('Chanaka Inoj',              'chanakainoj@yahoo.com'),
-    'lanka business news':      ('Milantha',                  'editor@lankabusinessnews.com'),
-    'mawrata':                  ('Rishar Saleem',             'rahsirlas@gmail.com'),
-    'newslanka':                ('Claude Gunasekera',         'claudegunasekera@gmail.com'),
-    'topic.lk':                 ('Indrajith',                 'indrajithneth@gmail.com'),
-    'e&b sri lanka':            ('Nimna',                     'enbsrilanka@gmail.com'),
-    'sunday reader':            ('Roy Silva',                  'roymarcussilva@gmail.com'),
-    'eyeview':                  ('Editor',                    'editor.eyeviewsl@gmail.com'),
-    # Monthly
-    'lmd':                      ('Tania Tanthri',             'tania@lmd.lk'),
-    'business today':           ('Kishendra',                 'kishendra@btoptions.com'),
+    '.lk',           # domain suffix in URLs/snippets, e.g. ft.lk, derana.lk
 }
