@@ -643,34 +643,85 @@ document.addEventListener('DOMContentLoaded', () => {
   syncBtns('win'); syncBtns('client'); syncBtns('category');
 });
 
-function downloadCoverage() {
+function printCoverage() {
   const cl = state.client, cat = state.category;
   const labelMap = {};
   CLIENTS.forEach(c => { labelMap[c.key] = c.label; });
-  const rows = [['Date','Client','Category','Headline','Source','URL','Also Covered By (outlets)','Also Covered By (URLs)']];
+  const today = new Date().toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+  let filterLabel = '';
+  if (cl !== 'all') filterLabel += ' · ' + (labelMap[cl] || cl);
+  if (cat !== 'all') filterLabel += ' · ' + cat.replace(/_/g,' ');
+
+  // Group by client
+  const byClient = {};
   STORIES.forEach(s => {
     if (s.category === 'low_relevance') return;
     if (cl !== 'all' && s.client !== cl) return;
     if (cat !== 'all' && s.category !== cat) return;
-    const also = s.also_covered_by || [];
-    rows.push([
-      s.date || '',
-      labelMap[s.client] || s.client,
-      (s.category || '').replace(/_/g, ' '),
-      s.headline || '',
-      s.source || '',
-      s.url || '',
-      also.map(x => x.source || '').filter(Boolean).join(' | '),
-      also.map(x => x.url || '').filter(Boolean).join(' | '),
-    ]);
+    if (!byClient[s.client]) byClient[s.client] = [];
+    byClient[s.client].push(s);
   });
-  const csv = rows.map(r =>
-    r.map(cell => '"' + String(cell == null ? '' : cell).replace(/"/g, '""') + '"').join(',')
-  ).join('\n');
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob(['﻿' + csv], {type: 'text/csv'}));
-  a.download = 'morning-brief-coverage.csv';
-  a.click();
+
+  let body = '';
+  CLIENTS.forEach(c => {
+    const ss = byClient[c.key];
+    if (!ss || !ss.length) return;
+    body += `<div class="cl"><div class="cl-name">${c.label}</div>`;
+    ss.forEach(s => {
+      const also = s.also_covered_by || [];
+      let alsoHtml = '';
+      if (also.length) {
+        alsoHtml = '<div class="also-head">Also covered by:</div>' +
+          also.map(x => `<div class="also-row"><span class="also-src">${x.source||''}</span> <span class="also-url">${x.url||''}</span></div>`).join('');
+      }
+      body += `<div class="story">
+        <div class="hl"><a href="${s.url||''}">${s.headline||''}</a></div>
+        <div class="meta">${s.source||''} &nbsp;·&nbsp; ${s.date||''} &nbsp;·&nbsp; <span class="cat">${(s.category||'').replace(/_/g,' ')}</span></div>
+        <div class="url">${s.url||''}</div>
+        ${alsoHtml}
+      </div>`;
+    });
+    body += '</div>';
+  });
+
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <title>Morning Brief Coverage — ${today}</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Georgia,serif;font-size:10.5pt;color:#111;max-width:750px;margin:0 auto;padding:28px 24px;}
+    h1{font-size:20pt;margin-bottom:3px;}
+    .dateline{font-size:9pt;color:#666;font-family:monospace;margin-bottom:22px;letter-spacing:.04em;}
+    .cl{margin-bottom:22px;page-break-inside:avoid;}
+    .cl-name{font-size:14pt;font-weight:bold;border-bottom:2px solid #000;padding-bottom:3px;margin-bottom:10px;}
+    .story{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #ddd;page-break-inside:avoid;}
+    .hl{font-size:11pt;font-weight:bold;margin-bottom:3px;}
+    .hl a{color:#000;text-decoration:none;}
+    .meta{font-size:8.5pt;color:#555;font-family:monospace;margin-bottom:2px;}
+    .cat{text-transform:uppercase;font-size:7.5pt;letter-spacing:.05em;}
+    .url{font-size:7.5pt;color:#0645AD;word-break:break-all;margin-bottom:4px;}
+    .also-head{font-size:8pt;font-family:monospace;color:#555;margin-top:5px;text-transform:uppercase;letter-spacing:.06em;}
+    .also-row{font-size:8pt;margin:2px 0 2px 10px;font-family:monospace;}
+    .also-src{font-weight:bold;color:#333;}
+    .also-url{color:#0645AD;word-break:break-all;}
+    @media print{
+      body{max-width:none;padding:0 18px;}
+      a[href]::after{content:" (" attr(href) ")";font-size:7pt;color:#666;}
+      .hl a::after{display:none;}
+      .url::before{content:"";}
+    }
+  </style>
+  </head><body>
+  <h1>Morning Brief — Coverage Report</h1>
+  <div class="dateline">${today}${filterLabel}</div>
+  ${body}
+  </body></html>`;
+
+  const w = window.open('','_blank');
+  if (!w) { alert('Allow pop-ups to generate the PDF.'); return; }
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 600);
 }
 """
 
@@ -901,25 +952,45 @@ function renderClips() {
     list.innerHTML = '<div class="clip-empty">No manual clippings yet — paste a URL above to add one.</div>';
     return;
   }
-  list.innerHTML = arts.map((a, i) =>
-    `<div class="clip-item">
-      <div class="clip-item-hl">${htmlesc(a.headline)}</div>
-      <div class="clip-item-meta">
-        <span>${htmlesc(a.source||'')}</span>
-        <span>${htmlesc(a.date||'')}</span>
-        <span>${htmlesc(a.client_label||a.client||'')}</span>
-        <span>${htmlesc((a.category||'').replace(/_/g,' '))}</span>
+  list.innerHTML = arts.map((a, i) => {
+    const also = a.also_covered_by || [];
+    const alsoLabel = also.length ? `<span style="color:var(--gold)">+${also.length} outlet${also.length>1?'s':''}</span>` : '';
+    return `<div class="clip-item">
+      <div style="display:flex;align-items:flex-start;gap:6px;">
+        <div style="display:flex;flex-direction:column;gap:3px;flex-shrink:0;padding-top:2px;">
+          <button class="clip-item-rm" onclick="moveClip(${i},-1)" ${i===0?'disabled':''} title="Move up">↑</button>
+          <button class="clip-item-rm" onclick="moveClip(${i},1)" ${i===arts.length-1?'disabled':''} title="Move down">↓</button>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div class="clip-item-hl">${htmlesc(a.headline)}</div>
+          <div class="clip-item-meta">
+            <span>${htmlesc(a.source||'')}</span>
+            <span>${htmlesc(a.date||'')}</span>
+            <span>${htmlesc(a.client_label||a.client||'')}</span>
+            <span>${htmlesc((a.category||'').replace(/_/g,' '))}</span>
+            ${alsoLabel}
+          </div>
+          ${a.reason ? `<div class="clip-item-reason">${htmlesc(a.reason)}</div>` : ''}
+          <button class="clip-item-rm" onclick="removeClip(${i})">remove</button>
+        </div>
       </div>
-      ${a.reason ? `<div class="clip-item-reason">${htmlesc(a.reason)}</div>` : ''}
-      <button class="clip-item-rm" onclick="removeClip(${i})">remove</button>
-    </div>`
-  ).join('');
+    </div>`;
+  }).join('');
 }
 
 function removeClip(i) {
   CLIPS.articles.splice(i, 1);
   renderClips();
   setKsStatus('Clipping removed — download to apply', 'warn');
+}
+
+function moveClip(i, dir) {
+  const arts = CLIPS.articles || [];
+  const j = i + dir;
+  if (j < 0 || j >= arts.length) return;
+  [arts[i], arts[j]] = [arts[j], arts[i]];
+  renderClips();
+  setKsStatus('Reordered — download to apply', '');
 }
 
 async function fetchClipMeta() {
@@ -956,6 +1027,23 @@ async function fetchClipMeta() {
   }
 }
 
+const OUTLET_DOMAIN_MAP = {
+  'ft.lk':'Daily FT','dailymirror.lk':'Daily Mirror','island.lk':'The Island',
+  'themorning.lk':'The Morning','adaderana.lk':'Ada Derana',
+  'bizenglish.adaderana.lk':'Ada Derana Biz','lankabusinessnews.com':'Lanka Business News',
+  'economynext.com':'EconomyNext','lankabusinessonline.com':'LBO',
+  'colombogazette.com':'Colombo Gazette','dailynews.lk':'Daily News',
+  'sundaytimes.lk':'Sunday Times','newswire.lk':'Newswire',
+  'businesscafe.lk':'Business Cafe','srilankachronicle.com':'Sri Lanka Chronicle',
+  'ceylontoday.lk':'Ceylon Today','sundayobserver.lk':'Sunday Observer',
+};
+function outletNameFromUrl(u) {
+  try {
+    const h = new URL(u).hostname.replace(/^www\./,'');
+    return OUTLET_DOMAIN_MAP[h] || h;
+  } catch(e) { return u; }
+}
+
 function addClip() {
   const g   = id => document.getElementById(id).value.trim();
   const url = g('clip-url'), headline = g('clip-headline');
@@ -971,6 +1059,14 @@ function addClip() {
   const dateVal = g('clip-date');
   let ts = now.getTime();
   if (dateVal) { const pd = new Date(dateVal); if (!isNaN(pd.getTime())) ts = pd.getTime(); }
+  // Parse additional coverage URLs (one per line)
+  const coverageRaw = document.getElementById('clip-coverage-urls').value.trim();
+  const alsoCovered = coverageRaw.split(/\n+/).map(u => u.trim()).filter(u => u.startsWith('http')).map(u => ({
+    url: u,
+    source: outletNameFromUrl(u),
+    date: dateVal || '',
+    ts: ts,
+  }));
   if (!CLIPS.articles) CLIPS.articles = [];
   CLIPS.articles.push({
     id: 'manual_' + now.getTime(),
@@ -981,15 +1077,16 @@ function addClip() {
     snippet:  g('clip-snippet'),
     client,   client_label: clientLabel,
     category, reason: g('clip-reason'),
-    domain,   added_at: now.toISOString().slice(0,10)
+    domain,   added_at: now.toISOString().slice(0,10),
+    also_covered_by: alsoCovered,
   });
-  ['clip-url','clip-headline','clip-source','clip-snippet','clip-reason'].forEach(id =>
+  ['clip-url','clip-headline','clip-source','clip-snippet','clip-reason','clip-coverage-urls'].forEach(id =>
     { document.getElementById(id).value = ''; }
   );
   document.getElementById('clip-date').value = '';
   document.getElementById('clip-fetch-status').textContent = '';
   renderClips();
-  setKsStatus('Clipping added — download manual_articles.json to apply', 'ok');
+  setKsStatus('Clipping added' + (alsoCovered.length ? ` with ${alsoCovered.length} coverage URL(s)` : '') + ' — download manual_articles.json to apply', 'ok');
 }
 
 function downloadClips() {
@@ -1286,6 +1383,9 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         '<option value="market_watch">Market Watch</option>'
         '<option value="risk_watch">Risk Watch</option>'
         '</select></div>\n'
+        '          <div class="clip-row"><span class="clip-label">Coverage URLs</span>'
+        '<textarea class="clip-textarea" id="clip-coverage-urls" style="min-height:64px;" '
+        'placeholder="Paste other outlet URLs that covered this story — one per line. These appear as linked chips on the card."></textarea></div>\n'
         '          <div class="clip-row"><span class="clip-label">Reason</span>'
         '<textarea class="clip-textarea" id="clip-reason" '
         'placeholder="Why are you adding this? Becomes institutional memory for future briefs and Claude sessions."></textarea></div>\n'
@@ -1351,7 +1451,7 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         '  <button class="ctrl-btn" id="lowrel-btn" style="margin-left:6px;" '
         'onclick="toggleLowRel()" title="Toggle visibility of low relevance stories">Show low relevance</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;" '
-        'onclick="downloadCoverage()" title="Download all coverage as CSV">&#x2193; Coverage CSV</button>'
+        'onclick="printCoverage()" title="Print or save all coverage as PDF">&#x2399; Coverage PDF</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;border-color:var(--gold);color:var(--gold);" '
         'onclick="openStudio()">&#9998; Keyword Studio</button>'
         '</div>\n'
@@ -1528,6 +1628,25 @@ def main():
     # ── Cluster duplicates ────────────────────────────────────────────────────
     print('Grouping duplicate stories...')
     clusters = cluster_stories(all_stories, outlets_config)
+
+    # Merge coverage URLs manually specified on a manual clip into its cluster.
+    # These links were pasted by the user when adding the clip and represent
+    # outlets the auto-fetcher may not have seen.
+    for cluster in clusters:
+        primary = cluster['primary']
+        if primary.get('is_manual') and primary.get('also_covered_by'):
+            existing = {x.get('url') for x in cluster.get('also_covered_by', [])}
+            for cov in primary['also_covered_by']:
+                if cov.get('url') and cov['url'] not in existing:
+                    cluster['also_covered_by'].append({
+                        'source':  cov.get('source', extract_domain(cov.get('url', ''))),
+                        'url':     cov.get('url', ''),
+                        'domain':  extract_domain(cov.get('url', '')),
+                        'headline': '',
+                        'date':    cov.get('date', ''),
+                        'ts':      cov.get('ts', 0),
+                    })
+                    existing.add(cov['url'])
 
     clustered_stories = []
     for cluster in clusters:

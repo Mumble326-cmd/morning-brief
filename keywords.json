@@ -105,7 +105,10 @@
       "TTEL",
       "Hayleys Plantations",
       "Logiwiz",
-      "Unisyst"
+      "Unisyst",
+      "Kingsbury",
+      "Kingsbury PLC",
+      "Kingsbury Hotel"
     ],
     "industry_watch": [
       "plantation sector",
@@ -122,7 +125,14 @@
       "Browns Investments"
     ],
     "market_watch": [],
-    "risk_watch": [],
+    "risk_watch": [
+      "Kingsbury Wimal",
+      "Kingsbury defamatory",
+      "Kingsbury injunction",
+      "Hayleys fraud",
+      "Hayleys scandal",
+      "Hayleys investigation"
+    ],
     "exclude": [
       "sports",
       "cricket",
