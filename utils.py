@@ -58,31 +58,56 @@ def source_rank(domain, outlets_config):
     """
     if not domain:
         return 4
-    
+
     domain = domain.lower()
-    
-    # Check priority domains
+
     if domain in outlets_config.get('priority_domains', []):
         return 1
-    
-    # Check acceptable domains
     if domain in outlets_config.get('accepted_domains', []):
         return 2
-    
-    # Check international domains
     if domain in outlets_config.get('international_domains', []):
         return 3
-    
-    # Check low-priority/aggregator domains
     if domain in outlets_config.get('aggregator_domains', []):
         return 4
-    
-    # Check blocked domains
     if domain in outlets_config.get('blocked_domains', []):
         return 5
-    
-    # Default: unknown source is low priority
     return 4
+
+def source_name_rank(source_name, outlets_config):
+    """
+    Rank by the outlet's display name (e.g. 'Daily FT') rather than its URL
+    domain. Used for Google News RSS items whose domain is news.google.com —
+    the RSS <source> tag gives the real outlet name even before redirect resolution.
+    Returns 1 if name matches a priority outlet, 3 otherwise (unknown but named
+    is still better than aggregator rank 4).
+    """
+    if not source_name:
+        return 4
+    s = source_name.lower()
+    for name in outlets_config.get('priority_outlets', []):
+        n = name.lower()
+        if n in s or s in n:
+            return 1
+    for name in outlets_config.get('accepted_outlets', []):
+        n = name.lower()
+        if n in s or s in n:
+            return 2
+    return 3
+
+def effective_source_rank(story, outlets_config):
+    """
+    Pick the best available rank for a story. If we have a real domain, use
+    domain-based ranking. For unresolved news.google.com stories, fall back to
+    name-based ranking so 'Daily FT' beats 'Unknown Aggregator' at cluster-primary
+    selection time (which happens before URL resolution).
+    """
+    domain = extract_domain(story.get('url', ''))
+    if domain and domain != 'news.google.com':
+        return source_rank(domain, outlets_config)
+    stored = story.get('source_rank')
+    if stored is not None and domain != 'news.google.com':
+        return stored
+    return source_name_rank(story.get('source', ''), outlets_config)
 
 # ── Story Classification ──────────────────────────────────────────────────────
 
@@ -247,24 +272,18 @@ def choose_primary_story(members, outlets_config):
     Select the best primary from a list of clustered member stories.
 
     Preference order:
-      1. Manual clips always win (curated, must stay the face of the cluster)
-      2. Highest-ranked outlet — lowest source_rank (1 = priority SL outlet,
-         4 = aggregator). Uses a story's stored source_rank if present, else
-         derives it from the URL domain.
-      3. Most recent publication (freshest framing of the same story)
-
-    Fixes the original bug where the loop tracked best_rank/best_ts but never
-    reassigned `best`, so it always returned the arbitrary first member.
+      1. Manual clips always win (curated content)
+      2. Best-ranked outlet — uses effective_source_rank() so a 'Daily FT'
+         Google News item beats an unknown aggregator even before URL resolution
+      3. Most recent publication
     """
-    def rank(s):
-        r = s.get('source_rank')
-        if r is None:
-            r = source_rank(extract_domain(s.get('url', '')), outlets_config)
-        return r
-
     return sorted(
         members,
-        key=lambda s: (0 if s.get('is_manual') else 1, rank(s), -s.get('ts', 0)),
+        key=lambda s: (
+            0 if s.get('is_manual') else 1,
+            effective_source_rank(s, outlets_config),
+            -s.get('ts', 0),
+        ),
     )[0]
 
 def cluster_stories(stories, outlets_config=None):
@@ -314,6 +333,7 @@ def cluster_stories(stories, outlets_config=None):
                     'domain':   extract_domain(s.get('url', '')),
                     'headline': s.get('headline'),
                     'date':     s.get('date'),
+                    'ts':       s.get('ts', 0),
                 }
                 for s in secondaries
             ],
@@ -417,6 +437,24 @@ def save_archive(stories, clusters):
     # Save to dated archive
     archive_path = get_archive_path(now_sl.date())
     save_json(archive_path, archive_data)
+
+# ── Archive Pruning ───────────────────────────────────────────────────────────
+
+def prune_old_archives(keep_days=90, archive_dir='data/archive'):
+    """Delete archive JSON files older than keep_days. Returns count deleted."""
+    try:
+        dates = sorted(f[:-5] for f in os.listdir(archive_dir) if f.endswith('.json'))
+    except OSError:
+        return 0
+    to_delete = dates[:-keep_days] if len(dates) > keep_days else []
+    deleted = 0
+    for d in to_delete:
+        try:
+            os.remove(os.path.join(archive_dir, d + '.json'))
+            deleted += 1
+        except OSError:
+            pass
+    return deleted
 
 # ── Validation ────────────────────────────────────────────────────────────────
 

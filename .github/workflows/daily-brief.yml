@@ -43,7 +43,7 @@ jobs:
           git add index.html data/
           # Only commit if files actually changed
           git diff --staged --quiet && echo "No changes to commit." || git commit -m "Daily brief: $(date -u +'%Y-%m-%d')"
-          git push
+          git push origin HEAD:main
 
       - name: Open issue for new risk stories
         env:
