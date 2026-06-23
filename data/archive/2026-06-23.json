@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T17:02:48.709049+00:00",
+  "generated_at": "2026-06-23T17:05:18.449477+00:00",
   "generated_date": "2026-06-23",
-  "generated_time": "22:32:48 SL",
+  "generated_time": "22:35:18 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -41,8 +41,33 @@
       "client": "mifl",
       "client_label": "MIFL",
       "category": "mention",
-      "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Also covered by The Island, Daily FT, and Ada Derana — add their URLs to also_covered_by once confirmed.",
-      "also_covered_by": [],
+      "reason": "MIFL's strongest-ever annual results (FY 2025-26). Covered across Daily Mirror, Daily FT, The Island, LBO, and Lanka Business News. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn.",
+      "also_covered_by": [
+        {
+          "url": "https://www.ft.lk/financial-services/Mahindra-Ideal-Finance-ups-pre-tax-profit-by-193--to-Rs--818-m-in-FY26/42-791800",
+          "source": "Daily FT",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        },
+        {
+          "url": "https://island.lk/mifl-records-profit-before-tax-of-lkr-818-million-in-fy-2025-26/",
+          "source": "The Island",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        },
+        {
+          "url": "https://www.lankabusinessonline.com/2026/05/12/mifl-records-pbt-of-lkr-818mn-in-fy-2025-26-up-193-pct-yoy/",
+          "source": "LBO",
+          "date": "12 May 2026",
+          "ts": 1778527200000
+        },
+        {
+          "url": "https://www.lankabusinessnews.com/mifl-records-profit-before-tax-of-lkr-818-million-in-fy-2025-26-up-193-year-on-year/",
+          "source": "Lanka Business News",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        }
+      ],
       "added_at": "2026-06-12",
       "is_manual": true,
       "is_low_relevance": false,
@@ -67,8 +92,21 @@
       "client": "mifl",
       "client_label": "MIFL",
       "category": "mention",
-      "reason": "MIFL's CSE debut — first capital markets milestone. Outside 30-day auto-fetch window but critical institutional context. Chairman Thilan Wijesinghe keynote. Signals MIFL moving from private NBFI to capital-market-facing entity.",
-      "also_covered_by": [],
+      "reason": "MIFL's CSE debut — first capital markets milestone. Outside 30-day auto-fetch window but critical institutional context. Signals MIFL moving from private NBFI to capital-market-facing entity.",
+      "also_covered_by": [
+        {
+          "url": "https://www.ft.lk/financial-services/Mahindra-Ideal-Finance-marks-Rs-1-b-CSE-debenture-listing/42-790827",
+          "source": "Daily FT",
+          "date": "15 Apr 2026",
+          "ts": 1776211200000
+        },
+        {
+          "url": "https://bizenglish.adaderana.lk/mahindra-ldeal-finances-rs-1-bn-debut-debenture-lssue-oversubscribed-on-day-1/",
+          "source": "Ada Derana Biz",
+          "date": "24 Mar 2026",
+          "ts": 1742774400000
+        }
+      ],
       "added_at": "2026-06-12",
       "is_manual": true,
       "is_low_relevance": false,
@@ -130,27 +168,6 @@
         "manual"
       ],
       "source_rank": 4,
-      "is_new": true
-    },
-    {
-      "headline": "Sri Lanka stocks trend up boosted by capital goods",
-      "url": "https://economynext.com/sri-lanka-stocks-trend-up-boosted-by-capital-goods-276218/",
-      "source": "EconomyNext",
-      "domain": "economynext.com",
-      "date": "23 Jun 2026 · 10:59 SL",
-      "ts": 1782192566000,
-      "snippet": "HNB, NDB, Melstacorp and NTB push ASPI",
-      "client": "hnb",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "e750ef117304",
-      "is_primary_in_cluster": true,
       "is_new": true
     },
     {
@@ -554,13 +571,13 @@
     },
     {
       "client": "hnb",
-      "headline": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOTkppdGd5RmlDYUJ3NDRjRHhVX1NtUUg3TUxiNkJUeUhzX05nanZqTG53TGVueHBsZWpKNkRRS1lrckpTX1gyUEx4bEJPV1RSRW1Ob21PQWdRS3ZvUHVyQ3RSdUtYMWZEY3dxY196c2hWX19GdnNpUHdEWTJ1eUlISGE3Tm8xVjdNakZCeTZOSUY1a3NZdnhTb2FCT3FiclhqNUZqS0pFWTBBUU1kR3FZRkc0UWpaWm5Fbm02SVZMX0gwLTJQdGVPYmdtVk15QzhUcFpRa0JDcUlPQVMxN3EzQ1d3UXRyWkdpX0VGZVdB?oc=5",
-      "source": "Whalesbook",
+      "headline": "Nucleus Software marks five years of partnership with Hatton National Bank",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQb1E2ejZMNWF5Zkl2NTBrcVhEU2VpSjE0UEhYYl9wanIyNkxQdGhnemYtRDFrSHNpNDBURl91SDRLbnNyaWxZM1VtVHMwRFVHNFR5M3MtVzREME9ITDh3X2wwcF9STzgzaVhUMWY4aGZCQUlRQ3VsTm9hQ0pqd2dkY2ZscFdKajJaM2piTUZEc2RzQ0NyN2VKX3FVMFNoR01SRVljT3VYRTZwa3V5UlVhMVptUU9Qb21UVlFmNnFvRTJ2bFpNWGQySjZuaw?oc=5",
+      "source": "scanx.trade",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 15:24 SL",
-      "ts": 1781258065000,
-      "snippet": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank Whalesbook",
+      "date": "12 Jun 2026 · 12:30 SL",
+      "ts": 1781247600000,
+      "snippet": "Nucleus Software marks five years of partnership with Hatton National Bank scanx.trade",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -569,9 +586,9 @@
       ],
       "source_rank": 3,
       "is_low_relevance": false,
-      "cluster_id": "e3d56af8a934",
+      "cluster_id": "113bfefc9231",
       "is_primary_in_cluster": true,
-      "is_new": false
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -764,27 +781,6 @@
     },
     {
       "client": "hayleys",
-      "headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOVTRibmNMcENUZDF3SEwxS01xMHRFelo2Z3hYY1NDWEcwWGotYW5hblpMcGxzS21qVEJ2UWFuUHg4VHdZZEVvazNJMXRmSDZETGlqYk0yNlJtVEZNelUzbzMyYUw1RmNzMWltcXZPWHpxaU1CUFVibElwZWY1SEppOEFfeXl6QXZrVW0zbENrTEJqczBkLU9IUHQ1eTVZNlhyM0I4dmFBM3VGNnNoNS1GM0pR?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "10 Jun 2026 · 12:30 SL",
-      "ts": 1781074800000,
-      "snippet": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka Daily Mirror - Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "Hayleys"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "83be30275deb",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hayleys",
       "headline": "Hayleys obtains enjoining order against Wimal Weerawansa",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQQkdkMTZUQmRGSlRsM19NcTJhcDF6VzcyMXFWekcya1I5QjBhaFZfMlpNVUJWeWF1VEdNQklpSjlkaUwzMFR2c0o2UVJQVGx4M09iZXhPcmkwX0NmdkI1X3JWMjd0cTI0QkszdE5mM1cyUVFMaU1CLWJZRzdvb1NfUTAxUGIwUmY1bGJsTDcyY0Jtazd0OFlwQjFrVWxqcDhweU1WOUM3RkdLZTd3?oc=5",
       "source": "Daily Mirror - Sri Lanka",
@@ -827,6 +823,27 @@
     },
     {
       "client": "pcc",
+      "headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQN3Jfd2lGdV90dU5OaVR3cjlEaVFBVjFqSGlFZ044ZjVnbEV4ZUhCNldhcThRQXB5RktwMWRLV1pQQWZkajhUUVF0OTdnTUVFY3VfREhPTDhSUUFLQUtCOEtzQXBNYWRHR1NSa2pjWlJINjVxRVRHSG9NNW9jcnFWckVnTDRDYnFlbllZZG02b2JOQW1pbnN1QkZxYjRMVklxQzNCVkF6cllNVFRiMC1ZY2FkbjlFb1FYN3prNm14WlVXSjNtNnZ6aUVESno3UQ?oc=5",
+      "source": "dailynews.lk",
+      "domain": "news.google.com",
+      "date": "08 Jun 2026 · 12:30 SL",
+      "ts": 1780902000000,
+      "snippet": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth dailynews.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "5def967a26d3",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
       "headline": "Commercial Bank extends operations to Port City Colombo | Daily FT - newspaper",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYUtZazd5Ym5CUEJJMUw4ZlctQ29HWFRQOU1obGJSUlQ1ZC1GVzRjMXZITFJJM1hmd3piQkhwSkYybjVaSldkQlZZYjYxNFA1cEY4OUo1RnRQWjVaTDFuUVRwXzFxOURrTTh5Rmg2bVQ1b1V3VWNTalFfakVoa2hPRG1JUnpfamprTDRXUmFISjJFaFVMbUdYQnAtdlNoQVZRSnJ1Z3RzcTVVQQ?oc=5",
       "source": "Magzter",
@@ -845,6 +862,27 @@
       "cluster_id": "1aa41966e4be",
       "is_primary_in_cluster": true,
       "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys Mobility introduces all-new JAECOO J5 HEV",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWI5b3hNVzZ3cVZUVGI4WE9OOEdYWVJ1ZnhxREV2YXJYaFp1MVRDRlNnM2ZVQ0Q3NkZFQnZGamszMkxvbUlhbmpPaE9MOHVpWk1fQUY2LXVDU2VRUmZ4NzMxbWstMEFqbW5ZZmhaMjlpWlZVazRJT3BmVUVaSTRRMktXN1pWcWRWQkNxNE9zdmdqcXhYYkxKM19EVkhsZWx3SHNqZVVza0NXZ1E?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "08 Jun 2026 · 02:03 SL",
+      "ts": 1780864415000,
+      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys Mobility introduces all-new JAECOO J5 HEV Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "e989cc7d7d8e",
+      "is_primary_in_cluster": true,
+      "is_new": false
     },
     {
       "client": "hayleys",
@@ -885,6 +923,27 @@
       "source_rank": 3,
       "is_low_relevance": false,
       "cluster_id": "365802d83afc",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMmdDeTZQcHdrQ1NFSmkwQUlrWTBhR0pDVnFzZXc5N0RhVlpkQWZ1OHN1dmVzWUtINTB1UHJqdU1tOVZTaFA2SWRraDN5VVJSTG5pQUpzWlZvdG9HbG9aNURXSzVheUIzWnpIX0hrTEJlbi1xc0t3SlZLNVo3Zm52Mk1vOXJpMk03RTdMZmhPZHpLTFl0Z2JVMjFrNEgyVXp5Z3pEa3B4ekpEbld2bVFfWjZkS2JiTmxJRThhNFU0cFltSVBpRUlLeTZWcU1nUQ?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "06 Jun 2026 · 12:30 SL",
+      "ts": 1780729200000,
+      "snippet": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "87e6c6cd2426",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -1792,6 +1851,25 @@
     },
     {
       "client": "hayleys",
+      "headline": "Calico Colors launches EV initiative and carbon-free vision",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdlAwZzFMRFJaeDZqd0tXM0VKcWd4WmZMOFlmTlUtaXROdURwdlNSbGdOQWRwRGYwa1ZfWllfMHdzdjVZQ0o2UnlfU0hteWJZekFlWWl3UVYydGpSeExzM2NGdlA2Vjd3T3VlbGFaYklUbFBEUHB6azZEOURUWTJoZEZZVmVBc3RCZk1rT2I5RXhfRGttRUl4NWZfQWRvdnJTbU5BbVJIbHNEeTgxS2FhbWpPOFR4Z21w?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 14:46 SL",
+      "ts": 1781946983000,
+      "snippet": "Calico Colors launches EV initiative and carbon-free vision Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "58a42368e00e",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
       "headline": "Indian diplomat meets Sri Lanka’s business leaders for economic talks",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTDdyQ1hoSmtycThTWEpkbEtaem9ESl96d0NtTE1kN2VSYlEybENoRlFPT0JfYmhVWUpFb21fMVpYMFFxa3BDVGtFbjBoVmVLVEtLRjJVWWFWZU00V2d4Qkx0TGhEeEtqUHI0UUQ5ZXRzSFkwR1FYMGtlNnVETkZjNmZwUlllNXMyYmM2Q2lBekN2ZmlqWEk3eTBubndDZHZBVFE?oc=5",
       "source": "EconomyNext",
@@ -1886,25 +1964,6 @@
       "is_new": false
     },
     {
-      "client": "hayleys",
-      "headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVHM2UnpSS2FhU3htbF81NFRlU2VqMVZaRmVWNmlDZ0dTX2UzVGN3MG1XS0hfMG84MzhCT1RLNlhmWDl6c0RqNmoyY3hGQTZHTmZHTGxBVWYteXhES3JOYnEwUm9fMm1rOFl5VXE4M3JTRjJvRER2T0NrcE5lYVp0T1NaLWVFV00?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "04 Jun 2026 · 12:30 SL",
-      "ts": 1780556400000,
-      "snippet": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched Daily Mirror - Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "low_relevance",
-      "relevance_score": 0.0,
-      "matched_terms": [],
-      "source_rank": 1,
-      "is_low_relevance": true,
-      "cluster_id": "f833a3a1ffdf",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
       "client": "mas",
       "headline": "Maliban Biscuits take on Brandix Apparel for MCA G division final on Friday",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSU5OLWdTQ1JJYWlrbUxadUxsdjV6NklJMjhZM2xRZjFfY3M5TVp3MTJDNFdWRXNxX21fN1B6OGVnQXlYRF9zOHJLWUNjaElDUzdRdG82RHRwQjM1MVdTT3poSjY5dFNnNGFmNkNnSFZWZ1ZUdUtjbFNuTW1RTFF3WGp2VWxPMUlwYlJnTEtyTk9zcGNEWmFUZA?oc=5",
@@ -1963,12 +2022,6 @@
       "also_covered_count": 2
     },
     {
-      "cluster_id": "e750ef117304",
-      "primary_headline": "Sri Lanka stocks trend up boosted by capital goods",
-      "primary_source": "EconomyNext",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "850901960c01",
       "primary_headline": "Treasury Secretary, CBSL Governor summoned as COPF probes $2.5 million cyber theft",
       "primary_source": "Ada Derana",
@@ -2013,6 +2066,12 @@
     {
       "cluster_id": "0ecdf241707d",
       "primary_headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "58a42368e00e",
+      "primary_headline": "Calico Colors launches EV initiative and carbon-free vision",
       "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
@@ -2149,10 +2208,10 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "e3d56af8a934",
-      "primary_headline": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank",
-      "primary_source": "Whalesbook",
-      "also_covered_count": 1
+      "cluster_id": "113bfefc9231",
+      "primary_headline": "Nucleus Software marks five years of partnership with Hatton National Bank",
+      "primary_source": "scanx.trade",
+      "also_covered_count": 0
     },
     {
       "cluster_id": "63fb468d448a",
@@ -2239,16 +2298,16 @@
       "also_covered_count": 1
     },
     {
-      "cluster_id": "83be30275deb",
-      "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 5
-    },
-    {
       "cluster_id": "e694ac6dff5e",
       "primary_headline": "Increased foreign remittances pep-up stock trading",
       "primary_source": "Island.lk",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "87e6c6cd2426",
+      "primary_headline": "Hayleys Mobility Launches the All-New JAECOO J5 HEV, Expanding Sri Lanka’s Premium Hybrid SUV Segment",
+      "primary_source": "Newswire",
+      "also_covered_count": 3
     },
     {
       "cluster_id": "3dc64f3e2218",
@@ -2269,10 +2328,22 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "5def967a26d3",
+      "primary_headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
+      "primary_source": "dailynews.lk",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "1aa41966e4be",
       "primary_headline": "Commercial Bank extends operations to Port City Colombo | Daily FT - newspaper",
       "primary_source": "Magzter",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "e989cc7d7d8e",
+      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition Hayleys Mobility introduces all-new JAECOO J5 HEV",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
     },
     {
       "cluster_id": "2b38a645d3f0",
@@ -2309,12 +2380,6 @@
       "primary_headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
       "primary_source": "Daily FT",
       "also_covered_count": 2
-    },
-    {
-      "cluster_id": "f833a3a1ffdf",
-      "primary_headline": "Sri Lanka Latest Breaking News and Headlines - Print Edition JAECOO J5 HEV launched",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 0
     },
     {
       "cluster_id": "8c79e5d8f1e7",
@@ -2482,13 +2547,13 @@
       "cluster_id": "3cbc20d2bbc2",
       "primary_headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
       "primary_source": "Daily Mirror",
-      "also_covered_count": 0
+      "also_covered_count": 4
     },
     {
       "cluster_id": "67e298bc23ad",
       "primary_headline": "Mahindra Ideal Finance debuts on CSE with oversubscribed Rs.1bn debenture",
       "primary_source": "Colombo Gazette",
-      "also_covered_count": 0
+      "also_covered_count": 2
     },
     {
       "cluster_id": "165f6aa2b95b",
@@ -2497,6 +2562,6 @@
       "also_covered_count": 4
     }
   ],
-  "total_stories": 92,
-  "total_clusters": 92
+  "total_stories": 93,
+  "total_clusters": 93
 }
