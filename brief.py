@@ -952,10 +952,14 @@ function renderClips() {
     list.innerHTML = '<div class="clip-empty">No manual clippings yet — paste a URL above to add one.</div>';
     return;
   }
+  const NOW_MS = Date.now();
   list.innerHTML = arts.map((a, i) => {
     const also = a.also_covered_by || [];
     const alsoLabel = also.length ? `<span style="color:var(--gold)">+${also.length} outlet${also.length>1?'s':''}</span>` : '';
-    return `<div class="clip-item">
+    const daysOld = a.ts ? (NOW_MS - a.ts) / 86400000 : 0;
+    const staleLabel = daysOld > 30
+      ? `<span style="color:var(--category-risk);font-weight:600;">STALE ${Math.round(daysOld)}d — consider removing</span>` : '';
+    return `<div class="clip-item" style="${daysOld>30?'border-left-color:var(--category-risk);opacity:.8;':''}">
       <div style="display:flex;align-items:flex-start;gap:6px;">
         <div style="display:flex;flex-direction:column;gap:3px;flex-shrink:0;padding-top:2px;">
           <button class="clip-item-rm" onclick="moveClip(${i},-1)" ${i===0?'disabled':''} title="Move up">↑</button>
@@ -968,7 +972,7 @@ function renderClips() {
             <span>${htmlesc(a.date||'')}</span>
             <span>${htmlesc(a.client_label||a.client||'')}</span>
             <span>${htmlesc((a.category||'').replace(/_/g,' '))}</span>
-            ${alsoLabel}
+            ${alsoLabel}${staleLabel}
           </div>
           ${a.reason ? `<div class="clip-item-reason">${htmlesc(a.reason)}</div>` : ''}
           <button class="clip-item-rm" onclick="removeClip(${i})">remove</button>
@@ -1627,6 +1631,7 @@ def main():
         art['is_low_relevance']      = False
         art['is_primary_in_cluster'] = True
         art['cluster_id']            = art.get('id', f'manual_{art.get("ts",0)}')
+        art['category']              = art.get('category') or 'mention'
         art['relevance_score']       = art.get('relevance_score', 1.0)
         art['matched_terms']         = art.get('matched_terms', ['manual'])
         art['source_rank']           = effective_source_rank(art, outlets_config)

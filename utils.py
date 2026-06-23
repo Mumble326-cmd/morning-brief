@@ -209,15 +209,10 @@ def normalize_for_dedup(title):
     t = re.sub(r'\s+', ' ', t).strip()
     return t
 
-DEDUP_WINDOW_MS = 72 * 3600 * 1000   # 72 hours
+DEDUP_WINDOW_MS = 120 * 3600 * 1000  # 5 days — financial results spread across outlets over days
 
 def _jaccard(title_a, title_b):
-    """
-    Token-level Jaccard similarity of two headlines. Threshold 0.5 per the
-    academic / industry standard for news-title near-duplicate detection
-    (USPTO patent 10783200; arxiv.org/abs/2410.01141; NewsCatcher API dedup
-    docs). Returns a value in [0, 1].
-    """
+    """Token-level Jaccard similarity of two headlines. Returns a value in [0, 1]."""
     a = set(normalize_for_dedup(title_a).split())
     b = set(normalize_for_dedup(title_b).split())
     if not a or not b:
@@ -233,11 +228,10 @@ def are_likely_duplicates(story_a, story_b):
       • Different client                                → never merge
       • Exact headline (after normalisation), any gap   → merge (wire copy and
         press releases get re-run across outlets days apart)
-      • Jaccard >= 0.5 AND published within 72 hours    → merge
-      • Jaccard >= 0.5 but a timestamp is missing        → merge (can't gate on
+      • Jaccard >= 0.38 AND published within 5 days    → merge
+      • Jaccard >= 0.38 but a timestamp is missing      → merge (can't gate on
         time we don't have; strong title match is enough)
-      • Jaccard < 0.5                                    → do not merge, even if
-        the same outlet publishes twice
+      • Jaccard < 0.38                                  → do not merge
     """
     # Same (non-empty) URL = definite duplicate
     if story_a.get('url') and story_a.get('url') == story_b.get('url'):
@@ -256,8 +250,10 @@ def are_likely_duplicates(story_a, story_b):
     if title_a == title_b:
         return True
 
-    # Jaccard similarity on title tokens, gated by a 72-hour window.
-    if _jaccard(title_a, title_b) >= 0.5:
+    # Jaccard similarity on title tokens, gated by the dedup window.
+    # 0.38 threshold: catches different outlets rewriting the same story with
+    # substantially different headlines while avoiding unrelated-story false merges.
+    if _jaccard(title_a, title_b) >= 0.38:
         ts_a = story_a.get('ts', 0)
         ts_b = story_b.get('ts', 0)
         if not ts_a or not ts_b:
