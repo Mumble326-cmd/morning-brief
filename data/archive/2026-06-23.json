@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T04:12:18.365071+00:00",
+  "generated_at": "2026-06-23T05:00:35.098568+00:00",
   "generated_date": "2026-06-23",
-  "generated_time": "09:42:18 SL",
+  "generated_time": "10:30:35 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -184,27 +184,6 @@
       "is_new": true
     },
     {
-      "client": "hnb",
-      "headline": "HNB Life engages communities through Vesak season activities",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWU9WbjNPNHJKVWJxX2t6N0ZhOE1GX24yTWswLXRoUTVkV3ZhMVUtc1NKTGUtTGQwV0dfMWZkMU9oVVZaQ0pGa2JXWFRhdndvUm1PVGJGZlgxVVhLTVZGNkdGWDlZUVQ0a3VSUllMUlduZW5TMDZGdVVsZXN0dWVYM2ZpU05tMEJvckpMZVJpckItSFI4OE1IRE5sVVVzdVlXdXVsX2RtMXktSXNBMHJxTWtUNmxUQThIQ1E?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
-      "domain": "news.google.com",
-      "date": "20 Jun 2026 · 14:46 SL",
-      "ts": 1781946988000,
-      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "fe4d0e83fc14",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
       "client": "mas",
       "headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMTBxNHJEYTV6anhENmxiREd2ZWplQnJCVWxHVVB1d0prazBhb01hTWNsN3V3Y0NqYktSUVBDTm5UeDJ4NWxoQTEwWFNhaEJOY2ZzVHpUVm05U0ZzUW5XT3ZvZ3ZaS3l3ZnhibjR3Vk1neXdaUUpiQTZGemdfNk1yS0NRZWRUWUt1MG9WbXRBLVJfZUFUNDBhb0NMX3ZiWjJQT25CeEhmNjdwb0FQei1qbzZ3ZnBpcUlnZG43cGhMaTI?oc=5",
@@ -264,6 +243,27 @@
       "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "9d1e7c6fbf58",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB Life engages communities through Vesak season activities",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPLXhtY3hoTnliTGFZanVad2lqbFZkY09HNTVhSThCc01uRndsVUxQNDc1TnJQTFdKMlNPSXNLQ1duU0hkNkRKbmVuS0paQUU1M1VYSzgzQ2w2Q3VBeWpnNm85RW9yS2VZT2NoSmdpeEIxLUNyNlpZZWNVX2NhTzNhemx2ZVcySW5LS3VTdVd6TU5xZ0lYaS1Tc2VuUnJmdU8ycnlybHZSN0NpWWRCXzVSc2dR?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Jun 2026 · 00:00 SL",
+      "ts": 1781893800000,
+      "snippet": "HNB Life engages communities through Vesak season activities Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "fe4d0e83fc14",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -585,11 +585,11 @@
     {
       "client": "hayleys",
       "headline": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMV9jZVBqV043Y1JTUDJ3T0JZNzQzeVpDRDYzMEh5T25hX0ZETlRZQzJQdTBrRDNmS0ZROFNETE02YlpIYzhDRndGOXRJWmxJeHpIUndHT195OHQ2SHdFbnQxN0dXMmZ3djBQU1dubVRrS0VSTHNVazBMenBJaTAwVG4tczlBc2tpSUg4eVh3MURUa0ZyWTQ5elJtXzB4aEJva2I5TkRxRDRlS2ZrRjRUaVpB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNU21UNDRoZGZMWUdQTUJGUW13RGk0SUlPc1otd2dxNmp1T01fTXFrYVNsNEtZVzhYWi13MGlqS1RKYU5QVWkyQTBTWnNCaTRDelI0MGZIVEt5NWR5cEIwRHZFZlo0UXUyZmxLZzVWR0VoWnFDQmc5RE82U0JDSHBkbUNmYWY3UmlfR3VieHBMYXdLQ0I4TE92NHFLV3p2Nm5OZE80dExaQkVHQQ?oc=5",
       "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 00:55 SL",
-      "ts": 1781205921000,
+      "date": "12 Jun 2026 · 00:42 SL",
+      "ts": 1781205120000,
       "snippet": "Hayleys Solar completes GPV Lanka’s 1.7MWp installation Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "mention",
@@ -1794,12 +1794,6 @@
       "also_covered_count": 0
     },
     {
-      "cluster_id": "fe4d0e83fc14",
-      "primary_headline": "HNB Life engages communities through Vesak season activities",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 1
-    },
-    {
       "cluster_id": "0ecdf241707d",
       "primary_headline": "MAS Bodyline leads third consecutive Sri Pada clean-up initiative",
       "primary_source": "Daily Mirror - Sri Lanka",
@@ -1834,6 +1828,12 @@
       "primary_headline": "HNB and IESL sign MoU to extend exclusive financial benefits to Sri Lanka’s engineering community",
       "primary_source": "Daily FT",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "fe4d0e83fc14",
+      "primary_headline": "HNB Life engages communities through Vesak season activities",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
     },
     {
       "cluster_id": "8e8e9bce4ca9",
