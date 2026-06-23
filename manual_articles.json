@@ -7,13 +7,14 @@
       "headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
       "source": "Daily Mirror",
       "domain": "www.dailymirror.lk",
-      "date": "13 May 2026 · 00:47 SL",
+      "date": "13 May 2026",
       "ts": 1778613420000,
       "snippet": "Mahindra Ideal Finance Ltd (MIFL) posted its strongest ever financial performance in FY 2025-26: PBT Rs.818mn (+193% YoY), PAT Rs.478mn (+228% YoY), disbursements Rs.57.6bn (+98% YoY). Loan book grew 82% YoY to Rs.26.95bn. Cost-to-income ratio improved to 50.5% from 68.9%. Gross stage 3 ratio declined to 1.73%.",
       "client": "mifl",
       "client_label": "MIFL",
       "category": "mention",
-      "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article and the CORS policy blocks the studio auto-fill. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Use as baseline whenever MIFL coverage looks thin — these numbers set the competitive context for the NBFI sector.",
+      "reason": "MIFL's strongest-ever annual results (FY 2025-26) — the anchor story for this client. Auto-fetch missed it because Daily Mirror blocks Google News indexing for this article. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn. Also covered by The Island, Daily FT, and Ada Derana — add their URLs to also_covered_by once confirmed.",
+      "also_covered_by": [],
       "added_at": "2026-06-12"
     },
     {
@@ -29,6 +30,7 @@
       "client_label": "BYD",
       "category": "risk_watch",
       "reason": "Major risk story for JKCG/BYD in Sri Lanka — government imposed 50% surcharge on vehicle imports effective May 16 2026 to defend the rupee. JKCG publicly rejected allegations of insider knowledge. Risk Watch because it directly affects BYD's commercial operations and public trust in the distributor.",
+      "also_covered_by": [],
       "added_at": "2026-06-12"
     },
     {
@@ -44,7 +46,49 @@
       "client_label": "MIFL",
       "category": "mention",
       "reason": "MIFL's CSE debut — first capital markets milestone. Outside 30-day auto-fetch window but critical institutional context. Chairman Thilan Wijesinghe keynote. Signals MIFL moving from private NBFI to capital-market-facing entity.",
+      "also_covered_by": [],
       "added_at": "2026-06-12"
+    },
+    {
+      "id": "manual_hayleys_kingsbury_injunction",
+      "url": "https://www.ft.lk/news/The-Kingsbury-PLC-obtains-enjoining-order-against-Wimal-Weerawansa/56-793459",
+      "headline": "Kingsbury PLC obtains enjoining order against Wimal Weerawansa over defamatory statements",
+      "source": "Daily FT",
+      "domain": "ft.lk",
+      "date": "18 Jun 2026",
+      "ts": 1750204800000,
+      "snippet": "Kingsbury PLC secured a court enjoining order against MP Wimal Weerawansa restraining him from making defamatory statements about the company and its management in relation to alleged defamatory remarks.",
+      "client": "hayleys",
+      "client_label": "Hayleys",
+      "category": "risk_watch",
+      "reason": "High-profile legal action involving Kingsbury (Hayleys subsidiary) against a sitting MP. Risk Watch — reputational exposure for the Hayleys group. Story ran across 5 outlets; all coverage links captured below.",
+      "also_covered_by": [
+        {
+          "url": "https://www.themorning.lk/articles/fMv6UHgi41Y13S72K6KL",
+          "source": "The Morning",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "http://bizenglish.adaderana.lk/the-kingsbury-plc-obtains-enjoining-order-against-wimal-weerawansa-in-relation-to-making-defamatory-statements/",
+          "source": "Ada Derana Biz",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "https://www.lankabusinessnews.com/the-kingsbury-plc-obtains-enjoining-order-against-wimal-weerawansa-in-relation-to-making-defamatory-statements/",
+          "source": "Lanka Business News",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "https://srilankachronicle.com/kingsbury-plc-secures-injunction-against-wimal-weerawansa-over-alleged-defamatory-remarks/",
+          "source": "Sri Lanka Chronicle",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        }
+      ],
+      "added_at": "2026-06-23"
     }
   ]
 }
