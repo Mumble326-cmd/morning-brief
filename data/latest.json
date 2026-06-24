@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T03:54:43.993062+00:00",
+  "generated_at": "2026-06-24T05:01:48.519331+00:00",
   "generated_date": "2026-06-24",
-  "generated_time": "09:24:43 SL",
+  "generated_time": "10:31:48 SL",
   "stories": [
     {
       "id": "manual_byd_jkcg_surcharge",
@@ -592,13 +592,13 @@
     },
     {
       "client": "hnb",
-      "headline": "Nucleus Software marks five years of partnership with Hatton National Bank",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQb1E2ejZMNWF5Zkl2NTBrcVhEU2VpSjE0UEhYYl9wanIyNkxQdGhnemYtRDFrSHNpNDBURl91SDRLbnNyaWxZM1VtVHMwRFVHNFR5M3MtVzREME9ITDh3X2wwcF9STzgzaVhUMWY4aGZCQUlRQ3VsTm9hQ0pqd2dkY2ZscFdKajJaM2piTUZEc2RzQ0NyN2VKX3FVMFNoR01SRVljT3VYRTZwa3V5UlVhMVptUU9Qb21UVlFmNnFvRTJ2bFpNWGQySjZuaw?oc=5",
-      "source": "scanx.trade",
+      "headline": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOTkppdGd5RmlDYUJ3NDRjRHhVX1NtUUg3TUxiNkJUeUhzX05nanZqTG53TGVueHBsZWpKNkRRS1lrckpTX1gyUEx4bEJPV1RSRW1Ob21PQWdRS3ZvUHVyQ3RSdUtYMWZEY3dxY196c2hWX19GdnNpUHdEWTJ1eUlISGE3Tm8xVjdNakZCeTZOSUY1a3NZdnhTb2FCT3FiclhqNUZqS0pFWTBBUU1kR3FZRkc0UWpaWm5Fbm02SVZMX0gwLTJQdGVPYmdtVk15QzhUcFpRa0JDcUlPQVMxN3EzQ1d3UXRyWkdpX0VGZVdB?oc=5",
+      "source": "Whalesbook",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 12:30 SL",
-      "ts": 1781247600000,
-      "snippet": "Nucleus Software marks five years of partnership with Hatton National Bank scanx.trade",
+      "date": "12 Jun 2026 · 15:24 SL",
+      "ts": 1781258065000,
+      "snippet": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank Whalesbook",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -607,9 +607,9 @@
       ],
       "source_rank": 3,
       "is_low_relevance": false,
-      "cluster_id": "113bfefc9231",
+      "cluster_id": "e3d56af8a934",
       "is_primary_in_cluster": true,
-      "is_new": false
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -676,6 +676,27 @@
     },
     {
       "client": "pcc",
+      "headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNWng1bHlnVWxoR3Z2NFJFVUVIZldXOUNmNnFKZlJ1UEszZzFSZnhGa05uQnFiX1VHUXBzX3VodXc1QXI0dzI0Z2hKRFhIZzExam9sQ29GUnFzSDRqZHZyY2dOOWNlU25BZ0t2Q1ByNjB5TS1Qd08tN2FKVDVVOHBaSS1hbmdfTEdqc0NIbUtnZjZEYnhQNmNDLWp5MFI3cFpVa1dsV3Vuclh6bVdIYnZ3LVVyb18yNnlRckFjWm5jNUdna1F2bkJDUmxRREt1dHRh?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "12 Jun 2026 · 12:30 SL",
+      "ts": 1781247600000,
+      "snippet": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "5def967a26d3",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
       "headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBzb2VzN19EZWNXeC1oOVZLQm9wYmpacEJac09id2RvSTNxYzFlSDhONWVmWk9XemJpckxyZWJXekFGUzJOTzRMS2xfekxqRHp3Rlowb19EU1M2SDFnNGIyU0l6TVNpczJ0Q21jd0RvZk14QTNBQ2FJ?oc=5",
       "source": "South Asian Voices",
@@ -718,13 +739,13 @@
     },
     {
       "client": "pcc",
-      "headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPblZnWjlESXhCdzduaU9HY1llbVUtLWoyWUdCTEloVDFvc1JXa2QwVi1zOTZTSVVaYzFqY21PM25TQ0tCRnBzdFBQcWlSUEg1bXE3c1ZzMmRTdVFjVlpxbmFfSTI5RHdjT1hWanQ0SnVUSTJDdzV3Q3U2eUwzSjR2Rm5SWXR6NUllX2pTaTlvTTRpY3FYaTJlYjR2T3pOWDdyV3Z4WlhaS2JMYUFEOGQySzNYbzhrWmJkR1gwZFlEbjRZRTZVRGlwRFFyeE9FNmJjR2Z1dHo3WTE?oc=5",
-      "source": "Daily Mirror - Sri Lanka",
+      "headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUm9XdkhOcVdTaGVkaEs3QnFaUmlQVENIX1JZVGN5bUFoTHRpdVo3VFhnT1duRWllUlhIbHpUVk1pcV8tOXlXMmtsUGxQUm9ITzJIV2J6TDNid0RTZm5Hck9ZNlhWemNFdTY4RHpORnlIMmJkVTlwV2JBNVUxVHlSdzh5R1lKcXZ1WExBckttRk90VE9EY1dINTIwbkQ4QWgwOEUwUHlLQnN5TmxsaW0wTWdIZ1NMdXcxRDIyWnlvT0RoVGRNVEZCZDRR?oc=5",
+      "source": "Colombo Gazette",
       "domain": "news.google.com",
-      "date": "12 Jun 2026 · 00:33 SL",
-      "ts": 1781204591000,
-      "snippet": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth Daily Mirror - Sri Lanka",
+      "date": "11 Jun 2026 · 12:30 SL",
+      "ts": 1781161200000,
+      "snippet": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition Colombo Gazette",
       "fetch_type": "direct_mentions",
       "category": "mention",
       "relevance_score": 1.0,
@@ -733,28 +754,7 @@
       ],
       "source_rank": 1,
       "is_low_relevance": false,
-      "cluster_id": "5def967a26d3",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
-      "headline": "HNB Life Is Closing Sri Lanka’s Insurance Gap",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOT090dXd2M3RTTFdyZlhIQ0ZuVEJ1dUJzOVMxZlIxR1JwdkR2UUhfZ2dkeEZJSkdsbnU1TUFqbUtsNk8yZS13R1lQTjJwOHhKZ2N4VGgzQjZRYjlSdUd1NU9HVExNejF1YVhBNHFnQUlwZG9ZV3JGbWJicGt2QVZ4aDR3RjB0VG5l?oc=5",
-      "source": "EconomyNext",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 22:42 SL",
-      "ts": 1781197920000,
-      "snippet": "HNB Life Is Closing Sri Lanka’s Insurance Gap EconomyNext",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "c2f782b5a99a",
+      "cluster_id": "fd7ee6b3abdc",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -776,27 +776,6 @@
       "source_rank": 1,
       "is_low_relevance": false,
       "cluster_id": "faa2f0098c44",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "pcc",
-      "headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUm9XdkhOcVdTaGVkaEs3QnFaUmlQVENIX1JZVGN5bUFoTHRpdVo3VFhnT1duRWllUlhIbHpUVk1pcV8tOXlXMmtsUGxQUm9ITzJIV2J6TDNid0RTZm5Hck9ZNlhWemNFdTY4RHpORnlIMmJkVTlwV2JBNVUxVHlSdzh5R1lKcXZ1WExBckttRk90VE9EY1dINTIwbkQ4QWgwOEUwUHlLQnN5TmxsaW0wTWdIZ1NMdXcxRDIyWnlvT0RoVGRNVEZCZDRR?oc=5",
-      "source": "Colombo Gazette",
-      "domain": "news.google.com",
-      "date": "11 Jun 2026 · 12:30 SL",
-      "ts": 1781161200000,
-      "snippet": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition Colombo Gazette",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "Colombo Port City"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "fd7ee6b3abdc",
       "is_primary_in_cluster": true,
       "is_new": false
     },
@@ -1263,27 +1242,6 @@
       "is_new": false
     },
     {
-      "client": "byd",
-      "headline": "US adds BYD to list of firms with alleged Chinese military ties",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUmtmSl9VTmxxSTdMUzhJNTVodjFOOW9aWnN2N3N0eWM3bkxORllDenpmblBzNGotT0JTYWNvSG82N05uQ1hSWjFneHRjZEItOXhKY2VqM3haMlFIc0NIdlJGdGpFZVBCN0IzWnBzb2lEMnlSWUxoVEY2eDBWYnRIb24taDFhYV9fRFpZNTBSNDc2MV9kQmdMYlZ2ZDPSAZwBQVVfeXFMTVJrZkpfVU5scUk3TFM4STU1aHYxTjlvWlpzdjdzdHljN25MTkZZQ3p6Zm5QczRqLU9CU2Fjb0hvNjdObkNYUloxZ3h0Y2RCLTl4SmNlajN4WjJRSHNDSHZSRnRqRWVQQjdCM1pwc29pRDJ5UllMaFRGNngwVmJ0SG9uLWgxYWFfX0RaWTUwUjQ3NjFfZEJnTGJWdmQz?oc=5",
-      "source": "Sri Lanka Mirror",
-      "domain": "news.google.com",
-      "date": "09 Jun 2026 · 12:30 SL",
-      "ts": 1780988400000,
-      "snippet": "US adds BYD to list of firms with alleged Chinese military ties Sri Lanka Mirror",
-      "fetch_type": "direct_mentions",
-      "category": "risk_watch",
-      "relevance_score": 0.8,
-      "matched_terms": [
-        "US adds BYD"
-      ],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "3dc64f3e2218",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
       "client": "hnb",
       "headline": "$ 2.5 m cyber theft probe: Treasury Secretary, CBSL Governor summoned by COPF",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBTRkxkZ0xUYjVHNFBPWTZETWF1RmF5M2hvNzQ4YkJLek1WdW9oY2c1Q1lMN0QxSHhnZUY3QWVQckQ2RXBteC1ITVZDOWtQcF9Ua0RjTWVwTkpDakFKbjBwZmtMQm8yQQ?oc=5",
@@ -1432,27 +1390,6 @@
     },
     {
       "client": "hnb",
-      "headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWVBVMjNtUzlkc1FQaUo0cDdBa2hkNkhnZFBVV3Y4MEZDdGdGdEppcUE4UjNSOVNzRmJ2RVZ1aWZXWlpHbjkxT3l4U0hraG1hTkJqZnY1LUp2dWc2QnhSaTZQWDJTZ1dYSktOYUowTF9BRFNHNHFhbmRFdmxUU0FBc0NOaDAzTUE?oc=5",
-      "source": "Island.lk",
-      "domain": "news.google.com",
-      "date": "15 Jun 2026 · 05:29 SL",
-      "ts": 1781481597000,
-      "snippet": "Harmonising CBSL’s pragmatism with long-term structural freedom Island.lk",
-      "fetch_type": "industry_watch",
-      "category": "industry",
-      "relevance_score": 0.7,
-      "matched_terms": [
-        "CBSL"
-      ],
-      "source_rank": 3,
-      "is_low_relevance": false,
-      "cluster_id": "52bb22dc6bd3",
-      "is_primary_in_cluster": true,
-      "is_new": false
-    },
-    {
-      "client": "hnb",
       "headline": "CBSL denies Kasagala Green Plantation claims, says investigation underway",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcDQtcUxsaXpRb1NCX2RodmgwUkhiWVhiWGdvbXdqaWNBWUtZUDRKdUwzd3NyZm51SzdILVlSaVhNWms3UEpnNzZRbzNEY05ONmdoYUsxM19fMUlwemNVb1h0UWRHQWJ5OWwyTUVBS1UxU2ZaZFdwT0t6eUlBUmpsdG5SRnkyTFhYcmhVNzhxR1h1bFBBRW5GZUpCR3pHZ3JQS24yd3ZPSmtZaXRv?oc=5",
       "source": "Newswire",
@@ -1490,6 +1427,27 @@
       "cluster_id": "611775812c9a",
       "is_primary_in_cluster": true,
       "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOU0ZNaHFGWlR4aGRqUWpHa1J6X1VGc2VyR0tiNmppTUVfbXNBdlE3NXJlZHpuUGdrenA2OVhOSTFEWG9QN21oSFpBTjZtaWU1N1Q1U1o4WUNTUmdoTFh3UVJZZC1paUtYMW9RX2pMVEJRaGJSS1Z4NFRrQ3l0bk13YS05MTd5TlFWRWhNTUpmdHZYdjBtUlRIQW43M2Fybm9Mc093SzlrVXNOeFNyOXg1ZVhMTFYwVFRDUEE?oc=5",
+      "source": "Magzter",
+      "domain": "news.google.com",
+      "date": "11 Jun 2026 · 12:18 SL",
+      "ts": 1781160522000,
+      "snippet": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper Magzter",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "591dff6b5981",
+      "is_primary_in_cluster": true,
+      "is_new": true
     },
     {
       "client": "hnb",
@@ -1572,13 +1530,34 @@
       "is_new": false
     },
     {
+      "client": "mas",
+      "headline": "JAAF reaffirms confidence in long-term strength of Sri Lanka’s apparel industry",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPT2tPN0FnWmtod2NuNXpJdktXUnc3OHFqQzVXejUzTF9hWUttSXAydWNvY3Q5LTV6MVJxa095bzh3OGRyMWdSOGJ0MlMyVEVWWjg1bVdlWFZvRjRlSHFuaDV1NG8wY0k2V01fSTNDa0tpVk92MDBFNldnckJ5Z0JmcWlXN195ekVEeWlFTzFra3phNWxaV2U4em5Tc3Q?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "26 May 2026 · 12:30 SL",
+      "ts": 1779778800000,
+      "snippet": "JAAF reaffirms confidence in long-term strength of Sri Lanka’s apparel industry Island.lk",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "JAAF"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "643b643cde9c",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
       "client": "hnb",
       "headline": "Indices close in red",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNNVUzcVNGQXE3YS14eXZDNlVuV1U2dlV2SEw1Q2lPZ051WHU1bmdoQVp1SDNLejZVVXZ4dHNLMWdxNXNaOTZsalZMZlFXLVFoUHFvRVBOalNMTWFNYU9VZk5lVlNhNnJuOWFZdjhuYWtSNkE5T2Q0ODBmbXEtaUJtZjJjZ3Q?oc=5",
       "source": "Daily Mirror - Sri Lanka",
       "domain": "news.google.com",
-      "date": "02 Jun 2026 · 05:02 SL",
-      "ts": 1780356771000,
+      "date": "02 Jun 2026 · 12:30 SL",
+      "ts": 1780383600000,
       "snippet": "Indices close in red Daily Mirror - Sri Lanka",
       "fetch_type": "direct_mentions",
       "category": "market_watch",
@@ -1760,7 +1739,7 @@
       "cluster_id": "5e4b6ac01fdf",
       "primary_headline": "Home Lands Group expands presence in Port City Colombo | Daily Mirror - Sri Lanka - newspaper",
       "primary_source": "Magzter",
-      "also_covered_count": 1
+      "also_covered_count": 0
     },
     {
       "cluster_id": "e750ef117304",
@@ -1883,22 +1862,16 @@
       "also_covered_count": 1
     },
     {
-      "cluster_id": "52bb22dc6bd3",
-      "primary_headline": "Harmonising CBSL’s pragmatism with long-term structural freedom",
-      "primary_source": "Island.lk",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "7e562c608095",
       "primary_headline": "HNB Life Introduces “Privileged Protect”, a Future-Ready Protection Solution for a New Generation",
       "primary_source": "Island.lk",
       "also_covered_count": 0
     },
     {
-      "cluster_id": "113bfefc9231",
-      "primary_headline": "Nucleus Software marks five years of partnership with Hatton National Bank",
-      "primary_source": "scanx.trade",
-      "also_covered_count": 0
+      "cluster_id": "e3d56af8a934",
+      "primary_headline": "Nucleus Software Completes 5-Year Partnership with Hatton National Bank",
+      "primary_source": "Whalesbook",
+      "also_covered_count": 1
     },
     {
       "cluster_id": "63fb468d448a",
@@ -1925,6 +1898,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "5def967a26d3",
+      "primary_headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 2
+    },
+    {
       "cluster_id": "1e81f603a0aa",
       "primary_headline": "Colombo Port City and the Diminishing Scope of Sri Lankan Policy Autonomy",
       "primary_source": "South Asian Voices",
@@ -1937,22 +1916,16 @@
       "also_covered_count": 2
     },
     {
-      "cluster_id": "5def967a26d3",
-      "primary_headline": "New investments reinforce Colombo Port City’s role as a catalyst for economic growth",
-      "primary_source": "Daily Mirror - Sri Lanka",
-      "also_covered_count": 1
-    },
-    {
-      "cluster_id": "c2f782b5a99a",
-      "primary_headline": "HNB Life Is Closing Sri Lanka’s Insurance Gap",
-      "primary_source": "EconomyNext",
-      "also_covered_count": 0
-    },
-    {
       "cluster_id": "611775812c9a",
       "primary_headline": "Sri Lanka’s reserves rise, but the numbers tell a murkier story",
       "primary_source": "Tamil Guardian",
       "also_covered_count": 0
+    },
+    {
+      "cluster_id": "fd7ee6b3abdc",
+      "primary_headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
+      "primary_source": "Colombo Gazette",
+      "also_covered_count": 2
     },
     {
       "cluster_id": "faa2f0098c44",
@@ -1961,10 +1934,10 @@
       "also_covered_count": 1
     },
     {
-      "cluster_id": "fd7ee6b3abdc",
-      "primary_headline": "Sampath Bank Opens Colombo Port City Branch to Advance Sri Lanka’s Global Investment Ambition",
-      "primary_source": "Colombo Gazette",
-      "also_covered_count": 2
+      "cluster_id": "591dff6b5981",
+      "primary_headline": "The EPF under CBSL custody: Fixing the principal-agent problem | Daily FT - newspaper",
+      "primary_source": "Magzter",
+      "also_covered_count": 0
     },
     {
       "cluster_id": "cab5e12cb7c5",
@@ -1995,12 +1968,6 @@
       "primary_headline": "Hayleys Mobility launches all-new JAECOO J5 HEV in Sri Lanka",
       "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 3
-    },
-    {
-      "cluster_id": "3dc64f3e2218",
-      "primary_headline": "US adds BYD to list of firms with alleged Chinese military ties",
-      "primary_source": "Sri Lanka Mirror",
-      "also_covered_count": 0
     },
     {
       "cluster_id": "1b204b842196",
@@ -2042,7 +2009,13 @@
       "cluster_id": "c4cccb14002e",
       "primary_headline": "HNB Investment Bank renews collaboration with CFA Society Sri Lanka as Silver Partner for 10th consecutive year",
       "primary_source": "Daily FT",
-      "also_covered_count": 2
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "83d5619d5e07",
+      "primary_headline": "Indices close in red",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
     },
     {
       "cluster_id": "b50c8efca330",
@@ -2072,12 +2045,6 @@
       "cluster_id": "9a632fcd6eac",
       "primary_headline": "Sampath Bank leads Lanka’s Financial Future with Agreement for Port City Colombo Branch",
       "primary_source": "dailynews.lk",
-      "also_covered_count": 0
-    },
-    {
-      "cluster_id": "83d5619d5e07",
-      "primary_headline": "Indices close in red",
-      "primary_source": "Daily Mirror - Sri Lanka",
       "also_covered_count": 0
     },
     {
@@ -2141,6 +2108,12 @@
       "also_covered_count": 0
     },
     {
+      "cluster_id": "643b643cde9c",
+      "primary_headline": "JAAF reaffirms confidence in long-term strength of Sri Lanka’s apparel industry",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
       "cluster_id": "ac6b588c7888",
       "primary_headline": "China Duty Free Group hails Port City Colombo shopping regulation changes",
       "primary_source": "Moodie Davitt Report",
@@ -2177,6 +2150,6 @@
       "also_covered_count": 4
     }
   ],
-  "total_stories": 78,
-  "total_clusters": 78
+  "total_stories": 77,
+  "total_clusters": 77
 }
