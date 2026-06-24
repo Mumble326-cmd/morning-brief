@@ -1,16 +1,7 @@
 {
-  "generated_at": "2026-06-23T17:04:38.237383+00:00",
-  "compared_to": "2026-06-22",
-  "alert_count": 1,
-  "alerts": [
-    {
-      "client": "hayleys",
-      "client_label": "Hayleys",
-      "headline": "Kingsbury PLC obtains enjoining order against Wimal Weerawansa over defamatory statements",
-      "url": "https://www.ft.lk/news/The-Kingsbury-PLC-obtains-enjoining-order-against-Wimal-Weerawansa/56-793459",
-      "source": "Daily FT",
-      "date": "18 Jun 2026"
-    }
-  ],
-  "issue_body": "New risk_watch stories detected by the Morning Brief (vs 2026-06-22):\n\n- **[Hayleys]** [Kingsbury PLC obtains enjoining order against Wimal Weerawansa over defamatory statements](https://www.ft.lk/news/The-Kingsbury-PLC-obtains-enjoining-order-against-Wimal-Weerawansa/56-793459) — Daily FT (18 Jun 2026)"
+  "generated_at": "2026-06-24T03:54:06.023958+00:00",
+  "compared_to": "2026-06-23",
+  "alert_count": 0,
+  "alerts": [],
+  "issue_body": ""
 }
