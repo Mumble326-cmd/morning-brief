@@ -17,7 +17,8 @@
     "Adaderana Biz",
     "Lanka Business News",
     "Business Cafe",
-    "Ceylon Business Reporter"
+    "Ceylon Business Reporter",
+    "NewsFirst"
   ],
   "priority_domains": [
     "ft.lk",
@@ -34,14 +35,20 @@
     "adaderana.lk",
     "bizenglish.adaderana.lk",
     "lankabusinessnews.com",
-    "businesscafe.lk"
+    "businesscafe.lk",
+    "newsfirst.lk"
   ],
   "accepted_domains": [
     "sunday-observer.lk",
     "sundayobserver.lk",
     "lakehouse.lk",
     "ceylonbusiness.lk",
-    "srilankachronicle.com"
+    "srilankachronicle.com",
+    "businesstoday.lk",
+    "echelon.lk",
+    "lmd.lk",
+    "economictimes.lk",
+    "businessnews.lk"
   ],
   "international_domains": [
     "reuters.com",
@@ -61,7 +68,10 @@
   "blocked_domains": [],
   "accepted_outlets": [
     "Sunday Observer",
-    "Lakehouse"
+    "Lakehouse",
+    "Business Today",
+    "Echelon",
+    "LMD"
   ],
   "source_rank_info": {
     "1": "Priority Sri Lankan business/news outlet",
