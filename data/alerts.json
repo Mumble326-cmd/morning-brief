@@ -1,16 +1,7 @@
 {
-  "generated_at": "2026-06-29T05:49:46.528449+00:00",
-  "compared_to": "2026-06-26",
-  "alert_count": 1,
-  "alerts": [
-    {
-      "client": "byd",
-      "client_label": "BYD",
-      "headline": "US adds BYD to list of firms with alleged Chinese military ties",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVUd4cW45emQxQm9ZWTNMbi0xbXNDakNyOWVUbVBoVVlHU0tBVXh2WG9waXJTSFkyVTV3c2plNWxpalAtZkxfZlJ3UjdKVWFFWWJiRFhuckFzemlTandZRnlRMEZpX1VqNUZhOGdfTFhlVHZXOFkzUWFiSjRMMWYxRWZrVzFYMjF0ZEtCMjNIMXNIallDWGVOOGRUdHM2NXd6MF9kS28yMHpzZE9XMlHSAaQBQVVfeXFMTUdSeXRqUEo4ZWJqbEhmOEtXbW9DZFlRbkthOVNjd3pOTDN2TWhaMTZVRmlvOV9zN2s4a21NU3d0WmtfNW5kT0puR1l2am5peHEyWEdmZjMwY2JHak9VZ3NoZFZhUldoQnNXbGo5ZVMxTE8zMF9yZDFXeFhDdHBRTWRmcW1PckhEd0FvVkJtakFnMFViNTVzMzgyRnlFVmNrU3BuTEI?oc=5",
-      "source": "Sri Lanka Mirror",
-      "date": "09 Jun 2026 · 12:30 SL"
-    }
-  ],
-  "issue_body": "New risk_watch stories detected by the Morning Brief (vs 2026-06-26):\n\n- **[BYD]** [US adds BYD to list of firms with alleged Chinese military ties](https://news.google.com/rss/articles/CBMirgFBVV95cUxPVUd4cW45emQxQm9ZWTNMbi0xbXNDakNyOWVUbVBoVVlHU0tBVXh2WG9waXJTSFkyVTV3c2plNWxpalAtZkxfZlJ3UjdKVWFFWWJiRFhuckFzemlTandZRnlRMEZpX1VqNUZhOGdfTFhlVHZXOFkzUWFiSjRMMWYxRWZrVzFYMjF0ZEtCMjNIMXNIallDWGVOOGRUdHM2NXd6MF9kS28yMHpzZE9XMlHSAaQBQVVfeXFMTUdSeXRqUEo4ZWJqbEhmOEtXbW9DZFlRbkthOVNjd3pOTDN2TWhaMTZVRmlvOV9zN2s4a21NU3d0WmtfNW5kT0puR1l2am5peHEyWEdmZjMwY2JHak9VZ3NoZFZhUldoQnNXbGo5ZVMxTE8zMF9yZDFXeFhDdHBRTWRmcW1PckhEd0FvVkJtakFnMFViNTVzMzgyRnlFVmNrU3BuTEI?oc=5) — Sri Lanka Mirror (09 Jun 2026 · 12:30 SL)"
+  "generated_at": "2026-06-30T05:02:07.656467+00:00",
+  "compared_to": "2026-06-29",
+  "alert_count": 0,
+  "alerts": [],
+  "issue_body": ""
 }
