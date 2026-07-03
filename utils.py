@@ -319,6 +319,29 @@ def cluster_stories(stories, outlets_config=None):
         primary = choose_primary_story(members, outlets_config)
         secondaries = [m for m in members if m is not primary]
 
+        # De-dupe secondaries by URL — the same article can be fetched twice
+        # for one client (e.g. once per split direct_mentions query group, or
+        # once via Google News and once via a direct outlet feed), which would
+        # otherwise show the same outlet twice in the "also covered by" chips.
+        seen_secondary_urls = set()
+        deduped_secondaries = []
+        for s in secondaries:
+            u = s.get('url')
+            if u and u in seen_secondary_urls:
+                continue
+            if u:
+                seen_secondary_urls.add(u)
+            deduped_secondaries.append(s)
+
+        # cluster_id must stay stable across days regardless of which member
+        # is currently "primary" — the primary can change day to day as a
+        # better-ranked outlet picks up a story a rival already broke, which
+        # would otherwise mint a new cluster_id and falsely re-flag an old
+        # story as "New" and break trend/SOV continuity. Anchor on the
+        # earliest-published member instead, which doesn't change once set.
+        dated_members = [m for m in members if m.get('ts')]
+        anchor = min(dated_members, key=lambda m: m['ts']) if dated_members else primary
+
         cluster = {
             'primary': primary,
             'members': members,
@@ -331,10 +354,10 @@ def cluster_stories(stories, outlets_config=None):
                     'date':     s.get('date'),
                     'ts':       s.get('ts', 0),
                 }
-                for s in secondaries
+                for s in deduped_secondaries
             ],
             'cluster_id': hashlib.md5(
-                f"{primary['client']}{primary['headline']}".encode()
+                f"{anchor['client']}{normalize_for_dedup(anchor['headline'])}".encode()
             ).hexdigest()[:12],
         }
         clusters.append(cluster)

@@ -63,3 +63,50 @@
 ### Breaking Changes
 - Keyword file structure changed: `mentions` → `direct_mentions`, `industry` → `industry_watch`
 - **Required:** Update `brief.py` to parse new structure
+
+## 2026-07-03
+
+### Bugs Found and Fixed
+
+1. **Executive Summary showed stale news as "top stories today."** `pick_executive_stories`
+   scored candidates by category weight × source quality × freshness, but "freshness" only
+   checked `is_new` (new since yesterday's archive) — it never checked actual story age. A
+   manual clip from 15 Apr 2026 (MIFL's CSE debenture debut, `also_covered_by` from a
+   priority outlet, `manual` bonus ×1.3) outscored every real story on the 2 Jul brief and
+   sat at #1 in the Executive Summary for weeks. *Fix:* candidates are now restricted to
+   stories published within 3 days of generation time (`EXEC_RECENCY_MS`). Files: `brief.py`.
+
+2. **Duplicate outlet chips on stories fetched twice for one client.** The same article
+   could enter `all_stories` twice — once per split `direct_mentions` query group (10+ term
+   clients) or once via Google News and again via a direct outlet feed — and `cluster_stories`
+   never deduped members before building `also_covered_by`, so a single outlet (e.g.
+   "Newswire") could appear twice as a coverage chip on the same card. *Fix:* global
+   `(client, url)` de-dupe of `all_stories` before classification, plus a defensive URL
+   de-dupe when building `also_covered_by`. Files: `brief.py`, `utils.py`.
+
+3. **`cluster_id` churned when a better outlet picked up an existing story.** It was hashed
+   from the current *primary* story's headline, but the primary is re-chosen every run by
+   source rank — so when a higher-ranked outlet (e.g. Daily FT) later covered a story a
+   lower-ranked outlet (e.g. Newswire) broke first, the cluster got a brand-new `cluster_id`
+   on the day the primary flipped. This falsely re-flagged old stories as "New" and broke
+   day-over-day trend/SOV continuity for that story. *Fix:* `cluster_id` is now anchored to
+   the earliest-published member's headline, which doesn't change as later outlets pick up
+   the story. Files: `utils.py`.
+
+4. **No retry on transient fetch failures.** A single dropped Google News or outlet-feed
+   request silently returned zero stories for that client/query, with no way to distinguish
+   a real no-news day from a flaky connection (e.g. 2026-06-26, where HNB, MAS, and Port
+   City had zero stories archived that day — almost certainly a network blip, not an actual
+   news vacuum for three unrelated clients on the same day). *Fix:* one retry with a 2s
+   backoff on both `fetch_news` and `fetch_outlet_feed`. Files: `brief.py`.
+
+### Known, Not Code Bugs (keyword/editorial tuning — see `docs/keyword-guide.md`)
+
+- MAS, BYD, MIFL, and Port City still produce far fewer `industry_watch` hits than HNB —
+  HNB's keyword set is the most mature (fed from real tracker data early on); the others
+  need the same treatment via Keyword Studio or a follow-up tuning pass.
+- Near-duplicate headlines from different outlets that are reworded past the 0.38 Jaccard
+  threshold still surface as separate cards instead of one card with multiple outlet chips
+  (documented in `docs/diagnostic.md` as the JAECOO J5 case). Lowering the threshold risks
+  false merges of unrelated stories; needs a content-aware rule (shared entities/numbers),
+  not attempted here for lack of live data to validate against.

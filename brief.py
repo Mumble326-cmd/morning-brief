@@ -76,14 +76,26 @@ def fetch_news(query, client_key, window_days, max_results, sl_signals, cutoff_m
     sys.stdout.write(f'  → fetching...\n')
     sys.stdout.flush()
 
-    try:
-        req = urllib.request.Request(
-            url, headers={'User-Agent': 'Mozilla/5.0 (compatible; MorningBrief/1.0)'}
-        )
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            content = resp.read().decode('utf-8')
-    except Exception as e:
-        sys.stdout.write(f'  ✗ {e}\n'); sys.stdout.flush()
+    # One retry on transient network failure — a single dropped request used
+    # to silently zero out an entire client for the day (e.g. 2026-06-26,
+    # where HNB/MAS/Port City vanished from the brief entirely) with no way
+    # to tell a real "no news" day from a flaky connection.
+    content = None
+    last_err = None
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(
+                url, headers={'User-Agent': 'Mozilla/5.0 (compatible; MorningBrief/1.0)'}
+            )
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                content = resp.read().decode('utf-8')
+            break
+        except Exception as e:
+            last_err = e
+            if attempt == 0:
+                time.sleep(2)
+    if content is None:
+        sys.stdout.write(f'  ✗ {last_err} (after retry)\n'); sys.stdout.flush()
         return []
 
     try:
@@ -161,16 +173,29 @@ def fetch_outlet_feed(feed, cutoff_ms):
     """
     sys.stdout.write(f'  [{feed["source"]}] fetching...\n')
     sys.stdout.flush()
+    raw = None
+    last_err = None
+    for attempt in range(2):
+        try:
+            # Fetch the bytes ourselves with an explicit timeout — feedparser.parse()
+            # does its own fetch with NO timeout and will hang forever on a stalled
+            # feed. We keep feedparser only for its robust parsing of the bytes.
+            req = urllib.request.Request(feed['url'], headers={
+                'User-Agent': BROWSER_UA,
+                'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
+            })
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                raw = resp.read()
+            break
+        except Exception as e:
+            last_err = e
+            raw = None
+            if attempt == 0:
+                time.sleep(2)
+    if raw is None:
+        sys.stdout.write(f'    x {last_err} (after retry)\n'); sys.stdout.flush()
+        return []
     try:
-        # Fetch the bytes ourselves with an explicit timeout — feedparser.parse()
-        # does its own fetch with NO timeout and will hang forever on a stalled
-        # feed. We keep feedparser only for its robust parsing of the bytes.
-        req = urllib.request.Request(feed['url'], headers={
-            'User-Agent': BROWSER_UA,
-            'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
-        })
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            raw = resp.read()
         d = feedparser.parse(raw)
         # bozo flags a parse problem; only fatal if it also yielded no entries.
         if d.bozo and not d.entries:
@@ -1124,11 +1149,20 @@ def sparkline_svg(values, width=84, height=20):
         f'stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/></svg>'
     )
 
-def pick_executive_stories(stories, limit=5, per_client_cap=2):
+EXEC_RECENCY_MS = 3 * 24 * 3600 * 1000  # 3 days — "top stories today", not this month
+
+def pick_executive_stories(stories, now_ms, limit=5, per_client_cap=2):
     """
     Top stories for the Executive Summary strip.
     Scored by category weight × source quality × freshness, with a two-pass
     selection to ensure client variety before allowing repeats.
+
+    Candidates are restricted to stories published within EXEC_RECENCY_MS of
+    now — otherwise an old, well-sourced manual clip (e.g. a quarterly-results
+    story added weeks ago and still curated in the coverage list) can
+    permanently outscore genuinely new stories and sit atop "top stories
+    today" indefinitely, since the old scoring only compared category/source
+    quality and never checked actual story age.
     """
     def score(s):
         cat  = s.get('category', '')
@@ -1141,7 +1175,9 @@ def pick_executive_stories(stories, limit=5, per_client_cap=2):
         return cat_w * src_w * fresh * manual
 
     candidates = sorted(
-        [s for s in stories if s.get('category') != 'low_relevance'],
+        [s for s in stories
+         if s.get('category') != 'low_relevance'
+         and (now_ms - s.get('ts', 0)) <= EXEC_RECENCY_MS],
         key=score, reverse=True,
     )
 
@@ -1609,6 +1645,26 @@ def main():
 
     print(f'Total stories before processing: {len(all_stories)}')
 
+    # ── De-dupe raw fetches ────────────────────────────────────────────────────
+    # The same article can be fetched twice for one client: once per split
+    # direct_mentions query group (10+ term clients), or once via Google News
+    # and again via a direct outlet feed. Left in, these survive clustering as
+    # duplicate "also covered by" entries for the same outlet. Key on
+    # (client, url) so a story matching two different clients is untouched.
+    seen_fetch_keys = set()
+    deduped_stories = []
+    for s in all_stories:
+        key = (s.get('client'), s.get('url'))
+        if key[1] and key in seen_fetch_keys:
+            continue
+        if key[1]:
+            seen_fetch_keys.add(key)
+        deduped_stories.append(s)
+    n_dupes = len(all_stories) - len(deduped_stories)
+    if n_dupes:
+        print(f'Removed {n_dupes} duplicate fetch(es) (same client + URL)')
+    all_stories = deduped_stories
+
     # ── Classify stories ──────────────────────────────────────────────────────
     print('Classifying stories...')
     for story in all_stories:
@@ -1751,7 +1807,7 @@ def main():
         print(f'⚠ {len(new_risk)} new risk story(ies) → data/alerts.json')
 
     # ── Executive summary + trend data ────────────────────────────────────────
-    exec_stories = pick_executive_stories(clustered_stories)
+    exec_stories = pick_executive_stories(clustered_stories, int(generated_at.timestamp() * 1000))
     trend_counts = load_trend_counts([c['key'] for c in CLIENTS], today_iso)
 
     # ── Generate HTML ────────────────────────────────────────────────────────
