@@ -219,15 +219,17 @@
       "apparel sector",
       "JAAF",
       "Joint Apparel Association Forum",
-      "GSP+ Sri Lanka",
+      "GSP+",
+      "GSP Plus",
       "Brandix",
       "Hirdaramani",
       "Star Garments",
       "Teejay Lanka",
+      "Timex Garments",
       "Hela Apparel Holdings",
       "Free Trade Zone Manufacturers Association",
-      "EU trade Sri Lanka",
-      "US tariff apparel"
+      "US tariff apparel",
+      "EU tariff apparel"
     ],
     "market_watch": [],
     "risk_watch": [
@@ -284,26 +286,26 @@
       "Denza"
     ],
     "industry_watch": [
-      "electric vehicle Sri Lanka",
-      "EV Sri Lanka",
-      "EV imports Sri Lanka",
-      "vehicle import tax Sri Lanka",
-      "motor vehicle imports Sri Lanka",
-      "NEV Sri Lanka",
-      "charging stations Sri Lanka",
-      "hybrid vehicles Sri Lanka",
-      "EV policy Sri Lanka",
-      "Department of Motor Traffic electric vehicles",
-      "vehicle registration Sri Lanka",
-      "EV charging infrastructure Sri Lanka",
-      "state sector vehicle scheme Sri Lanka",
-      "electric car finance Sri Lanka",
+      "electric vehicle",
+      "EV",
+      "EV imports",
+      "vehicle import tax",
+      "motor vehicle imports",
+      "NEV",
+      "charging stations",
+      "hybrid vehicles",
+      "EV policy",
+      "Department of Motor Traffic",
+      "vehicle registration",
+      "EV charging infrastructure",
+      "vehicle permit scheme",
+      "EV financing",
       "Ceylon Motor Traders Association",
-      "vehicle import duty Sri Lanka"
+      "vehicle import duty"
     ],
     "market_watch": [
       "BYD shares",
-      "EV sales Sri Lanka"
+      "EV sales"
     ],
     "risk_watch": [
       "BYD military ties",
@@ -423,12 +425,11 @@
     ],
     "industry_watch": [
       "special economic zone",
-      "SEZ Sri Lanka",
-      "foreign investment Sri Lanka",
+      "foreign investment",
       "Colombo real estate",
       "luxury property Colombo",
-      "financial centre Sri Lanka",
-      "CHEC Sri Lanka",
+      "financial centre",
+      "CHEC",
       "China Harbour Engineering",
       "Home Lands Port City",
       "Home Lands Skyline",
@@ -437,7 +438,9 @@
       "Ceylon Real Estate Holdings",
       "IFC Colombo",
       "Browns Investments",
-      "LOLC Holdings"
+      "LOLC Holdings",
+      "Board of Investment",
+      "Urban Development Authority"
     ],
     "market_watch": [],
     "risk_watch": [

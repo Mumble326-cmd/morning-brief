@@ -184,15 +184,34 @@ for k, v in kw.items():
 Output (as of this writing):
 
 ```
-hnb          mentions=16 industry=25 risk=5 exclude=5
-hayleys      mentions=23 industry=12 risk=0 exclude=3
-mas          mentions=16 industry=10 risk=0 exclude=6
-byd          mentions=11 industry=14 risk=12 exclude=5
-mifl         mentions=3 industry=10 risk=0 exclude=6
-pcc          mentions=10 industry=9 risk=0 exclude=3
+hnb          mentions=17 industry=27 risk=9  exclude=6
+hayleys      mentions=39 industry=20 risk=14 exclude=5
+mas          mentions=22 industry=16 risk=12 exclude=6
+byd          mentions=17 industry=16 risk=14 exclude=4
+mifl         mentions=4  industry=24 risk=10 exclude=6
+pcc          mentions=16 industry=17 risk=12 exclude=5
 ```
 
 Note HNB is the only client with `market_watch` terms and broad `industry_watch`
 (competitor banks + CBSL/rates), which is why its Industry coverage is the
 healthiest. BYD carries the largest `risk_watch` set (the JKCG / import-surcharge
-situation). MIFL has only 3 `direct_mentions` and relies on manual clips.
+situation). MIFL has only 4 `direct_mentions` and relies on manual clips.
+
+**2026-07-03 tuning pass (MAS / BYD / PCC):** BYD's entire `industry_watch` list
+was 3-4 word phrases suffixed with `"Sri Lanka"` (e.g. `"vehicle import tax Sri
+Lanka"`) — a straight Rule 1 + Rule 3 violation, and very likely why BYD's
+industry coverage was near-zero (Google News quotes each OR term and matches it
+as a literal substring; almost no real headline contains that exact 5-word
+phrase). Shortened every BYD industry/market term to 1-3 words with no `"Sri
+Lanka"` suffix, relying on the SL edition (`gl=LK`) + `SL_SIGNALS` gate for
+relevance instead of baking it into the query. Same fix applied to MAS's
+`"GSP+ Sri Lanka"` / `"EU trade Sri Lanka"` and PCC's `"SEZ Sri Lanka"` /
+`"foreign investment Sri Lanka"` / `"financial centre Sri Lanka"` /
+`"CHEC Sri Lanka"`. Added a handful of real, well-established named entities:
+MAS gets `"Timex Garments"` (CSE-listed apparel exporter); PCC gets
+`"Board of Investment"` and `"Urban Development Authority"` (the two government
+bodies most likely to appear in Port City investment/land stories). Deliberately
+did **not** add speculative EV competitor/model names for BYD (e.g. specific
+current-year MG/Micro/Nissan Leaf distributor branding) — that needs your
+on-the-ground knowledge of who's actually active in the Sri Lankan EV market
+right now, not a guess. Add them via Keyword Studio if useful.
