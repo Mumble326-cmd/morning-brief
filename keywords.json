@@ -22,8 +22,11 @@
       "Acuity Partners"
     ],
     "industry_watch": [
-      "CBSL",
-      "Central Bank of Sri Lanka",
+      "CBSL monetary policy",
+      "CBSL policy rate",
+      "CBSL rate decision",
+      "CBSL banking supervision",
+      "Central Bank of Sri Lanka monetary policy",
       "monetary policy Sri Lanka",
       "policy rates Sri Lanka",
       "interest rates Sri Lanka",
@@ -74,7 +77,12 @@
       "sports",
       "cricket",
       "school event",
-      "lottery"
+      "lottery",
+      "pyramid",
+      "administrator",
+      "wind up",
+      "winding up",
+      "wind-up"
     ],
     "priority_sources": [
       "Daily FT",
@@ -127,6 +135,7 @@
       "Hunas Falls Hotels",
       "Alumex",
       "Puritas",
+      "HayWind",
       "Kingsbury",
       "Kingsbury PLC",
       "Kingsbury Hotel"
@@ -210,6 +219,7 @@
       "Unichela",
       "amante",
       "MAS Thurulie",
+      "MAS Legato",
       "Hellmann MAS",
       "Hellmann and MAS"
     ],
@@ -217,6 +227,9 @@
       "apparel exports",
       "garment exports",
       "apparel sector",
+      "Sri Lanka apparel",
+      "apparel industry Sri Lanka",
+      "textile exports Sri Lanka",
       "JAAF",
       "Joint Apparel Association Forum",
       "GSP+ Sri Lanka",
@@ -266,6 +279,8 @@
     "query_context": "Sri Lanka",
     "direct_mentions": [
       "BYD",
+      "BYD Sri Lanka",
+      "BYD Lanka",
       "John Keells CG Auto",
       "JKCG Auto",
       "JKCG",
@@ -341,7 +356,9 @@
     "query_context": "Sri Lanka",
     "direct_mentions": [
       "Mahindra Ideal Finance",
+      "Mahindra Ideal Finance Limited",
       "Ideal Finance",
+      "Ideal Finance PLC",
       "Mahindra Finance",
       "MIFL"
     ],
@@ -406,6 +423,7 @@
     "direct_mentions": [
       "Port City Colombo",
       "Colombo Port City",
+      "Port City",
       "CHEC Port City Colombo",
       "Port City Economic Commission",
       "Colombo Port City Economic Commission",
