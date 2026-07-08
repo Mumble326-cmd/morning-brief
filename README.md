@@ -4,16 +4,20 @@ Daily automated news briefing for 6 clients (HNB, Hayleys, MAS, BYD, MIFL, Port 
 
 ## Features
 
+- **Morning-brief-first layout** — the default view answers "what happened since yesterday?": an executive summary strip of the top-ranked stories across all clients, then per-client sections showing NEW-since-last-run coverage (or an explicit "No new coverage" line). Older stories collapse into a "Previously reported" block per client.
 - **Daily automation** via GitHub Actions (6:30 AM Sri Lanka time)
 - **6 client briefings** with separate governance (keywords, exclusions, priority sources)
 - **Story classification** into 5 categories: Direct Mention, Industry, Market Watch, Risk Watch, Low Relevance
-- **Duplicate detection** using normalized title comparison + date proximity (2-hour window)
+- **Compound relevance scoring** (category weight × match strength × source rank × freshness decay) driving story order everywhere, including the executive summary
+- **Noise suppression** — recurring time-series posts (daily CBSL exchange rate, market close) roll up to a single line; per-client caps on filler categories (max 5 industry / 3 market-watch cards a day); a global sports/junk exclude layer; low-relevance stories never render (kept in JSON for audit); outlet boilerplate stripped from headlines
+- **Duplicate detection** using normalized title comparison + date proximity
 - **Cluster grouping** showing "Also covered by" for stories from multiple sources
 - **Source ranking** (1-5 scale) preferring local news authority outlets
 - **Archive system** saving daily snapshots to `data/archive/YYYY-MM-DD.json`
+- **Offline replay harness** — `python brief.py --replay [DATE]` regenerates any archived morning through the full pipeline with no network; `python replay_checks.py` asserts the product guarantees against the result
 - **Privacy protection** ensuring no journalist contact information in output
 - **Interactive filters** for time window, client, category, and full-text search
-- **Minimal dependencies** — only `feedparser` (for robust RSS/Atom parsing); everything else is Python standard library
+- **Minimal dependencies** — only `feedparser` (for robust RSS/Atom parsing; optional for replay); everything else is Python standard library
 
 ## Quick Start
 
@@ -26,6 +30,17 @@ Daily automated news briefing for 6 clients (HNB, Hayleys, MAS, BYD, MIFL, Port 
 python brief.py
 ```
 Generates `index.html` + `data/latest.json` + `data/archive/YYYY-MM-DD.json`
+
+### Offline Replay (no network needed)
+```bash
+python brief.py --replay              # replay the newest archived morning
+python brief.py --replay 2026-07-07   # replay a specific date
+python replay_checks.py [DATE]        # replay + assertion suite (exit 1 on failure)
+```
+Rebuilds the raw story pool from `data/archive/DATE.json` and pushes it back
+through the identical classification → scoring → dedup → rollup → render
+pipeline the live run uses. Writes `index.html` + `data/latest.json`; dated
+archives are never overwritten by a replay.
 
 ### Automated Run
 GitHub Actions triggers daily at 6:30 AM (SL time). Workflow defined in `.github/workflows/daily-brief.yml`.
@@ -65,15 +80,22 @@ Source ranking configuration. Tiers:
 - **Rank 5** (blocked): Spam/unusable
 
 ### Config (`config.py`)
-Static settings: client list, window (30 days), max stories, SL signals.
+Static settings: client list, window (30 days), max stories, SL signals, plus
+the noise controls: `GLOBAL_EXCLUDE` (junk terms applied to every client),
+`SERIES_PATTERNS` (recurring time-series detectors), and `CATEGORY_CAPS`
+(per-client per-day card caps for filler-prone categories).
 
 ## Output
 
 ### `index.html`
 Interactive dashboard with:
-- Story cards showing headline, snippet, source, category, relevance score
+- Executive summary strip — the top stories across all clients, new-first,
+  ranked by compound score
+- Per-client sections: NEW-since-last-run cards (or an explicit "No new
+  coverage" line), one-line rollups for recurring updates, and a collapsed
+  "Previously reported" block for everything older
 - "Also covered by" links for duplicate clusters
-- Filters: 7-day/14-day/30-day window, per-client view, category filter
+- Filters: 1/7/14/30-day window, per-client view, category filter
 - Full-text search
 - Responsive design with print-friendly styling
 
@@ -86,19 +108,23 @@ Daily snapshots for historical tracking (identify trends, measure coverage over 
 ## Architecture
 
 ```
-Fetch (Google News RSS per keyword query)
-  ↓ (SL relevance gate + date cutoff)
-Parse & Extract (headline, snippet, source, link)
+Fetch (Google News RSS per keyword query)          ─┐ live run only —
+  ↓ (SL relevance gate + date cutoff)               │ --replay rebuilds this
+Parse & Extract (headline, snippet, source, link)  ─┘ pool from data/archive
   ↓
-Classify (direct mention/industry/market_watch/risk_watch/low_relevance)
+run_pipeline() — shared by live run and replay:
+  Classify (mention/industry/market_watch/risk_watch/low_relevance,
+            global + per-client excludes, boilerplate stripped)
   ↓
-Cluster (group duplicates by normalized title + date proximity)
+  Cluster (group duplicates by normalized title + date proximity)
   ↓
-Rank Sources (prioritize local authority outlets)
+  Mark NEW (vs the previous archived run)
   ↓
-Archive (save to data/latest.json + dated archive)
+  Roll up recurring series · compound scores · category caps
   ↓
-Render (build interactive HTML with category filters)
+  Archive (save to data/latest.json + dated archive)
+  ↓
+  Render (exec summary + new-first sections + collapsed history)
 ```
 
 ## Privacy & Safety
@@ -112,9 +138,9 @@ Render (build interactive HTML with category filters)
 
 ### Testing
 ```bash
-python brief.py                           # Full run
+python replay_checks.py                   # Offline replay + assertion suite
+python brief.py                           # Full live run (network)
 python -m json.tool keywords.json         # Validate config
-python -c "import utils; print(dir(utils))" # Check functions
 ```
 
 ### Debugging
@@ -125,6 +151,10 @@ Enable diagnostic output in `brief.py`:
 
 ### Key Functions (utils.py)
 - `classify_story()`: Categorize story + relevance score
+- `compound_score()`: Category × match × source × freshness ordering score
+- `rollup_series()`: Collapse recurring time-series posts
+- `apply_category_caps()`: Per-client filler caps
+- `strip_headline_boilerplate()`: Remove aggregator branding from headlines
 - `cluster_stories()`: Group duplicates
 - `source_rank()`: Rank by outlet authority
 - `save_archive()`: Persist to JSON
@@ -133,16 +163,17 @@ Enable diagnostic output in `brief.py`:
 ## Files
 
 ```
-brief.py              — Main generator (fetch → classify → cluster → render)
-utils.py              — Helper functions (classification, clustering, ranking)
-config.py             — Static settings (clients, window, SL signals)
+brief.py              — Main generator (fetch → run_pipeline → render) + --replay harness
+utils.py              — Helper functions (classification, scoring, rollup, clustering)
+config.py             — Static settings (clients, window, SL signals, noise controls)
 keywords.json         — Client keyword governance
 outlets.json          — Media source ranking tiers
+replay_checks.py      — Offline assertion suite (replays an archive, exit 1 on failure)
 index.html            — Generated interactive dashboard (daily)
 data/
-  latest.json         — Current briefing (stories + clusters)
+  latest.json         — Current briefing (stories + clusters, incl. audit-only stories)
   archive/
-    2026-06-11.json   — Daily snapshot (historical tracking)
+    2026-06-11.json   — Daily snapshot (historical tracking, replay input)
 .github/workflows/
   daily-brief.yml     — GitHub Actions automation (6:30 AM SL time)
 ```
