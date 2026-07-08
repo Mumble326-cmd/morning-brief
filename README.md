@@ -33,14 +33,18 @@ Generates `index.html` + `data/latest.json` + `data/archive/YYYY-MM-DD.json`
 
 ### Offline Replay (no network needed)
 ```bash
-python brief.py --replay              # replay the newest archived morning
-python brief.py --replay 2026-07-07   # replay a specific date
-python replay_checks.py [DATE]        # replay + assertion suite (exit 1 on failure)
+python brief.py --replay                     # replay the newest archived morning
+python brief.py --replay 2026-07-07          # replay a specific date
+python brief.py --replay 2026-07-07 --write  # ...and regenerate the committed
+                                             # index.html / data/latest.json in place
+python replay_checks.py [DATE]               # replay + assertion suite (exit 1 on failure)
 ```
 Rebuilds the raw story pool from `data/archive/DATE.json` and pushes it back
 through the identical classification → scoring → dedup → rollup → render
-pipeline the live run uses. Writes `index.html` + `data/latest.json`; dated
-archives are never overwritten by a replay.
+pipeline the live run uses. Outputs land in the untracked `replay_output/`
+directory unless `--write` is given, so replaying an old morning never
+dirties the committed artifacts; dated archives are never overwritten by a
+replay either way.
 
 ### Automated Run
 GitHub Actions triggers daily at 6:30 AM (SL time). Workflow defined in `.github/workflows/daily-brief.yml`.

@@ -67,6 +67,43 @@ days old), flooded with flat-scored CBSL administrivia and sports junk.
   cards XOR an explicit no-news line, boilerplate gone. Non-zero exit on
   failure. Verified on 2026-06-11, 2026-06-26, 2026-07-06, 2026-07-07
 
+#### Polish round (critic review)
+- First-run semantics: with no previous archive every story is now marked
+  NEW (previously all six sections claimed "no new coverage since the
+  previous brief" about a brief that never existed, with the entire run
+  collapsed into "Previously reported"). The no-coverage wording adapts,
+  and risk alerts stay suppressed on a first run — a blanket issue listing
+  every risk story is noise, not an alert
+- Search now auto-opens the collapsed "Previously reported" block while a
+  query is active (matches inside it were invisible before) and re-collapses
+  it when cleared, without touching a block the user opened manually
+- Digit-signature series grouping is restricted to industry/market_watch:
+  on 2026-06-11 it had demoted the "HNB Finance records exceptional FY
+  2025/26 growth, PAT doubled" Mention — that day's top HNB story — to a
+  one-line recurring update. Explicit SERIES_PATTERNS still apply everywhere
+- `--replay` now writes to the untracked `replay_output/` directory by
+  default (pass `--write` to regenerate index.html / data/latest.json /
+  data/alerts.json in place), so a replayed old morning can't be committed
+  by accident; replay_checks.py asserts the committed artifacts stay
+  untouched by a replay
+- Google News queries are now built via `build_queries()`, which splits any
+  keyword list whose URL-encoded query would exceed a 1000-char budget into
+  multiple fetches (overlong queries silently return 0 results — the tuned
+  HNB industry list had crossed that line). replay_checks.py unit-checks
+  every client/mode query offline for budget compliance and term preservation
+
+#### Known transition artifacts / watch items (documented, no code change)
+- One-time NEW-badge blip: 7 stories archived by the old code carry
+  boilerplated headlines and/or unresolved Google News URLs. Their
+  cluster_ids change under the new headline cleaning, so on the first live
+  run after this deploy they may re-badge as NEW once. Self-heals the next
+  morning; none of the affected stories is risk_watch
+- The new HNB excludes (pyramid / administrator / wind up) run BEFORE
+  risk_watch classification, like all excludes. Archive grep confirms they
+  currently only suppress CBSL administrivia about third-party finance
+  companies, but a hypothetical genuine "HNB administrator / wind-up" story
+  would be excluded too — keep in mind when editing HNB keywords
+
 #### Replayed 2026-07-07 result (vs the live run that morning)
 - Same 74 stories in JSON, but the rendered page now leads with 7 new
   stories; HNB's 17 flat-0.7 CBSL cards became 5 ranked industry cards +
