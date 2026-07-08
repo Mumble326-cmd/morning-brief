@@ -7,6 +7,59 @@ WINDOW_DAYS  = 30          # Always fetch 30 days; user filters on the page
 MAX_STORIES  = 20          # Max stories per client per mode (pre-filter)
 OUTPUT_FILE  = 'index.html'
 
+# Per-client per-day card caps for filler-prone categories. The best-scored
+# stories survive; the overflow stays in data/latest.json (is_capped: true)
+# but never reaches the rendered brief. Mentions and risk are never capped —
+# a client's own coverage and negative news must always surface in full.
+CATEGORY_CAPS = {
+    'industry':     5,
+    'market_watch': 3,
+}
+
+# ── Global exclude layer ──────────────────────────────────────────────────────
+# Terms that mark a story as junk for EVERY client, on top of each client's
+# own exclude list in keywords.json. Sports coverage keeps leaking in via
+# corporate-named teams ("Bowlers star in LOLC Holdings' five wicket win"),
+# so the sports vocabulary lives here once instead of six times.
+GLOBAL_EXCLUDE = [
+    'cricket',
+    'rugby',
+    'football',
+    'futsal',
+    'netball',
+    'volleyball',
+    'badminton',
+    'wicket',
+    'bowlers',
+    'batsman',
+    'batter',
+    'innings',
+    'run chase',
+    'T10',
+    'T20',
+    'horse racing',
+    'horoscope',
+    'obituar',           # obituary / obituaries
+    'matrimonial',
+]
+
+# ── Recurring time-series posts ───────────────────────────────────────────────
+# Some outlets publish the same data point as a fresh "story" every day
+# (CBSL daily exchange rate, T-bill auction yields, market close). Each entry
+# is (series_key, regex tested against the lowercased headline). Stories in
+# the same (client, series_key) group are rolled up: the newest becomes a
+# one-line "recurring update" in the brief, the rest are suppressed from the
+# rendered page (kept in data/latest.json with is_series_repeat: true).
+SERIES_PATTERNS = [
+    ('cbsl-fx-rate',  r'\b(?:cbsl|central bank)\b.*\b(?:selling|buying)\s+rate\b'),
+    ('fx-rate',       r'\b(?:usd|us ?dollar|dollar)\b.*\brs\.?\s*\d'),
+    ('tbill-auction', r'\btreasury (?:bill|bond)\b.*\b(?:auction|yields?)\b'),
+    ('market-close',  r'\b(?:bourse|asp?i|indices|stock market|cse)\b.*\b(?:closes?|ends?|gains?|dips?|slips?|edges?|in (?:green|red))\b'),
+    ('market-close',  r'\bweek ends in (?:green|red)\b'),
+    ('fuel-price',    r'\bfuel price (?:revision|update|formula)\b'),
+    ('gold-price',    r'\bgold price\b'),
+]
+
 # ── Clients ───────────────────────────────────────────────────────────────────
 # A client entry needs only three keys: 'key', 'label', 'sector'.
 #   key    — short id; MUST match the top-level key in keywords.json
