@@ -334,8 +334,13 @@ def rollup_series(stories, series_patterns):
     Tag recurring time-series posts across a list of cluster-primary stories.
     Two detectors feed the same grouping:
       • pattern series — config.SERIES_PATTERNS regex on the headline
+        (applies to every category: the patterns are explicit and curated)
       • signature series — ≥2 same-client stories whose headlines are
-        identical once digits are removed (pure data-point reposts)
+        identical once digits are removed (pure data-point reposts).
+        Restricted to industry/market_watch: a client's own coverage often
+        legitimately repeats a digits-only-different headline across outlets
+        ("...PAT doubled" re-run day apart), and a Mention must never be
+        demoted to a one-line rollup by that coincidence.
     Mutates stories in place; returns the number of suppressed repeats.
     """
     groups = {}
@@ -346,7 +351,7 @@ def rollup_series(stories, series_patterns):
         key = detect_series_key(s, series_patterns)
         if key:
             groups.setdefault((s.get('client'), key), []).append(s)
-        else:
+        elif s.get('category') in ('industry', 'market_watch'):
             sig = _digit_signature(s.get('headline'))
             if sig and '#' in sig:
                 sig_groups.setdefault((s.get('client'), sig), []).append(s)
@@ -595,13 +600,16 @@ def get_archive_path(date=None):
         date = datetime.now(SL_TZ).date()
     return f"data/archive/{date.isoformat()}.json"
 
-def save_archive(stories, clusters, generated_at=None, write_dated=True):
+def save_archive(stories, clusters, generated_at=None, write_dated=True,
+                 latest_path='data/latest.json'):
     """
     Save current results to latest.json and dated archive.
     generated_at: run timestamp (defaults to now; replay passes the archived
     run's original timestamp so the regenerated brief matches that morning).
     write_dated: replay sets this False so a replayed run can never overwrite
     the historical archive files it reads its input from.
+    latest_path: replay redirects this to its scratch directory so a replayed
+    brief doesn't clobber the committed data/latest.json.
     """
     now = generated_at or datetime.now(timezone.utc)
     now_sl = now.astimezone(SL_TZ)
@@ -634,7 +642,7 @@ def save_archive(stories, clusters, generated_at=None, write_dated=True):
     }
     
     # Save to latest.json
-    save_json('data/latest.json', archive_data)
+    save_json(latest_path, archive_data)
 
     # Save to dated archive
     if write_dated:

@@ -429,6 +429,15 @@ function render() {
       det.style.display = prevVis > 0 ? '' : 'none';
       const pc = det.querySelector('.prev-count');
       if (pc) pc.textContent = prevVis;
+      // A search must surface its matches even when they live inside the
+      // collapsed block — auto-open while a query is active, and re-collapse
+      // when it's cleared (without touching a block the user opened manually).
+      if (q) {
+        if (prevVis > 0 && !det.open) { det.open = true; det.dataset.autoOpened = '1'; }
+      } else if (det.dataset.autoOpened) {
+        det.open = false;
+        delete det.dataset.autoOpened;
+      }
     }
     const cnt = sec.querySelector('.sec-count');
     if (cnt) cnt.textContent = secCount + (secCount===1?' story':' stories');

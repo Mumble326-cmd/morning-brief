@@ -312,6 +312,41 @@ def build_query(terms, context=None):
         return f'({inner}) "{context}"'
     return inner
 
+# Google News silently returns 0 results when the query grows too long (the
+# observed failure mode behind "adding context makes the query too long" —
+# there's no error, the feed is just empty). Keep each fetch's URL-encoded
+# query under this budget and split the OR-group across multiple fetches
+# when a keyword list outgrows it. Results merge before dedup/classification,
+# so splitting is invisible downstream.
+QUERY_ENCODED_BUDGET = 1000
+
+def _encoded_query_len(query):
+    """URL-encoded length of the final query string as fetch_news builds it."""
+    return len(urllib.parse.quote(f'({query}) when:{WINDOW_DAYS}d'))
+
+def build_queries(terms, context=None, budget=QUERY_ENCODED_BUDGET):
+    """
+    Build one or more Google News queries from keyword terms, greedily packing
+    terms into OR-groups so each query stays within the URL-encoded budget.
+    Term order is preserved; every term lands in exactly one query.
+    """
+    if not terms:
+        return []
+    queries, group = [], []
+    for t in terms:
+        candidate = build_query(group + [t], context=context)
+        if group and _encoded_query_len(candidate) > budget:
+            queries.append(build_query(group, context=context))
+            group = [t]
+        else:
+            group.append(t)
+    if group:
+        queries.append(build_query(group, context=context))
+    if len(queries) > 1:
+        print(f'  (query split into {len(queries)} fetches to stay under '
+              f'the {budget}-char encoded budget)')
+    return queries
+
 # ── HTML Rendering ────────────────────────────────────────────────────────────
 
 def h(s):
@@ -675,6 +710,15 @@ function render() {
       det.style.display = prevVis > 0 ? '' : 'none';
       const pc = det.querySelector('.prev-count');
       if (pc) pc.textContent = prevVis;
+      // A search must surface its matches even when they live inside the
+      // collapsed block — auto-open while a query is active, and re-collapse
+      // when it's cleared (without touching a block the user opened manually).
+      if (q) {
+        if (prevVis > 0 && !det.open) { det.open = true; det.dataset.autoOpened = '1'; }
+      } else if (det.dataset.autoOpened) {
+        det.open = false;
+        delete det.dataset.autoOpened;
+      }
     }
     const cnt = sec.querySelector('.sec-count');
     if (cnt) cnt.textContent = secCount + (secCount===1?' story':' stories');
@@ -1382,7 +1426,13 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
     # recurring time-series posts render as single rollup lines. Anything
     # low_relevance, capped, or a series repeat never reaches the DOM (it
     # stays in data/latest.json for audit).
-    prev_label = f' ({h(prev_date)})' if prev_date else ''
+    # On a first run (no previous archive) everything is new, so this line
+    # only appears for a client with zero coverage at all — word it that way
+    # rather than referencing a previous brief that never existed.
+    if prev_date:
+        no_new_msg = f'No new coverage since the previous brief ({h(prev_date)}).'
+    else:
+        no_new_msg = 'No coverage found in this run.'
     sections = ''
     for client in clients_config:
         client_key = client['key']
@@ -1407,9 +1457,7 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
             fresh_html = ''.join(
                 render_story_card(s, s.get('_cluster_info')) for s in fresh)
         else:
-            fresh_html = (
-                f'<p class="no-new">No new coverage since the previous brief{prev_label}.</p>'
-            )
+            fresh_html = f'<p class="no-new">{no_new_msg}</p>'
 
         prev_html = ''
         if older:
@@ -1671,18 +1719,18 @@ def main():
         else:
             term_groups = [direct_mentions]
         for term_group in term_groups:
-            query = build_query(term_group, context=ctx)
-            if query:
+            for query in build_queries(term_group, context=ctx):
                 stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
                 for s in stories:
                     s['fetch_type'] = 'direct_mentions'
                 all_stories.extend(stories)
 
-        # Fetch industry watch — no context; terms are SL-specific or named competitors
+        # Fetch industry watch — no context; terms are SL-specific or named
+        # competitors. build_queries splits any list that outgrows the encoded
+        # budget (overlong queries silently return 0 results).
         print(f'[{client["label"]}] Industry')
         industry_watch = client_config.get('industry_watch', [])
-        query = build_query(industry_watch)
-        if query:
+        for query in build_queries(industry_watch):
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'industry_watch'
@@ -1691,8 +1739,7 @@ def main():
         # Fetch market watch — no context
         print(f'[{client["label"]}] Market Watch')
         market_watch = client_config.get('market_watch', [])
-        query = build_query(market_watch)
-        if query:
+        for query in build_queries(market_watch):
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES * 2, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'market_watch'
@@ -1701,8 +1748,7 @@ def main():
         # Fetch risk watch — no context
         print(f'[{client["label"]}] Risk Watch')
         risk_watch = client_config.get('risk_watch', [])
-        query = build_query(risk_watch)
-        if query:
+        for query in build_queries(risk_watch):
             stories = fetch_news(query, client_key, WINDOW_DAYS, MAX_STORIES, SL_SIGNALS, cutoff_ms)
             for s in stories:
                 s['fetch_type'] = 'risk_watch'
@@ -1725,14 +1771,29 @@ def main():
     run_pipeline(all_stories, generated_at, keywords, outlets_config)
 
 
-def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=False):
+def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=False,
+                 out_dir=None):
     """
     Everything downstream of fetching: classify → cluster → resolve URLs →
     NEW-marking → series rollup → compound scoring → category caps → alerts →
     executive summary → render → archive. Shared verbatim by the live run
     (main) and the offline replay harness (replay_main), so a replayed brief
     exercises the exact production path.
+
+    out_dir: redirect the outputs (index.html, latest.json, alerts.json) to a
+    scratch directory — replay uses this so a replayed morning never dirties
+    the committed artifacts unless explicitly asked to (--write). Dated
+    archives are only ever written by live runs regardless.
     """
+    if out_dir:
+        Path(out_dir).mkdir(parents=True, exist_ok=True)
+        output_file = str(Path(out_dir) / 'index.html')
+        latest_path = str(Path(out_dir) / 'latest.json')
+        alerts_path = str(Path(out_dir) / 'alerts.json')
+    else:
+        output_file = OUTPUT_FILE
+        latest_path = 'data/latest.json'
+        alerts_path = 'data/alerts.json'
     # ── Classify stories (headlines de-boilerplated first) ────────────────────
     print('Classifying stories...')
     for story in all_stories:
@@ -1846,12 +1907,20 @@ def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=Fal
     today_iso = generated_at.astimezone(SL_TZ).date().isoformat()
     prev_urls, prev_cids, prev_date = load_previous_story_keys(today_iso)
     for s in clustered_stories:
-        s['is_new'] = bool(prev_date) and \
-            s.get('url') not in prev_urls and \
-            s.get('cluster_id') not in prev_cids
+        if prev_date:
+            s['is_new'] = s.get('url') not in prev_urls and \
+                s.get('cluster_id') not in prev_cids
+        else:
+            # First run ever: there is no baseline, so EVERYTHING is new —
+            # otherwise all six sections would claim "no new coverage since
+            # the previous brief" about a brief that never existed, with the
+            # whole run collapsed into "Previously reported".
+            s['is_new'] = True
     n_new = sum(1 for s in clustered_stories if s['is_new'])
     if prev_date:
         print(f'New since {prev_date}: {n_new} stories')
+    else:
+        print(f'No previous archive — first run, all {n_new} stories marked new')
 
     # ── Series rollup, compound scores, category caps ─────────────────────────
     # Recurring data-point posts (daily CBSL rate etc.) collapse to their
@@ -1878,9 +1947,11 @@ def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=Fal
     # ── Risk alerts: new risk_watch stories → data/alerts.json ────────────────
     # The GitHub Action opens an issue when alert_count > 0.
     label_map = {c['key']: c['label'] for c in CLIENTS}
+    # No alerts on a first run: with no baseline every story is "new" and a
+    # blanket issue listing every risk story would be noise, not an alert.
     new_risk = [s for s in clustered_stories
                 if s.get('category') == 'risk_watch' and s.get('is_new')
-                and not s.get('is_series_repeat')]
+                and not s.get('is_series_repeat')] if prev_date else []
     alerts = [{
         'client':       s['client'],
         'client_label': label_map.get(s['client'], s['client']),
@@ -1894,7 +1965,7 @@ def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=Fal
         f'- **[{a["client_label"]}]** [{a["headline"]}]({a["url"]}) — {a["source"]} ({a["date"]})'
         for a in alerts
     ]
-    save_json('data/alerts.json', {
+    save_json(alerts_path, {
         'generated_at': generated_at.isoformat(),
         'compared_to':  prev_date,
         'alert_count':  len(alerts),
@@ -1902,7 +1973,7 @@ def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=Fal
         'issue_body':   '\n'.join(issue_lines) if alerts else '',
     })
     if new_risk:
-        print(f'⚠ {len(new_risk)} new risk story(ies) → data/alerts.json')
+        print(f'⚠ {len(new_risk)} new risk story(ies) → {alerts_path}')
 
     # ── Executive summary + trend data ────────────────────────────────────────
     exec_stories = pick_executive_stories(clustered_stories)
@@ -1924,23 +1995,24 @@ def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=Fal
         sys.exit(1)
 
     # ── Save output ────────────────────────────────────────────────────────────
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write(page)
 
     # ── Save archive ────────────────────────────────────────────────────────────
     print('Saving archive...')
     save_archive(clustered_stories, clusters,
-                 generated_at=generated_at, write_dated=not replay)
+                 generated_at=generated_at, write_dated=not replay,
+                 latest_path=latest_path)
     if not replay:
         pruned = prune_old_archives(keep_days=90)
         if pruned:
             print(f'Pruned {pruned} archive file(s) older than 90 days')
 
-    print(f'Done — {OUTPUT_FILE} written ({len(page):,} bytes)')
+    print(f'Done — {output_file} written ({len(page):,} bytes)')
     if replay:
-        print('Done — data/latest.json updated (replay: dated archives untouched)')
+        print(f'Done — {latest_path} updated (replay: dated archives untouched)')
     else:
-        print(f'Done — data/latest.json and data/archive/ updated')
+        print(f'Done — {latest_path} and data/archive/ updated')
     print()
 
 
@@ -1990,7 +2062,12 @@ def load_replay_pool(replay_date, archive_dir='data/archive'):
         pool.append(raw)
     return pool, generated_at
 
-def replay_main(replay_date=None):
+# Replay output goes to this untracked scratch directory by default, so a
+# replayed morning can't dirty the committed index.html / data/latest.json
+# (pass --write to regenerate them in place deliberately).
+REPLAY_OUT_DIR = 'replay_output'
+
+def replay_main(replay_date=None, write_in_place=False):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     print('Morning Brief — offline replay\n')
 
@@ -2007,16 +2084,21 @@ def replay_main(replay_date=None):
     outlets_config = load_json('outlets.json', {})
 
     pool, generated_at = load_replay_pool(replay_date)
+    out_dir = None if write_in_place else REPLAY_OUT_DIR
     print(f'Replaying {replay_date} — {len(pool)} raw stories '
-          f'reconstructed from its archived run\n')
+          f'reconstructed from its archived run')
+    print(f'Output: {"in place (--write)" if write_in_place else out_dir + "/"}\n')
 
-    run_pipeline(pool, generated_at, keywords, outlets_config, replay=True)
+    run_pipeline(pool, generated_at, keywords, outlets_config, replay=True,
+                 out_dir=out_dir)
 
 
 if __name__ == '__main__':
     if '--replay' in sys.argv:
-        idx = sys.argv.index('--replay')
-        date_arg = sys.argv[idx + 1] if len(sys.argv) > idx + 1 else None
-        replay_main(date_arg)
+        args = [a for a in sys.argv[1:] if a != '--replay']
+        write_in_place = '--write' in args
+        args = [a for a in args if a != '--write']
+        date_arg = args[0] if args else None
+        replay_main(date_arg, write_in_place=write_in_place)
     else:
         main()
