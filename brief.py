@@ -23,13 +23,21 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-import feedparser
+try:
+    import feedparser
+except ImportError:       # Only fetch_outlet_feed needs it; the offline replay
+    feedparser = None     # harness (--replay) must run without network extras.
 
-from config import CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE, DIRECT_FEEDS
+from config import (
+    CLIENTS, SL_SIGNALS, WINDOW_DAYS, MAX_STORIES, OUTPUT_FILE, DIRECT_FEEDS,
+    GLOBAL_EXCLUDE, SERIES_PATTERNS, CATEGORY_CAPS,
+)
 from utils import (
     load_json, save_json, normalize_text, extract_domain, source_rank,
     source_name_rank, effective_source_rank,
     classify_story, cluster_stories, choose_primary_story, term_matches,
+    strip_headline_boilerplate, compound_score, rollup_series,
+    apply_category_caps,
     save_archive, validate_no_private_contacts,
     load_previous_story_keys, load_trend_counts, prune_old_archives,
     SL_TZ,
@@ -161,6 +169,10 @@ def fetch_outlet_feed(feed, cutoff_ms):
     """
     sys.stdout.write(f'  [{feed["source"]}] fetching...\n')
     sys.stdout.flush()
+    if feedparser is None:
+        sys.stdout.write('    x feedparser not installed — skipping outlet feed\n')
+        sys.stdout.flush()
+        return []
     try:
         # Fetch the bytes ourselves with an explicit timeout — feedparser.parse()
         # does its own fetch with NO timeout and will hang forever on a stalled
@@ -419,6 +431,26 @@ h1 .it{font-style:italic;font-weight:600;}
 .cov-date{font-size:7.5px;color:var(--faint);margin-left:1px;}
 .no-stories{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);
   padding:12px 0;letter-spacing:.04em;}
+.no-new{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--faint);
+  padding:10px 0;letter-spacing:.04em;font-style:italic;}
+.exec-new{color:var(--gold);font-weight:600;}
+.prev-details{margin-top:10px;border-top:1px dashed var(--rule);}
+.prev-details summary{font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;
+  padding:9px 0;user-select:none;}
+.prev-details summary:hover{color:var(--ink);}
+.prev-details[open] summary{border-bottom:1px solid var(--rule-soft);}
+.prev-body .story:first-child{border-top:none;}
+.series-block{margin-top:10px;padding:8px 0 2px;border-top:1px dashed var(--rule);}
+.series-label{font-family:"IBM Plex Mono",monospace;font-size:8.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:5px;}
+.series-line{display:flex;align-items:baseline;gap:7px;padding:3px 0;
+  font-size:12px;flex-wrap:wrap;}
+.series-dot{color:var(--faint);font-size:10px;flex-shrink:0;}
+.series-hl{color:var(--muted);text-decoration:none;}
+.series-hl:hover{color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+.series-meta{font-family:"IBM Plex Mono",monospace;font-size:8.5px;color:var(--faint);
+  white-space:nowrap;}
 .foot{padding:16px 36px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;
   font-size:9px;letter-spacing:.06em;color:var(--faint);line-height:1.7;}
 @media(max-width:600px){
@@ -586,19 +618,12 @@ const STORIES = JSON.parse(document.getElementById('story-data').textContent);
 const CLIENTS = JSON.parse(document.getElementById('client-data').textContent);
 const GENERATED = parseInt(document.getElementById('gen-ts').textContent);
 const MS = { '1d':86400000,'7d':604800000,'14d':1209600000,'30d':2592000000 };
-let state = { win:'7d', client:'all', category:'all', q:'', showLowRel:false };
+let state = { win:'30d', client:'all', category:'all', q:'' };
 
 function setWin(v)      { state.win=v;       syncBtns('win'); }
 function setClient(v)   { state.client=v;    syncBtns('client'); }
 function setCategory(v) { state.category=v;  syncBtns('category'); }
 function setQ(v)        { state.q=v.toLowerCase().trim(); render(); }
-
-function toggleLowRel() {
-  state.showLowRel = !state.showLowRel;
-  const btn = document.getElementById('lowrel-btn');
-  if (btn) btn.classList.toggle('active', state.showLowRel);
-  render();
-}
 
 function syncBtns(dim) {
   const sel = { win:'[data-win]', client:'[data-cl]', category:'[data-cat]' }[dim];
@@ -610,6 +635,9 @@ function syncBtns(dim) {
 }
 
 function render() {
+  // The staleness problem is handled structurally (new cards up top,
+  // "Previously reported" collapsed), so the window filter defaults to 30d
+  // and simply narrows what's eligible anywhere on the page.
   const cutoff = GENERATED - MS[state.win];
   const q = state.q;
   let total = 0;
@@ -623,15 +651,31 @@ function render() {
       const text = (s.dataset.text||'').toLowerCase();
       const cat = s.dataset.cat || 'mention';
       const catVis = state.category==='all' || state.category===cat;
-      const lowOk = cat !== 'low_relevance' || state.showLowRel;
       // Manual clips bypass the date-window filter — they're curated and must
       // stay visible on every window (e.g. the MIFL debenture is >30 days old).
       const isManual = s.dataset.manual === 'true';
-      const show = (isManual || ts >= cutoff) && secVis && catVis && lowOk && (!q || text.includes(q));
+      const show = (isManual || ts >= cutoff) && secVis && catVis && (!q || text.includes(q));
       s.style.display = show ? '' : 'none';
       if (show) { secCount++; total++; }
     });
-    sec.style.display = (secVis && secCount>0) ? '' : 'none';
+    // Recurring-update rollup lines: category filter only (they're one-line
+    // data points, not story cards — the window/search filters skip them).
+    sec.querySelectorAll('.series-line').forEach(l => {
+      const catVis = state.category==='all' || state.category===(l.dataset.cat||'industry');
+      l.style.display = catVis ? '' : 'none';
+    });
+    // A section stays visible even with zero matching stories — its explicit
+    // "No new coverage" line IS the signal. Only the client filter hides it.
+    sec.style.display = secVis ? '' : 'none';
+    // Collapse bookkeeping: hide the details block when filters empty it.
+    const det = sec.querySelector('.prev-details');
+    if (det) {
+      let prevVis = 0;
+      det.querySelectorAll('.story').forEach(s => { if (s.style.display !== 'none') prevVis++; });
+      det.style.display = prevVis > 0 ? '' : 'none';
+      const pc = det.querySelector('.prev-count');
+      if (pc) pc.textContent = prevVis;
+    }
     const cnt = sec.querySelector('.sec-count');
     if (cnt) cnt.textContent = secCount + (secCount===1?' story':' stories');
   });
@@ -656,6 +700,7 @@ function printCoverage() {
   const byClient = {};
   STORIES.forEach(s => {
     if (s.category === 'low_relevance') return;
+    if (s.is_series_repeat || s.is_capped) return;
     if (cl !== 'all' && s.client !== cl) return;
     if (cat !== 'all' && s.category !== cat) return;
     if (!byClient[s.client]) byClient[s.client] = [];
@@ -1124,30 +1169,29 @@ def sparkline_svg(values, width=84, height=20):
         f'stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/></svg>'
     )
 
-def pick_executive_stories(stories, limit=5, per_client_cap=2):
+def pick_executive_stories(stories, limit=6, per_client_cap=2):
     """
     Top stories for the Executive Summary strip.
-    Scored by category weight × source quality × freshness, with a two-pass
-    selection to ensure client variety before allowing repeats.
+    New-since-yesterday stories always outrank older ones (this strip answers
+    "what happened since the last brief?"); within each tier the compound
+    score decides. A two-pass selection ensures client variety before repeats.
     """
-    def score(s):
-        cat  = s.get('category', '')
-        rank = s.get('source_rank', 4)
-        cat_w = {'mention': 100, 'risk_watch': 80, 'industry': 50,
-                 'market_watch': 20}.get(cat, 0)
-        src_w = {1: 1.0, 2: 0.7, 3: 0.4}.get(rank, 0.15)
-        fresh  = 1.1 if s.get('is_new') else 1.0
-        manual = 1.3 if s.get('is_manual') else 1.0
-        return cat_w * src_w * fresh * manual
-
     candidates = sorted(
-        [s for s in stories if s.get('category') != 'low_relevance'],
-        key=score, reverse=True,
+        [s for s in stories
+         if s.get('category') != 'low_relevance'
+         and not s.get('is_series_leader')
+         and not s.get('is_series_repeat')
+         and not s.get('is_capped')],
+        key=lambda s: (not s.get('is_new'), -s.get('score', 0.0)),
     )
 
-    # Pass 1: one per client for variety
+    # Pass 1: one per client for variety — NEW stories only, so a client with
+    # nothing new doesn't push today's second-best headline out of the strip
+    # (its section already says "No new coverage" explicitly).
     picked, per_client = [], {}
     for s in candidates:
+        if not s.get('is_new'):
+            continue
         if per_client.get(s['client'], 0) < 1:
             picked.append(s)
             per_client[s['client']] = 1
@@ -1173,7 +1217,12 @@ def render_story_card(story, cluster_info=None):
     url = story.get('url', '#')
     source = h(story.get('source', 'Unknown'))
     date = h(story.get('date', ''))
-    snippet = h(story.get('snippet', ''))
+    # Google News snippets are often just the headline re-stated with the
+    # outlet name appended — rendering that under the headline is pure noise.
+    raw_snippet = story.get('snippet', '') or ''
+    if normalize_text(raw_snippet).startswith(normalize_text(story.get('headline', ''))):
+        raw_snippet = ''
+    snippet = h(raw_snippet)
     category = story.get('category', 'mention')
     is_manual = story.get('is_manual', False)
     reason = h(story.get('reason', ''))
@@ -1232,12 +1281,13 @@ def render_story_card(story, cluster_info=None):
     )
 
     manual_attr = ' data-manual="true"' if is_manual else ''
+    new_attr    = ' data-new="1"' if story.get('is_new') else ''
 
     return (
-        f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}"{manual_attr}>'
+        f'<div class="story" data-ts="{story["ts"]}" data-text="{search_text}" data-cat="{category}"{manual_attr}{new_attr}>'
         f'<a class="story-hl" href="{h(url)}" target="_blank" rel="noopener">'
         f'{headline_html} <span class="ext">&#8599;</span></a>'
-        f'<p class="story-snippet">{snippet}</p>'
+        + (f'<p class="story-snippet">{snippet}</p>' if snippet else '') +
         f'<div class="story-meta">'
         f'<span class="src">{source}</span>'
         f'<span class="sep">/</span><span>{date}</span>'
@@ -1247,8 +1297,28 @@ def render_story_card(story, cluster_info=None):
         f'{also_covered_html}</div>'
     )
 
+def render_series_line(story):
+    """One-line row for the newest post of a recurring time-series (the
+    earlier repeats are suppressed — see rollup_series)."""
+    n = story.get('series_size', 1)
+    note = ''
+    if n > 1:
+        note = f' &middot; {n - 1} earlier update{"s" if n > 2 else ""} rolled up'
+    dm = re.match(r'(\d{1,2}\s+\w{3})', story.get('date', ''))
+    short_date = dm.group(1) if dm else ''
+    date_html = f' &middot; {h(short_date)}' if short_date else ''
+    return (
+        f'<div class="series-line" data-cat="{h(story.get("category", ""))}">'
+        f'<span class="series-dot">&#8635;</span>'
+        f'<a class="series-hl" href="{h(story.get("url", "#"))}" target="_blank" rel="noopener">'
+        f'{h(story.get("headline", ""))}</a>'
+        f'<span class="series-meta">{h(story.get("source", ""))}{date_html}{note}</span>'
+        f'</div>'
+    )
+
 def build_html(clustered_stories, clients_config, generated_at, keywords=None,
-               manual_data=None, exec_stories=None, trend_counts=None):
+               manual_data=None, exec_stories=None, trend_counts=None,
+               prev_date=None):
     """Build the HTML output."""
     now_sl   = generated_at.astimezone(SL_TZ)
     dateline = now_sl.strftime('%A, %d %B %Y')
@@ -1282,13 +1352,14 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         items = ''
         for i, s in enumerate(exec_stories, 1):
             cat_display = (s.get('category', '') or '').replace('_', ' ').title()
+            new_star = '<span class="exec-new">&#9733; new</span> ' if s.get('is_new') else ''
             items += (
                 f'<li class="exec-item">'
                 f'<span class="exec-num">{i}</span>'
                 f'<span class="exec-client">{h(label_map.get(s["client"], s["client"]))}</span>'
                 f'<a class="exec-hl" href="{h(s.get("url", "#"))}" target="_blank" rel="noopener">'
                 f'{h(s.get("headline", ""))}</a>'
-                f'<span class="exec-meta">{h(s.get("source", ""))} &middot; {h(cat_display)}</span>'
+                f'<span class="exec-meta">{new_star}{h(s.get("source", ""))} &middot; {h(cat_display)}</span>'
                 f'</li>'
             )
         exec_html = (
@@ -1305,21 +1376,65 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
             today_counts[s['client']] = today_counts.get(s['client'], 0) + 1
     total_today = sum(today_counts.values())
 
-    # Build sections
+    # Build sections — morning-brief-first: every client always gets a section.
+    # The default view is NEW-since-last-run cards (or an explicit "no new
+    # coverage" line); older stories collapse into "Previously reported";
+    # recurring time-series posts render as single rollup lines. Anything
+    # low_relevance, capped, or a series repeat never reaches the DOM (it
+    # stays in data/latest.json for audit).
+    prev_label = f' ({h(prev_date)})' if prev_date else ''
     sections = ''
     for client in clients_config:
         client_key = client['key']
         client_stories = [s for s in clustered_stories if s['client'] == client_key]
 
-        if not client_stories:
-            continue
+        visible = [s for s in client_stories
+                   if s.get('category') != 'low_relevance'
+                   and not s.get('is_series_repeat')
+                   and not s.get('is_capped')]
+        leaders = [s for s in visible if s.get('is_series_leader')]
+        cards   = [s for s in visible if not s.get('is_series_leader')]
+        # Fresh = strictly new-since-last-run. Manual clips are curated
+        # history, not this morning's news — their score floor (60) pins
+        # them to the top of "Previously reported" instead.
+        fresh   = sorted([s for s in cards if s.get('is_new')],
+                         key=lambda s: -s.get('score', 0.0))
+        fresh_ids = {id(s) for s in fresh}
+        older   = sorted([s for s in cards if id(s) not in fresh_ids],
+                         key=lambda s: -s.get('score', 0.0))
 
-        stories_html = ''
-        for story in client_stories:
-            stories_html += render_story_card(story, story.get('_cluster_info'))
+        if fresh:
+            fresh_html = ''.join(
+                render_story_card(s, s.get('_cluster_info')) for s in fresh)
+        else:
+            fresh_html = (
+                f'<p class="no-new">No new coverage since the previous brief{prev_label}.</p>'
+            )
 
-        if not stories_html:
-            stories_html = '<p class="no-stories">No stories in this view.</p>'
+        prev_html = ''
+        if older:
+            older_cards = ''.join(
+                render_story_card(s, s.get('_cluster_info')) for s in older)
+            prev_html = (
+                f'<details class="prev-details">'
+                f'<summary>Previously reported &middot; '
+                f'<span class="prev-count">{len(older)}</span> '
+                f'{"story" if len(older) == 1 else "stories"}</summary>'
+                f'<div class="prev-body">{older_cards}</div></details>'
+            )
+
+        series_html = ''
+        if leaders:
+            rows = ''.join(render_series_line(s)
+                           for s in sorted(leaders, key=lambda x: -x.get('ts', 0)))
+            series_html = (
+                f'<div class="series-block">'
+                f'<div class="series-label">Recurring updates</div>{rows}</div>'
+            )
+
+        stories_html = (
+            f'<div class="fresh-block">{fresh_html}</div>{series_html}{prev_html}'
+        )
 
         n_today = today_counts.get(client_key, 0)
         sov     = round(100 * n_today / total_today) if total_today else 0
@@ -1331,7 +1446,7 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         )
 
         sections += (
-            f'<div class="section" id="sec-{client_key}">'
+            f'<div class="section" id="sec-{client_key}" data-client="{h(client_key)}">'
             f'<div class="sec-head">'
             f'<span class="sec-name">{h(client["label"])}</span>'
             f'<span class="sec-tag">{h(client.get("sector", ""))}</span>'
@@ -1453,9 +1568,9 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         '<div class="controls">\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Window</span>\n'
         '  <button class="ctrl-btn" data-win="1d" onclick="setWin(\'1d\')">1d</button>\n'
-        '  <button class="ctrl-btn active" data-win="7d" onclick="setWin(\'7d\')">7d</button>\n'
+        '  <button class="ctrl-btn" data-win="7d" onclick="setWin(\'7d\')">7d</button>\n'
         '  <button class="ctrl-btn" data-win="14d" onclick="setWin(\'14d\')">14d</button>\n'
-        '  <button class="ctrl-btn" data-win="30d" onclick="setWin(\'30d\')">30d</button></div>\n'
+        '  <button class="ctrl-btn active" data-win="30d" onclick="setWin(\'30d\')">30d</button></div>\n'
         '  <div class="ctrl-divider"></div>\n'
         '  <div class="ctrl-group"><span class="ctrl-label">Client</span>\n'
         f'  {client_btns}</div>\n'
@@ -1469,8 +1584,6 @@ def build_html(clustered_stories, clients_config, generated_at, keywords=None,
         '<span class="result-count" id="result-count"></span>'
         '  <button class="ctrl-btn" style="margin-left:10px;" '
         'onclick="location.reload()" title="Reload page to fetch latest brief">&#8635; Refresh</button>'
-        '  <button class="ctrl-btn" id="lowrel-btn" style="margin-left:6px;" '
-        'onclick="toggleLowRel()" title="Toggle visibility of low relevance stories">Show low relevance</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;" '
         'onclick="printCoverage()" title="Print or save all coverage as PDF">&#x2399; Coverage PDF</button>'
         '  <button class="ctrl-btn" style="margin-left:6px;border-color:var(--gold);color:var(--gold);" '
@@ -1609,13 +1722,28 @@ def main():
 
     print(f'Total stories before processing: {len(all_stories)}')
 
-    # ── Classify stories ──────────────────────────────────────────────────────
+    run_pipeline(all_stories, generated_at, keywords, outlets_config)
+
+
+def run_pipeline(all_stories, generated_at, keywords, outlets_config, replay=False):
+    """
+    Everything downstream of fetching: classify → cluster → resolve URLs →
+    NEW-marking → series rollup → compound scoring → category caps → alerts →
+    executive summary → render → archive. Shared verbatim by the live run
+    (main) and the offline replay harness (replay_main), so a replayed brief
+    exercises the exact production path.
+    """
+    # ── Classify stories (headlines de-boilerplated first) ────────────────────
     print('Classifying stories...')
     for story in all_stories:
+        story['headline'] = strip_headline_boilerplate(story.get('headline', ''))
+        story['snippet']  = strip_headline_boilerplate(story.get('snippet', ''))
         client_key = story['client']
         client_config = keywords.get(client_key, {})
         fetch_type = story.get('fetch_type', 'direct_mentions')
-        category, relevance, matched = classify_story(story, client_config, outlets_config, fetch_type_hint=fetch_type)
+        category, relevance, matched = classify_story(
+            story, client_config, outlets_config, fetch_type_hint=fetch_type,
+            global_exclude=GLOBAL_EXCLUDE)
         story['category'] = category
         story['relevance_score'] = relevance
         story['matched_terms'] = matched
@@ -1690,26 +1818,29 @@ def main():
     # break if Google changes its format. Resolve the displayed set (primaries +
     # "also covered by" chips) within a 90s overall budget; cluster_id carries
     # new-since-yesterday continuity so changing URLs here won't reset NEW badges.
-    print('Resolving Google News links...')
-    _RESOLVE_DEADLINE['t'] = time.monotonic() + 90
-    n_resolved = 0
-    for s in clustered_stories:
-        if s.get('domain') == 'news.google.com':
-            real = resolve_google_url(s.get('url', ''))
-            if real != s.get('url'):
-                s['url']    = real
-                s['domain'] = extract_domain(real)
-                s['source_rank'] = source_rank(s['domain'], outlets_config)
-                n_resolved += 1
-        ci = s.get('_cluster_info')
-        if ci:
-            for chip in ci.get('also_covered_by', []):
-                if chip.get('domain') == 'news.google.com':
-                    real = resolve_google_url(chip.get('url', ''))
-                    if real != chip.get('url'):
-                        chip['url']    = real
-                        chip['domain'] = extract_domain(real)
-    print(f'Resolved {n_resolved} Google News links to publisher URLs')
+    if replay:
+        print('Replay mode — skipping Google News link resolution (offline)')
+    else:
+        print('Resolving Google News links...')
+        _RESOLVE_DEADLINE['t'] = time.monotonic() + 90
+        n_resolved = 0
+        for s in clustered_stories:
+            if s.get('domain') == 'news.google.com':
+                real = resolve_google_url(s.get('url', ''))
+                if real != s.get('url'):
+                    s['url']    = real
+                    s['domain'] = extract_domain(real)
+                    s['source_rank'] = source_rank(s['domain'], outlets_config)
+                    n_resolved += 1
+            ci = s.get('_cluster_info')
+            if ci:
+                for chip in ci.get('also_covered_by', []):
+                    if chip.get('domain') == 'news.google.com':
+                        real = resolve_google_url(chip.get('url', ''))
+                        if real != chip.get('url'):
+                            chip['url']    = real
+                            chip['domain'] = extract_domain(real)
+        print(f'Resolved {n_resolved} Google News links to publisher URLs')
 
     # ── Mark new-since-yesterday stories ──────────────────────────────────────
     today_iso = generated_at.astimezone(SL_TZ).date().isoformat()
@@ -1722,11 +1853,34 @@ def main():
     if prev_date:
         print(f'New since {prev_date}: {n_new} stories')
 
+    # ── Series rollup, compound scores, category caps ─────────────────────────
+    # Recurring data-point posts (daily CBSL rate etc.) collapse to their
+    # newest item; every story gets a compound ordering score; filler-prone
+    # categories are capped per client with the best-scored cards surviving.
+    now_ms = int(generated_at.timestamp() * 1000)
+    n_suppressed = rollup_series(clustered_stories, SERIES_PATTERNS)
+    if n_suppressed:
+        print(f'Series rollup: {n_suppressed} recurring repeat(s) suppressed')
+    for s in clustered_stories:
+        s['score'] = compound_score(s, now_ms)
+    n_capped = apply_category_caps(clustered_stories, CATEGORY_CAPS, now_ms)
+    if n_capped:
+        print(f'Category caps: {n_capped} filler card(s) capped')
+
+    # Final order everywhere (page JSON, sections, coverage PDF): manual clips
+    # first, then compound score, then recency.
+    clustered_stories.sort(key=lambda s: (
+        -int(s.get('is_manual', False)),
+        -s.get('score', 0.0),
+        -s.get('ts', 0),
+    ))
+
     # ── Risk alerts: new risk_watch stories → data/alerts.json ────────────────
     # The GitHub Action opens an issue when alert_count > 0.
     label_map = {c['key']: c['label'] for c in CLIENTS}
     new_risk = [s for s in clustered_stories
-                if s.get('category') == 'risk_watch' and s.get('is_new')]
+                if s.get('category') == 'risk_watch' and s.get('is_new')
+                and not s.get('is_series_repeat')]
     alerts = [{
         'client':       s['client'],
         'client_label': label_map.get(s['client'], s['client']),
@@ -1758,7 +1912,8 @@ def main():
     print('Building HTML...')
     page = build_html(clustered_stories, CLIENTS, generated_at,
                       keywords=keywords, manual_data=manual_data,
-                      exec_stories=exec_stories, trend_counts=trend_counts)
+                      exec_stories=exec_stories, trend_counts=trend_counts,
+                      prev_date=prev_date)
 
     # ── Validation ────────────────────────────────────────────────────────────
     is_safe, messages = validate_no_private_contacts(page)
@@ -1774,15 +1929,94 @@ def main():
 
     # ── Save archive ────────────────────────────────────────────────────────────
     print('Saving archive...')
-    save_archive(clustered_stories, clusters)
-    pruned = prune_old_archives(keep_days=90)
-    if pruned:
-        print(f'Pruned {pruned} archive file(s) older than 90 days')
+    save_archive(clustered_stories, clusters,
+                 generated_at=generated_at, write_dated=not replay)
+    if not replay:
+        pruned = prune_old_archives(keep_days=90)
+        if pruned:
+            print(f'Pruned {pruned} archive file(s) older than 90 days')
 
     print(f'Done — {OUTPUT_FILE} written ({len(page):,} bytes)')
-    print(f'Done — data/latest.json and data/archive/ updated')
+    if replay:
+        print('Done — data/latest.json updated (replay: dated archives untouched)')
+    else:
+        print(f'Done — data/latest.json and data/archive/ updated')
     print()
 
 
+# ── Offline replay harness ────────────────────────────────────────────────────
+# `python brief.py --replay [YYYY-MM-DD]` regenerates a past morning's brief
+# entirely from data/archive/*.json — no network. Raw stories are rebuilt from
+# the archived runs and pushed through the identical run_pipeline() the live
+# GitHub Action uses, so classification/scoring/rollup/render changes can be
+# verified end to end offline (see replay_checks.py for the assertion suite).
+
+# Base fields carried back from an archived story into the raw pool. All
+# derived fields (category, scores, cluster ids, is_new, flags) are dropped —
+# the pipeline re-derives them.
+REPLAY_BASE_KEYS = ('client', 'headline', 'url', 'source', 'domain',
+                    'date', 'ts', 'snippet', 'fetch_type')
+
+def load_replay_pool(replay_date, archive_dir='data/archive'):
+    """
+    Rebuild the raw story pool for replay_date from that date's archive. A
+    live run fetches a full 30-day window every morning, so the day's archive
+    IS that morning's fetch result — pooling in older archives would inject
+    stories the live fetch never returned and corrupt the NEW-since-yesterday
+    comparison. Archived stories become raw again (derived fields dropped —
+    the pipeline re-derives them), deduped per (client, url) and gated to the
+    same fetch window as a live run. Returns (stories, generated_at).
+    """
+    day_data = load_json(str(Path(archive_dir) / f'{replay_date}.json'), {})
+    if not day_data.get('generated_at'):
+        raise SystemExit(f'✗ No usable archive for {replay_date} in {archive_dir}/')
+    generated_at = datetime.fromisoformat(day_data['generated_at'])
+    cutoff_ms = int((generated_at - timedelta(days=WINDOW_DAYS)).timestamp() * 1000)
+
+    pool, seen = [], set()
+    for s in day_data.get('stories', []):
+        if s.get('is_manual'):
+            continue   # manual clips re-merge from manual_articles.json
+        raw = {k: s[k] for k in REPLAY_BASE_KEYS if s.get(k) is not None}
+        raw.setdefault('fetch_type', 'direct_mentions')
+        raw.setdefault('snippet', '')
+        ts = raw.get('ts') or 0
+        if ts and ts < cutoff_ms:
+            continue
+        key = (raw.get('client'), raw.get('url') or 'hl:' + (raw.get('headline') or ''))
+        if key in seen:
+            continue
+        seen.add(key)
+        pool.append(raw)
+    return pool, generated_at
+
+def replay_main(replay_date=None):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    print('Morning Brief — offline replay\n')
+
+    dates = sorted(p.stem for p in Path('data/archive').glob('*.json'))
+    if not dates:
+        raise SystemExit('✗ data/archive/ has no archives to replay')
+    if replay_date is None:
+        replay_date = dates[-1]
+    if replay_date not in dates:
+        raise SystemExit(f'✗ No archive for {replay_date} '
+                         f'(available: {dates[0]} … {dates[-1]})')
+
+    keywords = load_json('keywords.json', {})
+    outlets_config = load_json('outlets.json', {})
+
+    pool, generated_at = load_replay_pool(replay_date)
+    print(f'Replaying {replay_date} — {len(pool)} raw stories '
+          f'reconstructed from its archived run\n')
+
+    run_pipeline(pool, generated_at, keywords, outlets_config, replay=True)
+
+
 if __name__ == '__main__':
-    main()
+    if '--replay' in sys.argv:
+        idx = sys.argv.index('--replay')
+        date_arg = sys.argv[idx + 1] if len(sys.argv) > idx + 1 else None
+        replay_main(date_arg)
+    else:
+        main()
