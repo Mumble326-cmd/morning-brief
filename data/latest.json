@@ -439,28 +439,6 @@
       "score": 34.0
     },
     {
-      "client": "hnb",
-      "headline": "HNB Assurance, Hayleys Group ‘B’, Maliban Biscuits and Power Hand Plantations undefeated as league stage concludes",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNMkg2LTFJeDkzZ01HcWRpdzVfTGc0OWJzQ3IzRkI4ZDZHUHlsTF9SSExFZVhFNnVXbUNuXzdBSVdIYmxaa1pGc1N3LWdKcGZKTVpmZmVneDJqWThkY2xhUnNIMXFUZmlYMW45MEp0ZkhhUTlRenJMTXBwREZnTWI3dlFCUkRHM2lxemI1a1ZOaWhEdVExblkwaUxHdVRWdnZIUzBPRjZsQXRxdFJ6UlFvTndvNEg3T3JSNzEwSzVhQV85c3M3Tmlv?oc=5",
-      "source": "The island.lk",
-      "domain": "news.google.com",
-      "date": "24 Jun 2026 · 05:32 SL",
-      "ts": 1782259336000,
-      "snippet": "HNB Assurance, Hayleys Group ‘B’, Maliban Biscuits and Power Hand Plantations undefeated as league stage concludes The island.lk",
-      "fetch_type": "direct_mentions",
-      "category": "mention",
-      "relevance_score": 1.0,
-      "matched_terms": [
-        "HNB"
-      ],
-      "source_rank": 1,
-      "is_low_relevance": false,
-      "cluster_id": "bf55ee0e3f28",
-      "is_primary_in_cluster": true,
-      "is_new": false,
-      "score": 34.0
-    },
-    {
       "client": "mifl",
       "headline": "Mahindra Ideal Finance opens Kohuwela branch",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTnNoT0xvTUNMYkc3ODJvNGpKcjV6bnpFQW5STnJXVllnTDFiRTRab1FwQ25SWEZGU1RycmxSdWJFNV9malJYZGZNcEI2RFctMllEZGNfUlRyYjNlbWIxdUZsSlB6ZDBqSklDNURLR08tODdCT3dmejVxc3VUQWNmemdXS0M3SC1OdE1YQmlJQTRhdlVNQTBRS01vR3FKRWN3Q2tTRA?oc=5",
@@ -1660,6 +1638,26 @@
       "cluster_id": "5d921b70bbe7",
       "is_primary_in_cluster": true,
       "is_new": true,
+      "score": 0.0
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB Assurance, Hayleys Group ‘B’, Maliban Biscuits and Power Hand Plantations undefeated as league stage concludes",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNMkg2LTFJeDkzZ01HcWRpdzVfTGc0OWJzQ3IzRkI4ZDZHUHlsTF9SSExFZVhFNnVXbUNuXzdBSVdIYmxaa1pGc1N3LWdKcGZKTVpmZmVneDJqWThkY2xhUnNIMXFUZmlYMW45MEp0ZkhhUTlRenJMTXBwREZnTWI3dlFCUkRHM2lxemI1a1ZOaWhEdVExblkwaUxHdVRWdnZIUzBPRjZsQXRxdFJ6UlFvTndvNEg3T3JSNzEwSzVhQV85c3M3Tmlv?oc=5",
+      "source": "The island.lk",
+      "domain": "news.google.com",
+      "date": "24 Jun 2026 · 05:32 SL",
+      "ts": 1782259336000,
+      "snippet": "HNB Assurance, Hayleys Group ‘B’, Maliban Biscuits and Power Hand Plantations undefeated as league stage concludes The island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "bf55ee0e3f28",
+      "is_primary_in_cluster": true,
+      "is_new": false,
       "score": 0.0
     },
     {

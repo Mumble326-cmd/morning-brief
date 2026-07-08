@@ -35,6 +35,8 @@ GLOBAL_EXCLUDE = [
     'batter',
     'innings',
     'run chase',
+    'league stage',
+    'undefeated',
     'T10',
     'T20',
     'horse racing',
