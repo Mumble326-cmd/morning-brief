@@ -1,7 +1,16 @@
 {
-  "generated_at": "2026-10-16T05:27:49.738898+00:00",
-  "compared_to": "2026-10-15",
-  "alert_count": 0,
-  "alerts": [],
-  "issue_body": ""
+  "generated_at": "2026-10-19T05:44:48.332688+00:00",
+  "compared_to": "2026-10-16",
+  "alert_count": 1,
+  "alerts": [
+    {
+      "client": "pcc",
+      "client_label": "Port City Colombo",
+      "headline": "Colombo Port City Casino Plan Falls Through as Investor Withdraws",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOQ0syemh0ZEhoZE1GUkJRYnJkaUlGdTVESkpKcmp3clRSUWszbkFDV2hQWHZTVVROOTlieUpZR0F6bUFNV1B5UzhZaV9jN1dFanJwVHgxTzkxMkVNOXZTMGpPbzdBQ0V6OUs0eVQ2MDFpSFY5Q2xJVmxtMGVDOHBQTXkxd1RLemlOZEh3dnBfSWh2LUFRbHdkUjF3OA?oc=5",
+      "source": "iGamingToday.com",
+      "date": "17 Oct 2026 · 05:59 SL"
+    }
+  ],
+  "issue_body": "New risk_watch stories detected by the Morning Brief (vs 2026-10-16):\n\n- **[Port City Colombo]** [Colombo Port City Casino Plan Falls Through as Investor Withdraws](https://news.google.com/rss/articles/CBMimwFBVV95cUxOQ0syemh0ZEhoZE1GUkJRYnJkaUlGdTVESkpKcmp3clRSUWszbkFDV2hQWHZTVVROOTlieUpZR0F6bUFNV1B5UzhZaV9jN1dFanJwVHgxTzkxMkVNOXZTMGpPbzdBQ0V6OUs0eVQ2MDFpSFY5Q2xJVmxtMGVDOHBQTXkxd1RLemlOZEh3dnBfSWh2LUFRbHdkUjF3OA?oc=5) — iGamingToday.com (17 Oct 2026 · 05:59 SL)"
 }
