@@ -1,16 +1,7 @@
 {
-  "generated_at": "2026-10-20T05:40:32.159180+00:00",
-  "compared_to": "2026-10-19",
-  "alert_count": 1,
-  "alerts": [
-    {
-      "client": "pcc",
-      "client_label": "Port City Colombo",
-      "headline": "Universal Entertainment exits Colombo Port City casino project",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYUZISVJvRkRtQnZXR1VUSUlvcGcwQ0ozbl94M29vU1JBX1F2M0w4TTJ5eWdWeVBBZjZJN0NrdXVGRVlENnU1RXlBSURNSlk4YUFVeWpLNG9HZ3NZUWs5UEhRdGlnYkFmS1Jybi1jOFFySWtnamc?oc=5",
-      "source": "Focus Gaming News",
-      "date": "16 Oct 2026 · 17:28 SL"
-    }
-  ],
-  "issue_body": "New risk_watch stories detected by the Morning Brief (vs 2026-10-19):\n\n- **[Port City Colombo]** [Universal Entertainment exits Colombo Port City casino project](https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYUZISVJvRkRtQnZXR1VUSUlvcGcwQ0ozbl94M29vU1JBX1F2M0w4TTJ5eWdWeVBBZjZJN0NrdXVGRVlENnU1RXlBSURNSlk4YUFVeWpLNG9HZ3NZUWs5UEhRdGlnYkFmS1Jybi1jOFFySWtnamc?oc=5) — Focus Gaming News (16 Oct 2026 · 17:28 SL)"
+  "generated_at": "2026-10-21T05:43:50.752098+00:00",
+  "compared_to": "2026-10-20",
+  "alert_count": 0,
+  "alerts": [],
+  "issue_body": ""
 }
