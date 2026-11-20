@@ -1,0 +1,1864 @@
+{
+  "generated_at": "2026-11-20T08:05:52.172607+00:00",
+  "generated_date": "2026-11-20",
+  "generated_time": "13:35:52 SL",
+  "stories": [
+    {
+      "id": "manual_byd_jkcg_surcharge",
+      "url": "https://economynext.com/sri-lanka-stocks-close-up-capital-goods-push-turnover-272604/",
+      "headline": "JKCG rejects claims of prior knowledge of vehicle import surcharge",
+      "source": "EconomyNext",
+      "domain": "economynext.com",
+      "date": "22 May 2026",
+      "ts": 1779408000000,
+      "snippet": "John Keells CG Auto categorically rejected claims it had prior knowledge of Sri Lanka's 50% surcharge on vehicle imports (effective May 16, 2026) and established Letters of Credit before announcement. Most recent BYD vehicle orders were March to April 30.",
+      "client": "byd",
+      "client_label": "BYD",
+      "category": "risk_watch",
+      "reason": "Major risk story for JKCG/BYD in Sri Lanka — government imposed 50% surcharge on vehicle imports effective May 16 2026 to defend the rupee. JKCG publicly rejected allegations of insider knowledge. Risk Watch because it directly affects BYD's commercial operations and public trust in the distributor.",
+      "also_covered_by": [],
+      "added_at": "2026-06-12",
+      "is_manual": true,
+      "is_low_relevance": false,
+      "is_primary_in_cluster": true,
+      "cluster_id": "72ac608c789a",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "manual"
+      ],
+      "source_rank": 1,
+      "is_new": false
+    },
+    {
+      "id": "manual_1749773220000",
+      "url": "https://www.dailymirror.lk/business-news/MIFL-records-Rs-818mn-PBT-in-FY-2025-26-up-193-YoY/273-340102",
+      "headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
+      "source": "Daily Mirror",
+      "domain": "www.dailymirror.lk",
+      "date": "13 May 2026",
+      "ts": 1778613420000,
+      "snippet": "Mahindra Ideal Finance Ltd (MIFL) posted its strongest ever financial performance in FY 2025-26: PBT Rs.818mn (+193% YoY), PAT Rs.478mn (+228% YoY), disbursements Rs.57.6bn (+98% YoY). Loan book grew 82% YoY to Rs.26.95bn. Cost-to-income ratio improved to 50.5% from 68.9%. Gross stage 3 ratio declined to 1.73%.",
+      "client": "mifl",
+      "client_label": "MIFL",
+      "category": "mention",
+      "reason": "MIFL's strongest-ever annual results (FY 2025-26). Covered across Daily Mirror, Daily FT, The Island, LBO, and Lanka Business News. Key metrics: PBT +193%, PAT +228%, disbursements +98% YoY, loan book Rs.26.95bn.",
+      "also_covered_by": [
+        {
+          "url": "https://www.ft.lk/financial-services/Mahindra-Ideal-Finance-ups-pre-tax-profit-by-193--to-Rs--818-m-in-FY26/42-791800",
+          "source": "Daily FT",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        },
+        {
+          "url": "https://island.lk/mifl-records-profit-before-tax-of-lkr-818-million-in-fy-2025-26/",
+          "source": "The Island",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        },
+        {
+          "url": "https://www.lankabusinessonline.com/2026/05/12/mifl-records-pbt-of-lkr-818mn-in-fy-2025-26-up-193-pct-yoy/",
+          "source": "LBO",
+          "date": "12 May 2026",
+          "ts": 1778527200000
+        },
+        {
+          "url": "https://www.lankabusinessnews.com/mifl-records-profit-before-tax-of-lkr-818-million-in-fy-2025-26-up-193-year-on-year/",
+          "source": "Lanka Business News",
+          "date": "13 May 2026",
+          "ts": 1778613420000
+        }
+      ],
+      "added_at": "2026-06-12",
+      "is_manual": true,
+      "is_low_relevance": false,
+      "is_primary_in_cluster": true,
+      "cluster_id": "3cbc20d2bbc2",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "manual"
+      ],
+      "source_rank": 4,
+      "is_new": false
+    },
+    {
+      "id": "manual_mifl_cse_debenture",
+      "url": "https://colombogazette.com/2026/04/15/mahindra-ideal-finance-debuts-on-cse-with-oversubscribed-debenture-issue",
+      "headline": "Mahindra Ideal Finance debuts on CSE with oversubscribed Rs.1bn debenture",
+      "source": "Colombo Gazette",
+      "domain": "colombogazette.com",
+      "date": "15 Apr 2026",
+      "ts": 1776211200000,
+      "snippet": "MIFL marked official listing of its inaugural Rs.1bn debenture on the Colombo Stock Exchange. Fully oversubscribed on day 1 (March 23). Fitch rated A(lka), managed by NDB Investment Bank. 37 branches island-wide.",
+      "client": "mifl",
+      "client_label": "MIFL",
+      "category": "mention",
+      "reason": "MIFL's CSE debut — first capital markets milestone. Outside 30-day auto-fetch window but critical institutional context. Signals MIFL moving from private NBFI to capital-market-facing entity.",
+      "also_covered_by": [
+        {
+          "url": "https://www.ft.lk/financial-services/Mahindra-Ideal-Finance-marks-Rs-1-b-CSE-debenture-listing/42-790827",
+          "source": "Daily FT",
+          "date": "15 Apr 2026",
+          "ts": 1776211200000
+        },
+        {
+          "url": "https://bizenglish.adaderana.lk/mahindra-ldeal-finances-rs-1-bn-debut-debenture-lssue-oversubscribed-on-day-1/",
+          "source": "Ada Derana Biz",
+          "date": "24 Mar 2026",
+          "ts": 1742774400000
+        }
+      ],
+      "added_at": "2026-06-12",
+      "is_manual": true,
+      "is_low_relevance": false,
+      "is_primary_in_cluster": true,
+      "cluster_id": "67e298bc23ad",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "manual"
+      ],
+      "source_rank": 1,
+      "is_new": false
+    },
+    {
+      "id": "manual_hayleys_kingsbury_injunction",
+      "url": "https://www.ft.lk/news/The-Kingsbury-PLC-obtains-enjoining-order-against-Wimal-Weerawansa/56-793459",
+      "headline": "Kingsbury PLC obtains enjoining order against Wimal Weerawansa over defamatory statements",
+      "source": "Daily FT",
+      "domain": "ft.lk",
+      "date": "18 Jun 2026",
+      "ts": 1750204800000,
+      "snippet": "Kingsbury PLC secured a court enjoining order against MP Wimal Weerawansa restraining him from making defamatory statements about the company and its management in relation to alleged defamatory remarks.",
+      "client": "hayleys",
+      "client_label": "Hayleys",
+      "category": "risk_watch",
+      "reason": "High-profile legal action involving Kingsbury (Hayleys subsidiary) against a sitting MP. Risk Watch — reputational exposure for the Hayleys group. Story ran across 5 outlets; all coverage links captured below.",
+      "also_covered_by": [
+        {
+          "url": "https://www.themorning.lk/articles/fMv6UHgi41Y13S72K6KL",
+          "source": "The Morning",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "http://bizenglish.adaderana.lk/the-kingsbury-plc-obtains-enjoining-order-against-wimal-weerawansa-in-relation-to-making-defamatory-statements/",
+          "source": "Ada Derana Biz",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "https://www.lankabusinessnews.com/the-kingsbury-plc-obtains-enjoining-order-against-wimal-weerawansa-in-relation-to-making-defamatory-statements/",
+          "source": "Lanka Business News",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        },
+        {
+          "url": "https://srilankachronicle.com/kingsbury-plc-secures-injunction-against-wimal-weerawansa-over-alleged-defamatory-remarks/",
+          "source": "Sri Lanka Chronicle",
+          "date": "18 Jun 2026",
+          "ts": 1750204800000
+        }
+      ],
+      "added_at": "2026-06-23",
+      "is_manual": true,
+      "is_low_relevance": false,
+      "is_primary_in_cluster": true,
+      "cluster_id": "165f6aa2b95b",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "manual"
+      ],
+      "source_rank": 4,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys advances Sri Lanka's renewable energy ambitions with 5MW ground-mounted solar development in Kosgama",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNRXV2Z2VUSG1VUmdIZXVDYkxoZkhWQk1jVDR4R3hkd1lvblFoWHYwZWNURU1MRzJfRkw4b1BfOEtVanFyQmkyOGpLWWlTSEFtOVhiaDhBQ0VQakNxblhZdVRDOUJ2MG94QmVyQW5WUTdQWHVOWWJaM3d4Z0Q1bjc2cU9uT01BMjkyb3Y3NlB1QS1vNHhOYk1kWHNueGxCa0tZbUczcHVHNUQxZjBVUVdVV3luTGU3RFR1VWxRWkQ2ZGtsWi1wanlocjVjOGtmbGMwTFpWZXd0b3ZnWUhIM1FpUXpBNTRIQzlXTzg3N213?oc=5",
+      "source": "Magzter",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 19:19 SL",
+      "ts": 1795096153000,
+      "snippet": "Hayleys advances Sri Lanka's renewable energy ambitions with 5MW ground-mounted solar development in Kosgama Magzter",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "2da0968ea5d0",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB FINANCE surpasses Rs.100bn in assets as 1H profit rises 50%",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOM3F0OUcyRmV3SUdJT1pOUjdxcHY1anVkMXdsa2hvNDF2cDZoYVh3aGp5QkV5VGNuTFEwY25CemdPMV84WU9OcXB3NkNHc25PdnZ6M3pBeURoLXVEeElBcGNEYTF0dmFfaHFqWjdmX3VPYXh1Y3VlSG85bHVyN3JyWW42eXY5MDVfeEIzRFREanFOQkc2UXdHTVNycTNkZ0J6NXN6T21PMzUwUHhqMTJfdHd4bFVNUQ?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 15:12 SL",
+      "ts": 1795081369000,
+      "snippet": "HNB FINANCE surpasses Rs.100bn in assets as 1H profit rises 50% Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "c43398e5f48c",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Solar powers Kelaniya University’s Faculty of Computing & Technology",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQX0tiZ2UtNmZzMkZWS3A5bnViNWpLSTQ3Q3h0OEhKd2E0QjFZTWdkaGNqdjNuMTZvRk1UVXREUWVEMWcwV3kycWtZYkpTUVBGcEdvS1dLZXBtUm43WVZmaTd6MXB4NS1kai04X2VJNHVYUlVxM2pOQXliZUR2M1pyZUFvQUVVbk5YejRXWnd0aUF2bVppd3NHWVB4TUJsM242LW9FZWtidWN1QzFLX2U0cXdQWE4wY2Q3NTZTSks0NVpPeklp?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 15:12 SL",
+      "ts": 1795081367000,
+      "snippet": "Hayleys Solar powers Kelaniya University’s Faculty of Computing & Technology Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "a8c42012febb",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka stocks close down 1.37-pct, dragged by Commercial Bank, HNB",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQMU9KX3pWc1ZINl95ZHMtM0RfTU5hZ0NjWV9GWVRPQ2NJTmNCcTdpWkcwXzdiMGs5UnlZWnJ5VENuaGs4c004RnRoRG0tSVZqVmJGQWtEa002RmlRbWQ4SllTMUFzVzREaElvSW5pYk1PQ2hQVW1MZENESmlwdDdDZFFWQUhvLTg2R0J5OVFuUkpIYkZHNzVtc1BJRGxLZHpo?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 16:30 SL",
+      "ts": 1794999613000,
+      "snippet": "Sri Lanka stocks close down 1.37-pct, dragged by Commercial Bank, HNB EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "6203ae577492",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys backs Sri Lanka Expo 2027 as Gold sponsor, opening a path to global markets for Sri Lankan SMEs",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOa1dBNDdsZHp6aFRJOVZwS25JazV3NFlJVnU2enZhUHhoVE1wV3hVRm5pWV8xTTd1a0ZydF9Sc3V6V01hRVo2Uzc3ak5qU1pLYUVyMkcyTWoyOGxOTWdaN1dwSGg2YXk4c2xpd0Eyd3dOaFdfNDFFYmJ5eVByYzlucFBIblV1YlNGTG1pc2tPWmh6R1hTXzNWZWJ3QTNqZW9adkVKSDZEVElVXzhGOGVCNTVsRHV4TWN5V1YzMEJpSVYyZkM4a3RJWVVqNm9MN2RFbHZTbFFB?oc=5",
+      "source": "Daily FT",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 07:56 SL",
+      "ts": 1794968794000,
+      "snippet": "Hayleys backs Sri Lanka Expo 2027 as Gold sponsor, opening a path to global markets for Sri Lankan SMEs Daily FT",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "b172b23667bf",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "pcc",
+      "headline": "Home Lands awards construction of Central Park Boulevard Port City Colombo to CHEC",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZi1tZWVsMHZXbTRRdXVZV2xiUGtzOG03eDk1WWJfbWZVYy1ZODRnRDd4OUwwOWtPWTRrTGRaZlc4YVl1dlZfNlZkVFZmNnlMS3dyQkx0d3lzZlhKb3RiYVdvOEhoZWVxLWM3S2N5YjYzYV9aREtzYXh3eDBJOV8yV3U3bkhMcEFRdjMzeFQ4cEJ5SkhyLW9iUEdJR0d6T2piU0F4YXd6X1VTdXAtX1VVOUI5aUlxY1lzc291cy1n?oc=5",
+      "source": "Daily FT",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 06:51 SL",
+      "ts": 1794964894000,
+      "snippet": "Home Lands awards construction of Central Park Boulevard Port City Colombo to CHEC Daily FT",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "55784f001e4c",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Prime Melwa granted strategic business status under Colombo Port City Act",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNNDdJQWlpM19nZHE4cjlkM09nNHFpd0RBS2JOOVBfcExBeHZtV1ZkN2Q3ajlia2g0SmxJaERPVkJld21WbDQ3UlJEY0JyYldVeEJEX21WS1pwSlNJSTd2X0NnZmg2TnJFem9HRUU5c1FER3dpbmVUV2ExWUEyLWNuZldTNENTcW92cjN4SXNqaU45VFhNZ1BsN19ST1kyNElWLURweXV5Z0JlTkx1bHc?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "17 Nov 2026 · 18:50 SL",
+      "ts": 1794921634000,
+      "snippet": "Prime Melwa granted strategic business status under Colombo Port City Act Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "26f58c5ab034",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "byd",
+      "headline": "DENZA marks one year in Sri Lanka, redefining the luxury new energy experience",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdTVXUGNLb09pMDhXN1d3V2NJZVYtbDUwRXVjRjJVN1M1OGZMb0lDckUyV1FPRG9TZzBzeWJWRDNrS1JRZkRlZ2dkTXpIdk5pQVNNQXVSMGdoa3ZSSVBGQXNJV29PYVdIcjNGNzgyMHNGV25nVE54NV9VSnNxTjJ6LVhINkdxa2NPMmg3dm9LMTdVcWEwWndOUDdyRVR3V1BjLS1CbGtjZGVoQzc5bFdpMA?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "17 Nov 2026 · 15:27 SL",
+      "ts": 1794909458000,
+      "snippet": "DENZA marks one year in Sri Lanka, redefining the luxury new energy experience Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Denza"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "e1c01d558441",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "byd",
+      "headline": "BYD opens Northern Province’s first dedicated 3S facility in Jaffna",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdThKdF9zaURLRGJJQndiU0JmbkZjZmc2NlNDSFF4azlkS3hjRDdjSFVrMnMxTHVlOGdkOXliOG9oRndveHBLa3dTc29HeFk3YnhuajhwR1pkNkFSNWRZcE1vWEhoX3JtNE4xUGc0RzFWeGdPeGpWSmY0QUppTVFfamZ3Q1RZZFpkM1c3V1B4Tm12Y0lHdlhOaWFGSnBnMGRsUTQtSmxWajhjbFFoclhV?oc=5",
+      "source": "Hiru News",
+      "domain": "news.google.com",
+      "date": "17 Nov 2026 · 15:03 SL",
+      "ts": 1794908025000,
+      "snippet": "BYD opens Northern Province’s first dedicated 3S facility in Jaffna Hiru News",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "f8c89eeb9127",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Construction officially begins on Colombo Port City’s 40-storey Central Park Boulevard towers",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNbEhza2pjVFlfRWVjNTFyby0xNUVIeHQ0YTQzbG0wTEVFUnlfQ3VtSDZ6MFJEbUYtdjZ6Sm5Jc2FyQ1ZWdDNXSk9mN1hma0wyZmdYdUlBUWwwV2o0NW9wQTJRS1k2WjRkT1dSTDllTlNSYTZ0OEFGTlRuMl9rSndtaXRYQzVDRFRQYjd2Z2doRUhRbXNIcXRFcEdJX3VOX2F4eVI1VHZ4UW1pV1FsY3RrbHJMcWU4UWx2dEdTQ21JRlR3cWd3SzZjV1hUdFFxaEZaQkE?oc=5",
+      "source": "Hiru News",
+      "domain": "news.google.com",
+      "date": "17 Nov 2026 · 13:46 SL",
+      "ts": 1794903390000,
+      "snippet": "Construction officially begins on Colombo Port City’s 40-storey Central Park Boulevard towers Hiru News",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "e2c6904bd202",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Ansell opens global service centre at Port City Colombo",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNWHVSRXlIUFp1Y1VabGRIdFBUVy15RHpUM1kyRWUwNzV0Q29MNUVqcm1zOTIydmFXaHFIR2phX3hUNXozTFNKekthNndqV0Jtc1BXeUk0X0pzWGlwb0pONzEtZFRNYS1xdmZMQmFBRzJtR0lsLUVaMUNzU25ySnhEdDBVU3hPVVhkRnBjYzhLa2U0UDJSc0E?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "16 Nov 2026 · 20:54 SL",
+      "ts": 1794842666000,
+      "snippet": "Ansell opens global service centre at Port City Colombo Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "c1b4a2791e79",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Budget 2027: What Is Beyond Colombo Port City? - News Features",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSGRpYWdtaWk2cWY3Zmdkd1J1WFQwOGFoLXFsS2w0bUtuNE1ad01NcXUzSk5UdEtHczh0dFBhOHEyUi1hd1ppRE1GclhxSmxPRWllenZyRlpEQjU4b1ZmU1RIeHozVEFVbU9MZllfVEd3ZGs3YUI2ano0Z3pTbXZ0SmRUSDFkYmRqQnp4dHE5LWhxN2l6Z3FDM2VaTk8?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "16 Nov 2026 · 13:10 SL",
+      "ts": 1794814800000,
+      "snippet": "Budget 2027: What Is Beyond Colombo Port City? - News Features Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "269e091c181d",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB Life Delivers Highest Industry Performance with 41% GWP Growth",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZXZNeDEzdlFpM1FKUFo4YVhBWS1sM3lPVU93V2c3WXpETUd3V2tjSjJVOGFVUF9iR2ppRkZEQ1cxMkJVdW04M2h6Zk1obUZyNDlOQW9SM2dQV3ZwMmVfLUpkdU53cUhJeW15cjZoUFJhd2NZQmhyNG1qZU5fWGxWeUhnb2VLa2FlZTZUaW9SZXNCZ0NPM0ZyMWlCWXQ4eXNvZngyM0FCdFN6THRIcUJ0REg5aEpLZkJXcTE2QWlxUEUxNGE4?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
+      "domain": "news.google.com",
+      "date": "15 Nov 2026 · 11:40 SL",
+      "ts": 1794723017000,
+      "snippet": "HNB Life Delivers Highest Industry Performance with 41% GWP Growth The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "67ecc635a2ec",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys makes history: First Sri Lankan listed company to cross $ 1 b in 1H revenue",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNzlWcDZUQW1abElYZlhqQ2FaSDduMXVXWU00TFcyclhPOXc4WXlzSnVXSFNwRGU2cjZPcEp2RlFoeGxrYUt4VU5oNWNYcjlpbmd4aWk1NWtsWnRJZTBraklBRXU3cnZBTGtiUGI4c1NWUWt2V3AtM3RmOTRpamxiU0lYdWhyWFV1d0dIeU1DN0RhUGhyTms0MW9xV202c2Q2YVlLZW1vZG9TMXFmNy1fU3lrMWxaVS0wYXhV?oc=5",
+      "source": "Daily FT",
+      "domain": "news.google.com",
+      "date": "14 Nov 2026 · 01:00 SL",
+      "ts": 1794598242000,
+      "snippet": "Hayleys makes history: First Sri Lankan listed company to cross $ 1 b in 1H revenue Daily FT",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "a1be2d1c1959",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka stocks close down 0.60-pct, dragged by HNB and LOLC",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPVEQ4d2VDeG1SV0s2WWRuNjl0RmNtaTczazc4VUd2OUdSMjExTmlNcDM2bzF4UkZUdjdCWmItRjJMcS1nNzZnSzZrLWxkaTc2WHU1Y2wtSDgxcVFsR3FwTENKY0JReEsyeUx2Yk0zZHc2TXg1RURqVWhDNGozVjB6d0o4Njd5ZzhlQnE0MndjbEJkZUNtNThn?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "13 Nov 2026 · 15:31 SL",
+      "ts": 1794564066000,
+      "snippet": "Sri Lanka stocks close down 0.60-pct, dragged by HNB and LOLC EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "bb9e3dad480d",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB 3Q profit falls 5% on trading losses, impairment charges",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQemhZNlJQNzI1Q2lRV0RBZzhiWDhuaGpIR1R0b0FmY0lJeG4tS1pWU0RHaFRqNl95MU9CbHQ3c0tfc1JPa0wwRDJKZnlldnY5Uk5GWElRVDZOSkw3Q0c1RkJmSndnenhEOW9LVEoyX1hXTl83UzRxeG5OZXZhWVdsSWhOVUQ0aUZzZl9FNXBPMkRjT0lSQjQxY2xmOGEzaFJMRV9TV1J2cWU0dlpYUEdwag?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "13 Nov 2026 · 15:03 SL",
+      "ts": 1794562432000,
+      "snippet": "HNB 3Q profit falls 5% on trading losses, impairment charges Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "e6ce24f082ee",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "CDB and HNB ‘A’ clash in final today",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5qbWlEak1ZZER5R1c2T0RjcExZOEFpbFZYcFdBQTZ0akg0YVRQNFpxejQ1dktfUzA5MWhzd0gzX0E1Y1hxR004azRxQ2RaYXdEOGROYXVXdm1sRE5xQkN5cTRoQQ?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "13 Nov 2026 · 05:23 SL",
+      "ts": 1794527621000,
+      "snippet": "CDB and HNB ‘A’ clash in final today Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "82b38f34aea0",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Solar introduces SL’s 24/7 Renewable Energy Operations Centre",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPalIyZUNBT2pod1ozanNLd3NaSU9xNzJFQmYtS1J1SlAtc3pkOEN5NHBpcE1FWDdmOTZnbkhJWnIzVGdpVHgxbTNjWGFiNHl3UW5nbFVoZUViMjE1UWI0YzhpN3pRWGR6Y2ZzbG9rbUlXMWNpTVBiek1jYzZ2LW9rblh3UDlsSTZBcjBQOWl3TnB0dm5sdWlCNFpJSFphS2FMamRZLWN3S1F0Wl82Nmt6RzBWaXI?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "12 Nov 2026 · 12:16 SL",
+      "ts": 1794465960000,
+      "snippet": "Hayleys Solar introduces SL’s 24/7 Renewable Energy Operations Centre Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "e20ffb98f7b5",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Sri Lanka conducts 1st passenger drone trial at Colombo Port City",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5HWlhRX1V2MnhrQW1LY3FlanhoS2M4UDl6UHk0aXByUTFGN2lNQVZjc1A0X0luMHBTbDh5c3ZQT1Etd2RJVVBMUC1GbVdsWFJjVHpWaTMweERPWllzWUpaMWJ6MzRzTGtmMXJwNGNLYWZCYm1RN1htdmFScw?oc=5",
+      "source": "Xinhua",
+      "domain": "news.google.com",
+      "date": "11 Nov 2026 · 15:36 SL",
+      "ts": 1794391560000,
+      "snippet": "Sri Lanka conducts 1st passenger drone trial at Colombo Port City Xinhua",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "976e0fdcab5e",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB FINANCE takes financial inclusion drive to 26 towns",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSFRkYTYyLXdBLW45MEJsLTNlN01DWndULXpXdHlYZ1F4b3NVNTdFeDV0SG5zZXpUWVdOcF81UElJc0RvMmdVMVhBS21FdUZLSmRHYjlERXN2MGd4TGRZUDBUM2xuSFRUb05iNGdNZFBsX2tsZTloYUlzRGNRenpvREJWVGZ2TnFZY1h4aE1LTzBDcDNHdTA4bGt5V2NZV3Q0VXhNWA?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "11 Nov 2026 · 12:22 SL",
+      "ts": 1794379920000,
+      "snippet": "HNB FINANCE takes financial inclusion drive to 26 towns Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "fa977b823fe0",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Colombo Port City holds inaugural investor forum in Chennai",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNHFPTDUtUE03VjUwYU8teXByZXN4QmJGWHVkNG9pc29nR29kT1dSV1Y2ckdXNk93OHJOWlNtdE9Pbjlsb0pBTzd4LUVRRDFXWEMySnJYMmczd2hZcDdxZHAtV2tteDFfR0h2TC0wQUhyMGVTSXNMYzRKNnZ3Q0k3TVJkRERWaVpocGg3cVZER0lDQVZHTDI4dzNUQQ?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "10 Nov 2026 · 13:30 SL",
+      "ts": 1794297600000,
+      "snippet": "Colombo Port City holds inaugural investor forum in Chennai Newswire",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "6ebf5b2d221c",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB and IFC partner to advance supply chain finance and strengthen risk management",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQaFc5TDJYdENhSkZwS3IyTUYtQVJSYUp2VzUxNDRGQnZKWEk5X3NWNVdJZUlwUlotRFFJc296WnZQZGV6dDVaSGNGeE5IOVBHVkhiT2VBOE8zSlNDRDhIbURFRWhVRHdvLTYwT3pram11MUN2NGtxQm8wWkF2S2M1MjdNM0llRHd3VDk2MXFSM2JaaFdIR1dMSjBKcnM1d1lJTW8tLUo1YXhqd2kxVGVTRjhvdlUtM3lsbnpiNzJJSzFYMXdBMkVTdnBwTkdTWEk?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "10 Nov 2026 · 12:06 SL",
+      "ts": 1794292560000,
+      "snippet": "HNB and IFC partner to advance supply chain finance and strengthen risk management Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "2de3d2d2bd80",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Rotaractors of Colombo Port City Light Up Jaffna with Project “Aloka”",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOS1lZWHZzSEF3eURibng4aWtoMzI2a1E4eUpxbjZqTzNON004bHBHR2hQNjBHTHFwQ0l1NjB6bE1xSHY1T0E3TzdPdzhHVXpuNHcwZy1uZ3pVX2RILVg5WC1aVmU2dDctQ2pEcmZ3MndRX3YybjkybjVDOW5WcVVmY1liOEk2TURzb2dDWGZUMjlYODZURHdva3pGZFVLSjlJQWRNaFhRVm4?oc=5",
+      "source": "Colombo Gazette",
+      "domain": "news.google.com",
+      "date": "10 Nov 2026 · 12:01 SL",
+      "ts": 1794292312000,
+      "snippet": "Rotaractors of Colombo Port City Light Up Jaffna with Project “Aloka” Colombo Gazette",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "4398b0f20125",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Photos – Amzet Lanka vs HNB – Singer MCA Super Premier T20 League 2026",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSFNXMm43cHZjRlZKY055R0NOWWxlNDRqVlZzSEQ4d0ZxY21haUE5MWhvSnB2Mk05WDlDMW9pdlEtaUgxUTdQbjA2a3d3U29XSUpUX29BM2E5Q282VkpRNndUREMwdk11aHVJbEotdzgxSXZiZzFubGxDczJqZWROY2pmUGxwek5UcEkwbnVZQ28wdjFkQ0duRA?oc=5",
+      "source": "ThePapare",
+      "domain": "news.google.com",
+      "date": "09 Nov 2026 · 23:01 SL",
+      "ts": 1794245515000,
+      "snippet": "Photos – Amzet Lanka vs HNB – Singer MCA Super Premier T20 League 2026 ThePapare",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "252911f6c04f",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Sri Lanka’s Hayleys Retail to launch supermarket chain with Blue Yonder",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObHA1b2dpQnpMN1RuTF9WalptNU1Tcm5Uc0JJc3c1S2dxSno4RFRQa0NWSFBleldNWTBGdDJ0NDZxd24ycWFkMHUwRl9PbHBTaURZb3VFSnBsb0J4Sk13OGpGWVJjLS1HRUljU3A3N21VZW54eHJYSWZvVldLb1VVbC1vQ01Ed0pLOHBWWVNod1NCaEtBWG44dHc3RXRiQVhWWWgySg?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "09 Nov 2026 · 13:30 SL",
+      "ts": 1794211200000,
+      "snippet": "Sri Lanka’s Hayleys Retail to launch supermarket chain with Blue Yonder EconomyNext",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "dedf42d6bcda",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Port City Colombo Attracts 68 New Strategic Businesses with $167 Million in Investment Commitments",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdkFYVG1Va1c3RWYxRVFyU1k3ajRpN0VYVldfU3Z2OURHZUJEWVQ2ZzFDX252YmhkeExPN25mMGdJOExOemFFMkRvYW5fWENLR0w1SXVxY2UzM0QzdnZyUVBkSFd4Tmpxb0M4WGJLUUJUUmZYUEVRenZrSWtZX0lzLWE3YnFLanllSFZCZTN6eGpWc1FReTN5SUlKOHQtQVB3Z3RUZXhiYjJLdGt0YThHYWhBVmlqMHZzel9DMEp3?oc=5",
+      "source": "Sri Lanka Guardian",
+      "domain": "news.google.com",
+      "date": "08 Nov 2026 · 13:30 SL",
+      "ts": 1794124800000,
+      "snippet": "Port City Colombo Attracts 68 New Strategic Businesses with $167 Million in Investment Commitments Sri Lanka Guardian",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "bd8fdbd247d8",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB calls for greaterpublic awareness on impersonation scams",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQdFdrY0xpN19XdVppVmlLaS00N1lncV85bjNwc25Ka1pTVERzWTVwMjU5emM3T1Z0d29WX2pIRDNJb1dKdTl3b0hXRTVyTW9PbldsbkZ6d1dTd0FIajJUNDVEaWxZVThFZzVwbF9pVkVCSm5iUUJ5aGNSLUVwSXlIdDNOSmkzUQ?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "07 Nov 2026 · 13:30 SL",
+      "ts": 1794038400000,
+      "snippet": "HNB calls for greaterpublic awareness on impersonation scams Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "f2459eca84e7",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Wins for CDB, Fairfirst Insurance. Hayleys Group ‘A’ and HNB ‘A’ on Thursday",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPaFNlZFRlSVNpWnJfNmktYVFvWjlERURwZUVnLW1DMDJSMDUzMEtHV1dqOXpUWHRfVzlNVWxLWkMweVJxS0dPNlFxc1BfZGRtMWU3enRGU0dEVWRIejdXemg2Q1VfRjUzZm51VzE5eHhkSk94NFJTYk9sMzZpMmpTYXJHYkNoM0I5S0ZlaVVOSGd6VFU?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "07 Nov 2026 · 13:30 SL",
+      "ts": 1794038400000,
+      "snippet": "Wins for CDB, Fairfirst Insurance. Hayleys Group ‘A’ and HNB ‘A’ on Thursday Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "47fb30cb28d4",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Colombo Port City updates BSI regulations",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBncUR3bEZKQko0LWd1eWVYd3NwQ0dCLTdHUEJGcGQ4eHNMcEZkMEs1R05UTXY3Rm1GN2xEUXpreERPbXN1eGpHYWw0S09DSDFBcHJSTHdhVmp1RENGN2JWYVV2QjJtZw?oc=5",
+      "source": "The Morning",
+      "domain": "news.google.com",
+      "date": "06 Nov 2026 · 13:30 SL",
+      "ts": 1793952000000,
+      "snippet": "Colombo Port City updates BSI regulations The Morning",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Colombo Port City"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "18cb14253c47",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Port City Colombo woos Indian investors in logistics, IT, hospitality",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQNXVZNTFsTjBrYlBEakNJa1c4Z1ctSllZYnRmWlBweVR6Z1p3OUNLSEZoMElZMUp5MEViRmJrVEJzMUlDajJ1VzVsNjhUeENiUkw2bVZTTndkTXByMTRwdlo5d19Ec3ptVmxFb0R0a2ltWmFxTE5FTHZmcmhYcTM1XzA5b3R4MXpDaldZWmF6RWEzdHR2UFR3WUtGdEtyRHpBcVZXN1hndWJGSjlYTWR6Z3l4NjNRYzUxX0lhR01pdVJHOHdmOVY1WC04Rkh3ajRzcnB3ek5DY3NVUdIB3wFBVV95cUxQZTJuM2tUM1hQdV9qbzBFQTdOa0dDTDNxdEZWUU5wY3pqX3RSa3F6MW92MDJJNVA4TmVMQ3ZQWkpNZ0plOFpfWTZvRTBiVjVURTZsbzd0aWxPYmUtNFVYSy00Rk5tdFNqY3d3ZjByYzhDQVAwQVh0bmk0RHo2c25iN2ZuQWxMSnNodV85UlBkeDJ3OFZUOTg3WnpfQ0xZLXJpQWZZX3I3VjZlVmdrQW42N2ZTTktMdHFzZ241bXhaMkd6U3luQnFBUnBKQ2QyRHQ5eUpsd0w3cEVHQ2dxX2dN?oc=5",
+      "source": "The Times of India",
+      "domain": "news.google.com",
+      "date": "05 Nov 2026 · 13:30 SL",
+      "ts": 1793865600000,
+      "snippet": "Port City Colombo woos Indian investors in logistics, IT, hospitality The Times of India",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "be5566e9e493",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "From 12-19 Dec. at Port City Colombo: SL to host IODA and Oceanian Sailing C’ship 2026",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAycnA2VjNLQ1U3X1hvQWJ6WnZOYkwyWEVqVEk2MUR3MGVvaUxzVjktWkdtaFZGSmRvVlNfLTA2OHR4NUdhQk82ak82a1ZteUI3Ui1jb1U5NklVM1BNYjFNNldSaGVxQQ?oc=5",
+      "source": "The Morning",
+      "domain": "news.google.com",
+      "date": "05 Nov 2026 · 08:16 SL",
+      "ts": 1793846763000,
+      "snippet": "From 12-19 Dec. at Port City Colombo: SL to host IODA and Oceanian Sailing C’ship 2026 The Morning",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "f095108ff494",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Port City Colombo bets on India for $3-billion push",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNT3A2TzREbkxoQS01MmV0bjJLbGZVZ1cySVMwd0lQdmJEUWk0Z0FISUF2eUtENDFidWkwOGY1dVYxR0RudDg3bkQycUpkRThJUjcydVRBakRNdHU2czQweUR1TG5CcFF6ZmhPQmpkYWUyR04zNER1ZHJRVURKU2RoS2RmZVVucEhaOUIxY093ZjN4OFBqajM1cUFsSXU1VUNRaEN6Z1lSYWZvUGlJdmNheG0wZkVVY3JsN0JBWDZMeG1nLUFf0gHLAUFVX3lxTE4zZy1QakgxZ25yTkxrS19UdWNDbnluZmtxUWJRMDUzekZ5X21hTGpTVWhjUkJTdXhtTFpHVExoLWRBTVpDVmsyZmM3dXRwSTJLczQxemRDdk5uSkNoUFoyTUZRTVA0SmFCNTJBZnYyV09QTG5LVXZzdllXOWtaU0tiS3h3Y1hPUFRicFQzZnIxUDd6NUZkUTJabUFITmxVX1M0WnhsNmI4VkxCVmxrMkVyQlhzaFR4ajJwN1J1cU9ubVlIQk1PY0dXQUNz?oc=5",
+      "source": "The Financial Express",
+      "domain": "news.google.com",
+      "date": "04 Nov 2026 · 13:30 SL",
+      "ts": 1793779200000,
+      "snippet": "Port City Colombo bets on India for $3-billion push The Financial Express",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "67d1fbf0c69b",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "CDB, Colombo Aces, HNB ‘A’ and Amzet Lanka register wins in Singer-MCA Super Premier T20",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPSC1WNUl4QVdSamJPUS0ycEt6YUlzNS01eVdSeXJhUW5VTURCUzJoS0lvMzNMU0J6Q0psYXRSNUZ3X0xYVTB4YWdJM2U2Yl9DM0FtbC1lXzY4enVjTXE2eUNxRVNiV3ROWnpnazFVY3RtUDNjQktVYkhPdWlsTFRFR2hZMU1KRzdtWFpFUHUxNkR6ODYwaFNoOFB0RS1PbUgyY2FuQ3NrYw?oc=5",
+      "source": "ThePapare",
+      "domain": "news.google.com",
+      "date": "03 Nov 2026 · 13:30 SL",
+      "ts": 1793692800000,
+      "snippet": "CDB, Colombo Aces, HNB ‘A’ and Amzet Lanka register wins in Singer-MCA Super Premier T20 ThePapare",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "248d416f764c",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Mobility enters Sri Lanka’s two-wheeler market",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNaVR3dGg1MjRnSGFfamdONjZYNXpDcExYXzlBWjdTMVREWXUwVUVqbWNHOEFudElkUE9IdjBDUExTYVBNXzdFdE5QSFQzaEYzSmt0MFlvdlJaY09OVHQ3dlpFTUt2Uzd2MFJYRWZyazhaalM2ZDhWdUJqQ0FiTThKenFRMlRrUGRVUXN1aWNPM295ZGtReXFqeDB1Mnp2QXJhR2c?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "03 Nov 2026 · 13:30 SL",
+      "ts": 1793692800000,
+      "snippet": "Hayleys Mobility enters Sri Lanka’s two-wheeler market Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "606266164be7",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Wins for Hayleys ‘B’ and Melwire Rolling",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5iWHFscjJLM1MwckM0aXJEc2xWNm82b084S3hQMnB3SHoyRERlQjdObVA4emlmazh2NHlQeUJtTlR3WmpkZndJQWtIWVJFN25TQm1TYld0c2hNZnlYUUxPc05ZaXFFY1ZwaW04?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "31 Oct 2026 · 12:30 SL",
+      "ts": 1793430000000,
+      "snippet": "Wins for Hayleys ‘B’ and Melwire Rolling Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "cf01e7b4c23a",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "CDB, Hayleys Group ‘A’ in knockout stage final on Sunday",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFByS1JwMXVVX1RZeUVONDVyZVdEVkhoU0lXeGUtTnA1WGt1bVJPa0tzVWE4WjBFOVhPaWVHSEg1UkhCZHlEd3hNM1BfN2VQckdhbWdwTkFldWdQck5sZnNUYnBQSHRQbVYxNlNWNU1HdmFTSFBkeU03dmF0Mjk?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "31 Oct 2026 · 12:30 SL",
+      "ts": 1793430000000,
+      "snippet": "CDB, Hayleys Group ‘A’ in knockout stage final on Sunday Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "f5beda88a0f0",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB ‘A’, Hayleys Group ‘A ‘ qualify for semi-final two",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9HOGRmOWk0dk8wZnZJNkFLWHRlaUNoT3ZVOG9iTmlyVm4yUUZnY2JSVU9KTk10V1JQb2I0SGlIT1hzRFU0dnZNcWhNWHNDMjhtamZEeGc5ejFWRWxLQ0JUc3dITHdFb1J0YWw2WDJocGJGLWdsTUE?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "29 Oct 2026 · 12:30 SL",
+      "ts": 1793257200000,
+      "snippet": "HNB ‘A’, Hayleys Group ‘A ‘ qualify for semi-final two Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "19acda211e90",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB launches E-Saver+, Lanka’s digital-only savings account",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPMGpzOEFoSzlUZEs2SjByMWFuUUJ1UDN4ajdZNUd5OWpPVFdwR1hLdm8yZ0FuZjVBbnZHTmxXRXpQODBOZjY1SWlPZ24ySFBZaFppNm9YWklOTU83UUxzWm5paVdMY0M3V3BaQ0RNb0swQzdvQm90Rl90YUlMTWNhWEdIRElySGhkaWtmblFtSmFVbi15N1ByaVBNblYzenJVOFljS2FyRjhJdw?oc=5",
+      "source": "Ceylon Daily News",
+      "domain": "news.google.com",
+      "date": "28 Oct 2026 · 12:30 SL",
+      "ts": 1793170800000,
+      "snippet": "HNB launches E-Saver+, Lanka’s digital-only savings account Ceylon Daily News",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "9e04f44d807e",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "HNB FINANCE-Toyota Lanka expand vehicle-leasing solutions",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNT0lSRnpVemNYOXdSTi1rR3ljVW1tMWtuYVhRQXJLa0RORHdpNjVIZW56Q21pWFA3b2pQdkI5MkV5NEJiZjBEMG1xbm1tTEhmaUhNM2dfWG0weE1aUHRuWVR1bkJIaU9ibGZKbHU4SndGOFpZNlpVWUFoSjNqZTN2NzgxZDlSbHhOU18zS0NmbEE4WUpIMm1xWDVOMVNNWVpVYzRvZ1RNMA?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "26 Oct 2026 · 12:30 SL",
+      "ts": 1792998000000,
+      "snippet": "HNB FINANCE-Toyota Lanka expand vehicle-leasing solutions Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "HNB"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "5a54a4332c55",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hayleys",
+      "headline": "Hayleys Solar Introduces Sri Lanka’s Largest 24/7 Renewable Energy Operations Centre (ROC)",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVy1fTmVyVGJNdk5FY2tPNjg5eHBGcTlpQjBpbnVobWpuZHpJQWJmNGI2ZFJCeDRwOTdTQ1FJZkdfNlJFWDZBalR5TXlid3g4SmxDQkF5UERFVTBVM3hSNl9ic3Fnc3ROdjBYUHhHTlJKMW9aX0sycVZ2bGhGcjc4R2tBWnhtRTdHUWZ4T1Q2Q0I3M2l2bXRwS1hNNGZTUVFnMUlZTzVqdUdkVTNSZ0kyUjdXVkxxQ0NFQ2NBZklkU040Vms?oc=5",
+      "source": "Colombo Gazette",
+      "domain": "news.google.com",
+      "date": "26 Oct 2026 · 12:30 SL",
+      "ts": 1792998000000,
+      "snippet": "Hayleys Solar Introduces Sri Lanka’s Largest 24/7 Renewable Energy Operations Centre (ROC) Colombo Gazette",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Hayleys"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "c4394f27732c",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "byd",
+      "headline": "Made-for-Japan BYD Racco Kei car goes abroad, starting with Sri Lanka",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNazM5cnpwUEU5SXd4Z2tIWUtkVzBDZEhXM1BNM21aZExOVjBfc3puRi1GY3hQamJhMGZhN3EwZWNjN2VVa1R3a1ptVGNTWjVLSThTbjR4OFlTbEhzbm1ITS16N3JabHNaT2RCRTVSb18tYWVwYW9fZFRuR1haNTNFdld5eUZ4NjNIMzg5UGIta3hjUk5rV0RXMndvWHhEYldPM1E?oc=5",
+      "source": "AutoBuzz.my",
+      "domain": "news.google.com",
+      "date": "26 Oct 2026 · 12:30 SL",
+      "ts": 1792998000000,
+      "snippet": "Made-for-Japan BYD Racco Kei car goes abroad, starting with Sri Lanka AutoBuzz.my",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "015424fd4cba",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Port City Colombo and University of Moratuwa Sign Framework Agreement",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNYWUwNm1FNk9TSDNyN243Sjl2b21GQThQV0JHV2hEUl82VXB0bDNvX2VSYzFVRXpkbUZzQ043SW1IZnNhMlRzdXJVTmxhbTZsTUJoTUN0UTZpR3VaX0t3LTQ2cVdEOW5lTFp6X2dKV3JfMEYyNEtvVlp5M3lpUk4yTUVzRlNzV0hHa3phMV84QnBXZw?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "26 Oct 2026 · 12:30 SL",
+      "ts": 1792998000000,
+      "snippet": "Port City Colombo and University of Moratuwa Sign Framework Agreement Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "Port City Colombo"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "792523d14ba7",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "byd",
+      "headline": "Just Launched in Japan, BYD Racco Now Expanding to Macau and Sri Lanka",
+      "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE9ZeEFOaWdXSFdUdG1oUGptNmJSc2g4aDhhQ0p1Zndpa0tzQUZzbi1jSmtTR3VNZ3c0X1Bkb3FRTjhPUGY00gFCQVVfeXFMT3h6c2JqeVRwZzZkeVNLb0RqTnNHOUNRTmlBWWIzMk9ZNngwYlNqc3VEOXVfR2VUeWp4TTRlY2dpNnZn?oc=5",
+      "source": "VOI.ID",
+      "domain": "news.google.com",
+      "date": "23 Oct 2026 · 11:50 SL",
+      "ts": 1792736410000,
+      "snippet": "Just Launched in Japan, BYD Racco Now Expanding to Macau and Sri Lanka VOI.ID",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "9a6700417e95",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "byd",
+      "headline": "BYD takes ultracompact EV developed for Japan to Macao, Sri Lanka",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5SFVQdDRkd1VpTVFBWFJCNW1UaWRYM1dEbUlqa0J4ZG4xWDVlX211QVhSTVc2X2lsSTF2MWdKTFg2WTk0NEctLVJoR2FXc29vR1NncVBnVjRKQQ?oc=5",
+      "source": "Japan Wire by Kyodo News",
+      "domain": "news.google.com",
+      "date": "22 Oct 2026 · 12:30 SL",
+      "ts": 1792652400000,
+      "snippet": "BYD takes ultracompact EV developed for Japan to Macao, Sri Lanka Japan Wire by Kyodo News",
+      "fetch_type": "direct_mentions",
+      "category": "mention",
+      "relevance_score": 1.0,
+      "matched_terms": [
+        "BYD"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "c4d0ff29eb86",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL increases OPR by 25 basis points",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQY3hZaXVGQndzZnotNU5wa19jUXJSdmx6ZWtQclh3ZUVESjYxOXRqdVZlaEM5azRYVzBwbWlMakdxRjA2SXd5MzZxZ0xsM1Nvc25nbEdBQmozU0Jka1gxLWJQNGstdjluR3NKS1RzbHZYXzFsekFHajZTZW1fbjJwV3Q3UTdpREE?oc=5",
+      "source": "Sri Lanka Mirror",
+      "domain": "news.google.com",
+      "date": "20 Nov 2026 · 10:06 SL",
+      "ts": 1795149366000,
+      "snippet": "CBSL increases OPR by 25 basis points Sri Lanka Mirror",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "c5af9c1f8ff1",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "60 officials at CBSL to go for a leadership training at Chennai",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOOW5HWjBGVFl1YmtTd0RFSHJaN21GTmpRRTJHUk00RWl2SklpbklUSmJEaWNvZzBMNkQwclBtZm5PZ0FNX0lpOWpnWm4xbEUwczdqZ09iTW82MmRoWjVkYkFaelh4Wm9hYkFnMFpEelY5S19MVHRTLVFLWjdxU3ByeVZ2TkZJX1J0NGpDS3lSNzRQYzU5dkZXRllzZnF0a1I3ejBjYmJISEJtOTZrRDhVeDM0SlRjU3FaOVE?oc=5",
+      "source": "Ceylon Daily News",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 20:43 SL",
+      "ts": 1795101189000,
+      "snippet": "60 officials at CBSL to go for a leadership training at Chennai Ceylon Daily News",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "ad77578dbef3",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL Monetary Policy Board meets for final review of 2026",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOXzJYNXJPUVBCNElvNWJiQnlJSHZ1LUVGNkU3bjhoaUYwZkdzUnRRQllIeEtqV255ZnFwVHBFNGxIbnhNMlZfZFQxd1VMZnotNHkyNExaNGNseXhzdXBxTDMzU2d4U3FFYncxajMzVFI3WDRzT2ZEN2JZVGZwd3NJTllRX05ZRVNuSjdkZGpydnpEdnlVZWpSSTVmdw?oc=5",
+      "source": "Hiru News",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 18:25 SL",
+      "ts": 1795092930000,
+      "snippet": "CBSL Monetary Policy Board meets for final review of 2026 Hiru News",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "133791e9c33e",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka regulator updates list of authorised deposit-taking institutions, flags two",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNLVF6Z2o5VVRLU01MU3hjYmZGYzJMYl9KVlItN2NvbXFvUGlLdmZmeXBlQ3Nsb0hnMXdoczl5QTRRUTJ1cFZUNVp6TWFZZ2hsbGNLNVZuLWxia2lITWtXd1VJQlJoNXA3VHRiZk9xcDMwd1JTVE0yUmlnZ2MxNEpoSWxlOVN0Zmh1VnlHbzlBQTFQd1BVMGxOc3AyMnlDbHFUdTRtYkQtRm1MMnRuakMtT3k3XzFZcHc?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 15:15 SL",
+      "ts": 1795081500000,
+      "snippet": "Sri Lanka regulator updates list of authorised deposit-taking institutions, flags two EconomyNext",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "6189b0de9c44",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL rates: Rupee appreciates slightly against US Dollar today",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMkVYbGJ0OHFBc0RBRXdhOHRpZnZUOHJ5cG92NnpNVFlUQUhQQUx5bWhHbF83eS0zWHVIU1hscWwzQ3NYUmI4emZ4eTRGbG9yV2Zub2xtNzl0dzJNT0p6cDBQb0RoQWZILVlMaEFQblhfTlhudU9ySHptS01ZcWdDSVNWZElyeTlVZHdCZjAwVkFrX010Z0dNRzJybDFXUQ?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 12:13 SL",
+      "ts": 1795070623000,
+      "snippet": "CBSL rates: Rupee appreciates slightly against US Dollar today Newswire",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "6f5e72a2b0cd",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Above-band inflation prompts call for Treasury-CBSL talks",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNM2hfRHRtd0FreF9PX3RQMVprZEU1ODNsTno1T0RpR0NhMTBIZVpPUEtWSjI3YmJHQWlaZ0ZMb3dyWFFuOUE5T3RRd09FanQ3T29WelRydk9KUG1XSjFDQnIzXzNLU0V4N0JhUUZ5UzZMYXBibllMaTFxdlpwREVObmRKaXVHdUgyRlBuS0h1c0c1QkNjem9aRnVpVTRzUTQ0SkZVZWNaQQ?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 13:57 SL",
+      "ts": 1794990420000,
+      "snippet": "Above-band inflation prompts call for Treasury-CBSL talks Daily Mirror - Sri Lanka",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "c33c74333b3b",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL/TWD Price: Convert CeBioLabs to New Taiwan dollar",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBlQnQtOU04UEZRNm1UZ3VFa1hFbGZxZmVYMTFBY1lwMmd6bkVaM0dRZ1F4aW16R0JMUEYyeE9xOU1oeHhneFdiR2xfUC1CSXlsNzUw?oc=5",
+      "source": "Crypto.com",
+      "domain": "news.google.com",
+      "date": "14 Nov 2026 · 12:09 SL",
+      "ts": 1794638349000,
+      "snippet": "CBSL/TWD Price: Convert CeBioLabs to New Taiwan dollar Crypto.com",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "323da872c4f8",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "CBSL rates: Sri Lankan Rupee depreciates further against USD",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcWNvanZMRkliNG1jWmQ2Q1hublhMTk50bkhzcS1TLTA0aWZXUUQzVFItUmtKdnlBeWxUc2tnUlVDWUxDWEF4eVFOU1Izd1NVZnJvNW9RM0x3d2ZlOWgxTVdrNnNkOThUR25pY1hmdFNCMjhtcVd2aFp6YWo5WGJyRFZlSmFJeWEzVlZ5TXJJdl9fVl83R3RVZmJabHowZw?oc=5",
+      "source": "Newswire",
+      "domain": "news.google.com",
+      "date": "13 Nov 2026 · 16:36 SL",
+      "ts": 1794567985000,
+      "snippet": "CBSL rates: Sri Lankan Rupee depreciates further against USD Newswire",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "CBSL"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "b3f7518ef0b0",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "mas",
+      "headline": "Sri Lankan apparel exports regain momentum",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9OQVJJUk93b1VFWEZMc2pPSWtJTWpDSWtIN09fekkyYmhQZ2tSVThteGRicVNWUHJId250N19jNUMzUjdyMTFYdms5V3Q1QThqV1FWdDd4aG5oUDVTcUozQUM4VkZGd0xzZlhyRHYtZlRpLUkzU2xCcU1PeVY?oc=5",
+      "source": "Knitting Industry",
+      "domain": "news.google.com",
+      "date": "28 Oct 2026 · 12:30 SL",
+      "ts": 1793170800000,
+      "snippet": "Sri Lankan apparel exports regain momentum Knitting Industry",
+      "fetch_type": "industry_watch",
+      "category": "industry",
+      "relevance_score": 0.7,
+      "matched_terms": [
+        "apparel exports"
+      ],
+      "source_rank": 3,
+      "is_low_relevance": false,
+      "cluster_id": "f506fe70d90a",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "Indices close in green",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xTUI5cmZTZHNqbUV0eG9MYVdZUWdMR042N1B0WHJLWGtDTlJ0SDNLSjdjbXhfNGUzWmZxVkJsaVM0d1NQMXl2cExjclFUYm1aOFVQTXZObEdXM09QemN3WTBneXlrajU3LTZfOGEyQlBqQU1OV0E2ZQ?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "20 Nov 2026 · 12:19 SL",
+      "ts": 1795157340000,
+      "snippet": "Indices close in green Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "indices close"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "cafe64f4b40a",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CSE rebounds as ASPI regains 21,500",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQblN3NV9yLWdkNXlmN3pCYVo4OVNDbFFGTHlNUllTWXVjQ0ZBaG9kSmpQRHp4eTI0cnpaZ0c5TWxJVHBsMTNoc1NrR2htSFNVZl9XN3dmQXBOaUZndlhpOGotb0tTQ2FpYjRvb3drV2lUUVUwbjdPUXZudnlUMEdWQXhDSWJReEtRSEgxd1NrSjU?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "19 Nov 2026 · 19:09 SL",
+      "ts": 1795095540000,
+      "snippet": "CSE rebounds as ASPI regains 21,500 Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "CSE"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "521e0b24e46c",
+      "is_primary_in_cluster": true,
+      "is_new": true
+    },
+    {
+      "client": "hnb",
+      "headline": "CSE holds near 21,700 as foreign buying strengthens",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMXZVV19SSTFvVllyRWtFTHhhRFFueDlWUXlidFlULTlJVDBZVmMxMmVtRzYtZ1lOT0F6OWM2TXJkSEVaYjNpYUo1UWxOMHdZVWp4OHlzVXZjanVMT19aVDNxLWpUcXBQZjJIa1lOVWJ3M1ZtbjRjVFhsRkd5bWZXcjVKcnIxbDkyODNPYXlyenZLY1ZJSUhXM3JJTlZ5cEdRa3Zmdmtn?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 20:27 SL",
+      "ts": 1795013820000,
+      "snippet": "CSE holds near 21,700 as foreign buying strengthens Daily Mirror - Sri Lanka",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "CSE"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "788255756b39",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "hnb",
+      "headline": "Sri Lanka’s Falcon Valley Hydro to list on CSE Empower Board at Rs31 a share",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUU9VajFKem92SlBRVExpQWo4RWwwdXFYVER5dmtjWEVUeUJkUUJ6WjRXQ2llQ0ZqcGNob1BGa3VXRHlva3V0emZnWGtlTEUwblhKbTJ5YzZhdzMwRUdIeDh6dWZ3MGxIMHpkdjdsdjdCSlRzdWI5bFJWOWNhaE53X0piSWcteXhWVWllWl9RMW9EUWtkNndvTk1JSThhcWhTb1VhWjNjeHNSSms?oc=5",
+      "source": "EconomyNext",
+      "domain": "news.google.com",
+      "date": "18 Nov 2026 · 10:10 SL",
+      "ts": 1794976846000,
+      "snippet": "Sri Lanka’s Falcon Valley Hydro to list on CSE Empower Board at Rs31 a share EconomyNext",
+      "fetch_type": "market_watch",
+      "category": "market_watch",
+      "relevance_score": 0.5,
+      "matched_terms": [
+        "CSE"
+      ],
+      "source_rank": 1,
+      "is_low_relevance": false,
+      "cluster_id": "c72fd12739ef",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "mas",
+      "headline": "MAS recognised for Environmental Leadership",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQ2I1cV9hQ3dXaGwxV3U2N0dxUnQ2NW5oeUdCRngwVlJvSE9yT0xOM0lXcVRfX3Y5cWRsT2xSbXVLTzhwME9QNXJRaGNqU1AtRUlWejg2ajY2S1hEakE4c2xMbVVmSzU2RG9BcjVWZWJtQnFRTUNnNzJ1czVRZndIamxWSzlxcFhRNWswblh4MlFCb3YtcmhTci1ZTmdoTnhOeGVBYWNqUQ?oc=5",
+      "source": "The Sunday Times, Sri Lanka",
+      "domain": "news.google.com",
+      "date": "15 Nov 2026 · 11:40 SL",
+      "ts": 1794723020000,
+      "snippet": "MAS recognised for Environmental Leadership The Sunday Times, Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "53c47ab59b99",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Sri Lanka launches pilot of Chinese flying taxi service",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPNGdFQWcxOVFBMGw0SEdMLXcteXpMVGZDamg3bld5RzllOTRYSnpTcVZUeVFCNXlfVndMNHdySGdYMWhRcW8zaHNRUUl5QUZlRldZb09tZUJ2elUtTDhqNTBfcmJGM3dZSGtyakZxMjlFcWU3UXA1Tmk3cXpqMU50NmF3c2lEYVYyME9GRlE1SjNLc3owLVAtNm5wcXYtWnhVeExNQXo0UQ?oc=5",
+      "source": "The Peninsula Qatar",
+      "domain": "news.google.com",
+      "date": "11 Nov 2026 · 15:38 SL",
+      "ts": 1794391683000,
+      "snippet": "Sri Lanka launches pilot of Chinese flying taxi service The Peninsula Qatar",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 3,
+      "is_low_relevance": true,
+      "cluster_id": "0fb36233c133",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "pcc",
+      "headline": "Govt. steps up efforts to attract Indian investment to Port City",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQNXVzb3k2VHJWYnNZQXg1cVVMSVdKdVM4S1h2ZDlEcEtySmdmTkd2N19iUzFuNXhsNzdTYkEzWF96Yk5jd0k5eXQySS1WaTlhWXkxMUw5aFVocG1iNXREMnpUN1lZanFUOWlsZklfWms1RUNlMkIzSzR4M3k5dmdWWFRVV0lDSkRSUHc?oc=5",
+      "source": "Island.lk",
+      "domain": "news.google.com",
+      "date": "11 Nov 2026 · 05:31 SL",
+      "ts": 1794355261000,
+      "snippet": "Govt. steps up efforts to attract Indian investment to Port City Island.lk",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 3,
+      "is_low_relevance": true,
+      "cluster_id": "4dd2fdd629c6",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "mas",
+      "headline": "Janali, Hasali set up YETI-SLTA Nationals title clash",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUFlSaXRndTE1LTJnWlBLV29qN0p6UGx3d21RTVlqU1FOSUphd2RPWnpfLXlwRFhkVDB5MnN6OFFCSTJPNWpXcG51bUI3cHUzd0R1MHlhMFZGMDlfN2Q3QmRDN0E4T3kzV1p5R0JNYWpuTGJRb3RLMUpqVHZfSmpNWXBpek5BSTYzVXc0eXcwclNhQzBZbkxsWnJ3ck9VUmRNbUE?oc=5",
+      "source": "Ceylon Daily News",
+      "domain": "news.google.com",
+      "date": "07 Nov 2026 · 01:20 SL",
+      "ts": 1793994616000,
+      "snippet": "Janali, Hasali set up YETI-SLTA Nationals title clash Ceylon Daily News",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "2fee016adf31",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    },
+    {
+      "client": "mas",
+      "headline": "MAS marks 20 years of Eco Go Beyond sustainable schools programme",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPYlV4RWc4cTFic2MxMTNDeVlHb3pGNHB1a3NGS3V6TmxTWnpESHJpSVBZbDU4WFltdDE3NTdrUkxpNUVkWUNIMmk5dlRLTGVxVWoyTlJSTVQ4LURqZ2ZQSUdhMnJVQVNXTEhwVmRGUnhTdklleGd0bURyTUZCNkJ6UEdqRm9HeldwU2gtRldJTGpiWHotTFI4aV9MUTk3cFd0WWtyZWJJbDBHVnl4cGJLVlJn?oc=5",
+      "source": "Daily Mirror - Sri Lanka",
+      "domain": "news.google.com",
+      "date": "31 Oct 2026 · 12:30 SL",
+      "ts": 1793430000000,
+      "snippet": "MAS marks 20 years of Eco Go Beyond sustainable schools programme Daily Mirror - Sri Lanka",
+      "fetch_type": "direct_mentions",
+      "category": "low_relevance",
+      "relevance_score": 0.0,
+      "matched_terms": [],
+      "source_rank": 1,
+      "is_low_relevance": true,
+      "cluster_id": "3da955bfa57b",
+      "is_primary_in_cluster": true,
+      "is_new": false
+    }
+  ],
+  "clusters_summary": [
+    {
+      "cluster_id": "cafe64f4b40a",
+      "primary_headline": "Indices close in green",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "c5af9c1f8ff1",
+      "primary_headline": "CBSL increases OPR by 25 basis points",
+      "primary_source": "Sri Lanka Mirror",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "ad77578dbef3",
+      "primary_headline": "60 officials at CBSL to go for a leadership training at Chennai",
+      "primary_source": "Ceylon Daily News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "2da0968ea5d0",
+      "primary_headline": "Hayleys advances Sri Lanka's renewable energy ambitions with 5MW ground-mounted solar development in Kosgama",
+      "primary_source": "Magzter",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "521e0b24e46c",
+      "primary_headline": "CSE rebounds as ASPI regains 21,500",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "133791e9c33e",
+      "primary_headline": "CBSL Monetary Policy Board meets for final review of 2026",
+      "primary_source": "Hiru News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "6189b0de9c44",
+      "primary_headline": "Sri Lanka regulator updates list of authorised deposit-taking institutions, flags two",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c43398e5f48c",
+      "primary_headline": "HNB FINANCE surpasses Rs.100bn in assets as 1H profit rises 50%",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "a8c42012febb",
+      "primary_headline": "Hayleys Solar powers Kelaniya University’s Faculty of Computing & Technology",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "6f5e72a2b0cd",
+      "primary_headline": "CBSL rates: Rupee appreciates slightly against US Dollar today",
+      "primary_source": "Newswire",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "788255756b39",
+      "primary_headline": "CSE holds near 21,700 as foreign buying strengthens",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "6203ae577492",
+      "primary_headline": "Sri Lanka stocks close down 1.37-pct, dragged by Commercial Bank, HNB",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c33c74333b3b",
+      "primary_headline": "Above-band inflation prompts call for Treasury-CBSL talks",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c72fd12739ef",
+      "primary_headline": "Sri Lanka’s Falcon Valley Hydro to list on CSE Empower Board at Rs31 a share",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "b172b23667bf",
+      "primary_headline": "Hayleys backs Sri Lanka Expo 2027 as Gold sponsor, opening a path to global markets for Sri Lankan SMEs",
+      "primary_source": "Daily FT",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "55784f001e4c",
+      "primary_headline": "Home Lands awards construction of Central Park Boulevard Port City Colombo to CHEC",
+      "primary_source": "Daily FT",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "26f58c5ab034",
+      "primary_headline": "Prime Melwa granted strategic business status under Colombo Port City Act",
+      "primary_source": "Newswire",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "e1c01d558441",
+      "primary_headline": "DENZA marks one year in Sri Lanka, redefining the luxury new energy experience",
+      "primary_source": "Newswire",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f8c89eeb9127",
+      "primary_headline": "BYD opens Northern Province’s first dedicated 3S facility in Jaffna",
+      "primary_source": "Hiru News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "e2c6904bd202",
+      "primary_headline": "Construction officially begins on Colombo Port City’s 40-storey Central Park Boulevard towers",
+      "primary_source": "Hiru News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c1b4a2791e79",
+      "primary_headline": "Ansell opens global service centre at Port City Colombo",
+      "primary_source": "Newswire",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "269e091c181d",
+      "primary_headline": "Budget 2027: What Is Beyond Colombo Port City? - News Features",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "53c47ab59b99",
+      "primary_headline": "MAS recognised for Environmental Leadership",
+      "primary_source": "The Sunday Times, Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "67ecc635a2ec",
+      "primary_headline": "HNB Life Delivers Highest Industry Performance with 41% GWP Growth",
+      "primary_source": "The Sunday Times, Sri Lanka",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "323da872c4f8",
+      "primary_headline": "CBSL/TWD Price: Convert CeBioLabs to New Taiwan dollar",
+      "primary_source": "Crypto.com",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "a1be2d1c1959",
+      "primary_headline": "Hayleys makes history: First Sri Lankan listed company to cross $ 1 b in 1H revenue",
+      "primary_source": "Daily FT",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "b3f7518ef0b0",
+      "primary_headline": "CBSL rates: Sri Lankan Rupee depreciates further against USD",
+      "primary_source": "Newswire",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "bb9e3dad480d",
+      "primary_headline": "Sri Lanka stocks close down 0.60-pct, dragged by HNB and LOLC",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "e6ce24f082ee",
+      "primary_headline": "HNB 3Q profit falls 5% on trading losses, impairment charges",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "e20ffb98f7b5",
+      "primary_headline": "Hayleys Solar introduces SL’s 24/7 Renewable Energy Operations Centre",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "82b38f34aea0",
+      "primary_headline": "CDB and HNB ‘A’ clash in final today",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "0fb36233c133",
+      "primary_headline": "Sri Lanka launches pilot of Chinese flying taxi service",
+      "primary_source": "The Peninsula Qatar",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "976e0fdcab5e",
+      "primary_headline": "Sri Lanka conducts 1st passenger drone trial at Colombo Port City",
+      "primary_source": "Xinhua",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "fa977b823fe0",
+      "primary_headline": "HNB FINANCE takes financial inclusion drive to 26 towns",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "4dd2fdd629c6",
+      "primary_headline": "Govt. steps up efforts to attract Indian investment to Port City",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "6ebf5b2d221c",
+      "primary_headline": "Colombo Port City holds inaugural investor forum in Chennai",
+      "primary_source": "Newswire",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "2de3d2d2bd80",
+      "primary_headline": "HNB and IFC partner to advance supply chain finance and strengthen risk management",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "4398b0f20125",
+      "primary_headline": "Rotaractors of Colombo Port City Light Up Jaffna with Project “Aloka”",
+      "primary_source": "Colombo Gazette",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "252911f6c04f",
+      "primary_headline": "Photos – Amzet Lanka vs HNB – Singer MCA Super Premier T20 League 2026",
+      "primary_source": "ThePapare",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "dedf42d6bcda",
+      "primary_headline": "Sri Lanka’s Hayleys Retail to launch supermarket chain with Blue Yonder",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "bd8fdbd247d8",
+      "primary_headline": "Port City Colombo Attracts 68 New Strategic Businesses with $167 Million in Investment Commitments",
+      "primary_source": "Sri Lanka Guardian",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f2459eca84e7",
+      "primary_headline": "HNB calls for greaterpublic awareness on impersonation scams",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "47fb30cb28d4",
+      "primary_headline": "Wins for CDB, Fairfirst Insurance. Hayleys Group ‘A’ and HNB ‘A’ on Thursday",
+      "primary_source": "Island.lk",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "2fee016adf31",
+      "primary_headline": "Janali, Hasali set up YETI-SLTA Nationals title clash",
+      "primary_source": "Ceylon Daily News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "18cb14253c47",
+      "primary_headline": "Colombo Port City updates BSI regulations",
+      "primary_source": "The Morning",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "be5566e9e493",
+      "primary_headline": "Port City Colombo woos Indian investors in logistics, IT, hospitality",
+      "primary_source": "The Times of India",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f095108ff494",
+      "primary_headline": "From 12-19 Dec. at Port City Colombo: SL to host IODA and Oceanian Sailing C’ship 2026",
+      "primary_source": "The Morning",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "67d1fbf0c69b",
+      "primary_headline": "Port City Colombo bets on India for $3-billion push",
+      "primary_source": "The Financial Express",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "248d416f764c",
+      "primary_headline": "CDB, Colombo Aces, HNB ‘A’ and Amzet Lanka register wins in Singer-MCA Super Premier T20",
+      "primary_source": "ThePapare",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "606266164be7",
+      "primary_headline": "Hayleys Mobility enters Sri Lanka’s two-wheeler market",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "cf01e7b4c23a",
+      "primary_headline": "Wins for Hayleys ‘B’ and Melwire Rolling",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f5beda88a0f0",
+      "primary_headline": "CDB, Hayleys Group ‘A’ in knockout stage final on Sunday",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "3da955bfa57b",
+      "primary_headline": "MAS marks 20 years of Eco Go Beyond sustainable schools programme",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "19acda211e90",
+      "primary_headline": "HNB ‘A’, Hayleys Group ‘A ‘ qualify for semi-final two",
+      "primary_source": "Island.lk",
+      "also_covered_count": 1
+    },
+    {
+      "cluster_id": "9e04f44d807e",
+      "primary_headline": "HNB launches E-Saver+, Lanka’s digital-only savings account",
+      "primary_source": "Ceylon Daily News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "f506fe70d90a",
+      "primary_headline": "Sri Lankan apparel exports regain momentum",
+      "primary_source": "Knitting Industry",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "5a54a4332c55",
+      "primary_headline": "HNB FINANCE-Toyota Lanka expand vehicle-leasing solutions",
+      "primary_source": "Daily Mirror - Sri Lanka",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c4394f27732c",
+      "primary_headline": "Hayleys Solar Introduces Sri Lanka’s Largest 24/7 Renewable Energy Operations Centre (ROC)",
+      "primary_source": "Colombo Gazette",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "015424fd4cba",
+      "primary_headline": "Made-for-Japan BYD Racco Kei car goes abroad, starting with Sri Lanka",
+      "primary_source": "AutoBuzz.my",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "792523d14ba7",
+      "primary_headline": "Port City Colombo and University of Moratuwa Sign Framework Agreement",
+      "primary_source": "Island.lk",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "9a6700417e95",
+      "primary_headline": "Just Launched in Japan, BYD Racco Now Expanding to Macau and Sri Lanka",
+      "primary_source": "VOI.ID",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "c4d0ff29eb86",
+      "primary_headline": "BYD takes ultracompact EV developed for Japan to Macao, Sri Lanka",
+      "primary_source": "Japan Wire by Kyodo News",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "72ac608c789a",
+      "primary_headline": "JKCG rejects claims of prior knowledge of vehicle import surcharge",
+      "primary_source": "EconomyNext",
+      "also_covered_count": 0
+    },
+    {
+      "cluster_id": "3cbc20d2bbc2",
+      "primary_headline": "MIFL records Rs.818mn PBT in FY 2025-26, up 193% YoY",
+      "primary_source": "Daily Mirror",
+      "also_covered_count": 4
+    },
+    {
+      "cluster_id": "67e298bc23ad",
+      "primary_headline": "Mahindra Ideal Finance debuts on CSE with oversubscribed Rs.1bn debenture",
+      "primary_source": "Colombo Gazette",
+      "also_covered_count": 2
+    },
+    {
+      "cluster_id": "165f6aa2b95b",
+      "primary_headline": "Kingsbury PLC obtains enjoining order against Wimal Weerawansa over defamatory statements",
+      "primary_source": "Daily FT",
+      "also_covered_count": 4
+    }
+  ],
+  "total_stories": 66,
+  "total_clusters": 66
+}
